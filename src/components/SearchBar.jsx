@@ -11,7 +11,6 @@ class SearchBar extends React.Component {
       selectedGenre,
       onSelectedGenreChange,
     } = this.props;
-
     return (
       <form>
         <label htmlFor="searchText">
