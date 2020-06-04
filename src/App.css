@@ -81,14 +81,3 @@ body {
   justify-content: flex-end;
   padding: 12px 20px;
 }
-
-.addMovie, .searchBar {
-  display: flex;
-  flex-direction: column;
-}
-
-.addMovie, .searchBar input, textarea, label, select {
-  margin-left: 40px;
-  margin-top: 5px;
-  width: 300px;
-}
