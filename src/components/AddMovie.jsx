@@ -12,7 +12,7 @@ export default class extends React.Component {
       genre: 'action',
     };
   }
-  
+
   resetState() {
     this.setState({
       subtitle: '',
@@ -23,18 +23,18 @@ export default class extends React.Component {
       genre: 'action',
     });
   }
-  
+
   handleChange(event) {
     this.setState({ [event.target.name]: event.target.value });
   }
-  
+
   includeMovie(e) {
     e.preventdefault();
     const { onClick } = this.props;
     onClick(this.satate);
     this.resetState();
   }
-  
+
   render() {
     const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
     return (
