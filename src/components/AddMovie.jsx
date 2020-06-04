@@ -1,6 +1,6 @@
 import React from 'react';
 import SelectField from './AddMovieSelectField';
-import FormField from './AddMovieFormField';
+import inputData from './inputData';
 
 class AddMovie extends React.Component {
   constructor(props) {
@@ -39,50 +39,23 @@ class AddMovie extends React.Component {
 
   formElements() {
     const { subtitle, title, imagePath, storyline, rating } = this.state;
-    const inputsArray = [
-      {
-        id: 'titleInput',
-        name: 'title',
-        type: 'text',
-        value: title ,
-        text: 'Título',
-      },
-      {
-        id: 'subTitleInput',
-        name: 'subtitle',
-        type: 'text',
-        value: subtitle,
-        text: 'Subtítulo',
-      },
-      {
-        id: 'imageInput',
-        name: 'imagePath',
-        type: 'text',
-        value: imagePath,
-        text: 'Imagem',
-      },
-      {
-        id: 'storyLineInput',
-        name: 'storyline',
-        type: 'text',
-        value: storyline,
-        text: 'Sinopse',
-      },
-      {
-        id: 'ratingInput',
-        name: 'rating',
-        type: 'text',
-        value: rating,
-        text: 'Avaliação',
-      },
-    ];
-    return inputsArray.map(input => (
-      <FormField
-        key={input.id}
-        input={input}
-        handleChange={this.handleChange}
-      />
-    ));
+    const inputsValueArray = [title, subtitle, imagePath, storyline, rating];
+
+    return inputsValueArray.map((value, index) => {
+      const { id, name, type, text } = inputData[index];
+      return (
+        <label key={id} htmlFor={id}>
+          {text}
+          <input
+            name={name}
+            type={type}
+            id={id}
+            value={value}
+            onChange={this.handleChange}
+          />
+        </label>
+      );
+    });
   }
 
   render() {
