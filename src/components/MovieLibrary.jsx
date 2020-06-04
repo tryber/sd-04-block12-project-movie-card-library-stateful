@@ -21,7 +21,7 @@ export default class MovieLibrary extends React.Component {
 
   onBookmarkedChange(event) {
     const { checked } = event.target;
-    this.setState({ bookmarkedOnly: checked })
+    this.setState({ bookmarkedOnly: checked });
   }
 
   render() {
