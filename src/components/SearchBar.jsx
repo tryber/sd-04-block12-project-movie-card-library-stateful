@@ -10,9 +10,9 @@ const genreOptions = [
 
 class SearchBar extends React.Component {
   render() {
-    const { 
+    const {
       searchText, onSearchTextChange, bookmarkedOnly, onBookmarkedChange,
-      selectedGenre, onSelectedGenreChange 
+      selectedGenre, onSelectedGenreChange,
     } = this.props;
 
     return (
