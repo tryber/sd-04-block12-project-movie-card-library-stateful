@@ -1,5 +1,4 @@
 import React from 'react';
-import SelectField from './AddMovieSelectField';
 import inputData from './inputData';
 
 class AddMovie extends React.Component {
@@ -58,12 +57,32 @@ class AddMovie extends React.Component {
     });
   }
 
-  render() {
+  selectFormElements() {
     const { genre } = this.state;
+    return (
+      <label htmlFor="genreInput">
+        Gênero
+        <select
+          name="genre"
+          id="genreInput"
+          value={genre}
+          onChange={this.handleChange}
+        >
+          <option value="action" text="Ação">
+            Ação
+          </option>
+          <option value="comedy">Comédia</option>
+          <option value="thriller">Suspense</option>
+        </select>
+      </label>
+    );
+  }
+
+  render() {
     return (
       <form>
         {this.formElements()}
-        <SelectField genre={genre} handleChange={this.handleChange} />
+        {this.selectFormElements()}
         <button type="submit" onClick={this.handleSubmit}>
           Adicionar filme
         </button>
