@@ -23,7 +23,8 @@ export class SearchBar extends React.Component {
         />
         </label>
         <label htmlFor="03"> Filtrar por gênero
-          <select value={this.props.selectedGenre}
+          <select
+          value={this.props.selectedGenre}
             onChange={this.props.onSelectedGenreChange}
           >
             {genres.map((genre) => (
