@@ -12,8 +12,9 @@ export default class MovieLibrary extends React.Component {
     };
   }
 
-  onSearchTextChange(event) {
-    this.setState({ searchText: event.target.value });
+  onSearchTextChange = (event) => {
+    const { value } = event.target;
+    this.setState({ searchText: value });
   }
 
   render() {
@@ -21,7 +22,7 @@ export default class MovieLibrary extends React.Component {
       <div>
         <SearchBar
           searchText={this.state.searchText}
-          onSearchTextChange={this.onSearchTextChange.bind(this)}
+          onSearchTextChange={this.onSearchTextChange}
         />
       </div>
     );
