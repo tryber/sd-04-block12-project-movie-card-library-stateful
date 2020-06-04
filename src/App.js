@@ -3,32 +3,42 @@ import './App.css';
 
 import Header from './components/Header';
 import SearchBar from './components/SearchBar';
-import MovieList from './components/MovieList'
+// import MovieList from './components/MovieList;'
 
 class App extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
 
     this.state = {
       searchText: '',
-      onSearchTextChange: Function,
-      bookmarkedOnly: Boolean,
-      onBookmarkedChange: Function,
+      bookmarkedOnly: false,
       selectedGenre: '',
-      onSelectedGenreChange: Function
-    }
+    };
   }
+
+  onSearchTextChange = () => {
+
+  }
+
+  onBookmarkedChange = () => {
+
+  }
+
+  onSelectedGenreChange = () => {
+
+  }
+
   render() {
     return (
       <div className="App">
         <Header />
         <SearchBar
           searchText={this.state.searchText}
-          onSearchTextChange={this.state.onSearchTextChange}
+          onSearchTextChange={this.onSearchTextChange}
           bookmarkedOnly={this.state.bookmarkedOnly}
-          onBookmarkedChange={this.state.onBookmarkedChange}
+          onBookmarkedChange={this.onBookmarkedChange}
           selectedGenre={this.state.selectedGenre}
-          onSelectedGenreChange={this.state.onSelectedGenreChange}
+          onSelectedGenreChange={this.onSelectedGenreChange}
         />
         {/* <MovieList /> */}
       </div>
