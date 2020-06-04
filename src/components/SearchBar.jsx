@@ -4,7 +4,11 @@ class SearchBar extends React.Component {
 
   createSelect() {
     return (
-      <select name="selectedGenre" defaultValue={this.props.selectedGenre} onChange={this.props.onSelectedGenreChange}>
+      <select
+        name="selectedGenre"
+        defaultValue={this.props.selectedGenre}
+        onChange={this.props.onSelectedGenreChange}
+      >
         <option value="">Todos</option>
         <option value="action">Ação</option>
         <option value="comedy">Comédia</option>
