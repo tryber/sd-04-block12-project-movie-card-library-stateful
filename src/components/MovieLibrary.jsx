@@ -24,8 +24,8 @@ export default class extends React.Component {
   // filterFilms (arr) {
   //   const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
   // }
-
   render() {
+    
     const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
     return (
       <div>

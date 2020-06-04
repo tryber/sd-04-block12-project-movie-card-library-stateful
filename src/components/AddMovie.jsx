@@ -31,7 +31,7 @@ export default class extends React.Component {
   includeMovie(e) {
     e.preventdefault();
     const { onClick } = this.props;
-    onClick(this.state)
+    onClick(this.state);
     this.resetState();
   }
 
