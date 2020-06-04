@@ -36,7 +36,7 @@ class MovieLibrary extends React.Component {
     }
     if (prevState.bookmarkedOnly !== bookmarkedOnly && bookmarkedOnly) {
       newMovies = movies.filter(
-        (movie) => movie.bookmarked === bookmarkedOnly
+        (movie) => movie.bookmarked === bookmarkedOnly,
       );
       this.changeMoviesState(newMovies);
     }
