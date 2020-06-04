@@ -4,6 +4,7 @@ import SearchBar from './SearchBar';
 export default class MovieLibrary extends React.Component {
   constructor(props) {
     super(props);
+    this.onSearchTextChange = this.onSearchTextChange.bind(this);
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
@@ -12,7 +13,7 @@ export default class MovieLibrary extends React.Component {
     };
   }
 
-  onSearchTextChange = (event) => {
+  onSearchTextChange(event) {
     const { value } = event.target;
     this.setState({ searchText: value });
   }
