@@ -14,22 +14,21 @@ class AddMovie extends Component {
     };
   }
 
-  handleInput = (event) => {
+  handleChanges(event) {
     const { name, value } = event.target;
-    console.log(`${name} ${value}`);
+    console.log(event.target.name);
     this.setState({
       [name]: value,
     });
-  };
+  }
 
   render() {
     const { title } = this.state;
+
     return (
       <form>
-        <label>
-          Título
-          <input type="text" name="title" value={title} onChange={this.handleInput} />
-        </label>
+        <label>Título</label>
+        <input type="text" name="title" value={title} onChange={this.handleChanges} />
       </form>
     );
   }

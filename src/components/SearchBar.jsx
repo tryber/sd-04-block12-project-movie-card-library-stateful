@@ -1,6 +1,13 @@
 import React, { PureComponent } from 'react';
 
 class SearchBar extends PureComponent {
+  genres = {
+    Todos: '',
+    Ação: 'action',
+    Comédia: 'comedy',
+    Suspense: 'thriller',
+  };
+
   render() {
     const {
       searchText,
@@ -11,27 +18,16 @@ class SearchBar extends PureComponent {
       onSelectedGenreChange,
     } = this.props;
 
-    const genres = {
-      Todos: '',
-      Ação: 'action',
-      Comédia: 'comedy',
-      Suspense: 'thriller',
-    };
-
     return (
       <form>
-        <label>
-          Inclui o texto
-          <input type="text" name="searchText" value={searchText} onChange={onSearchTextChange} />
-        </label>
-        <label>
-          Mostrar somente favoritos
-          <input type="checkbox" checked={bookmarkedOnly} onChange={onBookmarkedChange} />
-        </label>
+        <label>Inclui o texto</label>
+        <input type="text" value={searchText} onChange={onSearchTextChange} />
+        <label>Mostrar somente favoritos</label>
+        <input type="checkbox" checked={bookmarkedOnly} onChange={onBookmarkedChange} />
         <label>Filtrar por gênero</label>
         <select value={selectedGenre} onChange={onSelectedGenreChange}>
-          {Object.keys(genres).map((genre) => (
-            <option key={genres[genre]} value={genres[genre]}>
+          {Object.keys(this.genres).map((genre) => (
+            <option key={this.genres[genre]} value={this.genres[genre]}>
               {genre}
             </option>
           ))}
