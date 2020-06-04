@@ -13,12 +13,16 @@ export default class AddMovie extends React.Component {
       genre: 'action',
     };
     this.addMovie = this.addMovie.bind(this);
+    this.AddMovieCard = this.AddMovieCard.bind(this);
+
   };
 
+AddMovieCard(filme) {
+  console.log(filme)
+}
 
   addMovie(event) {
-    this.setState({ [this.props]: value });
-    console.log(name, value);
+    this.setState({ title: event.target.value });
   };
 
   render() {
@@ -35,9 +39,16 @@ export default class AddMovie extends React.Component {
           <label htmlFor='story'>
             Sinopse<textarea onChange={this.addMovie} value={storyline} /></label>
           <label htmlFor='rate'>
-            Avaliação<input type='text' onChange={this.addMovie} value={rating} /></label>
+            Avaliação<input type='number' onChange={this.addMovie} value={rating} /></label>
           <label htmlFor='genre'>
-            Gênero<input type='text' onChange={this.addMovie} value={genre} /></label>
+            Gênero<select
+            value={genre}
+            onChange={this.addMovie}>
+            <option value="action">Ação</option>
+            <option value="comedy">Comédia</option>
+            <option value="thriller">Suspense</option>
+          </select></label>
+          <button type='submit'>Adicionar filme</button>
         </form>
       </div >
     );
