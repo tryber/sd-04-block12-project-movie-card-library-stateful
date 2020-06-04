@@ -78,16 +78,13 @@ class AddMovie extends React.Component {
         {this.createElement('imagePath', 'Imagem')}
         <label htmlFor="input">
           Sinopse
-          <textarea
-            value={storyline}
+          <textarea value={storyline}
             onChange={(e) => this.changeInput(e, 'storyline')}
           />
         </label>
         {this.createElement('rating', 'Avaliação', 'number', this.changeRating)}
         {this.createSelect()}
-        <button
-          type="button"
-          value="Adicionar filme"
+        <button type="button" value="Adicionar filme"
           onClick={() => {
             onClick(this.state);
             this.clear();
