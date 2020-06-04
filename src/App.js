@@ -2,11 +2,11 @@ import React from 'react';
 import './App.css';
 
 import Header from './components/Header';
+import SearchBar from "./components/SearchBar";
 
-export default () {
-  return (
-    <div className="App">
-      <Header />
-    </div>
-  );
-}
+export default () => (
+  <div className="App">
+    <Header />
+    <SearchBar />
+  </div>
+);
