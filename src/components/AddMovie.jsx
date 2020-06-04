@@ -45,7 +45,7 @@ class AddMovie extends React.Component {
 
   updateState(event, id) {
     let val = event.target.value;
-    if (id === 'rating') val = Number(val)
+    if (id === 'rating') val = Number(val);
     this.setState((state) => ({ ...state, [id]: val }));
   }
 
