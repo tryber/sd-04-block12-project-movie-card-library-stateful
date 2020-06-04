@@ -24,44 +24,29 @@ class AddMovie extends React.Component {
     return (
       <div>
         <form>
-          <label>
+          <label htmlFor="title">
             Título:
-            <input
-              name="title"
-              type="text"
-              value={title}
-              onChange={this.addNewMovie}
-            />
+            <input name="title" type="text" value={title} onChange={this.addNewMovie} />
           </label>
-          <label>
+          <label htmlFor="subtitle">
             Subtítulo:
-            <input
-              name="subtitle"
-              type="text"
-              value={subtitle}
-              onChange={this.addNewMovie}
-            />
+            <input name="subtitle" type="text" value={subtitle} onChange={this.addNewMovie} />
           </label>
-          <label>
+          <label htmlFor="imagePath">
             Imagem:
-            <input
-              name="imagePath"
-              type="text"
-              value={imagePath}
-              onChange={this.addNewMovie}
-            />
+            <input name="imagePath" type="text" value={imagePath} onChange={this.addNewMovie} />
           </label>
-          <label>
+          <label htmlFor="subtitle">
             Sinopse:
             <textarea value={storyline} onChange={this.addNewMovie} />
           </label>
-          <label>
+          <label htmlFor="rating">
             Avaliação:
-            <input type="number" value={rating} onChange={this.addNewMovie} />
+            <input name="rating" type="number" value={rating} onChange={this.addNewMovie} />
           </label>
-          <label>
+          <label htmlFor="genre">
             Gênero:
-            <select type="number" value={genre} onChange={this.addNewMovie}>
+            <select name="genre" type="number" value={genre} onChange={this.addNewMovie}>
               <option value="action">Ação</option>
               <option value="comedy">Comédia</option>
               <option value="thriller">Suspense</option>
