@@ -29,7 +29,10 @@ class AddMovie extends React.Component {
             id="addmovie-title-input"
             type="text"
             value={title}
-            onChange={e => { const v = e.target.value; this.setState(state => ({ ...state, title: v }))}}
+            onChange={(e) => {
+              const v = e.target.value;
+              this.setState((state) => ({ ...state, title: v }));
+            }}
           />
         </label>
         <label htmlFor="addmovie-subtitle-input">
@@ -38,7 +41,10 @@ class AddMovie extends React.Component {
             id="addmovie-subtitle-input"
             type="text"
             value={subtitle}
-            onChange={e => { const v = e.target.value; this.setState(state => ({ ...state, subtitle: v }))}}
+            onChange={(e) => {
+              const v = e.target.value;
+              this.setState((state) => ({ ...state, subtitle: v }));
+            }}
           />
         </label>
         <label htmlFor="addmovie-image-input">
@@ -47,7 +53,10 @@ class AddMovie extends React.Component {
             id="addmovie-subtitle-input"
             type="text"
             value={imagePath}
-            onChange={e => { const v = e.target.value; this.setState(state => ({ ...state, imagePath: v }))}}
+            onChange={(e) => {
+              const v = e.target.value;
+              this.setState((state) => ({ ...state, imagePath: v }));
+            }}
           />
         </label>
         <label htmlFor="addmovie-storyline-textarea">
@@ -55,7 +64,10 @@ class AddMovie extends React.Component {
           <textarea
             id="addmovie-storyline-textarea"
             value={storyline}
-            onChange={e => { const v = e.target.value; this.setState(state => ({ ...state, storyline: v }))}}
+            onChange={(e) => {
+              const v = e.target.value;
+              this.setState((state) => ({ ...state, storyline: v }));
+            }}
           />
         </label>
         <label htmlFor="addmovie-rating-input">
@@ -64,14 +76,20 @@ class AddMovie extends React.Component {
             id="addmovie-rating-input"
             type="number"
             value={rating}
-            onChange={e => { const v = e.target.value; this.setState(state => ({ ...state, rating: Number(v) }))}}
+            onChange={(e) => {
+              const v = e.target.value;
+              this.setState((state) => ({ ...state, rating: Number(v) }));
+            }}
           />
         </label>
         <label htmlFor="addmovie-genre-select">
           Gênero
           <select
             value={genre}
-            onChange={e => { const v = e.target.value; this.setState(state => ({ ...state, genre: v })); }}
+            onChange={(e) => {
+              const v = e.target.value;
+              this.setState((state) => ({ ...state, genre: v }));
+            }}
           >
             <option value="action">Ação</option>
             <option value="comedy">Comédia</option>

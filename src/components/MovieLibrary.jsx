@@ -66,14 +66,14 @@ class MovieLibrary extends React.Component {
     const { movies } = this.props;
     const newGenreValue = e.target.value;
     if (newGenreValue) {
-      const newMovies = movies.filter(movie => movie.genre === newGenreValue);
-      this.setState(state => ({
+      const newMovies = movies.filter((movie) => movie.genre === newGenreValue);
+      this.setState((state) => ({
         ...state,
         movies: newMovies,
         selectedGenre: newGenreValue,
       }));
     } else {
-      this.setState(state => ({
+      this.setState((state) => ({
         ...state,
         movies,
         selectedGenre: newGenreValue,
@@ -99,13 +99,13 @@ class MovieLibrary extends React.Component {
       rating,
       genre,
     };
-    this.setState(state => ({ ...state, movies: [...movies, newMovie] }));
+    this.setState((state) => ({ ...state, movies: [...movies, newMovie] }));
   }
 
   render() {
     const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
     return (
-      <>
+      <div>
         <SearchBar
           searchText={searchText}
           bookmarkedOnly={bookmarkedOnly}
@@ -116,7 +116,7 @@ class MovieLibrary extends React.Component {
         />
         <MovieList movies={movies} />
         <AddMovie onClick={this.addMovie} />
-      </>
+      </div>
     );
   }
 }
