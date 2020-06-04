@@ -13,7 +13,6 @@ export default class AddMovie extends React.Component {
       genre: 'action',
     };
     this.addMovie = this.addMovie.bind(this);
-    this.AddMovieCard = this.AddMovieCard.bind(this);
   }
 
   addMovie(event) {
