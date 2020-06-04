@@ -25,7 +25,6 @@ export default class extends React.Component {
   //   const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
   // }
   render() {
-    
     const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
     return (
       <div>
