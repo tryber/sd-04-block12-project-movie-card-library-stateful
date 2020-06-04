@@ -1,4 +1,5 @@
 import React from 'react';
+import SearchBar from './SearchBar';
 
 export default class MovieLibrary extends React.Component {
   constructor(props) {
@@ -11,10 +12,14 @@ export default class MovieLibrary extends React.Component {
     };
   }
 
+  onSearchTextChange = event => {
+    this.setState({ searchText: event.target.value });
+  }
+
   render() {
     return (
       <div>
-        <h2>Loading...</h2>
+        <SearchBar searchText={this.state.searchText} onSearchTextChange={this.onSearchTextChange} />
       </div>
     );
   }
