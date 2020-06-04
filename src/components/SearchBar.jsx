@@ -18,13 +18,13 @@ export class SearchBar extends React.Component {
         </label>
         <label htmlFor="02">Mostrar somente favoritos
         <input
-        type="checkbox" checked={this.props.bookmarkedOnly}
-        onChange={this.props.onBookmarkedChange}
+          type="checkbox" checked={this.props.bookmarkedOnly}
+          onChange={this.props.onBookmarkedChange}
         />
         </label>
         <label htmlFor="03"> Filtrar por gênero
           <select value={this.props.selectedGenre}
-          onChange={this.props.onSelectedGenreChange}
+            onChange={this.props.onSelectedGenreChange}
           >
             {genres.map((genre) => (
               <option key={genre.value} value={genre.value}>
