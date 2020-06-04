@@ -42,11 +42,10 @@ export default class extends React.Component {
         <label htmlFor="title">Título
           <input name="title" type="text" value={title} onChange={() => this.hand} /></label>
         <label htmlFor="subtitle">Subtítulo
-          <input name="subtitle" type="text" value={subtitle} onChange={() => this.hand} />
-          </label>
+          <input name="subtitle" type="text" value={subtitle} onChange={() => this.hand} /></label>
         <label htmlFor="imagePath">Imagem
           <input name="imagePath" type="text" value={imagePath} onChange={() => this.hand} />
-          </label>
+        </label>
         <label htmlFor="storyline">Sinopse
           <textarea name="storyline" value={storyline} onChange={() => this.hand} /></label>
         <label htmlFor="rating">Avaliação
