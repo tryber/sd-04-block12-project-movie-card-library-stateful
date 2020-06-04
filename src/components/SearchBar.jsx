@@ -6,7 +6,7 @@ class SearchBar extends Component {
     this.state = {
       searchText: '',
       bookMarkedOnly: false,
-      selectGenre: "",
+      selectGenre: '',
     };
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
     this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
@@ -14,21 +14,15 @@ class SearchBar extends Component {
   }
 
   onSearchTextChange(event) {
-    this.setState({
-      search: event.target.value,
-    });
+    this.setState({search: event.target.value});
   }
 
   onBookmarkedChange(event) {
-    this.setState({
-      bookMarkedOnly: event.target.value,
-    });
+    this.setState({bookMarkedOnly: event.target.value});
   }
 
   onSelectGenreChange(event) {
-    this.setState({
-      selectGenre: event.target.value,
-    });
+    this.setState({selectGenre: event.target.value});
   }
 
   render() {
@@ -39,12 +33,14 @@ class SearchBar extends Component {
           type="text"
           name="search-bar"
           value={this.state.searchText}
-          onChange={this.onSearchTextChange} />     
+          onChange={this.onSearchTextChange}
+        />
         <input
           type="checkbox"
           name="checkbox"
           checked={this.state.bookMarkedOnly}
-          onChange={this.onBookmarkedChange} />
+          onChange={this.onBookmarkedChange}
+        />
         <label htmlFor="checkbox">Mostrar somente favoritos</label>
         <label htmlFor="select-genre">Filtrar por genero</label>
         <select name="select=-genre" onChange={this.onSelectGenreChange}>
