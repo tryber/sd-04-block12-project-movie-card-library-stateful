@@ -9,18 +9,18 @@ export default ({
       Inclui o texto:
       <input name="searchText" value={searchText} type="text" onChange={onSearchTextChange} />
     </label>
-    <label htmlFor="onlyFavorites">
+    <label htmlFor="bookmarkedOnly">
       Mostrar somente favoritos
       <input
-        name="onlyFavorites"
+        name="bookmarkedOnly"
         type="checkbox"
         checked={bookmarkedOnly}
         onChange={onBookmarkedChange}
       />
     </label>
-    <label htmlFor="genreFilter">
+    <label htmlFor="selectedGenre">
       Filtrar por gênero
-      <select name="genreFilter" value={selectedGenre} onChange={onSelectedGenreChange}>
+      <select name="selectedGenre" value={selectedGenre} onChange={onSelectedGenreChange}>
         <option value="">Todos</option>
         <option value="action">Ação</option>
         <option value="comedy">Comédia</option>
