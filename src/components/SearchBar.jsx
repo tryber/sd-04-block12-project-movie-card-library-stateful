@@ -11,7 +11,12 @@ export default ({
     </label>
     <label htmlFor="onlyFavorites">
       Mostrar somente favoritos
-      <input name="onlyFavorites" type="checkbox" checked={bookmarkedOnly} onChange={onBookmarkedChange} />
+      <input
+        name="onlyFavorites"
+        type="checkbox"
+        checked={bookmarkedOnly}
+        onChange={onBookmarkedChange}
+      />
     </label>
     <label htmlFor="genreFilter">
       Filtrar por gênero
