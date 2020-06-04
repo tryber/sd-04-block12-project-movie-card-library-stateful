@@ -6,14 +6,14 @@ export default class SearchBar extends React.Component {
 
     this.state = {
       searchText: '',
-      bookmarkedOnlt: false,
+      bookmarkedOnly: false,
       selectedGenre: '',
     }
   }
 
   onSearchTextChange = event => {
     this.setState({
-      filter: event.target.value === '' ? 'all' : event.target.value
+      searchText: event.target.value === '' ? 'all' : event.target.value
     })
   }
 
@@ -29,8 +29,14 @@ export default class SearchBar extends React.Component {
     return (
       <div>
         <form>
-          <label>Inclui o texto: <input onChange={this.onSearchTextChange} value={this.state.searchText} type='text' />
-          </label>
+          <label>Inclui o texto: <input type='text' onChange={this.props.onSearchTextChange} value={this.props.searchText} /> </label>
+          <label>Mostrar somente favoritos <input type='checkbox' checked={this.props.bookmarkedOnly} onChange={this.props.onBookmarkedChange}/></label>
+          <label>Filtrar por gênero <select value={this.props.selectedGenre} onChange={this.props.onSelectedGenreChange}>
+          <option value=''>Todos</option>
+            <option value='action'>Ação</option>
+            <option value='comedy'>Comédia</option>
+            <option value='thriller'>Suspense</option>
+          </select></label>
         </form>
       </div>
     );
