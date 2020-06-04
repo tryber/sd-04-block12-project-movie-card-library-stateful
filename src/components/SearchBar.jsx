@@ -5,20 +5,24 @@ class SearchBar extends Component {
     const { searchText, onSearchTextChange } = this.props;
 
     return (
-      <label htmlFor="inputText">
-        Inclui o texto:
-        <input type="text" value={searchText} onChange={onSearchTextChange} />
-      </label>
+      <div>
+        <label htmlFor="inputText">
+          Inclui o texto:
+          <input type="text" value={searchText} onChange={onSearchTextChange} />
+        </label>
+      </div>
     );
   }
 
   showOnlyFavorites() {
     const { onBookmarkedChange, bookmarkedOnly } = this.props;
     return (
-      <label htmlFor="inputFavorites">
-        Mostrar somente favoritos:
-        <input type="checkbox" value={bookmarkedOnly} onChange={onBookmarkedChange} />
-      </label>
+      <div>
+        <label htmlFor="inputFavorites">
+          <input type="checkbox" value={bookmarkedOnly} onChange={onBookmarkedChange} />
+          Mostrar somente favoritos
+        </label>
+      </div>
     );
   }
 
