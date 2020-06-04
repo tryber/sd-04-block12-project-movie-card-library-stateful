@@ -4,6 +4,13 @@ Você já usa o GitHub diariamente para desenvolver os exercícios, certo? Agora
 
 Aqui você vai encontrar os detalhes de como estruturar o desenvolvimento do seu projeto a partir deste repositório, utilizando uma branch específica e um _Pull Request_ para colocar seus códigos.
 
+---
+
+### Data de Entrega
+
+O projeto tem até a seguinte data: `11/06/2020 - 14:00h`. Para ser entregue a avaliação final.
+
+
 ## O que deverá ser desenvolvido
 
 Você deverá desenvolver uma aplicação que consiste em uma biblioteca de cartões de filmes dinâmica utilizando React. A biblioteca é composta por:
@@ -344,9 +351,9 @@ O estado inicial do componente `MovieLibrary` deve ser:
 ### ANTES DE COMEÇAR A DESENVOLVER:
 
 1. Clone o repositório
-  * `git clone git@github.com:tryber/sd-0x-block13-project-movie-card-library-stateful.git`.
+  * `git clone git@github.com:tryber/sd-04-block12-project-movie-card-library-stateful.git`.
   * Entre na pasta do repositório que você acabou de clonar:
-    * `cd sd-0x-block13-project-movie-card-library-stateful`
+    * `cd sd-04-block12-project-movie-card-library-stateful`
 
 2. Instale as dependências, inicialize o projeto e rode os testes
   * Instale as dependências:
@@ -409,13 +416,13 @@ export default MovieLibrary;
   * Usando o exemplo anterior: `git push -u origin joaozinho-movie-cards-library-stateful`
 
 7. Crie um novo `Pull Request` _(PR)_
-  * Vá até a página de _Pull Requests_ do [repositório no GitHub](https://github.com/tryber/sd-0x-block13-project-movie-card-library-stateful/pulls)
+  * Vá até a página de _Pull Requests_ do [repositório no GitHub](https://github.com/tryber/sd-04-block12-project-movie-card-library-stateful/pulls)
   * Clique no botão verde _"New pull request"_
   * Clique na caixa de seleção _"Compare"_ e escolha a sua branch **com atenção**
   * Clique no botão verde _"Create pull request"_
   * Adicione uma descrição para o _Pull Request_ e clique no botão verde _"Create pull request"_
   * **Não se preocupe em preencher mais nada por enquanto!**
-  * Volte até a [página de _Pull Requests_ do repositório](https://github.com/tryber/sd-0x-block13-project-movie-card-library-stateful/pulls) e confira que o seu _Pull Request_ está criado
+  * Volte até a [página de _Pull Requests_ do repositório](https://github.com/tryber/sd-04-block12-project-movie-card-library-stateful/pulls) e confira que o seu _Pull Request_ está criado
 
 ---
 
@@ -443,7 +450,7 @@ Para **"entregar"** seu projeto, siga os passos a seguir:
 * Vá até a página **DO SEU** _Pull Request_, adicione a label de _"code-review"_ e marque seus colegas
   * No menu à direita, clique no _link_ **"Labels"** e escolha a _label_ **code-review**
   * No menu à direita, clique no _link_ **"Assignees"** e escolha **o seu usuário**
-  * No menu à direita, clique no _link_ **"Reviewers"** e digite `students`, selecione o time `tryber/students-sd-0x`
+  * No menu à direita, clique no _link_ **"Reviewers"** e digite `students`, selecione o time `tryber/students-sd-04`
 
 Se ainda houver alguma dúvida sobre como entregar seu projeto, [aqui tem um video explicativo](https://vimeo.com/362189205).
 
