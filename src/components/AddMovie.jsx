@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-export default class AddMovie extends Component {
+export default class extends Component {
   constructor(props) {
     super(props);
 
@@ -12,10 +12,6 @@ export default class AddMovie extends Component {
       rating: 0,
       genre: 'action',
     };
-  }
-
-  AddMovie.defaultProps = {
-    onClick: function() {console.log('default')}
   }
 
   resetState() {
@@ -38,6 +34,8 @@ export default class AddMovie extends Component {
 
   includeMovie(e) {
     e.preventDefault();
+    const { onClick } = this.props;
+    onClick(this.state);
     this.resetState();
   }
 
