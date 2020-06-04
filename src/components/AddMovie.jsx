@@ -21,9 +21,7 @@ class AddMovie extends Component {
     }));
   }
 
-  AddMovie() {
-    console.log(this.state)
-    this.props.onClick(this.state)
+  Clear() {
     this.setState(() => ({
       subtitle: '', title: '',
       imagePath: '', storyline: '',
@@ -32,6 +30,7 @@ class AddMovie extends Component {
   }
 
   render() {
+    const { onClick } = this.props;
     return (
       <div>
         <form action="" method="post" enctype="multipart/form-data">
@@ -49,7 +48,9 @@ class AddMovie extends Component {
               <option value='thriller'>Suspense</option>
             </select>
           </label>
-          <button onChange={this.AddMovie}>Adicionar filme</button>
+          <button onChange={() => onClick(this.state);
+             this.Clear()}>Adicionar filme
+          </button>
         </form>
       </div>
     );
