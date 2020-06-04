@@ -34,7 +34,7 @@ export default class extends React.Component {
     onClick(this.satate);
     this.resetState();
   }
-
+  
   render() {
     const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
     return (
@@ -61,7 +61,7 @@ export default class extends React.Component {
             <option value="thriller">Suspense</option>
           </select>
         </label>
-          <button type="button" onClick={() => includeMovie}>Adicionar filme</button>
+        <button type="button" onClick={() => this.includeMovie}>Adicionar filme</button>
       </form>
     );
   }
