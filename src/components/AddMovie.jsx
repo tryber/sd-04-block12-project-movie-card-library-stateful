@@ -53,13 +53,16 @@ export default class extends Component {
         <label htmlFor="title">Título
           <input name="title" value={title} type="text" onChange={() => this.updateState} /></label>
         <label htmlFor="subtitle">Subtítulo
-          <input name="subtitle" value={subtitle} type="text" onChange={() => this.updateState} /></label>
+          <input name="subtitle" value={subtitle} type="text" onChange={() => this.updateState} />
+          </label>
         <label htmlFor="imagePath">Imagem
           <input name="imagePath" value={imagePath} onChange={() => this.updateState} /></label>
         <label htmlFor="subtitle">Sinopse
-          <textarea name="subtitle" value={storyline} type="text" onChange={() => this.updateState} /></label>
+          <textarea name="subtitle" value={storyline} type="text" onChange={() => this.updateState} />
+          </label>
         <label htmlFor="rating">Avaliação
-          <input name="rating" value={rating} type="number" onChange={() => this.updateState} /></label>
+          <input name="rating" value={rating} type="number" onChange={() => this.updateState} />
+          </label>
         <label htmlFor="genre">Gênero
           <select name="genre" value={genre} onChange={() => this.updateState}>
             <option value="action">Ação</option>
