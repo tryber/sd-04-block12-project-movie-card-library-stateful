@@ -22,13 +22,12 @@ class MovieLibrary extends React.Component {
   handleChange(e) {
     const { name, value, checked } = e.target;
     const valueToChange = name === 'bookmarkedOnly' ? checked : value;
-    this.setState(state => ({ [name]: valueToChange }));
-    console.log(this.state);
+    this.setState({ [name]: valueToChange });
     this.moviesFilter();
   }
 
   moviesFilter() {
-    this.setState(state => {
+    this.setState((state) => {
       const { searchText, bookmarkedOnly, selectedGenre, movies } = state;
       let filteredMovies = [...movies];
       if (bookmarkedOnly) {

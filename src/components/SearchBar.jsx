@@ -1,16 +1,9 @@
 import React from 'react';
 
-function SearchBar(props) {
-  const {
-    searchText,
-    onSearchTextChange,
-    bookmarkedOnly,
-    onBookmarkedChange,
-    selectedGenre,
-    onSelectedGenreChange,
-  } = props;
-  return (
-    <form>
+class SearchBar extends React.Component {
+  formTextElements() {
+    const { searchText, onSearchTextChange } = this.props;
+    return (
       <label htmlFor="searchText">
         Inclui o texto:
         <input
@@ -21,6 +14,13 @@ function SearchBar(props) {
           onChange={onSearchTextChange}
         />
       </label>
+    );
+  }
+
+  formCheckboxElements() {
+    const { bookmarkedOnly, onBookmarkedChange } = this.props;
+
+    return (
       <label htmlFor="bookmarked">
         Mostrar somente favoritos
         <input
@@ -31,8 +31,15 @@ function SearchBar(props) {
           onChange={onBookmarkedChange}
         />
       </label>
+    );
+  }
+
+  formSelectElements() {
+    const { selectedGenre, onSelectedGenreChange } = this.props;
+
+    return (
       <label htmlFor="genre">
-        Filtrar por gênero
+        Filtrar por Gênero
         <select
           name="selectedGenre"
           id="genre"
@@ -45,9 +52,18 @@ function SearchBar(props) {
           <option value="thriller">Suspense</option>
         </select>
       </label>
-    </form>
-  );
+    );
+  }
+
+  render() {
+    return (
+      <form>
+        {this.formTextElements()}
+        {this.formCheckboxElements()}
+        {this.formSelectElements()}
+      </form>
+    );
+  }
 }
 
 export default SearchBar;
-
