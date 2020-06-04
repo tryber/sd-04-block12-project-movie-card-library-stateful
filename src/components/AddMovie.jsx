@@ -50,34 +50,22 @@ export default class extends Component {
     const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
     return (
       <form>
-        <label htmlFor="title">
-          Título
-          <input name="title" value={title} type="text" onChange={() => this.updateState} />
-        </label>
-        <label htmlFor="subtitle">
-          Subtítulo
-          <input name="subtitle" value={subtitle} type="text" onChange={() => this.updateState} />
-        </label>
-        <label htmlFor="imagePath">
-          Imagem
-          <input name="imagePath" value={imagePath} onChange={() => this.updateState} />
-        </label>
-        <label htmlFor="subtitle">
-          Sinopse
-          <textarea name="subtitle" value={storyline} type="text" onChange={() => this.updateState} />
-        </label>
-        <label htmlFor="rating">
-          Sinopse
-          <textarea name="rating" value={rating} type="number" onChange={() => this.updateState} />
-        </label>
-        <label htmlFor="genre">
-          Gênero
+        <label htmlFor="title">Título
+          <input name="title" value={title} type="text" onChange={() => this.updateState} /></label>
+        <label htmlFor="subtitle">Subtítulo
+          <input name="subtitle" value={subtitle} type="text" onChange={() => this.updateState} /></label>
+        <label htmlFor="imagePath">Imagem
+          <input name="imagePath" value={imagePath} onChange={() => this.updateState} /></label>
+        <label htmlFor="subtitle">Sinopse
+          <textarea name="subtitle" value={storyline} type="text" onChange={() => this.updateState} /></label>
+        <label htmlFor="rating">Avaliação
+          <input name="rating" value={rating} type="number" onChange={() => this.updateState} /></label>
+        <label htmlFor="genre">Gênero
           <select name="genre" value={genre} onChange={() => this.updateState}>
             <option value="action">Ação</option>
             <option value="comedy">Comédia</option>
             <option value="thriller">Suspense</option>
-          </select>
-        </label>
+          </select></label>
         <button type="button" onClick={() => this.includeMovie}>Adicionar filme</button>
       </form>
     );
