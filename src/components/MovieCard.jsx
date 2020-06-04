@@ -1,6 +1,6 @@
-import React from 'react';
+import React from "react";
 
-import Rating from './Rating';
+import Rating from "./Rating";
 
 class MovieCard extends React.Component {
   render() {
