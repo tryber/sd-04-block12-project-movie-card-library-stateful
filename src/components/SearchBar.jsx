@@ -12,8 +12,8 @@ export default class MovieLibrary extends React.Component {
         />
         <br />
         <input
-        type="checkbox" name="bookmark" checked={this.props.bookmarkedOnly}
-        onChange={this.props.onBookmarkedChange}
+          type="checkbox" name="bookmark" checked={this.props.bookmarkedOnly}
+          onChange={this.props.onBookmarkedChange}
         />
         <span>Mostrar somente favoritos</span>
         <br />
