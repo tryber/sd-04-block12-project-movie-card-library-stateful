@@ -14,15 +14,15 @@ class SearchBar extends Component {
   }
 
   onSearchTextChange(event) {
-    this.setState({search: event.target.value});
+    this.setState({ search: event.target.value });
   }
 
   onBookmarkedChange(event) {
-    this.setState({bookMarkedOnly: event.target.value});
+    this.setState({ bookMarkedOnly: event.target.value });
   }
 
   onSelectGenreChange(event) {
-    this.setState({selectGenre: event.target.value});
+    this.setState({ selectGenre: event.target.value });
   }
 
   render() {
