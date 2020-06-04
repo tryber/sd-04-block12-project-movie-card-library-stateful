@@ -24,6 +24,11 @@ export default class MovieLibrary extends React.Component {
     this.setState({ bookmarkedOnly: checked });
   }
 
+  onSelectedGenreChange(event) {
+    const { value } = event.target;
+    this.setState({ selectedGenre: value });
+  }
+
   render() {
     return (
       <div>
@@ -32,6 +37,8 @@ export default class MovieLibrary extends React.Component {
           onSearchTextChange={this.onSearchTextChange}
           bookmarkedOnly={this.state.bookmarkedOnly}
           onBookmarkedChange={this.onBookmarkedChange}
+          selectedGenre={this.state.selectedGenre}
+          onSelectedGenreChange={this.state.onSelectedGenreChange}
         />
       </div>
     );
