@@ -26,18 +26,18 @@ class MovieLibrary extends React.Component {
     const newSearchText = e.target.value;
     if (newSearchText) {
       const newMovies = movies.filter(
-        movie =>
+        (movie) =>
           movie.title.includes(newSearchText) ||
           movie.subtitle.includes(newSearchText) ||
           movie.storyline.includes(newSearchText),
       );
-      this.setState(state => ({
+      this.setState((state) => ({
         ...state,
         movies: newMovies,
         searchText: newSearchText,
       }));
     } else {
-      this.setState(state => ({ ...state, movies, searchText: newSearchText }));
+      this.setState((state) => ({ ...state, movies, searchText: newSearchText }));
     }
   }
 
@@ -46,15 +46,15 @@ class MovieLibrary extends React.Component {
     const newBookmarkedCheck = e.target.checked;
     if (newBookmarkedCheck) {
       const newMovies = movies.filter(
-        movie => movie.bookmarked === newBookmarkedCheck,
+        (movie) => movie.bookmarked === newBookmarkedCheck,
       );
-      this.setState(state => ({
+      this.setState((state) => ({
         ...state,
         movies: newMovies,
         bookmarkedOnly: newBookmarkedCheck,
       }));
     } else {
-      this.setState(state => ({
+      this.setState((state) => ({
         ...state,
         movies,
         bookmarkedOnly: newBookmarkedCheck,
