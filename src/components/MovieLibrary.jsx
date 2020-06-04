@@ -40,6 +40,7 @@ export default class MovieLibrary extends React.Component {
           selectedGenre={this.state.selectedGenre}
           onSelectedGenreChange={this.state.onSelectedGenreChange}
         />
+        {JSON.stringify(this.state.searchText)}
       </div>
     );
   }
