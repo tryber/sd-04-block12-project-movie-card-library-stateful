@@ -6,7 +6,7 @@ export default class MovieLibrary extends React.Component {
     return (
       <div>
         <form>
-          <label for="search">Inclui o texto:</label>
+          <label htmlFor="search">Inclui o texto:</label>
           <input
             type="text" name="search" id="search" value={this.props.searchText}
             onChange={this.props.onSearchTextChange}
@@ -15,11 +15,9 @@ export default class MovieLibrary extends React.Component {
             type="checkbox" name="bookmark" id="bookmark" checked={this.props.bookmarkedOnly}
             onChange={this.props.onBookmarkedChange}
           />
-          <label for="bookmark">Mostrar somente favoritos</label>
-          <label for="genre">Filtrar por gênero</label>
-          <select
-            value={this.props.selectedGenre}
-            onChange={this.props.onSelectedGenreChange}
+          <label htmlFor="bookmark">Mostrar somente favoritos</label>
+          <label htmlFor="genre">Filtrar por gênero</label>
+          <select value={this.props.selectedGenre} onChange={this.props.onSelectedGenreChange}
             id="genre"
           >
             <option value="">Todos</option>
