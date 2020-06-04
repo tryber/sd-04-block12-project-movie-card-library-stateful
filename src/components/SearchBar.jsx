@@ -3,21 +3,23 @@ import React, { Component } from 'react';
 
 class Name extends Component {
   render() {
-    const { seartchText, onSearchTextChange, bookmarkedOnly, onBookmarkedChange,
-      selectedGenre, onSelectedGenreChange } = this.props;
+    const {
+      searchText, onSearchTextChange, bookmarkedOnly,
+      onBookmarkedChange, selectedGenre, onSelectedGenreChange
+    } = this.props;
     return (
       <form>
-        <label>
+        <label htmlFor="text">
           Inclui o texto:
-          <input type="text" value={seartchText} onChange={onSearchTextChange} />
+          <input name="text" type="text" value={searchText} onChange={onSearchTextChange} />
         </label>
-        <label>
-          <input type="checkbox" checked={bookmarkedOnly} onChange={onBookmarkedChange} />
+        <label htmlFor="book">
+          <input name="book" type="checkbox" checked={bookmarkedOnly} onChange={onBookmarkedChange} />
           Mostrar somente favoritos
         </label>
-        <label>
+        <label htmlFor="genre">
           Filtrar por gênero
-          <select value={selectedGenre} onChange={onSelectedGenreChange}>
+          <select name="genre" value={selectedGenre} onChange={onSelectedGenreChange}>
             <option value="">Todos</option>
             <option value="action">Ação</option>
             <option value="comedy">Comédia</option>
