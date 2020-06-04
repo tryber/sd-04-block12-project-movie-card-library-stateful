@@ -19,7 +19,7 @@ class MovieLibrary extends React.Component {
   }
 
   addMovie(movie) {
-    this.setState(state => ({ movies: [...state.movies, movie] }));
+    this.setState((state) => ({ movies: [...state.movies, movie] }));
   }
 
   changeInput(event) {
@@ -47,7 +47,7 @@ class MovieLibrary extends React.Component {
       return false;
     };
 
-    return movies.filter(movie => (movie.title.toLowerCase()
+    return movies.filter((movie) => (movie.title.toLowerCase()
       .includes(searchText.toLowerCase()) || movie.subtitle.toLowerCase()
       .includes(searchText.toLowerCase()) || movie.storyline.toLowerCase()
       .includes(searchText.toLowerCase())) && checkBookmark(movie) && checkGenre(movie));
