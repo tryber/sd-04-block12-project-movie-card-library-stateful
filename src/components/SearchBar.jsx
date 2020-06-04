@@ -30,13 +30,18 @@ class SearchBar extends Component {
               <input
                 type="checkbox"
                 name="onlyFavorites"
-                value={this.props.searchText}
+                value={this.props.bookmarkedOnly}
                 onChange={onBookmarkedChange}
               ></input>
             </label>
             <label htmlFor="genreFilter">
               Filtrar por gênero:
-              <select id="estado" name="genreFilter" value={this.props.selectedGenre}>
+              <select
+                id="estado"
+                name="genreFilter"
+                value={this.props.selectedGenre}
+                onChange={onSelectedGenreChange}
+              >
                 <option value="">Todos</option>
                 <option value="action">Ação</option>
                 <option value="comedy">Comédia</option>
