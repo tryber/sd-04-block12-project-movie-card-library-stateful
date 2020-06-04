@@ -6,7 +6,8 @@ export default class MovieLibrary extends React.Component {
     return (
       <div>
         <span>Inclui o texto:</span>
-        <input type="text" name="search" value={this.props.searchText}
+        <input 
+          type="text" name="search" value={this.props.searchText}
           onChange={this.props.onSearchTextChange}
         />
       </div>

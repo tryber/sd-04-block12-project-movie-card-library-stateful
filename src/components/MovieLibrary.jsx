@@ -12,9 +12,7 @@ export default class MovieLibrary extends React.Component {
     };
   }
 
-  onSearchTextChange = (event) => {
-    this.setState({ searchText: event.target.value });
-  }
+  onSearchTextChange = (event) => this.setState({ searchText: event.target.value });
 
   render() {
     return (
