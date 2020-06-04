@@ -16,17 +16,11 @@ class App extends React.Component {
     };
   }
 
-  onSearchTextChange = () => {
+  onSearchTextChange = () => {};
 
-  }
+  onBookmarkedChange = () => {};
 
-  onBookmarkedChange = () => {
-
-  }
-
-  onSelectedGenreChange = () => {
-
-  }
+  onSelectedGenreChange = () => {};
 
   render() {
     return (
