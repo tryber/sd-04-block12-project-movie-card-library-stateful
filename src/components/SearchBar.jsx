@@ -19,10 +19,10 @@ const SearchBar = ({
     </label>
     <label htmlFor="genreFilter">Filtrar por gênero
       <select name="genreFilter" value={selectedGenre} onChange={onSelectedGenreChange}>
-        <options value="">Todos</options>
-        <options value="action">Ação</options>
-        <options value="comedy">Comédia</options>
-        <options value="thriller">Suspense</options>
+        <option value="">Todos</option>
+        <option value="action">Ação</option>
+        <option value="comedy">Comédia</option>
+        <option value="thriller">Suspense</option>
       </select>
     </label>
   </form>
