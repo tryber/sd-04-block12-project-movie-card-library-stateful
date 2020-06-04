@@ -17,7 +17,7 @@ export default class AddMovie extends React.Component {
   }
 
   addNewMovie(event) {
-    const { name, value } = event;
+    const { name, value } = event.target;
     this.setState({ [name]: value });
   }
 
@@ -62,6 +62,19 @@ export default class AddMovie extends React.Component {
               onChange={this.addNewMovie}
             />
           </label>
+          <label>
+            Avaliação:
+            <input type="number" value={rating} onChange={this.addNewMovie} />
+          </label>
+          <label>
+            Gênero:
+            <select type="number" value={genre} onChange={this.addNewMovie}>
+              <option value="action">Ação</option>
+              <option value="comedy">Comédia</option>
+              <option value="thriller">Suspense</option>
+            </select>
+          </label>
+          <button type="submit" onClick={this.addNewMovie}>Adicionar filme</button>
         </form>
       </div>
     );
