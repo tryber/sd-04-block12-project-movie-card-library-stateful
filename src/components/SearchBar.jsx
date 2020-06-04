@@ -5,7 +5,7 @@ export default class SearchBar extends React.Component {
     super(props);
 
     this.state = {
-      searchText: 'all',
+      searchText: '',
       bookmarkedOnlt: false,
       selectedGenre: '',
     }
@@ -24,12 +24,13 @@ export default class SearchBar extends React.Component {
   onSelectedGenreChange = event => {
 
   }
-  
+
   render() {
     return (
       <div>
         <form>
-          <input type='text' />
+          <label>Inclui o texto: <input onChange={this.onSearchTextChange} value={this.state.searchText} type='text' />
+          </label>
         </form>
       </div>
     );
