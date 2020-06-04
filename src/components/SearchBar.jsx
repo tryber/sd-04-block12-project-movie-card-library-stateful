@@ -10,20 +10,22 @@ const genreOptions = [
 
 class SearchBar extends React.Component {
   render() {
-    const { searchText, onSearchTextChange, bookmarkedOnly, onBookmarkedChange,
-      selectedGenre, onSelectedGenreChange } = this.props;
+    const { 
+      searchText, onSearchTextChange, bookmarkedOnly, onBookmarkedChange,
+      selectedGenre, onSelectedGenreChange 
+    } = this.props;
 
     return (
       <div>
         <form action="">
-          <label htmlFor="">Inclui o texto</label>
-          <input type="text" value={searchText} onChange={onSearchTextChange} />
-          <label htmlFor="">Mostrar Somente favoritos</label>
-          <input type="checkbox" checked={bookmarkedOnly} onChange={onBookmarkedChange} />
+          <label htmlFor="text">Inclui o texto</label>
+          <input id="text" type="text" value={searchText} onChange={onSearchTextChange} />
+          <label htmlFor="check">Mostrar Somente favoritos</label>
+          <input id="check"type="checkbox" checked={bookmarkedOnly} onChange={onBookmarkedChange} />
           <label htmlFor="genre">Filtrar por gênero</label>
           <select name="" id="genre" value={selectedGenre} onChange={onSelectedGenreChange}>
             {genreOptions.map((genero) => (
-            <option key={genero.value} value={genero.value}>{genero.text}</option>))}
+              <option key={genero.value} value={genero.value}>{genero.text}</option>))}
           </select>
         </form>
       </div>
