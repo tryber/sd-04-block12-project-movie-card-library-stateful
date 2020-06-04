@@ -17,29 +17,29 @@ class SearchBar extends React.Component {
     );
   }
 
-  formCheckboxElements() {
-    const { bookmarkedOnly, onBookmarkedChange } = this.props;
+  // formCheckboxElements() {
+  //   const { bookmarkedOnly, onBookmarkedChange } = this.props;
 
-    return (
-      <label htmlFor="bookmarked">
-        Mostrar somente favoritos
-        <input
-          name="bookmarkedOnly"
-          id="bookmarked"
-          type="checkbox"
-          checked={bookmarkedOnly}
-          onChange={onBookmarkedChange}
-        />
-      </label>
-    );
-  }
+  //   return (
+  //     <label htmlFor="bookmarked">
+  //       Mostrar somente favoritos
+  //       <input
+  //         name="bookmarkedOnly"
+  //         id="bookmarked"
+  //         type="checkbox"
+  //         checked={bookmarkedOnly}
+  //         onChange={onBookmarkedChange}
+  //       />
+  //     </label>
+  //   );
+  // }
 
   formSelectElements() {
     const { selectedGenre, onSelectedGenreChange } = this.props;
 
     return (
       <label htmlFor="genre">
-        Filtrar por Gênero
+        Filtrar por gênero
         <select
           name="selectedGenre"
           id="genre"
@@ -56,11 +56,25 @@ class SearchBar extends React.Component {
   }
 
   render() {
+    const { selectedGenre, onSelectedGenreChange } = this.props;
     return (
       <form>
         {this.formTextElements()}
         {this.formCheckboxElements()}
-        {this.formSelectElements()}
+        <label htmlFor="genre">
+          Filtrar por gênero
+          <select
+            name="selectedGenre"
+            id="genre"
+            value={selectedGenre}
+            onChange={onSelectedGenreChange}
+          >
+            <option value="">Todos</option>
+            <option value="action">Ação</option>
+            <option value="comedy">Comédia</option>
+            <option value="thriller">Suspense</option>
+          </select>
+        </label>
       </form>
     );
   }

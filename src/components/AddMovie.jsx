@@ -19,11 +19,9 @@ class AddMovie extends React.Component {
   handleChange(e) {
     const { target } = e;
     this.setState({ [target.name]: target.value });
-    console.log(this.state);
   }
 
   handleSubmit(e) {
-    e.preventDefault();
     const { onClick } = this.props;
     onClick(this.state);
     this.setState({
@@ -68,9 +66,7 @@ class AddMovie extends React.Component {
           value={genre}
           onChange={this.handleChange}
         >
-          <option value="action" text="Ação">
-            Ação
-          </option>
+          <option value="action">Ação</option>
           <option value="comedy">Comédia</option>
           <option value="thriller">Suspense</option>
         </select>
@@ -83,7 +79,7 @@ class AddMovie extends React.Component {
       <form>
         {this.formElements()}
         {this.selectFormElements()}
-        <button type="submit" onClick={this.handleSubmit}>
+        <button value="Adicionar Filme" type="button" onClick={this.handleSubmit}>
           Adicionar filme
         </button>
       </form>
