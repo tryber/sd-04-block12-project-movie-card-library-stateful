@@ -10,5 +10,5 @@ function App() {
     </div>
   );
 }
-// VQV
+
 export default App;
