@@ -21,40 +21,26 @@ class AddMovie extends React.Component {
 
   render() {
     const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
-    return (
-      <div>
+    return (      
         <form>
-          <label htmlFor="title">
-            Título:
-            <input name="title" type="text" value={title} onChange={this.addNewMovie} />
-          </label>
-          <label htmlFor="subtitle">
-            Subtítulo:
+          <label htmlFor="title">Título:</label>
+            <input name="title" type="text" value={title} onChange={this.addNewMovie} />          
+          <label htmlFor="subtitle">Subtítulo:</label>
             <input name="subtitle" type="text" value={subtitle} onChange={this.addNewMovie} />
-          </label>
-          <label htmlFor="imagePath">
-            Imagem:
+          <label htmlFor="imagePath">Imagem:</label>
             <input name="imagePath" type="text" value={imagePath} onChange={this.addNewMovie} />
-          </label>
-          <label htmlFor="subtitle">
-            Sinopse:
+          <label htmlFor="subtitle">Sinopse:</label>
             <textarea value={storyline} onChange={this.addNewMovie} />
-          </label>
-          <label htmlFor="rating">
-            Avaliação:
-            <input name="rating" type="number" value={rating} onChange={this.addNewMovie} />
-          </label>
-          <label htmlFor="genre">
-            Gênero:
+          <label htmlFor="rating">Avaliação:</label>
+            <input name="rating" type="number" value={rating} onChange={this.addNewMovie} />          
+          <label htmlFor="genre">Gênero:</label>
             <select name="genre" type="number" value={genre} onChange={this.addNewMovie}>
               <option value="action">Ação</option>
               <option value="comedy">Comédia</option>
               <option value="thriller">Suspense</option>
-            </select>
-          </label>
+            </select>          
           <button type="submit" onClick={this.addNewMovie}>Adicionar filme</button>
-        </form>
-      </div>
+        </form>      
     );
   }
 }
