@@ -12,23 +12,27 @@ export default class AddMovie extends React.Component {
       rating: 0,
       genre: 'action'
     }
+    this.addMovie = this.addMovie.bind(this);
   }
 
-  addMovie = (event) => {
+
+  addMovie(event) {
     const { name, value } = event;
     this.setState({ [name]: value })
+    console.log(name, value)
   }
 
   render() {
+    const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
     return (
       <div>
         <form>
-          <label>Título<input type='text' onChange={this.addMovie} value={this.state.title} /></label>
-          <label>Subtítulo<input type='text' onChange={this.addMovie} value={this.state.subtitle} /></label>
-          <label>Imagem<input type='text' onChange={this.addMovie} value={this.state.imagePath} /></label>
-          <label>Sinopse<input type='textarea' onChange={this.addMovie} value={this.state.storyline} /></label>
-          <label>Avaliação<input type='text' onChange={this.addMovie} value={this.state.rating} /></label>
-          <label>Gênero<input type='text' onChange={this.addMovie} value={this.state.genre} /></label>
+          <label>Título<input type='text' onChange={this.addMovie} value={title} /></label>
+          <label>Subtítulo<input type='text' onChange={this.addMovie} value={subtitle} /></label>
+          <label>Imagem<input type='text' onChange={this.addMovie} value={imagePath} /></label>
+          <label>Sinopse<input type='textarea' onChange={this.addMovie} value={storyline} /></label>
+          <label>Avaliação<input type='text' onChange={this.addMovie} value={rating} /></label>
+          <label>Gênero<input type='text' onChange={this.addMovie} value={genre} /></label>
         </form>
       </div >
     )

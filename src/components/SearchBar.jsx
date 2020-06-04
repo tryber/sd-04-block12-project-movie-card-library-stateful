@@ -4,6 +4,8 @@ export default class SearchBar extends React.Component {
   constructor(props) {
     super(props);
 
+    this.onSearchTextChange = this.onSearchTextChange.bind(this);
+    
     this.state = {
       searchText: '',
       bookmarkedOnly: '',
