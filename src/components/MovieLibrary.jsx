@@ -7,8 +7,8 @@ export default class MovieLibrary extends React.Component {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      movies: this.props.movies
-    }
+      movies: this.props.movies,
+    };
   }
 
   render() {
