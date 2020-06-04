@@ -6,14 +6,14 @@ export default class SearchBar extends React.Component {
 
     this.state = {
       searchText: '',
-      bookmarkedOnly: false,
+      bookmarkedOnly: '',
       selectedGenre: '',
     }
   }
 
   onSearchTextChange = event => {
     this.setState({
-      searchText: event.target.value === '' ? 'all' : event.target.value
+      searchText: event.target.value
     })
   }
 
