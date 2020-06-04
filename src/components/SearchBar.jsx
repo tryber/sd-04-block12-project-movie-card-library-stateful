@@ -17,7 +17,9 @@ export default class MovieLibrary extends React.Component {
           />
           <label htmlFor="bookmark">Mostrar somente favoritos</label>
           <label htmlFor="genre">Filtrar por gênero</label>
-          <select value={this.props.selectedGenre} onChange={this.props.onSelectedGenreChange} id="genre">
+          <select
+            value={this.props.selectedGenre} onChange={this.props.onSelectedGenreChange} id="genre"
+          >
             <option value="">Todos</option>
             <option value="action">Ação</option>
             <option value="comedy">Comédia</option>
