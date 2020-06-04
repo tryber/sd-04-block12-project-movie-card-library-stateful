@@ -2,7 +2,7 @@ import React from 'react';
 
 export default class AddMovie extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
 
     this.state = {
       subtitle: '',
@@ -10,16 +10,16 @@ export default class AddMovie extends React.Component {
       imagePath: '',
       storyline: '',
       rating: 0,
-      genre: 'action'
-    }
+      genre: 'action',
+    };
     this.addMovie = this.addMovie.bind(this);
   }
 
 
   addMovie(event) {
-    const { name, value } = event;
-    this.setState({ [name]: value })
-    console.log(name, value)
+    const { name, value } = event.target;
+    this.setState({ [name]: value });
+    console.log(name, value);
   }
 
   render() {
@@ -27,14 +27,14 @@ export default class AddMovie extends React.Component {
     return (
       <div>
         <form>
-          <label>Título<input type='text' onChange={this.addMovie} value={title} /></label>
-          <label>Subtítulo<input type='text' onChange={this.addMovie} value={subtitle} /></label>
-          <label>Imagem<input type='text' onChange={this.addMovie} value={imagePath} /></label>
-          <label>Sinopse<input type='textarea' onChange={this.addMovie} value={storyline} /></label>
-          <label>Avaliação<input type='text' onChange={this.addMovie} value={rating} /></label>
-          <label>Gênero<input type='text' onChange={this.addMovie} value={genre} /></label>
+          <label htmlFor="titulo">Título<input type="text" onChange={this.addMovie} value={title} /></label>
+          <label htmlFor="subtitulo">Subtítulo<input type="text" onChange={this.addMovie} value={subtitle} /></label>
+          <label htmlFor="imagepath">Imagem<input type="text" onChange={this.addMovie} value={imagePath} /></label>
+          <label htmlFor="storyline">Sinopse<input type="textarea" onChange={this.addMovie} value={storyline} /></label>
+          <label htmlFor="rating">Avaliação<input type="text" onChange={this.addMovie} value={rating} /></label>
+          <label htmlFor="genre">Gênero<input type="text" onChange={this.addMovie} value={genre} /></label>
         </form>
       </div >
-    )
+    );
   }
 }
