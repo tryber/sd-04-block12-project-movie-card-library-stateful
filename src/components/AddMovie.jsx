@@ -57,8 +57,8 @@ export default class extends Component {
           </label>
         <label htmlFor="imagePath">Imagem
           <input name="imagePath" value={imagePath} onChange={() => this.updateState} /></label>
-        <label htmlFor="subtitle">Sinopse
-          <textarea name="subtitle" value={storyline} type="text" onChange={() => this.updateState} />
+        <label htmlFor="storyline">Sinopse
+          <textarea name="storyline" value={storyline} type="text" onChange={() => this.updateState} />
           </label>
         <label htmlFor="rating">Avaliação
           <input name="rating" value={rating} type="number" onChange={() => this.updateState} />
