@@ -1,115 +1,71 @@
 // implement AddMovie component here
 import React from 'react';
 
+const createInput = (id, label, value, onChange, type) => (
+  <label htmlFor={id}>
+    {label}
+    <input id={id} value={value} onChange={(e) => onChange(e, id)} type={type} />
+  </label>
+);
+
+const createTextarea = (id, label, value, onChange) => (
+  <label htmlFor={id}>
+    {label}
+    <textarea id={id} value={value} onChange={(e) => onChange(e, id)} />
+  </label>
+);
+
+const createSelect = (id, label, value, onChange) => (
+  <label htmlFor={id}>
+    {label}
+    <select id={id} value={value} onChange={(e) => onChange(e, id)}>
+      <option value="action">Ação</option>
+      <option value="comedy">Comédia</option>
+      <option value="thriller">Suspense</option>
+    </select>
+  </label>
+);
+
+const initialState = {
+  subtitle: '',
+  title: '',
+  imagePath: '',
+  storyline: '',
+  rating: 0,
+  genre: 'action',
+};
+
 class AddMovie extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      subtitle: '',
-      title: '',
-      imagePath: '',
-      storyline: '',
-      rating: 0,
-      genre: 'action',
-    };
+    this.state = initialState;
+    this.updateState = this.updateState.bind(this);
+    this.handleButton = this.handleButton.bind(this);
+  }
+
+  updateState(event, id) {
+    let val = event.target.value;
+    if (id === 'rating') val = Number(val)
+    this.setState((state) => ({ ...state, [id]: val }));
+  }
+
+  handleButton(state) {
+    const { onClick } = this.props;
+    onClick(state);
+    this.setState(initialState);
   }
 
   render() {
-    const { onClick } = this.props;
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
-      <form
-        onSubmit={(e) => {
-          e.preventDefault();
-        }}
-      >
-        <label htmlFor="addmovie-title-input">
-          Título
-          <input
-            id="addmovie-title-input"
-            type="text"
-            value={title}
-            onChange={(e) => {
-              const v = e.target.value;
-              this.setState((state) => ({ ...state, title: v }));
-            }}
-          />
-        </label>
-        <label htmlFor="addmovie-subtitle-input">
-          Subtítulo
-          <input
-            id="addmovie-subtitle-input"
-            type="text"
-            value={subtitle}
-            onChange={(e) => {
-              const v = e.target.value;
-              this.setState((state) => ({ ...state, subtitle: v }));
-            }}
-          />
-        </label>
-        <label htmlFor="addmovie-image-input">
-          Imagem
-          <input
-            id="addmovie-subtitle-input"
-            type="text"
-            value={imagePath}
-            onChange={(e) => {
-              const v = e.target.value;
-              this.setState((state) => ({ ...state, imagePath: v }));
-            }}
-          />
-        </label>
-        <label htmlFor="addmovie-storyline-textarea">
-          Sinopse
-          <textarea
-            id="addmovie-storyline-textarea"
-            value={storyline}
-            onChange={(e) => {
-              const v = e.target.value;
-              this.setState((state) => ({ ...state, storyline: v }));
-            }}
-          />
-        </label>
-        <label htmlFor="addmovie-rating-input">
-          Avaliação
-          <input
-            id="addmovie-rating-input"
-            type="number"
-            value={rating}
-            onChange={(e) => {
-              const v = e.target.value;
-              this.setState((state) => ({ ...state, rating: Number(v) }));
-            }}
-          />
-        </label>
-        <label htmlFor="addmovie-genre-select">
-          Gênero
-          <select
-            value={genre}
-            onChange={(e) => {
-              const v = e.target.value;
-              this.setState((state) => ({ ...state, genre: v }));
-            }}
-          >
-            <option value="action">Ação</option>
-            <option value="comedy">Comédia</option>
-            <option value="thriller">Suspense</option>
-          </select>
-        </label>
-        <button
-          onClick={() => {
-            onClick(this.state);
-            this.setState({
-              subtitle: '',
-              title: '',
-              imagePath: '',
-              storyline: '',
-              rating: 0,
-              genre: 'action',
-            });
-          }}
-          type="submit"
-        >
+      <form onSubmit={(e) => { e.preventDefault(); }}>
+        {createInput('title', 'Título', title, this.updateState, 'text')}
+        {createInput('subtitle', 'Subtítulo', subtitle, this.updateState, 'text')}
+        {createInput('imagePath', 'Imagem', imagePath, this.updateState, 'text')}
+        {createTextarea('storyline', 'Sinopse', storyline, this.updateState)}
+        {createInput('rating', 'Avaliação', rating, this.updateState, 'number')}
+        {createSelect('genre', 'Gênero', genre, this.updateState)}
+        <button onClick={() => this.handleButton(this.state)} type="submit">
           Adicionar filme
         </button>
       </form>
