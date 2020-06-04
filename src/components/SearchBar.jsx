@@ -1,9 +1,9 @@
 // implement SearchBar component here
 import React from 'react';
 
-const SearchBar = ({ 
+const SearchBar = ({
   searchText, onSearchTextChange, bookmarkedOnly,
-  onBookmarkedChange, selectedGenre, onSelectedGenreChange, 
+  onBookmarkedChange, selectedGenre, onSelectedGenreChange,
 }) => (
   <form>
     <label htmlFor="searchText"> Inclui o texto:
