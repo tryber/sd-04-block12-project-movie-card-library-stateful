@@ -2,7 +2,8 @@ import React from 'react';
 
 class Form extends React.Component {
   render() {
-    const { searchText, onSearchTextChange, bookmarkedOnly, onBookmarkedChange, selectedGenre, onSelectedGenreChange, } = this.props;
+    const { searchText, onSearchTextChange, 
+      bookmarkedOnly, onBookmarkedChange, selectedGenre, onSelectedGenreChange } = this.props;
 
     return (
       <form>
@@ -12,8 +13,8 @@ class Form extends React.Component {
         </div>
         <div>
           <label htmlFor="checkbox">Mostrar somente favoritos</label>
-          <input type="checkbox" name="checkbox" checked={bookmarkedOnly} onChange={onBookmarkedChange}
-          />
+          <input type="checkbox" name="checkbox" checked={bookmarkedOnly}
+          onChange={onBookmarkedChange}/>
         </div>
         <div>
           <label htmlFor="gender">Filtrar por gênero</label>
