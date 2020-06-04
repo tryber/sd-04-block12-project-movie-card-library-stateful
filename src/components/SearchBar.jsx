@@ -23,8 +23,8 @@ const createSelectField = (id, label, value, onChange) => {
     <label htmlFor={id}>
       {label}
       <select value={value} onChange={onChange}>
-        {options.map((o, i) => (
-          <option key={i} value={o.v}>
+        {options.map((o) => (
+          <option key={o.v} value={o.v}>
             {o.t}
           </option>
         ))}
@@ -33,40 +33,20 @@ const createSelectField = (id, label, value, onChange) => {
   );
 };
 
-const SearchBar = props => {
+const SearchBar = (props) => {
   const {
-    searchText,
-    onSearchTextChange,
-    bookmarkedOnly,
-    onBookmarkedChange,
-    selectedGenre,
-    onSelectedGenreChange,
+    searchText, onSearchTextChange, bookmarkedOnly, onBookmarkedChange,
+    selectedGenre, onSelectedGenreChange,
   } = props;
-
   return (
     <form>
-      {createInputField(
-        'search-bar-input',
-        'Inclui o texto:',
-        'text',
-        searchText,
-        false,
-        onSearchTextChange,
-      )}
-      {createInputField(
-        'search-bar-checkbox',
-        'Mostrar somente favoritos',
-        'checkbox',
-        false,
+      {createInputField('ip', 'Inclui o texto:', 'text', searchText, false,
+        onSearchTextChange)}
+      {createInputField('cb', 'Mostrar somente favoritos', 'checkbox', false,
         bookmarkedOnly,
-        onBookmarkedChange,
-      )}
-      {createSelectField(
-        'search-bar-select',
-        'Filtrar por gênero',
-        selectedGenre,
-        onSelectedGenreChange,
-      )}
+        onBookmarkedChange)}
+      {createSelectField('sl', 'Filtrar por gênero', selectedGenre,
+        onSelectedGenreChange)}
     </form>
   );
 };
