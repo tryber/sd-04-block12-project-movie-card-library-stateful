@@ -19,34 +19,30 @@ class MovieLibrary extends React.Component {
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
     this.addMovie = this.addMovie.bind(this);
+    this.changeMoviesState = this.changeMoviesState.bind(this);
   }
+
 
   componentDidUpdate(prevProps, prevState) {
     const { movies } = this.props;
     let newMovies = movies;
     const { searchText, bookmarkedOnly, selectedGenre } = this.state;
-    if (prevState.searchText !== searchText) {
-      if (searchText) {
-        newMovies = movies.filter((movie) =>
-          movie.title.includes(searchText)
-          || movie.subtitle.includes(searchText)
-          || movie.storyline.includes(searchText));
-      }
-      this.setState((state) => ({ ...state, movies: newMovies }));
+    if (prevState.searchText !== searchText && searchText) {
+      newMovies = movies.filter((movie) =>
+        movie.title.includes(searchText)
+        || movie.subtitle.includes(searchText)
+        || movie.storyline.includes(searchText));
+      this.changeMoviesState(newMovies);
     }
-    if (prevState.bookmarkedOnly !== bookmarkedOnly) {
-      if (bookmarkedOnly) {
-        newMovies = movies.filter(
-          (movie) => movie.bookmarked === bookmarkedOnly,
-        );
-      }
-      this.setState((state) => ({ ...state, movies: newMovies }));
+    if (prevState.bookmarkedOnly !== bookmarkedOnly && bookmarkedOnly) {
+      newMovies = movies.filter(
+        (movie) => movie.bookmarked === bookmarkedOnly
+      );
+      this.changeMoviesState(newMovies);
     }
-    if (prevState.selectedGenre !== selectedGenre) {
-      if (selectedGenre) {
-        newMovies = movies.filter((movie) => movie.genre === selectedGenre);
-      }
-      this.setState((state) => ({ ...state, movies: newMovies }));
+    if (prevState.selectedGenre !== selectedGenre && selectedGenre) {
+      newMovies = movies.filter((movie) => movie.genre === selectedGenre);
+      this.changeMoviesState(newMovies);
     }
   }
 
@@ -95,6 +91,10 @@ class MovieLibrary extends React.Component {
         selectedGenre: newGenreValue,
       }));
     }
+  }
+
+  changeMoviesState(newValue) {
+    this.setState((state) => ({ ...state, movies: newValue }));
   }
 
   addMovie(stateAddMovie) {
