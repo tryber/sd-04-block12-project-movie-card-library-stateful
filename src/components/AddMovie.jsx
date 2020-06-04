@@ -50,7 +50,7 @@ export default class extends React.Component {
           <textarea name="storyline" value={storyline} onChange={() => this.hand} /></label>
         <label htmlFor="rating">Avaliação
           <input name="rating" type="number" value={rating} onChange={() => this.hand} />
-          </label>
+        </label>
         <label htmlFor="genre">Gênero
           <select name="genre" value={genre} onChange={() => this.hand}>
             <option value="action">Ação</option>
