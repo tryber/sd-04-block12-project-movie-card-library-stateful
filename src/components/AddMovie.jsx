@@ -12,37 +12,104 @@ class AddMovie extends React.Component {
       rating: 0,
       genre: 'action',
     };
+    this.changeState = this.changeState.bind(this);
+  }
+
+  changeState({ target: { value } }, name) {
+    this.setState({ [name]: value });
+  }
+
+  makeInput(name, text, type, onchange = this.changeState) {
+    return (
+      <label htmlFor={name}>
+        {text}
+        <input
+          type={type}
+          name={name}
+          value={this.state[name]}
+          onChange={(e) => onchange(e, name)}
+        />
+      </label>
+    );
+  }
+
+  makeTextarea(name, text, onchange = this.changeState) {
+    return (
+      <label htmlFor={name}>
+        {text}
+        <textarea
+          name={name}
+          value={this.state[name]}
+          onChange={(e) => onchange(e, name)}
+        />
+      </label>
+    );
+  }
+
+  makeRating(name, text, type) {
+    return (
+      <label htmlFor={name}>
+        {text}
+        <input
+          type={type}
+          name={name}
+          value={this.state[name]}
+          onChange={(e) =>
+            this.setState({ rating: parseFloat(e.target.value) })
+          }
+        />
+      </label>
+    );
+  }
+
+  makeSelect(name, text, type, onchange = this.changeState) {
+    return (
+      <label htmlFor={name}>
+        {text}
+        <select
+          type={type}
+          name={name}
+          value={this.state[name]}
+          onChange={(e) => onchange(e, name)}
+        >
+          <option value="action">Ação</option>
+          <option value="comedy">Comédia</option>
+          <option value="thriller">Suspense</option>
+        </select>
+      </label>
+    );
   }
 
   restoreState() {
-      this.setState({
-        subtitle: '',
-        title: '',
-        imagePath: '',
-        storyline: '',
-        rating: 0,
-        genre: 'action',
-      });
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
   }
+
   render() {
     const { onClick } = this.props;
     return (
-      <form className="addMovie">
-        <label htmlFor="title">Título<input type="text" name="title" value={this.state.title} onChange={(e) => this.setState({ title: e.target.value })} /></label>
-        <label htmlFor="subtitle">Subtítulo<input type="text" name="subtitle" value={this.state.subtitle} onChange={(e) => this.setState({ subtitle: e.target.value })} /></label>
-        <label htmlFor="imagePath">Imagem<input type="text" name="imagePath" value={this.state.imagePath} onChange={(e) => this.setState({ imagePath: e.target.value })} /></label>
-        <label htmlFor="storyline">Sinopse<textarea name="storyline" value={this.state.storyline} onChange={(e) => this.setState({ storyline: e.target.value })} /></label>
-        <label htmlFor="rating">Avaliação<input type="number" name="rating" value={this.state.rating} onChange={(e) => this.setState({ rating: parseFloat(e.target.value) })} /></label>
-        <label htmlFor="genre">Gênero<select name="genre" value={this.state.genre} onChange={(e) => this.setState({ genre: e.target.value })}>
-          <option value="action">Ação</option><option value="comedy">Comédia</option><option value="thriller">Suspense</option>
-        </select></label>
-        <button type="button" onClick={() => {
-              onClick(this.state);
-              this.restoreState();
-            }}
+      <form>
+        {this.makeInput('title', 'Título', 'text')}
+        {this.makeInput('subtitle', 'Subtítulo', 'text')}
+        {this.makeInput('imagePath', 'Imagem', 'text')}
+        {this.makeTextarea('storyline', 'Sinopse')}
+        {this.makeRating('rating', 'Avaliação', 'number')}
+        {this.makeSelect('genre', 'Gênero', 'text')}
+        <button
+          type="button"
+          onClick={() => {
+            onClick(this.state);
+            this.restoreState();
+          }}
         >
-            Adicionar filme
-          </button>
+          Adicionar filme
+        </button>
       </form>
     );
   }
