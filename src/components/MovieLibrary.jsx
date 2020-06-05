@@ -2,6 +2,7 @@
 import React from 'react';
 import SearchBar from './SearchBar';
 import MovieList from './MovieList';
+import AddMovie from './AddMovie';
 
 export default class MovieLibrary extends React.Component {
   constructor(props) {
@@ -9,6 +10,8 @@ export default class MovieLibrary extends React.Component {
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
     this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
+    this.clear = this.clear.bind(this);
+    this.onClick = this.onClickAdd.bind(this);
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
@@ -35,6 +38,22 @@ export default class MovieLibrary extends React.Component {
     this.setState({ selectedGenre: value });
   }
 
+  clear() {
+    this.setState({
+      title: '',
+      subtitle: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
+  }
+
+  onClickAdd(movie) {
+    this.setState((state) => ({ movies: [...state.movies, movie] }));
+    this.clear();
+  }
+
   render() {
     return (
       <div>
@@ -47,6 +66,7 @@ export default class MovieLibrary extends React.Component {
           onSelectedGenreChange={this.onSelectedGenreChange}
         />
         <MovieList movies={this.state.movies} />
+        <AddMovie onClick={this.onClickAdd} />
         {JSON.stringify(this.state.searchText)}
       </div>
     );
