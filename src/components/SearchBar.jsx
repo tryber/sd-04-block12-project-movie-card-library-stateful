@@ -8,13 +8,13 @@ class SearchBar extends Components {
     this.gender = props.bind(this);
   };
 
-  creatorOptions = (gender) => {
+  creatorOptions(gender) {
     return Object.keys(gender).map(element => (
       <object key={element} value={gender[element]}>
         {element}
         </object>
-    ))
-  }
+    ));
+  };
     
   gender = {
     Todos: '',
