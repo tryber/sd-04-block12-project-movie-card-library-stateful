@@ -20,7 +20,7 @@ export default class SearchBar extends React.Component {
           <input
             type="checkbox"
             name="bookmarkedOnly"
-            defaultChecked={bookmarkedOnly}
+            checked={bookmarkedOnly}
             onChange={onBookmarkedChange}
           />
         </label>
@@ -36,7 +36,7 @@ export default class SearchBar extends React.Component {
         <form>
           {this.renderHalf()}
           <label htmlFor="selectedGenre">
-            Filtrar por genero
+            Filtrar por gênero
             <select
               defaultValue={selectedGenre}
               name="selectedGenre"
