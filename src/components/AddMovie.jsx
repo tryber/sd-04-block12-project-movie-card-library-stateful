@@ -62,7 +62,7 @@ export default class AddMovie extends React.Component {
           <option value="comedy">Comédia</option>
           <option value="thriller">Suspense</option>
         </select>
-        <button type="button" onClick={() => { this.handleClick(onClick); }}>Adicionar filme</button>
+        <button type="button" onClick={() => this.handleClick(onClick)}>Adicionar filme</button>
       </form>
     );
   }
