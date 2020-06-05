@@ -33,7 +33,6 @@ class AddMovie extends Component {
   }
 
   onsubmit(event) {
-    console.log(this.state);
     event.preventDefault();  
   }
 
