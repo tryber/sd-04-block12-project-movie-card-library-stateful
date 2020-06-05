@@ -11,6 +11,11 @@ function filterText(movie, searchText) {
   return false;
 }
 
+function filterGenre(movie, selectedGenre) {
+  if (movie.genre === selectedGenre) return true;
+  return false;
+}
+
 class MovieLibrary extends React.Component {
   constructor(props) {
     super(props);
@@ -45,8 +50,7 @@ class MovieLibrary extends React.Component {
         return false;
       }
       if (selectedGenre !== '') {
-        if (movie.genre === selectedGenre) return true;
-        return false;
+        return filterGenre(movie, selectedGenre);
       }
       return filterText(movie, searchText);
     });
