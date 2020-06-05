@@ -36,7 +36,7 @@ export default class AddMovie extends React.Component {
           <label htmlFor="rate">
             Avaliação<input type="number" onChange={this.addMovie} value={rating} /></label>
           <label htmlFor="genre">Gênero<select
-            value={genre} 
+            value={genre}
             onChange={this.addMovie}>
             <option value="action">Ação</option>
             <option value="comedy">Comédia</option><option value="thriller">Suspense</option>
