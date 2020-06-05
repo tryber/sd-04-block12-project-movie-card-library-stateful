@@ -16,15 +16,17 @@ class AddMovie extends Component {
   constructor(props) {
     super(props);
     this.state = initialState;
+    this.onClickHandle = this.onClickHandle.bind(this);
+    this.onChangeHandle = this.onChangeHandle.bind(this);
   }
 
-  onChangeHandle = ({ target: { value } }, name) => {
+  onChangeHandle ({ target: { value } }, name) {
     this.setState({
       [name]: value
     });
   }
 
-  onClickHandle = () => {
+  onClickHandle() {
     this.props.onClick(this.state);
     this.setState(initialState);
   }
