@@ -43,6 +43,10 @@ export default class MovieLibrary extends React.Component {
     this.setState({ selectedGenre: event.target.value });
   }
 
+  onClickAdd(movie) {
+    this.setState((state) => ({ movies: [...state.movies, movie] }));
+  }
+
   filterMovies() {
     const { movies, searchText, bookmarkedOnly, selectedGenre } = this.state;
     return movies.filter((movie) => {
@@ -55,10 +59,6 @@ export default class MovieLibrary extends React.Component {
       }
       return filterText(movie, searchText);
     });
-  }
-
-  onClickAdd(movie) {
-    this.setState((state) => ({ movies: [...state.movies, movie] }));
   }
 
   render() {
