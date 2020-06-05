@@ -6,13 +6,13 @@ class AddMovie extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      subtitle:'',
-      title:'',
-      imagePath:'',
-      storyline:'',
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
       rating: 0,
       genre: 'action',
-    }
+    };
     this.onTextChange = this.onTextChange.bind(this);
     this.onSelectChange = this.onSelectChange.bind(this);
     this.onsubmit = this.onsubmit.bind(this);
@@ -20,15 +20,13 @@ class AddMovie extends Component {
 
   onTextChange(event) {
     const { name, value} = event.target;
-    console.log(`${name}: ${value}`)
-    this.setState((state)=>({
-      [name]: value,
-    }));
+    console.log(`${name}: ${value}`);
+    this.setState((state)=>({ [name]: value }));
   }
 
   onSelectChange(event) {
-    const { name, value} = event.target;
-    this.setState((state) => ({ [name]: value }));
+    const { name, value } = event.target;
+    this.setState(() => ({ [name]: value }));
   }
 
   onsubmit(event) {
@@ -39,27 +37,27 @@ class AddMovie extends Component {
   render() {
     return (
       <form className="addmovie-component" onSubmit={this.onsubmit}>
-        <Label 
-          text="Titulo" 
-          type="text" 
-          name="title" 
-          value={this.state.title} 
-          onChange={this.onTextChange} 
+        <Label
+          text="Titulo" type="text" name="title"
+          value={this.state.title} onChange={this.onTextChange}
         />
-        <Label text="Subtitulo" type="text" name="subtitle" 
-          value={this.state.subtitle} onChange={this.onTextChange} 
+        <Label
+          text="Subtitulo" type="text" name="subtitle"
+          value={this.state.subtitle} onChange={this.onTextChange}
         />
-        <Label text="Imagem" type="text" name="imagePath"
-          value={this.state.imagePath} onChange={this.onTextChange} 
+        <Label
+          text="Imagem" type="text" name="imagePath"
+          value={this.state.imagePath} onChange={this.onTextChange}
         />
         <label>Sinopse</label>
         <textarea name="storyline" value={this.state.storyline} onChange={this.onTextChange} />
-        <Label text="Avaliacao" name="rating"
-          value={this.state.rating} onChange={this.onTextChange} 
+        <Label
+          text="Avaliacao" name="rating"
+          value={this.state.rating} onChange={this.onTextChange}
         />
-        <Label text="Genero" />
+        <label>Genero</label>
         <SelectComp
-          name={this.state.genre} 
+          name={this.state.genre}
           onChange={this.onSelectChange}
           defValue={this.state.genre}
         />

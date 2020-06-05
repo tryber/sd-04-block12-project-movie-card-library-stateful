@@ -43,10 +43,10 @@ class SearchBar extends Component {
           />Mostrar somente favoritos
         </label>
         <label htmlFor="select-genre">Filtrar por genero</label>
-        <SelectComp 
-          name = {this.state.selectGenre} 
-          onChange = {this.onSelectGenreChange}
-          defValue = {this.state.selectGenre}
+        <SelectComp
+          name={this.state.selectGenre}
+          onChange={this.onSelectGenreChange}
+          defValue={this.state.selectGenre}
         />
       </div>
     );
