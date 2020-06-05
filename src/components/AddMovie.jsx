@@ -12,6 +12,7 @@ class AddMovie extends React.Component {
       genre: 'action',
     };
     this.changeInput = this.changeInput.bind(this);
+    this.changeRating = this.changeRating.bind(this);
   }
 
   clear() {
@@ -26,7 +27,7 @@ class AddMovie extends React.Component {
   }
 
   changeRating({ target: { value } }, name) {
-    this.setState({ [name]: value });
+    this.setState({ [name]: Number(value) });
   }
 
   changeInput({ target: { value } }, name) {
@@ -83,7 +84,7 @@ class AddMovie extends React.Component {
         {this.createElement('rating', 'Avaliação', 'number', this.changeRating)}
         {this.createSelect()}
         <button
-          type="button" 
+          type="button"
           value="Adicionar filme"
           onClick={() => {
             onClick(this.state);
