@@ -14,7 +14,8 @@ class Name extends Component {
           <input name="text" type="text" value={searchText} onChange={onSearchTextChange} />
         </label>
         <label htmlFor="book">
-          <input name="book" type="checkbox" checked={bookmarkedOnly} onChange={onBookmarkedChange} />
+          <input
+            name="book" type="checkbox" checked={bookmarkedOnly} onChange={onBookmarkedChange} />
           Mostrar somente favoritos
         </label>
         <label htmlFor="genre">
