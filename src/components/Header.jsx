@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-export default class extends Component {
+class Header extends Component {
   render() {
     return (
       <header className="movie-card-header">
@@ -9,3 +9,5 @@ export default class extends Component {
     );
   }
 }
+
+export default Header;

@@ -3,7 +3,7 @@ import AddMovie from './AddMovie';
 import MovieList from './MovieList';
 import SearchBar from './SearchBar';
 
-export default class extends Component {
+class MovieLibrary extends Component {
   constructor(props) {
     super(props);
     const { movies } = this.props;
@@ -16,27 +16,15 @@ export default class extends Component {
     };
 
     this.updtSt = this.updtSt.bind(this);
-    this.renderMovie = this.renderMovie.bind(this);
+    this.addMovie = this.addMovie.bind(this);
   }
 
   updtSt(e) {
-    e.preventDefault();
     this.setState({ [e.target.name]: e.target.value });
   }
 
-  renderMovieList() {
-    const { selectedGenre, bookmarkedOnly, movies, searchText } = this.state;
-    let filteredMovies = movies.filter((movie) => (movie.title.includes(searchText)
-    || movie.subtitle.includes(searchText)
-    || movie.storyline.includes(searchText)));
-    if (selectedGenre) {
-      filteredMovies = filteredMovies
-        .filter((movie) => movie.genre === selectedGenre);
-    }
-    return bookmarkedOnly ? filteredMovies.filter((movie) => movie.bookmarked) : filteredMovies;
-  }
 
-  renderMovie({
+  addMovie({
     subtitle = '',
     title = '',
     imagePath = '',
@@ -60,6 +48,18 @@ export default class extends Component {
     }));
   }
 
+  renderMovieList() {
+    const { selectedGenre, bookmarkedOnly, movies, searchText } = this.state;
+    let filteredMovies = movies.filter((movie) => (movie.title.includes(searchText)
+    || movie.subtitle.includes(searchText)
+    || movie.storyline.includes(searchText)));
+    if (selectedGenre) {
+      filteredMovies = filteredMovies
+        .filter((movie) => movie.genre === selectedGenre);
+    }
+    return bookmarkedOnly ? filteredMovies.filter((movie) => movie.bookmarked) : filteredMovies;
+  }
+
   render() {
     const { searchText, bookmarkedOnly, selectedGenre } = this.state;
     return (
@@ -75,8 +75,10 @@ export default class extends Component {
         <MovieList
           movies={this.renderMovieList()}
         />
-        <AddMovie onClick={this.renderMovie} />
+        <AddMovie onClick={this.addMovie} />
       </div>
     );
   }
 }
+
+export default MovieLibrary;

@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default ({
+const SearchBar = ({
   searchText, onSearchTextChange, bookmarkedOnly, onBookmarkedChange, selectedGenre,
   onSelectedGenreChange,
 }) => (
@@ -29,3 +29,5 @@ export default ({
     </label>
   </form>
 );
+
+export default SearchBar;
