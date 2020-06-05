@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import SelectComp from './SelectComp';
 
 class Label extends Component {
   render() {
@@ -22,9 +23,12 @@ class AddMovie extends Component {
       rating: 0,
       genre: 'action',
     }
+    this.onTextChange = this.onTextChange.bind(this);
+    this.onSelectChange = this.onSelectChange.bind(this);
+    this.onsubmit = this.onsubmit.bind(this);
   }
 
-  onTextChange = event => {
+  onTextChange(event) {
     const { name, value} = event.target;
     console.log(`${name}: ${value}`)
     this.setState((state)=>({
@@ -32,7 +36,13 @@ class AddMovie extends Component {
     }));
   }
 
+  onSelectChange(event) {
+    const { name, value} = event.target;
+    this.setState((state) => ({ [name]: value }));
+  }
+
   onsubmit(event) {
+    console.log(this.state);
     event.preventDefault();  
   }
 
@@ -50,12 +60,11 @@ class AddMovie extends Component {
         <Label text="Avaliacao" />
         <input name="rating" value={this.state.rating} onChange={this.onTextChange} />
         <Label text="Genero" />
-        <select name={this.state.genre} onChange={this.onSelectGenreChange}>
-          <option defaultValue={this.state.selectGenre}>Todos</option>
-          <option value="action">Acao</option>
-          <option value="comedy">Comedia</option>
-          <option value="thriller">Suspense</option>
-        </select>
+        <SelectComp 
+          name = {this.state.genre} 
+          onChange = {this.onSelectChange}
+          defValue = {this.state.genre}
+        />
         <input type="submit" value="Adicionar Filme"/>
       </form>
     )

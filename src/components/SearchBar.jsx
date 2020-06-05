@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import SelectComp from './SelectComp';
 
 class SearchBar extends Component {
   constructor(props) {
@@ -42,12 +43,11 @@ class SearchBar extends Component {
           />Mostrar somente favoritos
         </label>
         <label htmlFor="select-genre">Filtrar por genero</label>
-        <select name="select-genre" onChange={this.onSelectGenreChange}>
-          <option defaultValue={this.state.selectGenre}>Todos</option>
-          <option value="action">Acao</option>
-          <option value="comedy">Comedia</option>
-          <option value="thriller">Suspense</option>
-        </select>
+        <SelectComp 
+          name = {this.state.selectGenre} 
+          onChange = {this.onSelectGenreChange}
+          defValue = {this.state.selectGenre}
+        />
       </div>
     );
   }
