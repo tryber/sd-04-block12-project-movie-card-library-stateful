@@ -36,10 +36,10 @@ export default class SearchBar extends React.Component {
           <select
             value={this.props.selectedGenre}
             onChange={this.props.onSelectedGenreChange}
-            >
+          >
             <option value="">Todos</option><option value="action">Ação</option>
             <option value="comedy">Comédia</option><option value="thriller">Suspense</option>
-            </select></label>
+          </select></label>
         </form>
       </div>
     );
