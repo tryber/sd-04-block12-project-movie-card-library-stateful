@@ -55,7 +55,7 @@ class AddMovie extends Component {
           text="Avaliacao" name="rating" value={this.state.rating} onChange={this.onTextChange}
         />
         <label htmlFor="genre">Genero</label>
-        <Select name={this.state.genre} onChange={this.onSelectChange} defValue={this.state.genre}/>
+        <Select name="genre" onChange={this.onSelectChange} defValue={this.state.genre} />
         <input type="submit" value="Adicionar Filme" />
       </form>
     );

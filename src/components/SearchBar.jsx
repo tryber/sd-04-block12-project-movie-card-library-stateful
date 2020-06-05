@@ -44,7 +44,7 @@ class SearchBar extends Component {
         </label>
         <label htmlFor="select-genre">Filtrar por genero</label>
         <Select
-          name={this.state.selectGenre}
+          name="select-genre"
           onChange={this.onSelectGenreChange}
           defValue={this.state.selectGenre}
         />
