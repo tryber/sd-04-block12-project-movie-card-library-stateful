@@ -9,7 +9,8 @@ class SearchBar extends React.Component {
         <select
           id="gender"
           value={this.props.selectedGenre}
-          onChange={this.props.onSelectedGenreChange}>
+          onChange={this.props.onSelectedGenreChange}
+        >
           <option value="">Todos</option>
           <option value="action">Ação</option>
           <option value="comedy">Comédia</option>
@@ -28,14 +29,16 @@ class SearchBar extends React.Component {
       <form>
         <label htmlFor="filmName">Inclui o texto</label>
         <input 
-          id="filmName"
-          value="searchText"
-          onChange="onSearchTextChange" />
+          id={filmName}
+          value={searchText}
+          onChange={onSearchTextChange}
+        />
         <label hmtl="fav">Mostrar somente favoritos</label>
         <input
           id="fav"
-          checked="bookmarkedOnly"
-          onChange="onBoolmarkefOnly" />
+          checked={bookmarkedOnly}
+          onChange={onBookmarkedChange}
+        />
         {this.creatorSelector()}
       </form>
     );
