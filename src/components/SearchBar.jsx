@@ -1,5 +1,6 @@
 // implement SearchBar component here
 import React, { Component } from 'react';
+import Input from './form/Input';
 
 class Name extends Component {
   render() {
@@ -9,19 +10,8 @@ class Name extends Component {
     } = this.props;
     return (
       <form>
-        <label htmlFor="text">
-          Inclui o texto:
-          <input name="text" type="text" value={searchText} onChange={onSearchTextChange} />
-        </label>
-        <label htmlFor="book">
-          <input
-            name="book"
-            type="checkbox"
-            checked={bookmarkedOnly}
-            onChange={onBookmarkedChange}
-          />
-          Mostrar somente favoritos
-        </label>
+        <Input label="Inclui o texto:" name="text" type="text" Tag="input" value={searchText} onChange={onSearchTextChange} />
+        <Input label="Mostrar somente favoritos" name="book" type="checkbox" Tag="input" value={bookmarkedOnly} onChange={onBookmarkedChange} />
         <label htmlFor="genre">
           Filtrar por gênero
           <select name="genre" value={selectedGenre} onChange={onSelectedGenreChange}>

@@ -1,7 +1,7 @@
 /* eslint-disable react/destructuring-assignment */
 // implement AddMovie component here
 import React, { Component } from 'react';
-import Inputs from './form/Input';
+import Input from './form/Input';
 
 const initialState = {
   subtitle: '',
@@ -32,13 +32,25 @@ class AddMovie extends Component {
 
   render() {
     const { subtitle, title, imagePath, storyline, rating } = this.state;
+    const allInputs = [
+      ['Título', 'title', 'text', 'input', title],
+      ['Subtítulo', 'subtitle', 'text', 'input', subtitle],
+      ['Imagem', 'imagePath', 'text', 'input', imagePath],
+      ['Sinopse', 'storyline', 'text', 'textarea', storyline],
+      ['Avaliação', 'rating', 'number', 'input', rating],
+    ];
     return (
       <form>
-        <Inputs label="Título" name="title" type="text" Tag="input" value={title} onChange={this.onChangeHandle} />
-        <Inputs label="Subtítulo" name="subtitle" type="text" Tag="input" value={subtitle} onChange={this.onChangeHandle} />
-        <Inputs label="Imagem" name="imagePath" type="text" Tag="input" value={imagePath} onChange={this.onChangeHandle} />
-        <Inputs label="Sinopse" name="storyline" type="text" Tag="textarea" value={storyline} onChange={this.onChangeHandle} />
-        <Inputs label="Avaliação" name="rating" type="number" Tag="input" value={rating} onChange={this.onChangeHandle} />
+        {allInputs.map((e) => (
+          <Input
+            label={e[0]}
+            name={e[1]}
+            type={e[2]}
+            Tag={e[3]}
+            value={e[4]}
+            onChange={this.onChangeHandle}
+          />
+        ))}
         <label htmlFor="genre">
           Gênero
           <select name="genre" value={this.state.genre} onChange={(e) => this.onChangeHandle(e, 'genre')}>
