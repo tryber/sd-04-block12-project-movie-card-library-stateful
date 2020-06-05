@@ -19,8 +19,8 @@
 .env.production.local
 .eslintrc
 .eslintrc.json
-.package-lock.json
-.package.json
+package-lock.json
+package.json
 .prettierrc.json
 .env
 
