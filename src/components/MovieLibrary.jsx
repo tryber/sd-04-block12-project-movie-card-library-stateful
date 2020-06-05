@@ -16,6 +16,7 @@ export default class extends Component {
     };
 
     this.updtSt = this.updtSt.bind(this);
+    this.renderMovie = this.renderMovie.bind(this);
   }
 
   updtSt(e) {
@@ -35,6 +36,27 @@ export default class extends Component {
     return bookmarkedOnly ? filteredMovies.filter((movie) => movie.bookmarked) : filteredMovies;
   }
 
+  renderMovie({
+    subtitle = '',
+    title = '',
+    imagePath = '',
+    storyline = '',
+    rating = 0,
+    genre = '',
+  }) {
+    return this.setState((state) => ({
+      movies: [...state.movies, {
+        title,
+        subtitle,
+        storyline,
+        rating,
+        imagePath,
+        bookmarked: false,
+        genre,
+      }],
+    }));
+  }
+
   render() {
     const { searchText, bookmarkedOnly, selectedGenre } = this.state;
     return (
@@ -50,7 +72,7 @@ export default class extends Component {
         <MovieList
           movies={this.renderMovieList()}
         />
-        <AddMovie />
+        <AddMovie onClick={this.renderMovie} />
       </div>
     );
   }
