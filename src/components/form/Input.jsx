@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 
 class Input extends Component {
   render() {
-    const { value, name, type, label, Tag, onChange } = this.props;
+    const [label, name, type, Tag, value, onChange] = this.props.data;
     return (
       <label htmlFor={name}>
         {label}
@@ -11,7 +11,7 @@ class Input extends Component {
           name={name}
           type={type}
           value={value}
-          onChange={(e) => onChange(e, name)}
+          onChange={onChange}
         />
       </label>
     );

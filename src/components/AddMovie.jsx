@@ -21,7 +21,7 @@ class AddMovie extends Component {
     this.onChangeHandle = this.onChangeHandle.bind(this);
   }
 
-  onChangeHandle({ target: { value } }, name) {
+  onChangeHandle({ target: { value, name } }) {
     this.setState({ [name]: name === 'rating' ? Number(value) : value });
   }
 
@@ -33,24 +33,15 @@ class AddMovie extends Component {
   render() {
     const { subtitle, title, imagePath, storyline, rating } = this.state;
     const allInputs = [
-      ['Título', 'title', 'text', 'input', title],
-      ['Subtítulo', 'subtitle', 'text', 'input', subtitle],
-      ['Imagem', 'imagePath', 'text', 'input', imagePath],
-      ['Sinopse', 'storyline', 'text', 'textarea', storyline],
-      ['Avaliação', 'rating', 'number', 'input', rating],
+      ['Título', 'title', 'text', 'input', title, this.onChangeHandle],
+      ['Subtítulo', 'subtitle', 'text', 'input', subtitle, this.onChangeHandle],
+      ['Imagem', 'imagePath', 'text', 'input', imagePath, this.onChangeHandle],
+      ['Sinopse', 'storyline', 'text', 'textarea', storyline, this.onChangeHandle],
+      ['Avaliação', 'rating', 'number', 'input', rating, this.onChangeHandle],
     ];
     return (
       <form>
-        {allInputs.map((e) => (
-          <Input
-            label={e[0]}
-            name={e[1]}
-            type={e[2]}
-            Tag={e[3]}
-            value={e[4]}
-            onChange={this.onChangeHandle}
-          />
-        ))}
+        {allInputs.map((e) => <Input key={e[1]} data={e} />)}
         <label htmlFor="genre">
           Gênero
           <select name="genre" value={this.state.genre} onChange={(e) => this.onChangeHandle(e, 'genre')}>

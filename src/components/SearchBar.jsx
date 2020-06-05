@@ -2,16 +2,20 @@
 import React, { Component } from 'react';
 import Input from './form/Input';
 
-class Name extends Component {
+class SearchBar extends Component {
   render() {
     const {
       searchText, onSearchTextChange, bookmarkedOnly,
       onBookmarkedChange, selectedGenre, onSelectedGenreChange,
     } = this.props;
+    const input = ['Inclui o texto:', 'text', 'text', 'input', searchText, onSearchTextChange];
     return (
       <form>
-        <Input label="Inclui o texto:" name="text" type="text" Tag="input" value={searchText} onChange={onSearchTextChange} />
-        <Input label="Mostrar somente favoritos" name="book" type="checkbox" Tag="input" value={bookmarkedOnly} onChange={onBookmarkedChange} />
+        <Input key={input[1]} data={input} />
+        <label htmlFor="checkbox">
+          Mostrar somente favoritos
+          <input type="checkbox" checked={bookmarkedOnly} onChange={onBookmarkedChange} />
+        </label>
         <label htmlFor="genre">
           Filtrar por gênero
           <select name="genre" value={selectedGenre} onChange={onSelectedGenreChange}>
@@ -26,4 +30,4 @@ class Name extends Component {
   }
 }
 
-export default Name;
+export default SearchBar;
