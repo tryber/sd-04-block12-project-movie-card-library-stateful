@@ -11,6 +11,8 @@ export default class extends React.Component {
       rating: 0,
       genre: 'action',
     };
+    this.hand = this.hand.bind(this);
+    this.includeMovie = this.includeMovie.bind(this);
   }
 
   resetState() {
@@ -29,7 +31,7 @@ export default class extends React.Component {
   }
 
   includeMovie(e) {
-    e.preventdefault();
+    e.preventDefault();
     const { onClick } = this.props;
     onClick(this.state);
     this.resetState();
@@ -40,25 +42,25 @@ export default class extends React.Component {
     return (
       <form>
         <label htmlFor="title">Título
-          <input name="title" type="text" value={title} onChange={() => this.hand} /></label>
+          <input name="title" type="text" value={title} onChange={this.hand} /></label>
         <label htmlFor="subtitle">Subtítulo
-          <input name="subtitle" type="text" value={subtitle} onChange={() => this.hand} /></label>
+          <input name="subtitle" type="text" value={subtitle} onChange={this.hand} /></label>
         <label htmlFor="imagePath">Imagem
-          <input name="imagePath" type="text" value={imagePath} onChange={() => this.hand} />
+          <input name="imagePath" type="text" value={imagePath} onChange={this.hand} />
         </label>
         <label htmlFor="storyline">Sinopse
-          <textarea name="storyline" value={storyline} onChange={() => this.hand} /></label>
+          <textarea name="storyline" value={storyline} onChange={this.hand} /></label>
         <label htmlFor="rating">Avaliação
-          <input name="rating" type="number" value={rating} onChange={() => this.hand} />
+          <input name="rating" type="number" value={rating} onChange={this.hand} />
         </label>
         <label htmlFor="genre">Gênero
-          <select name="genre" value={genre} onChange={() => this.hand}>
+          <select name="genre" value={genre} onChange={this.hand}>
             <option value="action">Ação</option>
             <option value="comedy">Comédia</option>
             <option value="thriller">Suspense</option>
           </select>
         </label>
-        <button type="button" onClick={() => this.includeMovie}>Adicionar filme</button>
+        <button type="button" onClick={this.includeMovie}>Adicionar filme</button>
       </form>
     );
   }

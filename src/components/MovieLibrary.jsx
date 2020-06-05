@@ -15,6 +15,7 @@ export default class extends React.Component {
       movies,
     };
     this.handleChange = this.handleChange.bind(this);
+    this.renderMovie = this.renderMovie.bind(this);
   }
 
   handleChange() {
@@ -41,8 +42,32 @@ export default class extends React.Component {
       : filteredMovies;
   }
 
+  renderMovie({
+    subtitle = '',
+    title = '',
+    imagePath = '',
+    storyline = '',
+    rating = 0,
+    genre = '',
+  }) {
+    return this.setState((state) => ({
+      movies: [
+        ...state.movies,
+        {
+          title,
+          subtitle,
+          storyline,
+          rating,
+          imagePath,
+          bookmarked: false,
+          genre,
+        },
+      ],
+    }));
+  }
+
   render() {
-    const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
+    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
     return (
       <div>
         <SearchBar
@@ -57,8 +82,8 @@ export default class extends React.Component {
             this.setState({ [e.target.name]: e.target.value })
           }
         />
-        <MovieList movies={this.renderMovieList({ movies })} />
-        <AddMovie />
+        <MovieList movies={this.renderMovieList()} />
+        <AddMovie onClick={this.renderMovie} />
       </div>
     );
   }
