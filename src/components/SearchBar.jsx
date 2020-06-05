@@ -2,16 +2,13 @@
 import React, { Components } from 'react';
 
 class SearchBar extends Components {
-  constructor(props) {
-    super(props)
-    this.creatorOptions = this.props.bind(this);
-  }
   gender = {
     todos:"",
     Ação:"action",
     Comédia:"comedy",
     Suspense:"thriller"
-  }
+  };
+
   creatorOptions = (gender) => {
     return object.keys(gender).map(element => (
       <object key={element} value={gender[element]}>
@@ -20,7 +17,6 @@ class SearchBar extends Components {
       ))
   }
 
-   
     render() {
       const {
         searchText,
@@ -30,6 +26,7 @@ class SearchBar extends Components {
         selectGenre,
         onSelectGenreChange
       } = this.props;
+
       return (
         <form>
           <label for="nomeF">Inclue o Texto</label>
