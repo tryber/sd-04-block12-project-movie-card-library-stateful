@@ -35,7 +35,7 @@ class MovieLibrary extends Component {
   }
 
   filteredMovies() {
-    const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
+    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
     let newMovieArr = this.props.movies;
     if (searchText.length > 0) {
       newMovieArr = newMovieArr.filter((film) => (film.title.includes(searchText)) ||
