@@ -11,7 +11,6 @@ class AddMovie extends Component {
       rating: 0,
       genre: 'action',
     };
-    // this.setFields = this.setFields.bind(this);
   }
 
   setFields(e) {
@@ -32,57 +31,28 @@ class AddMovie extends Component {
 
   render() {
     const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
-    const { onClick } = this.props;
+    // const { onClick } = this.props;
     return (
       <form>
         <label htmlFor="title">
           Título
-          <input
-            type="text"
-            id="title"
-            name="title"
-            value={title}
-            onChange={this.setFields}
-          />
+          <input type="text" name="title" value={title} onChange={this.setFields} />
         </label>
         <label htmlFor="subtitle">
           Subtítulo
-          <input
-            type="text"
-            id="subtitle"
-            name="subtitle"
-            value={subtitle}
-            onChange={this.setFields}
-          />
+          <input type="text" name="subtitle" value={subtitle} onChange={this.setFields} />
         </label>
         <label htmlFor="img">
           Imagem
-          <input
-            type="text"
-            id="img"
-            name="imagePath"
-            value={imagePath}
-            onChange={this.setFields}
-          />
+          <input type="text" name="imagePath" value={imagePath} onChange={this.setFields} />
         </label>
         <label htmlFor="sinopse">
           Sinopse
-          <textarea
-            id="sinopse"
-            name="storyline"
-            value={storyline}
-            onChange={this.setFields}
-          />
+          <textarea name="storyline" value={storyline} onChange={this.setFields} />
         </label>
         <label htmlFor="av">
           Avaliação
-          <input
-            type="number"
-            id="av"
-            name="rating"
-            value={rating}
-            onChange={this.setFields}
-          />
+          <input type="number" name="rating" value={rating} onChange={this.setFields} />
         </label>
         <label htmlFor="gen">
           Gênero
@@ -92,12 +62,7 @@ class AddMovie extends Component {
             <option value="thriller">Suspense</option>
           </select>
         </label>
-        <button
-          type="button"
-          onClick=""
-        >
-          Adicionar filme
-        </button>
+        <button type="button" onClick="">Adicionar filme</button>
       </form>
     );
   }
