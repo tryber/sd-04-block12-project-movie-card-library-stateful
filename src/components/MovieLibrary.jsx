@@ -34,8 +34,8 @@ class MovieLibrary extends React.Component {
     this.setState({ searchText: event.target.value });
   }
 
-  onBookmarkedChange(event) {
-    this.setState({ bookmarkedOnly: !event.target.value });
+  onBookmarkedChange() {
+    this.setState((state) => ({ bookmarkedOnly: !state.bookmarkedOnly }));
   }
 
   onSelectedGenreChange(event) {
@@ -68,7 +68,7 @@ class MovieLibrary extends React.Component {
           searchText={searchText}
           onSearchTextChange={(event) => this.onSearchTextChange(event)}
           bookmarkedOnly={bookmarkedOnly}
-          onBookmarkedChange={(event) => this.onBookmarkedChange(event)}
+          onBookmarkedChange={this.onBookmarkedChange}
           selectedGenre={selectedGenre}
           onSelectedGenreChange={(event) => this.onSelectedGenreChange(event)}
         />
