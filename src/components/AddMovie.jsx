@@ -3,46 +3,46 @@ import React from 'react';
 
 class AddMovie extends React.Component {
   constructor(props) {
-      super(props);
+    super(props);
 
-      this.state = {
-          subtitle: '',
-          title: '',
-          imagePath: '',
-          storyline: '',
-          rating: 0,
-          genre: 'action',
-    };
-  this.handleInputChange = this.handleInputChange.bind(this);
-  this.handleInput = this.handleInput.bind(this);
-}
+    this.state = {
+        subtitle: '',
+        title: '',
+        imagePath: '',
+        storyline: '',
+        rating: 0,
+        genre: 'action',
+      };
+    this.handleInputChange = this.handleInputChange.bind(this);
+    this.handleInput = this.handleInput.bind(this);
+  }
 
-  handleInput(state) {
-  const { onClick } = this.props;
-  onClick(state);
-  this.setState({
-      subtitle: '',
-      title: '',
-      imagePath: '',
-      storyline: '',
-      rating: 0,
-      genre: 'action',
+    handleInput(state) {
+    const { onClick } = this.props;
+    onClick(state);
+    this.setState({
+        subtitle: '',
+        title: '',
+        imagePath: '',
+        storyline: '',
+        rating: 0,
+        genre: 'action',
     });
-}
+  }
 
-  handleInputChange(event, name) {
-  let value = event.target.value;
-  if (name === 'rating') value = Number(value);
-  this.setState((state) => ({
-      ...state, 
-      [name]: value,
-    })
-    );
+    handleInputChange(event, name) {
+    let value = event.target.value;
+    if (name === 'rating') value = Number(value);
+    this.setState((state) => ({
+        ...state, 
+        [name]: value,
+  })
+  );
 }
 
 
   render() {
-  return (
+    return (
     <div>
         <form onSubmit={(e) => { e.preventDefault(); }}>
             <label>Título</label>
