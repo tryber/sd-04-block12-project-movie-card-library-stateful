@@ -46,30 +46,15 @@ export default class AddMovie extends React.Component {
       <div>
         <label htmlFor="storyline">
           Sinopse
-          <textarea
-            type="text"
-            name="storyline"
-            value={storyline}
-            onChange={(e) => this.addNewMovie(e, 'storyline')}
-          />
+          <textarea type="text" name="storyline" value={storyline} onChange={(e) => this.addNewMovie(e, 'storyline')} />
         </label>
         <label htmlFor="rating">
           Avaliação
-          <input
-            type="number"
-            name="rating"
-            value={rating}
-            onChange={(e) => this.addNewMovie(e, 'rating')}
-          />
+          <input type="number" name="rating" value={rating} onChange={(e) => this.addNewMovie(e, 'rating')} />
         </label>
         <label htmlFor="genre">
           Gênero
-          <select
-            type="number"
-            name="genre"
-            value={genre}
-            onChange={(e) => this.addNewMovie(e, 'genre')}
-          >
+          <select type="number" name="genre" value={genre} onChange={(e) => this.addNewMovie(e, 'genre')}>
             <option value="action">Ação</option>
             <option value="comedy">Comédia</option>
             <option value="thriller">Suspense</option>
@@ -89,30 +74,15 @@ export default class AddMovie extends React.Component {
         <form>
           <label htmlFor="title">
             Título
-            <input
-              type="text"
-              name="title"
-              value={title}
-              onChange={(e) => this.addNewMovie(e, 'title')}
-            />
+            <input type="text" name="title" value={title} onChange={(e) => this.addNewMovie(e, 'title')} />
           </label>
           <label htmlFor="subtitle">
             Subtítulo
-            <input
-              type="text"
-              name="subtitle"
-              value={subtitle}
-              onChange={(e) => this.addNewMovie(e, 'subtitle')}
-            />
+            <input type="text" name="subtitle" value={subtitle} onChange={(e) => this.addNewMovie(e, 'subtitle')} />
           </label>
           <label htmlFor="imagePath">
             Imagem
-            <input
-              type="text"
-              name="imagePath"
-              value={imagePath}
-              onChange={(e) => this.addNewMovie(e, 'imagePath')}
-            />
+            <input type="text" name="imagePath" value={imagePath} onChange={(e) => this.addNewMovie(e, 'imagePath')} />
           </label>
           {this.renderHalf()}
         </form>
