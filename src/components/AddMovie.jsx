@@ -12,6 +12,12 @@ class AddMovie extends Component {
       rating: 0,
       genre: 'action',
     };
+
+    this.valueTitle = this.valueTitle.bind(this);
+  }
+
+  valueTitle(event) {
+    this.setState({ title: event.target.value });
   }
 
   title() {
@@ -49,7 +55,7 @@ class AddMovie extends Component {
     return (
       <label htmlFor="inputStoryLine">
         Sinopse
-        <input type="text" name="subtitulo" value={storyline} />
+        <textarea type="textarea" name="subtitulo" value={storyline} />
       </label>
     );
   }
@@ -69,7 +75,17 @@ class AddMovie extends Component {
     return (
       <label htmlFor="inputGenre">
         Gênero
-        <input type="text" name="subtitulo" value={genre} />
+        <select type="text" name="subtitulo" value={genre}>
+          <option text="Ação" value="action">
+            Ação
+          </option>
+          <option text="Comédia" value="comedy">
+            Comédia
+          </option>
+          <option text="Suspense" value="thriller">
+            Suspense
+          </option>
+        </select>
       </label>
     );
   }

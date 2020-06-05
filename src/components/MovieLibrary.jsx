@@ -26,6 +26,9 @@ class MovieLibrary extends Component {
           searchText={searchText}
           bookmarkedOnly={bookmarkedOnly}
           selectedGenre={selectedGenre}
+          // onSearchTextChange={}
+          // onBookmarkedChange={}
+          // onSelectedGenreChange={}
         />
         <MovieList movies={this.props.movies} />
         <AddMovie />
