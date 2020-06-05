@@ -3,31 +3,22 @@ import React from 'react';
 class SearchBar extends React.Component {
   render() {
     const {
-      searchText,
-      onSearchTextChange,
-      bookmarkedOnly,
-      onBookmarkedChange,
-      selectedGenre,
+      searchText, onSearchTextChange, bookmarkedOnly, onBookmarkedChange, selectedGenre,
       onSelectedGenreChange,
     } = this.props;
     return (
       <form>
-        <label htmlFor="searchText">
+        <label>
           Inclui o texto:
-          <input type="text" name="searchText" value={searchText} onChange={onSearchTextChange} />
+          <input type="text" value={searchText} onChange={onSearchTextChange} />
         </label>
-        <label htmlFor="bookmarkedOnly">
+        <label>
           Mostrar somente favoritos
-          <input
-            type="checkbox"
-            name="bookmarkedOnly"
-            checked={bookmarkedOnly}
-            onChange={onBookmarkedChange}
-          />
+          <input type="checkbox" checked={bookmarkedOnly} onChange={onBookmarkedChange}/>
         </label>
-        <label htmlFor="selectedGenre">
+        <label>
           Filtrar por gênero
-          <select name="selectedGenre" value={selectedGenre} onChange={onSelectedGenreChange}>
+          <select value={selectedGenre} onChange={onSelectedGenreChange}>
             <option value="">Todos</option>
             <option value="action">Ação</option>
             <option value="comedy">Comédia</option>

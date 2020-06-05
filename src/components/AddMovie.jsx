@@ -18,16 +18,12 @@ class AddMovie extends Component {
 
   handleChange(event, name) {
     const { value } = event.target;
-    this.setState({
-      [name]: value,
-    });
+    this.setState({[name]: value});
   }
 
   handleRating(event, name) {
     const { value } = event.target;
-    this.setState({
-      [name]: Number(value),
-    });
+    this.setState({[name]: Number(value)});
   }
 
   addMovie(callback) {
@@ -44,14 +40,14 @@ class AddMovie extends Component {
 
   newTextElement(label, name, value) {
     return (
-      <label>
+      <label htmlFor={name}>
         {label}
         <input
           type="text"
           name={name}
           value={value}
           onChange={(event) => this.handleChange(event, name)}
-        ></input>
+        />
       </label>
     );
   }
@@ -59,7 +55,7 @@ class AddMovie extends Component {
   newSelectElement() {
     const { genre } = this.state;
     return (
-      <label>
+      <label htmlFor="genre">
         Gênero
         <select
           value={genre}
@@ -83,22 +79,19 @@ class AddMovie extends Component {
         {this.newTextElement('Título', 'title', title)}
         {this.newTextElement('Subtítulo', 'subtitle', subtitle)}
         {this.newTextElement('Imagem', 'imagePath', imagePath)}
-        <label>
-          Sinopse
-          <textarea
-            value={storyline}
+        <label htmlFor="storyline">Sinopse
+          <textarea value={storyline}
             name="storyline"
             onChange={(event) => this.handleChange(event, 'storyline')}
-          ></textarea>
+          />
         </label>
-        <label>
-          Avaliação
+        <label htmlFor="rating">Avaliação
           <input
             type="number"
             value={rating}
             name="rating"
             onChange={(event) => this.handleRating(event, 'rating')}
-          ></input>
+          />
         </label>
         {this.newSelectElement()}
         <button onClick={() => this.addMovie(onClick)}>Adicionar filme</button>

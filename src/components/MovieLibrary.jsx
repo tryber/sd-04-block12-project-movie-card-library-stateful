@@ -19,28 +19,26 @@ class MovieLibrary extends Component {
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
   }
 
-  addMovie(movie) {
-    this.setState((state) => ({ movies: [...state.movies, movie] }));
-  }
-
   upDate(event) {
     const { name, value } = event.target;
-    this.setState(() => ({
-      [name]: value,
-    }));
+    this.setState(() => ({[name]: value}));
   }
 
   onSearchTextChange(event) {
     this.upDate(event);
   }
 
-  onBookmarkedChange(event) {
+  onBookmarkedChange() {
     const { bookmarkedOnly } = this.state;
     this.setState({ bookmarkedOnly: !bookmarkedOnly });
   }
 
   onSelectedGenreChange(event) {
     this.upDate(event);
+  }
+
+  addMovie(movie) {
+    this.setState((state) => ({ movies: [...state.movies, movie] }));
   }
 
   filteredMovies(movies) {
@@ -59,7 +57,7 @@ class MovieLibrary extends Component {
         (movie) =>
           movie.title === searchText ||
           movie.subtitle === searchText ||
-          movie.storyline.includes(searchText)
+          movie.storyline.includes(searchText),
       );
     }
     return arrFiltered;
