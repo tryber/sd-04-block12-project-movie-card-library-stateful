@@ -4,6 +4,18 @@ import SearchBar from './SearchBar';
 import MovieList from './MovieList';
 import AddMovie from './AddMovie';
 
+function filterText(movie, searchText) {
+  if (movie.title.includes(searchText)
+  || movie.subtitle.includes(searchText)
+  || movie.storyline.includes(searchText)) return true;
+  return false;
+}
+
+function filterGenre(movie, selectedGenre) {
+  if (movie.genre === selectedGenre) return true;
+  return false;
+}
+
 export default class MovieLibrary extends React.Component {
   constructor(props) {
     super(props);
@@ -39,18 +51,14 @@ export default class MovieLibrary extends React.Component {
         return false;
       }
       if (selectedGenre !== '') {
-        if (movie.genre === selectedGenre) return true;
-        return false;
+        return filterGenre(movie, selectedGenre);
       }
-      if (movie.title.includes(searchText)
-      || movie.subtitle.includes(searchText)
-      || movie.storyline.includes(searchText)) return true;
-      return false;
+      return filterText(movie, searchText);
     });
   }
 
   onClickAdd(movie) {
-    this.setState((state) => ({movies: [...state.movies, movie]}));
+    this.setState((state) => ({ movies: [...state.movies, movie] }));
   }
 
   render() {
