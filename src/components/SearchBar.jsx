@@ -38,7 +38,7 @@ export default class SearchBar extends React.Component {
           <label htmlFor="selectedGenre">
             Filtrar por gênero
             <select
-              defaultValue={selectedGenre}
+              value={selectedGenre}
               name="selectedGenre"
               onChange={onSelectedGenreChange}
             >

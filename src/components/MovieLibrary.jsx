@@ -12,15 +12,12 @@ export default class MovieLibrary extends React.Component {
       selectedGenre: '',
       movies: props.movies,
     };
-    this.insertMovie = this.insertMovie.bind(this);
+    this.addMovie = this.addMovie.bind(this);
     this.renderMovieList = this.renderMovieList.bind(this);
   }
 
-  insertMovie(newMovie) {
-    const { movies } = this.state;
-    movies.push(newMovie);
-    this.setState({ movies });
-    console.log(movies);
+  addMovie(newMovie) {
+    this.setState((state) => ({ movies: [...state.movies, newMovie] }));
   }
 
   renderMovieList() {
@@ -52,7 +49,7 @@ export default class MovieLibrary extends React.Component {
           onSelectedGenreChange={(event) => this.setState({ selectedGenre: event.target.value })}
         />
         <MovieList movies={this.renderMovieList()} />
-        <AddMovie insertMovie={this.insertMovie} />
+        <AddMovie onClick={this.addMovie} />
       </div>
     );
   }

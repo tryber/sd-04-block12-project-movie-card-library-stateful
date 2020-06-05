@@ -14,7 +14,18 @@ export default class AddMovie extends React.Component {
     };
     this.renderHalf = this.renderHalf.bind(this);
     this.addNewMovie = this.addNewMovie.bind(this);
-    this.AddMovie = this.AddMovie.bind(this);
+    this.resetState = this.resetState.bind(this);
+  }
+
+  resetState() {
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
   }
 
   addNewMovie(event, name) {
@@ -26,22 +37,9 @@ export default class AddMovie extends React.Component {
     }
   }
 
-  AddMovie() {
-    const newMovie = this.state;
-    const { insertMovie } = this.props;
-    this.setState({
-      subtitle: '',
-      title: '',
-      imagePath: '',
-      storyline: '',
-      rating: 0,
-      genre: 'action',
-    });
-    insertMovie(newMovie);
-  }
-
   renderHalf() {
     const { storyline, rating, genre } = this.state;
+    const { onClick } = this.props;
     return (
       <div>
         <label htmlFor="storyline">
@@ -60,7 +58,13 @@ export default class AddMovie extends React.Component {
             <option value="thriller">Suspense</option>
           </select>
         </label>
-        <button type="button" onClick={() => this.AddMovie()}>
+        <button
+          type="button"
+          onClick={() => {
+            onClick(this.state);
+            this.resetState();
+          }}
+        >
           Adicionar filme
         </button>
       </div>
