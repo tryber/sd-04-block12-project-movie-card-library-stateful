@@ -1,6 +1,7 @@
+/* eslint-disable react/destructuring-assignment */
 // implement AddMovie component here
 import React, { Component } from 'react';
-import Inputs from './form/Inputs';
+import Inputs from './form/Input';
 
 const initialState = {
   subtitle: '',
@@ -9,7 +10,7 @@ const initialState = {
   storyline: '',
   rating: 0,
   genre: 'action',
-}
+};
 
 
 class AddMovie extends Component {
@@ -20,10 +21,8 @@ class AddMovie extends Component {
     this.onChangeHandle = this.onChangeHandle.bind(this);
   }
 
-  onChangeHandle ({ target: { value } }, name) {
-    this.setState({
-      [name]: value
-    });
+  onChangeHandle({ target: { value } }, name) {
+    this.setState({ [name]: name === 'rating' ? Number(value) : value });
   }
 
   onClickHandle() {
@@ -32,10 +31,16 @@ class AddMovie extends Component {
   }
 
   render() {
+    const { subtitle, title, imagePath, storyline, rating } = this.state;
     return (
       <form>
-        <Inputs state={this.state} onChange={this.onChangeHandle} />
-        <label htmlFor="genre">Gênero
+        <Inputs label="Título" name="title" type="text" Tag="input" value={title} onChange={this.onChangeHandle} />
+        <Inputs label="Subtítulo" name="subtitle" type="text" Tag="input" value={subtitle} onChange={this.onChangeHandle} />
+        <Inputs label="Imagem" name="imagePath" type="text" Tag="input" value={imagePath} onChange={this.onChangeHandle} />
+        <Inputs label="Sinopse" name="storyline" type="text" Tag="textarea" value={storyline} onChange={this.onChangeHandle} />
+        <Inputs label="Avaliação" name="rating" type="number" Tag="input" value={rating} onChange={this.onChangeHandle} />
+        <label htmlFor="genre">
+          Gênero
           <select name="genre" value={this.state.genre} onChange={(e) => this.onChangeHandle(e, 'genre')}>
             <option value="action">Ação</option>
             <option value="comedy">Comédia</option>
