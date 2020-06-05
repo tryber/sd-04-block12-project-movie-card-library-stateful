@@ -53,9 +53,7 @@ class AddMovie extends Component {
         />
         <label htmlFor="genre">Genero</label>
         <SelectComp
-          name={this.state.genre}
-          onChange={this.onSelectChange}
-          defValue={this.state.genre}
+          name={this.state.genre} onChange={this.onSelectChange} defValue={this.state.genre}
         />
         <input type="submit" value="Adicionar Filme" />
       </form>
