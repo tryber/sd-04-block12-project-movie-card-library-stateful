@@ -1,1 +1,110 @@
-// implement AddMovie component here
+import React, { Component } from 'react';
+
+class AddMovie extends Component {
+  constructor(props) {
+    super(props);
+    this.handleChange = this.handleChange.bind(this);
+    this.handleRating = this.handleRating.bind(this);
+
+    this.state = {
+      title: '',
+      subtitle: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    };
+  }
+
+  handleChange(event, name) {
+    const { value } = event.target;
+    this.setState({
+      [name]: value,
+    });
+  }
+
+  handleRating(event, name) {
+    const { value } = event.target;
+    this.setState({
+      [name]: Number(value),
+    });
+  }
+
+  addMovie(callback) {
+    callback(this.state);
+    this.setState({
+      title: '',
+      subtitle: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
+  }
+
+  newTextElement(label, name, value) {
+    return (
+      <label>
+        {label}
+        <input
+          type="text"
+          name={name}
+          value={value}
+          onChange={(event) => this.handleChange(event, name)}
+        ></input>
+      </label>
+    );
+  }
+
+  newSelectElement() {
+    const { genre } = this.state;
+    return (
+      <label>
+        Gênero
+        <select
+          value={genre}
+          type="text"
+          name="genre"
+          onChange={(event) => this.handleChange(event, 'genre')}
+        >
+          <option value="action">Ação</option>
+          <option value="comedy">Comédia</option>
+          <option value="thriller">Suspense</option>
+        </select>
+      </label>
+    );
+  }
+
+  render() {
+    const { onClick } = this.props;
+    const { title, subtitle, imagePath, storyline, rating } = this.state;
+    return (
+      <form>
+        {this.newTextElement('Título', 'title', title)}
+        {this.newTextElement('Subtítulo', 'subtitle', subtitle)}
+        {this.newTextElement('Imagem', 'imagePath', imagePath)}
+        <label>
+          Sinopse
+          <textarea
+            value={storyline}
+            name="storyline"
+            onChange={(event) => this.handleChange(event, 'storyline')}
+          ></textarea>
+        </label>
+        <label>
+          Avaliação
+          <input
+            type="number"
+            value={rating}
+            name="rating"
+            onChange={(event) => this.handleRating(event, 'rating')}
+          ></input>
+        </label>
+        {this.newSelectElement()}
+        <button onClick={() => this.addMovie(onClick)}>Adicionar filme</button>
+      </form>
+    );
+  }
+}
+
+export default AddMovie;
