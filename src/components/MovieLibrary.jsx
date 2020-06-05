@@ -39,22 +39,22 @@ class MovieLibrary extends React.Component {
   }
 
   moviesFilter() {
-    this.setState(state => {
+    this.setState((state) => {
       const { searchText, bookmarkedOnly, selectedGenre, movies } = state;
       let filteredMovies = [...movies];
       if (bookmarkedOnly) {
         filteredMovies = filteredMovies.filter(
-          movie => movie.bookmarked === true,
+          (movie) => movie.bookmarked === true,
         );
       }
       if (selectedGenre) {
         filteredMovies = filteredMovies.filter(
-          movie => movie.genre === selectedGenre,
+          (movie) => movie.genre === selectedGenre,
         );
       }
       if (searchText) {
         filteredMovies = filteredMovies.filter(
-          movie =>
+          (movie) =>
             movie.title.includes(searchText) ||
             movie.subtitle.includes(searchText) ||
             movie.storyline.includes(searchText),
@@ -63,11 +63,10 @@ class MovieLibrary extends React.Component {
 
       return { filteredMovies };
     });
-    console.log(this.state);
   }
 
   handleAddMovie(addState) {
-    this.setState(state => ({ movies: [...state.movies, addState] }));
+    this.setState((state) => ({ movies: [...state.movies, addState] }));
     this.moviesFilter();
   }
 

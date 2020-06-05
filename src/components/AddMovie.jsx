@@ -16,35 +16,8 @@ class AddMovie extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  componentDidUpdate(prevProps, prevState) {
-    const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
-    if (prevState.subtitle !== subtitle) {
-      this.setState({ subtitle: subtitle });
-    }
-    if (prevState.title !== title) {
-      this.setState({ title: title });
-    }
-    if (prevState.imagePath !== imagePath) {
-      this.setState({ imagePath });
-    }
-    if (prevState.storyline !== storyline) {
-      this.setState({ storyline });
-    }
-    if (prevState.subtitle !== subtitle) {
-      this.setState({ subtitle });
-    }
-    if (prevState.rating !== rating) {
-      this.setState({ rating });
-    }
-    if (prevState.genre !== genre) {
-      this.setState({ genre });
-    }
-  }
-
   handleChange(e, name) {
-    const {
-      target: { value },
-    } = e;
+    const { target: { value } } = e;
     this.setState({ [name]: name === 'rating' ? Number(value) : value });
   }
 
@@ -70,7 +43,7 @@ class AddMovie extends React.Component {
           type={type}
           id={id}
           value={value}
-          onChange={e => this.handleChange(e, name)}
+          onChange={(e) => this.handleChange(e, name)}
         />
       </label>
     );
@@ -85,7 +58,7 @@ class AddMovie extends React.Component {
           type={type}
           id={id}
           value={value}
-          onChange={e => this.handleChange(e, name)}
+          onChange={(e) => this.handleChange(e, name)}
         />
       </label>
     );
@@ -113,7 +86,7 @@ class AddMovie extends React.Component {
           name="genre"
           id="genreInput"
           value={genre}
-          onChange={e => this.handleChange(e, 'genre')}
+          onChange={(e) => this.handleChange(e, 'genre')}
         >
           <option value="action">Ação</option>
           <option value="comedy">Comédia</option>
