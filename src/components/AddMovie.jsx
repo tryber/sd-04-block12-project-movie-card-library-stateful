@@ -29,9 +29,7 @@ class AddMovie extends Component {
   ChangeState(event) {
     console.log(event.target);
     const { name, value } = event.target;
-    this.setState(() => ({
-      [name]: value,
-    }));
+    this.setState(() => ([name]: value));
   }
 
   Clear() {
@@ -55,7 +53,7 @@ class AddMovie extends Component {
           {inputs({ name: 'imagePath', label: 'Imagem', type: 'text', value: this.state.imagePath, onChange: this.ChangeState })}
           <label htmlFor="storyline">
             Sinopse
-            <textarea type="text" name="storyline" value={this.state.storyline} onChange={this.ChangeState}/>
+            <textarea type="text" name="storyline" value={this.state.storyline} onChange={this.ChangeState} />
           </label>
           {inputs({ name: 'rating', label: 'Avaliação', type: 'rating', value: this.state.rating, onChange: this.ChangeState })}
           <label htmlFor="genre">
@@ -66,10 +64,7 @@ class AddMovie extends Component {
               <option value="thriller">Suspense</option>
             </select>
           </label>
-          <button onClick={() => {
-              onClick(this.state);
-              this.Clear()}}>Adicionar filme
-          </button>
+          <button onClick={() => onClick(this.state); this.Clear(); } >Adicionar filme</button>
         </form>
       </div>
     );

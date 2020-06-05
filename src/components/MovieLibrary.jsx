@@ -33,11 +33,9 @@ class MovieLibrary extends Component {
     this.setState({ selectedGenre: event.target.value });
   }
 
-  favoriteFilms(movies) {}
-
   AddMovieOnList(newMovie) {
     this.setState((state) => ({ movies: [...state.movies, newMovie] }));
-  };
+  }
 
   render() {
     const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
