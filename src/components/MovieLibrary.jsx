@@ -22,7 +22,7 @@ class MovieLibrary extends React.Component {
     const { bookmarkedOnly } = this.state;
     this.setState({ bookmarkedOnly: !bookmarkedOnly });
   }
-  
+
   addMovie({
     subtitle,
     title,
@@ -45,7 +45,7 @@ class MovieLibrary extends React.Component {
       ],
     }));
   }
-  
+
   renderMovieList() {
     const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
 
