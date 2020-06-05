@@ -1,7 +1,7 @@
 // implement MovieLibrary component here
 import React from 'react';
-// import MovieList from './MovieList';
-// import movies from './../data';
+import MovieList from './MovieList';
+import movies from './../data';
 import SearchBar from './SearchBar';
 import MovieList from './MovieList';
 
@@ -32,17 +32,17 @@ class MovieLibrary extends React.Component {
   render() {
     return (
       <div>
-      <SearchBar
-        searchText={this.state.searchText}
-        onSearchTextChange={(event) => this.onSearchTextChange(event)}
-        bookmarkedOnly={this.state.bookmarkedOnly}
-        onBookmarkedChange={(event) => this.onBookmarkedChange(event)}
-        selectedGenre={this.state.selectedGenre}
-        onSelectedGenreChange={(event) => this.onSelectedGenreChange(event)}
+        <SearchBar
+          searchText={this.state.searchText}
+          onSearchTextChange={(event) => this.onSearchTextChange(event)}
+          bookmarkedOnly={this.state.bookmarkedOnly}
+          onBookmarkedChange={(event) => this.onBookmarkedChange(event)}
+          selectedGenre={this.state.selectedGenre}
+          onSelectedGenreChange={(event) => this.onSelectedGenreChange(event)}
         />
-      <MovieList movies={movies}/>
-      <AddMovie/>
-        </div>
+        <MovieList movies={ movies } />
+        <AddMovie />
+      </div>
     );
   }
 }
