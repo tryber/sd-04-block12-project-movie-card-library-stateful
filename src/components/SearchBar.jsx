@@ -11,7 +11,6 @@ const SearchBar = ({
 }) => (
   <form>
     <label htmlFor="searchText">
-      {' '}
       Inclui o texto:
       <input
         name="searchText"

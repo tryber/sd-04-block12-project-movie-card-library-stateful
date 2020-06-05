@@ -17,26 +17,52 @@ export default class extends React.Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
-  handleChange(event) {
-    this.setState({ [event.target.name]: event.target.value });
+  handleChange() {
+    const { bookmarkedOnly } = this.state;
+    this.setState({ bookmarkedOnly: !bookmarkedOnly });
   }
 
-  // filterFilms (arr) {
-  //   const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
-  // }
+  renderMovieList(selectedGenre, bookmarkedOnly, movies, searchText) {
+    let filteredMovies = movies.filter(
+      (movie) =>
+        movie.title.includes(searchText) ||
+        movie.subtitle.includes(searchText) ||
+        movie.storyline.includes(searchText),
+    );
+    if (selectedGenre) {
+      filteredMovies = filteredMovies.filter(
+        (movie) => movie.genre === selectedGenre,
+      );
+    }
+    return bookmarkedOnly
+      ? filteredMovies.filter((movie) => movie.bookmarked)
+      : filteredMovies;
+  }
+
   render() {
     const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
     return (
       <div>
         <SearchBar
           searchText={searchText}
-          onSearchTextChange={() => this.handleChange}
+          onSearchTextChange={(e) =>
+            this.setState({ searchText: e.target.value })
+          }
           bookmarkedOnly={bookmarkedOnly}
-          onBookmarkedChange={() => this.handleChange}
+          onBookmarkedChange={this.handleChange}
           selectedGenre={selectedGenre}
-          onSelectedGenreChange={() => this.handleChange}
+          onSelectedGenreChange={(e) =>
+            this.setState({ [e.target.name]: e.target.value })
+          }
         />
-        <MovieList movies={movies} />
+        <MovieList
+          movies={this.renderMovieList(
+            selectedGenre,
+            bookmarkedOnly,
+            movies,
+            searchText,
+          )}
+        />
         <AddMovie />
       </div>
     );
