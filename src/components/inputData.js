@@ -20,13 +20,13 @@ const inputData = [
   {
     id: 'storyLineInput',
     name: 'storyline',
-    type: 'text',
+    type: 'textarea',
     text: 'Sinopse',
   },
   {
     id: 'ratingInput',
     name: 'rating',
-    type: 'text',
+    type: 'number',
     text: 'Avaliação',
   },
 ];
