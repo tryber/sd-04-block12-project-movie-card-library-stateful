@@ -4,7 +4,6 @@ import AddMovie from './AddMovie';
 import MovieList from './MovieList';
 import SearchBar from './SearchBar';
 
-
 class MovieLibrary extends Component {
   constructor(props) {
     super(props);
@@ -22,7 +21,7 @@ class MovieLibrary extends Component {
   }
 
   onSearchTextChange(event) {
-    this.setState({ searchText: event.target.value});
+    this.setState({ searchText: event.target.value });
   }
 
   onBookmarkedChange() {
@@ -34,12 +33,11 @@ class MovieLibrary extends Component {
     this.setState({ selectedGenre: event.target.value });
   }
 
-  favoriteFilms(movies) {
-  }
+  favoriteFilms(movies) {}
 
-  AddMovieOnList = newMovie => {
+  AddMovieOnList = (newMovie) => {
     this.setState((state) => ({ movies: [...state.movies, newMovie] }));
-  }
+  };
 
   render() {
     const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
@@ -57,7 +55,7 @@ class MovieLibrary extends Component {
         <AddMovie onClick={this.AddMovieOnList} />
       </div>
     );
-  };
+  }
 }
 
 export default MovieLibrary;
