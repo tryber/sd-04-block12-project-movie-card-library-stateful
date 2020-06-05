@@ -1,37 +1,44 @@
-// implement SearchBar component here
-import React, { Components } from 'react';
+import React, { PureComponent } from 'react';
 
-class SearchBar extends Components {
+class SearchBar extends PureComponent {
+  genres = {
+    Todos: '',
+    Ação: 'action',
+    Comédia: 'comedy',
+    Suspense: 'thriller',
+  };
+
+  generateOptions = (options) => {
+    return Object.keys(options).map((option) => (
+      <option key={options[option]} value={options[option]}>
+        {option}
+      </option>
+    ));
+  };
+
   render() {
     const {
       searchText,
       onSearchTextChange,
       bookmarkedOnly,
-      onBookmakedChange,
-      selectGenre,
-      onSelectGenreChange,
+      onBookmarkedChange,
+      selectedGenre,
+      onSelectedGenreChange,
     } = this.props;
 
     return (
       <form>
-        <label htmlFor="nomeF">Inclue o Texto</label>
-        <input id="nomeF"
-          type="text"
-          value={searchText}
-          onChange={onSearchTextChange}
-        />
-        <label htmlFor="check">Mostrar somente Favoritos </label>
-        <input id="check"
+        <label>Inclui o texto</label>
+        <input type="text" value={searchText} onChange={onSearchTextChange} />
+        <label>Mostrar somente favoritos</label>
+        <input
           type="checkbox"
           checked={bookmarkedOnly}
-          onChange={onBookmakedChange}
+          onChange={onBookmarkedChange}
         />
-        <label htmlFor="gender">Filtrar por Gênero </label>
-        <select id="gender" value={selectGenre} onChange={onSelectGenreChange}>
-          <option key="Todos" value="">Todos</option>
-          <option key="Ação" value="action">Ação</option>
-          <option key="Comédia" value="comedy">Comédia</option>
-          <option key="Suspense" value="thiller">Suspense</option>
+        <label>Filtrar por gênero</label>
+        <select value={selectedGenre} onChange={onSelectedGenreChange}>
+          {this.generateOptions(this.genres)}
         </select>
       </form>
     );
