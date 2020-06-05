@@ -14,7 +14,12 @@ class SearchBar extends Component {
         <Input key={input[1]} data={input} />
         <label htmlFor="bookmarkedOnly">
           Mostrar somente favoritos
-          <input name="bookmarkedOnly" type="checkbox" checked={bookmarkedOnly} onChange={onBookmarkedChange} />
+          <input
+            name="bookmarkedOnly"
+            type="checkbox"
+            checked={bookmarkedOnly}
+            onChange={onBookmarkedChange}
+          />
         </label>
         <label htmlFor="selectedGenre">
           Filtrar por gênero
