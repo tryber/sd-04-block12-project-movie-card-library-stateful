@@ -2,15 +2,15 @@ import React from 'react';
 
 class SearchBar extends React.Component {
 
-  createSelect() {
+  creatorSelector() {
     return (
-      <label htmlFor="genre">
-        Filtrar por gênero<br />
+      <label htmlFor="gender">
+        Filtrar por gênero
         <select
+          id="gender"
           name="selectedGenre"
           value={this.props.selectedGenre}
-          onChange={this.props.onSelectedGenreChange}
-        >
+          onChange={this.props.onSelectedGenreChange}>
           <option value="">Todos</option>
           <option value="action">Ação</option>
           <option value="comedy">Comédia</option>
@@ -27,20 +27,17 @@ class SearchBar extends React.Component {
     } = this.props;
     return (
       <form>
-        <label htmlFor="searchText">Inclui o texto:</label><br />
+        <label htmlFor="filmName">Inclui o texto</label>
+        <input 
+          id="filmName"
+          value="searchText"
+          onChange="onSearchTextChange" />
+        <label hmtl="fav">Mostrar somente favoritos</label>
         <input
-          name="searchText"type="text" value={searchText} onChange={onSearchTextChange}
-        /><br />
-        <label htmlFor="bookmarkedOnly">
-          Mostrar somente favoritos
-          <input
-            name="bookmarkedOnly"
-            type="checkbox"
-            checked={bookmarkedOnly}
-            onChange={onBookmarkedChange}
-          />
-        </label><br />
-        {this.createSelect()}
+          id="fav"
+          checked="bookmarkedOnly"
+          onChange="onBoolmarkefOnly" />
+        {this.creatorSelector()}
       </form>
     );
   }
