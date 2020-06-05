@@ -39,8 +39,8 @@ class SearchBar extends React.Component {
             checked={bookmarkedOnly}
             onChange={onBookmarkedChange}
           />
-        </label><br />        
-        {this.createSelect()}        
+        </label><br />
+        {this.createSelect()}
       </form>
     );
   }
