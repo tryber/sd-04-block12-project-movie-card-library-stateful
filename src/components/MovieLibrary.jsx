@@ -21,9 +21,7 @@ export default class MovieLibrary extends React.Component {
     if (value !== '') {
       const searchMovies = movies.filter(
         ({ title, subtitle, storyline }) =>
-          title.includes(value) ||
-          subtitle.includes(value) ||
-          storyline.includes(value),
+          title.includes(value) || subtitle.includes(value) || storyline.includes(value),
       );
       this.setState({ movies: searchMovies });
     }

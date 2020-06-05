@@ -1,39 +1,52 @@
 import React from 'react';
 
 export default class SearchBar extends React.Component {
-  render() {
-    const {
-      searchText,
-      onSearchTextChange,
-      bookmarkedOnly,
-      onBookmarkedChange,
-      selectedGenre,
-      onSelectedGenreChange,
-    } = this.props;
+  constructor(props) {
+    super(props);
+    this.renderHalf = this.renderHalf.bind(this);
+  }
+
+  renderHalf() {
+    const { searchText, onSearchTextChange, bookmarkedOnly, onBookmarkedChange } = this.props;
     return (
       <div>
-        <form>
-          <label>
-            Inclui o texto:
-            <input
-              type="text"
-              name="searchText"
-              value={searchText}
-              onChange={onSearchTextChange}
-            />
-          </label>
-          <br />
+        <label htmlFor="searchText">
+          Inclui o texto:
+          <input
+            type="text"
+            name="searchText"
+            value={searchText}
+            onChange={onSearchTextChange}
+          />
+        </label>
+        <br />
+        <label htmlFor="Mostrar somente favoritos">
+          Mostrar somente favoritos
           <input
             type="checkbox"
             name="bookmarkedOnly"
             defaultChecked={bookmarkedOnly}
             onChange={onBookmarkedChange}
           />
-          <label>Mostrar somente favoritos</label>
-          <br />
-          <label>
+        </label>
+      </div>
+    );
+  }
+
+  render() {
+    const { selectedGenre, onSelectedGenreChange } = this.props;
+
+    return (
+      <div>
+        <form>
+          {this.renderHalf()}
+          <label htmlFor="selectedGenre">
             Filtrar por genero
-            <select defaultValue={selectedGenre} name="selectedGenre" onChange={onSelectedGenreChange}>
+            <select
+              defaultValue={selectedGenre}
+              name="selectedGenre"
+              onChange={onSelectedGenreChange}
+            >
               <option value="">Todos</option>
               <option value="action">Ação</option>
               <option value="comedy">Comédia</option>
