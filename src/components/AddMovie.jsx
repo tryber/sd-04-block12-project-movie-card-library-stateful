@@ -13,6 +13,7 @@ export default class AddMovie extends React.Component {
       genre: 'action',
     };
     this.renderHalf = this.renderHalf.bind(this);
+    this.renderButton = this.renderButton.bind(this);
     this.addNewMovie = this.addNewMovie.bind(this);
     this.resetState = this.resetState.bind(this);
   }
@@ -37,9 +38,23 @@ export default class AddMovie extends React.Component {
     }
   }
 
+  renderButton() {
+    const { onClick } = this.props;
+    return (
+      <button
+        type="button"
+        onClick={() => {
+          onClick(this.state);
+          this.resetState();
+        }}
+      >
+        Adicionar filme
+      </button>
+    );
+  }
+
   renderHalf() {
     const { storyline, rating, genre } = this.state;
-    const { onClick } = this.props;
     return (
       <div>
         <label htmlFor="storyline">
@@ -58,15 +73,7 @@ export default class AddMovie extends React.Component {
             <option value="thriller">Suspense</option>
           </select>
         </label>
-        <button
-          type="button"
-          onClick={() => {
-            onClick(this.state);
-            this.resetState();
-          }}
-        >
-          Adicionar filme
-        </button>
+        {this.renderButton()}
       </div>
     );
   }
