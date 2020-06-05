@@ -11,16 +11,28 @@ class AddMovie extends Component {
       rating: 0,
       genre: 'action',
     };
-    this.setTitle = this.setTitle.bind(this);
+    // this.setFields = this.setFields.bind(this);
   }
 
-  setTitle(e) {
+  setFields(e) {
     const { name, value } = e.target;
     this.setState(({ [name]: value }));
   }
 
+  reset() {
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
+  }
+
   render() {
     const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
+    const { onClick } = this.props;
     return (
       <form>
         <label htmlFor="title">
@@ -30,7 +42,7 @@ class AddMovie extends Component {
             id="title"
             name="title"
             value={title}
-            onChange={this.setTitle}
+            onChange={this.setFields}
           />
         </label>
         <label htmlFor="subtitle">
@@ -40,7 +52,7 @@ class AddMovie extends Component {
             id="subtitle"
             name="subtitle"
             value={subtitle}
-            onChange={this.setTitle}
+            onChange={this.setFields}
           />
         </label>
         <label htmlFor="img">
@@ -50,17 +62,16 @@ class AddMovie extends Component {
             id="img"
             name="imagePath"
             value={imagePath}
-            onChange={this.setTitle}
+            onChange={this.setFields}
           />
         </label>
         <label htmlFor="sinopse">
           Sinopse
           <textarea
-            type="text"
             id="sinopse"
             name="storyline"
             value={storyline}
-            onChange={this.setTitle}
+            onChange={this.setFields}
           />
         </label>
         <label htmlFor="av">
@@ -70,19 +81,23 @@ class AddMovie extends Component {
             id="av"
             name="rating"
             value={rating}
-            onChange={this.setTitle}
+            onChange={this.setFields}
           />
         </label>
         <label htmlFor="gen">
           Gênero
-          <select
-            id="gen"
-            name="genre" // value={genre}
-            onChange={this.setTitle}
-          >
-            <option></option>
+          <select id="gen" name="genre" value={genre} onChange={this.setFields}>
+            <option value="action">Ação</option>
+            <option value="comedy">Comédia</option>
+            <option value="thriller">Suspense</option>
           </select>
         </label>
+        <button
+          type="button"
+          onClick=""
+        >
+          Adicionar filme
+        </button>
       </form>
     );
   }

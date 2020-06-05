@@ -5,7 +5,7 @@ import MovieLibrary from './components/MovieLibrary';
 import data from './data';
 
 function App() {
-  console.log(data);
+  // console.log(data);
   return (
     <div className="App">
       <Header />
