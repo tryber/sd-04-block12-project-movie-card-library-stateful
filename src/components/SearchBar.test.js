@@ -88,10 +88,7 @@ describe('<SearchBar /> component Text input', () => {
   });
 
   it('passes the `onSearchTextChange` prop to the `onChange` attribute of the input', () => {
-    expect(textInput().prop('onChange')).toBe(textInput.instance().onSearchTextChange);
-
-  //   expect(component.find('SomeNestedComponent')
-  // .prop('onSomethingChange')).toBe(component.instance().onSomethingChange)
+    expect(textInput().prop('onChange')).toBe(props.onSearchTextChange);
   });
 });
 
