@@ -1,18 +1,17 @@
 // implement SearchBar component here
 import React, { Components } from 'react';
 
-gender = {
- Todos: '',
- Ação: 'action',
- Comédia: 'comedy',
- Suspense: 'thriller',
+const gender = {
+  Todos: '',
+  Ação: 'action',
+  Comédia: 'comedy',
+  Suspense: 'thriller',
 };
 
 class SearchBar extends Components {
   constructor(props) {
     super(props);
     this.creatorOptions = this.props.bind(this);
-    this.gender = props.bind(this);
   };
 
   creatorOptions(gender) {
@@ -22,8 +21,7 @@ class SearchBar extends Components {
         </object>
     ));
   };
-    
-  
+
   render() {
     const {
       searchText,
