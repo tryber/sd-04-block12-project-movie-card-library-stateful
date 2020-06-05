@@ -19,11 +19,6 @@ class MovieLibrary extends Component {
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
   }
 
-  upDate(event) {
-    const { name, value } = event.target;
-    this.setState(() => ({[name]: value}));
-  }
-
   onSearchTextChange(event) {
     this.upDate(event);
   }
@@ -37,6 +32,11 @@ class MovieLibrary extends Component {
     this.upDate(event);
   }
 
+  upDate(event) {
+    const { name, value } = event.target;
+    this.setState(() => ({ [name]: value }));
+  }
+  
   addMovie(movie) {
     this.setState((state) => ({ movies: [...state.movies, movie] }));
   }
