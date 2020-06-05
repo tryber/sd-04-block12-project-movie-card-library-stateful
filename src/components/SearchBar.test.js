@@ -1,11 +1,12 @@
-import React from "react";
-import { shallow } from "enzyme";
+import React from 'react';
+import { mount } from 'enzyme';
 
 import SearchBar from "./SearchBar";
 
 let props;
-const searchBar = () =>
-  shallow(
+
+const searchBar = () => (
+  mount(
     <SearchBar
       searchText={props.searchText}
       onSearchTextChange={props.onSearchTextChange}
@@ -38,8 +39,8 @@ describe("<SearchBar /> component", () => {
 describe("<SearchBar /> component Form", () => {
   beforeEach(() => beforeEachUnitTest());
 
-  const searchBar = () =>
-    shallow(
+  const searchBar = () => (
+    mount(
       <SearchBar
         searchText={props.searchText}
         onSearchTextChange={props.onSearchTextChange}
@@ -58,8 +59,8 @@ describe("<SearchBar /> component Form", () => {
 describe("<SearchBar /> component Text input", () => {
   beforeEach(() => beforeEachUnitTest());
 
-  const searchBar = () =>
-    shallow(
+  const searchBar = () => (
+    mount(
       <SearchBar
         searchText={props.searchText}
         onSearchTextChange={props.onSearchTextChange}
@@ -92,8 +93,8 @@ describe("<SearchBar /> component Text input", () => {
 describe("<SearchBar /> component Bookmarked checkbox", () => {
   beforeEach(() => beforeEachUnitTest());
 
-  const searchBar = () =>
-    shallow(
+  const searchBar = () => (
+    mount(
       <SearchBar
         searchText={props.searchText}
         onSearchTextChange={props.onSearchTextChange}
@@ -130,8 +131,8 @@ describe("<SearchBar /> component Bookmarked checkbox", () => {
 describe("<SearchBar /> component Movie Genre select", () => {
   beforeEach(() => beforeEachUnitTest());
 
-  const searchBar = () =>
-    shallow(
+  const searchBar = () => (
+    mount(
       <SearchBar
         searchText={props.searchText}
         onSearchTextChange={props.onSearchTextChange}
