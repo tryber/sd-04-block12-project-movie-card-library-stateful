@@ -1,50 +1,46 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 
-genres = {
-  Todos: '',
-  Ação: 'action',
-  Comédia: 'comedy',
-  Suspense: 'thriller',
-};
+class SearchBar extends React.Component {
 
-class SearchBar extends PureComponent {
-  constructor(props) {
-    super(props);
-    this.generateOptions = this.props.bind(this);
-  };
-  
-  generateOptions(options) {
-    return Object.keys(options).map((option) => (
-      <option key={options[option]} value={options[option]}>
-        {option}
-      </option>
-    ));
-  };
+  createSelect() {
+    return (
+      <label htmlFor="genre">
+        Filtrar por gênero<br />
+        <select
+          name="selectedGenre"
+          value={this.props.selectedGenre}
+          onChange={this.props.onSelectedGenreChange}
+        >
+          <option value="">Todos</option>
+          <option value="action">Ação</option>
+          <option value="comedy">Comédia</option>
+          <option value="thriller">Suspense</option>
+        </select>
+      </label>
+    );
+  }
 
   render() {
     const {
-      searchText,
-      onSearchTextChange,
-      bookmarkedOnly,
-      onBookmarkedChange,
-      selectedGenre,
-      onSelectedGenreChange,
+      searchText, onSearchTextChange,
+      bookmarkedOnly, onBookmarkedChange,
     } = this.props;
-
     return (
       <form>
-        <label>Inclui o texto</label>
-        <input type="text" value={searchText} onChange={onSearchTextChange} />
-        <label>Mostrar somente favoritos</label>
+        <label htmlFor="searchText">Inclui o texto:</label><br />
         <input
-          type="checkbox"
-          checked={bookmarkedOnly}
-          onChange={onBookmarkedChange}
-        />
-        <label>Filtrar por gênero</label>
-        <select value={selectedGenre} onChange={onSelectedGenreChange}>
-          {this.generateOptions(this.genres)}
-        </select>
+          name="searchText"type="text" value={searchText} onChange={onSearchTextChange}
+        /><br />
+        <label htmlFor="bookmarkedOnly">
+          Mostrar somente favoritos
+          <input
+            name="bookmarkedOnly"
+            type="checkbox"
+            checked={bookmarkedOnly}
+            onChange={onBookmarkedChange}
+          />
+        </label><br />
+        {this.createSelect()}
       </form>
     );
   }
