@@ -42,8 +42,8 @@ class SearchBar extends Component {
           />Mostrar somente favoritos
         </label>
         <label htmlFor="select-genre">Filtrar por genero</label>
-        <select name="select=-genre" onChange={this.onSelectGenreChange}>
-          <option selected value={this.state.selectGenre}>Todos</option>
+        <select name="select-genre" onChange={this.onSelectGenreChange}>
+          <option defaultValue={this.state.selectGenre}>Todos</option>
           <option value="action">Acao</option>
           <option value="comedy">Comedia</option>
           <option value="thriller">Suspense</option>
