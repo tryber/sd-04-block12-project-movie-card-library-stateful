@@ -38,6 +38,12 @@ export default class MovieLibrary extends React.Component {
     this.setState({ selectedGenre: value });
   }
 
+  
+  onClickAdd(movie) {
+    this.setState((state) => ({ movies: [...state.movies, movie] }));
+    this.clear();
+  }
+  
   clear() {
     this.setState({
       title: '',
@@ -48,12 +54,7 @@ export default class MovieLibrary extends React.Component {
       genre: 'action',
     });
   }
-
-  onClickAdd(movie) {
-    this.setState((state) => ({ movies: [...state.movies, movie] }));
-    this.clear();
-  }
-
+  
   render() {
     return (
       <div>
