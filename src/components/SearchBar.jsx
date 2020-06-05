@@ -28,12 +28,12 @@ class SearchBar extends React.Component {
     return (
       <form>
         <label htmlFor="filmName">Inclui o texto</label>
-        <input 
-          id={filmName}
+        <input
+          id="filmName"
           value={searchText}
           onChange={onSearchTextChange}
         />
-        <label hmtl="fav">Mostrar somente favoritos</label>
+        <label htmlFor="fav">Mostrar somente favoritos</label>
         <input
           id="fav"
           checked={bookmarkedOnly}
