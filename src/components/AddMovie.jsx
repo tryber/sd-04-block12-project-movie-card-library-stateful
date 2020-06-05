@@ -53,11 +53,10 @@ class AddMovie extends Component {
           {inputs({ name: 'title', label: 'Título', type: 'text', value: this.state.title, onChange: this.ChangeState })}
           {inputs({ name: 'subtitle', label: 'Subtítulo', type: 'text', value: this.state.subtitle, onChange: this.ChangeState })}
           {inputs({ name: 'imagePath', label: 'Imagem', type: 'text', value: this.state.imagePath, onChange: this.ChangeState })}
-          <label htmlFor="storyline">
-            Sinopse
-            <textarea type="text" name="storyline" 
-              value={this.state.storyline} onChange={this.ChangeState} />
-          </label>
+          <label htmlFor="storyline">Sinopse</label>
+          <textarea
+            type="text" name="storyline" value={this.state.storyline} onChange={this.ChangeState}
+          />
           {inputs({ name: 'rating', label: 'Avaliação', type: 'rating', value: this.state.rating, onChange: this.ChangeState })}
           <label htmlFor="genre">
             Gênero
