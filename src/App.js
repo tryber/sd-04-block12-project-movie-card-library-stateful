@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 
 import MovieLibrary from './components/MovieLibrary';
-import SearchBar from './components/SearchBar';
+// import SearchBar from './components/SearchBar';
 import Header from './components/Header';
 
 function App() {
