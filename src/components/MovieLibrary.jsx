@@ -17,7 +17,7 @@ export default class MovieLibrary extends React.Component {
   }
 
   insertMovie(newMovie) {
-    const { movies } = this.props;
+    const { movies } = this.state;
     movies.push(newMovie);
     this.setState({ movies });
   }
@@ -51,7 +51,7 @@ export default class MovieLibrary extends React.Component {
           onSelectedGenreChange={(event) => this.setState({ selectedGenre: event.target.value })}
         />
         <MovieList movies={this.renderMovieList()} />
-        <AddMovie insertMovie={this.insertMovie} />
+        <AddMovie insertMovie={() => this.insertMovie()} />
       </div>
     );
   }
