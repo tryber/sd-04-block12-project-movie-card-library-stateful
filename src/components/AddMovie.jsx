@@ -19,9 +19,9 @@ class AddMovie extends Component {
   }
 
   onTextChange(event) {
-    const { name, value} = event.target;
+    const { name, value } = event.target;
     console.log(`${name}: ${value}`);
-    this.setState((state)=>({ [name]: value }));
+    this.setState(() => ({ [name]: value }));
   }
 
   onSelectChange(event) {
@@ -38,24 +38,20 @@ class AddMovie extends Component {
     return (
       <form className="addmovie-component" onSubmit={this.onsubmit}>
         <Label
-          text="Titulo" type="text" name="title"
-          value={this.state.title} onChange={this.onTextChange}
+          text="Titulo" type="text" name="title" value={this.state.title} onChange={this.onTextChange}
         />
         <Label
-          text="Subtitulo" type="text" name="subtitle"
-          value={this.state.subtitle} onChange={this.onTextChange}
+          text="Subtitulo" type="text" name="subtitle" value={this.state.subtitle} onChange={this.onTextChange}
         />
         <Label
-          text="Imagem" type="text" name="imagePath"
-          value={this.state.imagePath} onChange={this.onTextChange}
+          text="Imagem" type="text" name="imagePath" value={this.state.imagePath} onChange={this.onTextChange}
         />
-        <label>Sinopse</label>
+        <label htmlFor="storyline">Sinopse</label>
         <textarea name="storyline" value={this.state.storyline} onChange={this.onTextChange} />
         <Label
-          text="Avaliacao" name="rating"
-          value={this.state.rating} onChange={this.onTextChange}
+          text="Avaliacao" name="rating" value={this.state.rating} onChange={this.onTextChange}
         />
-        <label>Genero</label>
+        <label htmlFor="genre">Genero</label>
         <SelectComp
           name={this.state.genre}
           onChange={this.onSelectChange}
