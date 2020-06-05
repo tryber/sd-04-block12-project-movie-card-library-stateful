@@ -39,15 +39,13 @@ class AddMovie extends React.Component {
   render() {
     return (
       <form>
-        <label>
+        <label htmlFor="10">
           Título
-              <input
+          <input
             type="text"
             name="title"
             value={this.state.title}
-            onChange={this.handleChange}
-            onChange={(e) => this.handleChange(e, "title")}
-
+            onChange={(e) => this.handleChange(e, 'title')}
           />
         </label>
         <button onClick={() => this.handleSubmit(this.state)} >Adicionar filme</button>
