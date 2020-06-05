@@ -15,7 +15,8 @@ class AddMovie extends React.Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
-  handleChange({ target: { value } }, name) {
+  handleChange(event) {
+    const { name, value } = event.target;
     const e = (name === 'rating') ? Number(value) : value;
     this.setState({ [name]: e });
   }
@@ -24,7 +25,7 @@ class AddMovie extends React.Component {
     return (
       <label htmlFor={name}>
         {text}
-        <input type={type} name={name} value={value} onChange={(event) => callback(event, name)} />
+        <input type={type} name={name} value={value} onChange={(event) => callback(event)} />
       </label>
     );
   }
@@ -51,12 +52,12 @@ class AddMovie extends React.Component {
         {this.createElement('text', 'imagePath', 'Imagem', imagePath)}
         <label htmlFor="storyline">
           Sinopse
-          <textarea nome="storyline" value={storyline} onChange={(event) => this.handleChange(event, 'storyline')} />
+          <textarea nome="storyline" value={storyline} onChange={(event) => this.handleChange(event)} />
         </label>
         {this.createElement('number', 'rating', 'Avaliação', rating)}
         <label htmlFor="genre">
           Gênero
-          <select name="genre" value={genre} onChange={(event) => this.handleChange(event, 'genre')}>
+          <select name="genre" value={genre} onChange={(event) => this.handleChange(event)}>
             <option value="action">Ação</option>
             <option value="comedy">Comédia</option>
             <option value="thriller">Suspense</option>
