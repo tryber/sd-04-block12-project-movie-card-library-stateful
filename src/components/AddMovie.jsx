@@ -31,7 +31,7 @@ class AddMovie extends Component {
   }
 
   handle(e, name) {
-    (name === 'rating') ?
+    return (name === 'rating') ?
     this.setState({ [name]: Number(e.target.value) })
     : this.setState({ [name]: e.target.value });
   }
