@@ -1,7 +1,7 @@
 // implement SearchBar component here
-import React, { Components } from 'react';
+import React, { PureComponents } from 'react';
 
-class SearchBar extends Components {
+class SearchBar extends PureComponents {
   constructor(props) {
     super(props);
     this.creatorOptions = this.props.bind(this);
