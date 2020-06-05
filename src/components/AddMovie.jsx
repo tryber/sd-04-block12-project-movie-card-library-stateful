@@ -17,6 +17,7 @@ class AddMovie extends Component {
     this.changeStoryLine = this.changeStoryLine.bind(this);
     this.changeRating = this.changeRating.bind(this);
     this.changeGenre = this.changeGenre.bind(this);
+    this.buttonFunction = this.buttonFunction.bind(this);
   }
 
   changeTitle(event) {
@@ -38,25 +39,40 @@ class AddMovie extends Component {
     this.setState({ genre: event.target.value });
   }
 
+  buttonFunction(state) {
+    const { onClick } = this.props;
+    onClick(state);
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
+  }
+
   render() {
+    const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
       <form>
         <label htmlFor="title">Título</label>
-        <input type="text" name="title" value={this.state.title} onChange={this.changeTitle} />
+        <input type="text" name="title" value={title} onChange={this.changeTitle} />
         <label htmlFor="subtitle">Subtítulo</label>
-        <input type="text" value={this.state.subtitle} onChange={this.changeSubtitle} />
+        <input type="text" value={subtitle} onChange={this.changeSubtitle} />
         <label htmlFor="image">Imagem</label>
-        <input type="text" name="image" value={this.state.imagePath} onChange={this.changeImg} />
+        <input type="text" name="image" value={imagePath} onChange={this.changeImg} />
         <label htmlFor="sinopse">Sinopse</label>
-        <textarea type="text" value={this.state.storyline} onChange={this.changeStoryLine} />
+        <textarea type="text" value={storyline} onChange={this.changeStoryLine} />
         <label htmlFor="rating">Avaliação</label>
-        <input type="number" name="rating" value={this.state.rating} onChange={this.changeRating} />
+        <input type="number" name="rating" value={rating} onChange={this.changeRating} />
         <label htmlFor="genre">Gênero</label>
-        <select value={this.state.genre} onChange={this.changeGenre}>
+        <select value={genre} onChange={this.changeGenre}>
           <option value="action">Ação</option>
           <option value="comedy">Comédia</option>
           <option value="thriller">Suspense</option>
         </select>
+        <button onClick={() => this.buttonFunction(this.state)}>Adicionar filme</button>
       </form>
     );
   }
