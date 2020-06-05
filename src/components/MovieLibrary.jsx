@@ -15,12 +15,23 @@ export default class extends Component {
       movies,
     };
 
-    // this.updtSt = this.updtSt.bind(this);
-  };
+    this.updtSt = this.updtSt.bind(this);
+  }
 
   updtSt(e) {
     e.preventDefault();
-    this.setState({ [ e.target.name ]: e.target.value });
+    this.setState({ [e.target.name]: e.target.value });
+  }
+
+  renderMovieList(selectedGenre, bookmarkedOnly, movies, searchText) {
+    let filteredMovies = movies.filter((movie) => (movie.title.includes(searchText)
+    || movie.subtitle.includes(searchText)
+    || movie.storyline.includes(searchText)));
+    if (selectedGenre) {
+      filteredMovies = filteredMovies
+        .filter((movie) => movie.genre === selectedGenre);
+    }
+    return bookmarkedOnly ? filteredMovies.filter((movie) => movie.bookmarked) : filteredMovies;
   }
 
   render() {
@@ -29,16 +40,17 @@ export default class extends Component {
       <div>
         <SearchBar
           searchText={searchText}
-          onSearchTextChange={() => this.updtSt}
+          onSearchTextChange={this.updtSt}
           bookmarkedOnly={bookmarkedOnly}
-          onBookmarkedChange={() => this.updtSt}
+          onBookmarkedChange={() => this.setState({ bookmarkedOnly: !bookmarkedOnly })}
           selectedGenre={selectedGenre}
-          onSelectedGenreChange={() => this.updtSt}
+          onSelectedGenreChange={this.updtSt}
         />
-        <MovieList movies={movies} />
+        <MovieList
+          movies={this.renderMovieList(selectedGenre, bookmarkedOnly, movies, searchText)}
+        />
         <AddMovie />
       </div>
     );
   }
 }
-
