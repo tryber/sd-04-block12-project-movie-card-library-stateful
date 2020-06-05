@@ -34,7 +34,7 @@ class AddMovie extends Component {
     this.setState({ [e.target.name]: e.target.value });
   }
 
-  includeMovie(e) {
+  includeMovie() {
     const { onClick } = this.props;
     onClick(this.state);
     this.resetState();
