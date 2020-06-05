@@ -14,9 +14,11 @@ function inputs({ name, value, onChange, type, label }) {
 
 class SearchBar extends Component {
   render() {
-    const { searchText, onSearchTextChange,
+    const {
+      searchText, onSearchTextChange,
       onBookmarkedChange, selectedGenre,
-      onSelectedGenreChange, bookmarkedOnly } = this.props;
+      onSelectedGenreChange, bookmarkedOnly,
+    } = this.props;
     return (
       <form>
         {inputs({ name: 'search', label: 'Inclui o texto:', type: 'text', value: searchText, onChange: onSearchTextChange })}
