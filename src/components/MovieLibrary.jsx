@@ -36,7 +36,7 @@ class MovieLibrary extends Component {
     const { name, value } = event.target;
     this.setState(() => ({ [name]: value }));
   }
-  
+
   addMovie(movie) {
     this.setState((state) => ({ movies: [...state.movies, movie] }));
   }

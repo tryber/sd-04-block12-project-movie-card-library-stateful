@@ -80,7 +80,7 @@ class AddMovie extends Component {
         {this.newTextElement('Subtítulo', 'subtitle', subtitle)}
         {this.newTextElement('Imagem', 'imagePath', imagePath)}
         <label htmlFor="storyline">Sinopse
-          <textarea 
+          <textarea
             value={storyline} name="storyline"
             onChange={(event) => this.handleChange(event, 'storyline')}
           />
