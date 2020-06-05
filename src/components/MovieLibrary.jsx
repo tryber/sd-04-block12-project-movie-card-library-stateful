@@ -3,6 +3,7 @@ import React from 'react';
 // import MovieList from './MovieList';
 // import movies from './../data';
 import SearchBar from './SearchBar';
+import MovieList from './MovieList';
 
 class MovieLibrary extends React.Component {
   constructor(props) {
@@ -30,6 +31,7 @@ class MovieLibrary extends React.Component {
 
   render() {
     return (
+      <div>
       <SearchBar
         searchText={this.state.searchText}
         onSearchTextChange={(event) => this.onSearchTextChange(event)}
@@ -37,7 +39,10 @@ class MovieLibrary extends React.Component {
         onBookmarkedChange={(event) => this.onBookmarkedChange(event)}
         selectedGenre={this.state.selectedGenre}
         onSelectedGenreChange={(event) => this.onSelectedGenreChange(event)}
-      />
+        />
+      <MovieList movies={movies}/>
+      <AddMovie/>
+        </div>
     );
   }
 }
