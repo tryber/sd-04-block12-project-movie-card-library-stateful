@@ -40,7 +40,6 @@ class MovieLibrary extends React.Component {
           storyline,
           rating,
           imagePath,
-          bookmarked: false,
           genre,
         },
       ],
