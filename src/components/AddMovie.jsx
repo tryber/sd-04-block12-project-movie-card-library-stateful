@@ -38,13 +38,16 @@ class AddMovie extends Component {
     return (
       <form className="addmovie-component" onSubmit={this.onsubmit}>
         <Label
-          text="Titulo" type="text" name="title" value={this.state.title} onChange={this.onTextChange}
+          text="Titulo" type="text" name="title"
+          value={this.state.title} onChange={this.onTextChange}
         />
         <Label
-          text="Subtitulo" type="text" name="subtitle" value={this.state.subtitle} onChange={this.onTextChange}
+          text="Subtitulo" type="text" name="subtitle"
+          value={this.state.subtitle} onChange={this.onTextChange}
         />
         <Label
-          text="Imagem" type="text" name="imagePath" value={this.state.imagePath} onChange={this.onTextChange}
+          text="Imagem" type="text" name="imagePath"
+          value={this.state.imagePath} onChange={this.onTextChange}
         />
         <label htmlFor="storyline">Sinopse</label>
         <textarea name="storyline" value={this.state.storyline} onChange={this.onTextChange} />
