@@ -8,8 +8,12 @@ genres = {
 };
 
 class SearchBar extends PureComponent {
-
-  generateOptions = (options) => {
+  constructor(props) {
+    super(props);
+    this.generateOptions = this.props.bind(this);
+  };
+  
+  generateOptions(options) {
     return Object.keys(options).map((option) => (
       <option key={options[option]} value={options[option]}>
         {option}
