@@ -28,9 +28,9 @@ class AddMovie extends Component {
   }
 
   ChangeState(event) {
-    console.log(event.target);
     const { name, value } = event.target;
-    this.setState({ [name]: value });
+    console.log(value)
+    this.setState({ [name]: name === 'rating' ? Number(value) : value });
   }
 
   Clear() {
@@ -57,7 +57,7 @@ class AddMovie extends Component {
           <textarea
             type="text" name="storyline" value={this.state.storyline} onChange={this.ChangeState}
           />
-          {inputs({ name: 'rating', label: 'Avaliação', type: 'rating', value: this.state.rating, onChange: this.ChangeState })}
+          {inputs({ name: 'rating', label: 'Avaliação', type: 'number', value: this.state.rating, onChange: this.ChangeState })}
           <label htmlFor="genre">
             Gênero
             <select name="genre" value={this.state.genre} onChange={this.ChangeState}>
