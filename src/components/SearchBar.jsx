@@ -2,6 +2,11 @@
 import React, { Components } from 'react';
 
 class SearchBar extends Components {
+  constructor(props) {
+    super(props);
+    this.creatorOptions = this.props.bind(this);
+  };
+
   gender = {
     todos:"",
     Ação:"action",
