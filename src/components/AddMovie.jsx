@@ -49,44 +49,15 @@ class AddMovie extends Component {
     const { onClick } = this.props;
     return (
       <div>
-        <form action="" method="post" enctype="multipart/form-data">
-          {inputs({
-            name: 'title',
-            label: 'Título',
-            type: 'text',
-            value: this.state.title,
-            onChange: this.ChangeState,
-          })}
-          {inputs({
-            name: 'subtitle',
-            label: 'Subtítulo',
-            type: 'text',
-            value: this.state.subtitle,
-            onChange: this.ChangeState,
-          })}
-          {inputs({
-            name: 'imagePath',
-            label: 'Imagem',
-            type: 'text',
-            value: this.state.imagePath,
-            onChange: this.ChangeState,
-          })}
+        <form>
+          {inputs({ name: 'title', label: 'Título', type: 'text', value: this.state.title, onChange: this.ChangeState })}
+          {inputs({ name: 'subtitle', label: 'Subtítulo', type: 'text', value: this.state.subtitle, onChange: this.ChangeState })}
+          {inputs({ name: 'imagePath', label: 'Imagem', type: 'text', value: this.state.imagePath, onChange: this.ChangeState })}
           <label htmlFor="storyline">
             Sinopse
-            <textarea
-              type="text"
-              name="storyline"
-              value={this.state.storyline}
-              onChange={this.ChangeState}
-            />
+            <textarea type="text" name="storyline" value={this.state.storyline} onChange={this.ChangeState}/>
           </label>
-          {inputs({
-            name: 'rating',
-            label: 'Avaliação',
-            type: 'rating',
-            value: this.state.rating,
-            onChange: this.ChangeState,
-          })}
+          {inputs({ name: 'rating', label: 'Avaliação', type: 'rating', value: this.state.rating, onChange: this.ChangeState })}
           <label htmlFor="genre">
             Gênero
             <select name="genre" value={this.state.genre} onChange={this.ChangeState}>
@@ -95,13 +66,9 @@ class AddMovie extends Component {
               <option value="thriller">Suspense</option>
             </select>
           </label>
-          <button
-            onClick={() => {
+          <button onClick={() => {
               onClick(this.state);
-              this.Clear();
-            }}
-          >
-            Adicionar filme
+              this.Clear()}}>Adicionar filme
           </button>
         </form>
       </div>

@@ -35,7 +35,7 @@ class MovieLibrary extends Component {
 
   favoriteFilms(movies) {}
 
-  AddMovieOnList = (newMovie) => {
+  AddMovieOnList(newMovie) {
     this.setState((state) => ({ movies: [...state.movies, newMovie] }));
   };
 
