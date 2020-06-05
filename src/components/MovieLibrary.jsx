@@ -1,8 +1,9 @@
 // implement MovieLibrary component here
 import React, { Component } from 'react';
-import SearchBar from './SearchBar';
-import MovieList from './MovieList';
 import AddMovie from './AddMovie';
+import MovieList from './MovieList';
+import SearchBar from './SearchBar';
+
 
 class MovieLibrary extends Component {
   constructor(props) {
@@ -21,8 +22,7 @@ class MovieLibrary extends Component {
   }
 
   onSearchTextChange(event) {
-    const { name, value } = event.target;
-    this.setState({ [name]: value });
+    this.setState({ searchText: event.target.value});
   }
 
   onBookmarkedChange() {
@@ -31,30 +31,10 @@ class MovieLibrary extends Component {
   }
 
   onSelectedGenreChange(event) {
-    const { name, value } = event.target;
-    this.setState({ [name]: value });
+    this.setState({ selectedGenre: event.target.value });
   }
 
-  favoriteFilmes(movies) {
-    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
-
-    const checkBookmark = (movie) => {
-      if ((!bookmarkedOnly) || (bookmarkedOnly && movie.bookmarked === true)) {
-        return movie;
-      }
-      return false;
-    };
-
-    const checkGenre = (movie) => {
-      if ((selectedGenre && movie.genre === selectedGenre) || !selectedGenre) return movie;
-      return false;
-    };
-
-    return movies.filter((movie) => (movie.title.toLowerCase()
-      .includes(searchText.toLowerCase()) || movie.subtitle.toLowerCase()
-      .includes(searchText.toLowerCase()) || movie.storyline.toLowerCase()
-      .includes(searchText.toLowerCase())) && checkBookmark(movie) && checkGenre(movie));
-  }
+  favoriteFilms(movies) {
   }
 
   AddMovieOnList = newMovie => {
@@ -73,11 +53,11 @@ class MovieLibrary extends Component {
           selectedGenre={selectedGenre}
           onSelectedGenreChange={this.onSelectedGenreChange}
         />
-        <MovieList movies={this.favoriteFilmes(movies)} />
+        <MovieList movies={movies} />
         <AddMovie onClick={this.AddMovieOnList} />
       </div>
     );
-  }
+  };
 }
 
 export default MovieLibrary;

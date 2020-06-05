@@ -9,17 +9,18 @@ class SearchBar extends Component {
     } = this.props;
     return (
       <form>
-        <label htmlFor="inputOne">
+        <label htmlFor="search">
           Inclui o texto:
-          <input type="text" name="inputOne" value={searchText} onChange={onSearchTextChange} />
+          <input type="text" name="search" value={searchText} onChange={onSearchTextChange} />
         </label>
-        <label htmlFor="inputTwo">
+        <label htmlFor="checkbox">
           Mostrar somente favoritos
-          <input type="checkbox" name="inputTwo" checked={bookmarkedOnly} onChange={onBookmarkedChange} />
+          <input type="checkbox" name="checkbox" 
+            checked={bookmarkedOnly} onChange={onBookmarkedChange} />
         </label>
-        <label htmlFor="inputThree">
+        <label htmlFor="genre">
           Filtrar por gênero
-          <select value={selectedGenre} name="inputThree" onChange={onSelectedGenreChange}>
+          <select value={selectedGenre} name="genre" onChange={onSelectedGenreChange}>
             <option value="">Todos</option>
             <option value="action">Ação</option>
             <option value="comedy">Comédia</option>
