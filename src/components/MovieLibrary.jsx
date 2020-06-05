@@ -4,7 +4,7 @@ import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
 import MovieList from './MovieList';
 
-export default class extends React.Component {
+class MovieLibrary extends React.Component {
   constructor(props) {
     super(props);
     const { movies } = this.props;
@@ -15,7 +15,7 @@ export default class extends React.Component {
       movies,
     };
     this.handleChange = this.handleChange.bind(this);
-    this.renderMovie = this.renderMovie.bind(this);
+    this.addMovie = this.addMovie.bind(this);
   }
 
   handleChange() {
@@ -42,7 +42,7 @@ export default class extends React.Component {
       : filteredMovies;
   }
 
-  renderMovie({
+  addMovie({
     subtitle = '',
     title = '',
     imagePath = '',
@@ -83,8 +83,10 @@ export default class extends React.Component {
           }
         />
         <MovieList movies={this.renderMovieList()} />
-        <AddMovie onClick={this.renderMovie} />
+        <AddMovie onClick={this.addMovie} />
       </div>
     );
   }
 }
+
+export default MovieLibrary;

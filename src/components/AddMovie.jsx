@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default class extends React.Component {
+class AddMovie extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -31,7 +31,7 @@ export default class extends React.Component {
   }
 
   includeMovie(e) {
-    e.preventDefault();
+    // e.preventDefault();
     const { onClick } = this.props;
     onClick(this.state);
     this.resetState();
@@ -65,3 +65,5 @@ export default class extends React.Component {
     );
   }
 }
+
+export default AddMovie;
