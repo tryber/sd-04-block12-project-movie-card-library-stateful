@@ -64,7 +64,7 @@ class AddMovie extends Component {
               <option value="thriller">Suspense</option>
             </select>
           </label>
-          <button onClick={() => ({onClick(this.state); this.Clear()}) } >Adicionar filme</button>
+          <button onClick={ onClick(this.state) this.Clear() } >Adicionar filme</button>
         </form>
       </div>
     );
