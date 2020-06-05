@@ -24,12 +24,13 @@ class AddMovie extends Component {
       genre: 'action',
     };
     this.ChangeState = this.ChangeState.bind(this);
+    this.Clear = this.Clear.bind(this);
   }
 
   ChangeState(event) {
     console.log(event.target);
     const { name, value } = event.target;
-    this.setState({name: value});
+    this.setState({ [name]: value });
   }
 
   Clear() {
@@ -65,7 +66,7 @@ class AddMovie extends Component {
               <option value="thriller">Suspense</option>
             </select>
           </label>
-          <button type="submit" onClick={ this.Clear } >Adicionar filme</button>
+          <button type="button" onClick={this.Clear} >Adicionar filme</button>
         </form>
       </div>
     );
