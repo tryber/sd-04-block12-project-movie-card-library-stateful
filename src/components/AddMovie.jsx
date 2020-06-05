@@ -32,11 +32,11 @@ class AddMovie extends Component {
   }
 
   Clear() {
-    setTimeOut(this.setState(() => ({
+    this.setState(() => ({
       subtitle: '', title: '',
       imagePath: '', storyline: '',
       rating: 0, genre: 'action',
-    })), 5000);
+    }));
   }
 
   render() {
@@ -50,7 +50,7 @@ class AddMovie extends Component {
           <label htmlFor='storyline'>Sinopse
             <textarea type='text' name='storyline' value={this.state.storyline} onChange={this.ChangeState} />
           </label>
-          {inputs({name:'rating', type:'rating', value:this.state.rating, onChange:this.ChangeState})}
+          {inputs({name:'Avaliação', type:'rating', value:this.state.rating, onChange:this.ChangeState})}
           <label htmlFor='genre'>Gênero
             <select name='genre' value={this.state.genre} onChange={this.ChangeState}>
               <option value='action'>Ação</option>
