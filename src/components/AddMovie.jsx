@@ -29,7 +29,7 @@ class AddMovie extends Component {
   ChangeState(event) {
     console.log(event.target);
     const { name, value } = event.target;
-    this.setState(() => ([name]: value));
+    this.setState({name: value});
   }
 
   Clear() {
