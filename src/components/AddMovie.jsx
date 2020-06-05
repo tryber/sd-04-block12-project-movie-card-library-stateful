@@ -29,7 +29,6 @@ class AddMovie extends Component {
 
   ChangeState(event) {
     const { name, value } = event.target;
-    console.log(value)
     this.setState({ [name]: name === 'rating' ? Number(value) : value });
   }
 
