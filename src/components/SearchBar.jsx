@@ -28,19 +28,17 @@ class SearchBar extends Component {
   render() {
     return (
       <div className="sbar-component">
-        <label htmlFor="search-bar">Inclui o texto:</label>
+        <label htmlFor="#">Inclui o texto:</label>
         <input
           type="text"
-          name="search-bar"
           value={this.state.searchText}
           onChange={this.onSearchTextChange}
         />
-        <label htmlFor="checkbox">
+        <label htmlFor="#">
           <input
-          type="checkbox"
-          name="checkbox"
-          checked={this.state.bookMarkedOnly}
-          onChange={this.onBookmarkedChange}
+            type="checkbox"
+            checked={this.state.bookMarkedOnly}
+            onChange={this.onBookmarkedChange}
           />Mostrar somente favoritos
         </label>
         <label htmlFor="select-genre">Filtrar por genero</label>
