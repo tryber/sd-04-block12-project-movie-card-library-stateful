@@ -27,7 +27,7 @@ class SearchBar extends Component {
 
   render() {
     return (
-      <div>
+      <div className="sbar-component">
         <label htmlFor="search-bar">Inclui o texto:</label>
         <input
           type="text"
@@ -35,13 +35,14 @@ class SearchBar extends Component {
           value={this.state.searchText}
           onChange={this.onSearchTextChange}
         />
-        <input
+        <label htmlFor="checkbox">
+          <input
           type="checkbox"
           name="checkbox"
           checked={this.state.bookMarkedOnly}
           onChange={this.onBookmarkedChange}
-        />
-        <label htmlFor="checkbox">Mostrar somente favoritos</label>
+          />Mostrar somente favoritos
+        </label>
         <label htmlFor="select-genre">Filtrar por genero</label>
         <select name="select=-genre" onChange={this.onSelectGenreChange}>
           <option selected value={this.state.selectGenre}>Todos</option>
