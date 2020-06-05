@@ -15,13 +15,33 @@ export default class AddMovie extends React.Component {
     };
   }
 
-  handleChange(event) {
-    const { name, value } = event.target;
+  handleChange(event, name) {
     if (name === 'rating') {
-      this.setState({ [name]: Number(value) });
+      this.setState({ [name]: Number(event.target.value) });
     } else {
-      this.setState({ [name]: value });
+      this.setState({ [name]: event.target.value });
     }
+  }
+
+  handleClick(onClick) {
+    onClick(this.state);
+    this.setState({
+      title: '',
+      subtitle: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
+  }
+
+  createElement(type, name, text, value, callback = this.handleChange) {
+    return (
+      <label htmlFor={name}>
+        {text}
+        <input type={type} name={name} value={value} onChange={(event) => callback(event, name)} />
+      </label>
+    );
   }
 
   render() {
@@ -29,23 +49,20 @@ export default class AddMovie extends React.Component {
     const { onClick } = this.props;
     return (
       <form>
-        <label htmlFor="title">Título</label>
-        <input type="text" name="title" value={title} onChange={() => this.handleChange} />
-        <label htmlFor="subtitle">Subtítulo</label>
-        <input type="number" name="subtitle" value={subtitle} onChange={this.handleChange} />
-        <label htmlFor="imagePath">Imagem</label>
-        <input type="text" name="imagePath" value={imagePath} onChange={this.handleChange} />
+        {this.createElement('text', 'title', 'Título', title)}
+        {this.createElement('text', 'subtitle', 'Subtítulo', subtitle)}
+        {this.createElement('text', 'imagePath', 'Imagem', imagePath)}
         <label htmlFor="storyline">Sinopse</label>
-        <textarea type="text" name="storyline" value={storyline} onChange={this.handleChange} />
+        <textarea value={storyline} onChange={(e) => this.handleChange(e, 'storyline')} />
         <label htmlFor="rating">Avaliação</label>
-        <input type="text" name="rating" value={rating} onChange={this.handleChange} />
+        <input type="number" name="rating" value={rating} onChange={(e) => this.handleChange(e, 'rating')} />
         <label htmlFor="genre">Gênero</label>
-        <select name="genre" value={genre} onChange={this.handleChange}>
+        <select name="genre" value={genre} onChange={(e) => this.handleChange(e, 'genre')}>
           <option value="action">Ação</option>
           <option value="comedy">Comédia</option>
           <option value="thriller">Suspense</option>
         </select>
-        <button type="button" onClick={() => { onClick(this.state); }}>Adicionar filme</button>
+        <button type="button" onClick={() => { this.handleClick(onClick); }}>Adicionar filme</button>
       </form>
     );
   }
