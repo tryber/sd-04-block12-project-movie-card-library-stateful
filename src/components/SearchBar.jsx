@@ -1,27 +1,7 @@
 // implement SearchBar component here
 import React, { Components } from 'react';
 
-const gender = {
-  Todos: '',
-  Ação: 'action',
-  Comédia: 'comedy',
-  Suspense: 'thriller',
-};
-
 class SearchBar extends Components {
-  constructor(props) {
-    super(props);
-    this.creatorOptions = this.props.bind(this);
-  };
-
-  creatorOptions(gender) {
-    return Object.keys(gender).map(element => (
-      <object value={gender[element]}>
-        {element}
-        </object>
-    ));
-  };
-
   render() {
     const {
       searchText,
@@ -32,19 +12,22 @@ class SearchBar extends Components {
       onSelectGenreChange
     } = this.props;
 
-    return (
-      <form>
-        <label for="nomeF">Inclue o Texto</label>
-        <input id="nomeF"type="text" value={searchText} onChange={onSearchTextChange}></input>
-        <label for="check">Mostrar somente Favoritos</label>
-        <input id="check" type="checkbox" checked={bookmarkedOnly}
-          onChange={onBookmakedChange}></input>
-        <label id="gender">Filtrar por Gênero</label>
-        <select id="gender" value={selectGenre} onChange={onSelectGenreChange}>
-          {this.creatorOptions(this.gender)}
-        </select>
-      </form>
-    )
+  return (
+    <form>
+      <label for="nomeF">Inclue o Texto</label>
+      <input id="nomeF"type="text" value={searchText} onChange={onSearchTextChange}></input>
+      <label for="check">Mostrar somente Favoritos</label>
+      <input id="check" type="checkbox" checked={bookmarkedOnly}
+        onChange={onBookmakedChange}></input>
+      <label id="gender">Filtrar por Gênero</label>
+      <select id="gender" value={selectGenre} onChange={onSelectGenreChange}>
+        <option key="Todos" value="">Todos</option>
+        <option key="Ação" value="action">Ação</option>
+        <option key="Comédia" value="comedy">Comédia</option>
+        <option key="Suspense" value="thiller">Suspense</option>
+      </select>
+    </form>
+  )
   }
 }
 
