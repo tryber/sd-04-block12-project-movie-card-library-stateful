@@ -15,15 +15,17 @@ class MovieLibrary extends Component {
       selectedGenre: '',
       movies,
     };
-    this.handleClick = this.handleClick.bind(this);
     this.handleChangeText = this.handleChangeText.bind(this);
     this.handleCheckedBook = this.handleCheckedBook.bind(this);
-    this.handleGenre = this.handleGenre.bind(this);
+    this.addNewMovie = this.addNewMovie.bind(this);
   }
 
-  handleClick(element) {
-    const { movies } = this.state;
-    this.setState({ movies: [...movies, element] });
+  onlyFavoriteMovies(mov) {
+    const { bookmarkedOnly } = this.state;
+    if (bookmarkedOnly !== false) {
+      return mov.filter((element) => element.bookmarkedOnly === true);
+    }
+    return mov;
   }
 
   handleCheckedBook(event) {
@@ -36,6 +38,10 @@ class MovieLibrary extends Component {
 
   handleGenre(event) {
     this.setState({ selectedGenre: event.target.value });
+  }
+
+  addNewMovie(element) {
+    this.setState((e) => ({ movies: [...e.movies, element] }));
   }
 
   render() {
@@ -52,7 +58,7 @@ class MovieLibrary extends Component {
           onBookmarkedChange={this.handleCheckedBook}
         />
         <MovieList movies={this.props.movies} />
-        <AddMovie onClick={this.handleClick} />
+        <AddMovie onClick={this.addNewMovie} />
       </div>
     );
   }

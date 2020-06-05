@@ -49,8 +49,8 @@ class SearchBar extends Component {
     return (
       <div>
         <form>
-          {this.showOnlyFavorites()}
           {this.includedText()}
+          {this.showOnlyFavorites()}
           {this.filterByGenre()}
         </form>
       </div>

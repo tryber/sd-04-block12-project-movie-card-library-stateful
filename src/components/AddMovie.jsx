@@ -1,17 +1,19 @@
 /* eslint-disable react/destructuring-assignment */
 import React, { Component } from 'react';
 
+const stateInitial = {
+  title: '',
+  subtitle: '',
+  imagePath: '',
+  storyline: '',
+  rating: 0,
+  genre: 'action',
+};
+
 class AddMovie extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      title: '',
-      subtitle: '',
-      imagePath: '',
-      storyline: '',
-      rating: 0,
-      genre: 'action',
-    };
+    this.state = stateInitial;
 
     this.valueTitle = this.valueTitle.bind(this);
     this.valueSubtitle = this.valueSubtitle.bind(this);
@@ -19,6 +21,7 @@ class AddMovie extends Component {
     this.valueStoryLine = this.valueStoryLine.bind(this);
     this.valueRating = this.valueRating.bind(this);
     this.valueGenre = this.valueGenre.bind(this);
+    this.resetStateInicial = this.resetStateInicial.bind(this);
   }
 
   valueTitle(event) {
@@ -95,7 +98,7 @@ class AddMovie extends Component {
     return (
       <label htmlFor="inputRating">
         Avaliação
-        <input type="text" name="subtitulo" value={rating} onChange={rating} />
+        <input type="number" name="inputRating" value={rating} onChange={this.valueRating} />
       </label>
     );
   }
@@ -120,7 +123,13 @@ class AddMovie extends Component {
     );
   }
 
+  resetStateInicial(onClick) {
+    onClick(this.state);
+    this.setState(stateInitial);
+  }
+
   render() {
+    const { onClick } = this.props;
     return (
       <div>
         <form>
@@ -134,7 +143,7 @@ class AddMovie extends Component {
             className="btn btn-primary"
             type="button"
             value="Adicionar filme"
-            onClick={this.handleClick}
+            onClick={() => this.resetStateInicial(onClick)}
           >
             Adicionar filme
           </button>
