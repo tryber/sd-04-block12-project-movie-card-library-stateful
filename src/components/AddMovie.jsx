@@ -14,6 +14,7 @@ class AddMovie extends React.Component {
     };
     this.addNewMovie = this.addNewMovie.bind(this);
     this.resetState = this.resetState.bind(this);
+    this.renderButton = this.renderButton.bind(this);
   }
 
   addNewMovie(event, name) {
@@ -23,7 +24,7 @@ class AddMovie extends React.Component {
     } else {
       this.setState({ [name]: value });
     }
-}
+  }
 
   resetState() {
     this.setState({
@@ -36,9 +37,18 @@ class AddMovie extends React.Component {
     });
   }
 
+  renderButton() {
+    const { onClick } = this.props;
+    return (
+      <button type="button" onClick={() => {
+        onClick(this.state);
+        this.resetState();
+      }}>Adicionar filme</button>
+    )
+  }
+
   render() {
     const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
-    const { onClick } = this.props;
     return (
       <form>
         <label htmlFor="title">Título</label>
@@ -57,13 +67,7 @@ class AddMovie extends React.Component {
           <option value="comedy">Comédia</option>
           <option value="thriller">Suspense</option>
         </select>
-        <button type="button" onClick={() => {
-          onClick(this.state);
-          this.resetState();
-        }}
-      >
-        Adicionar filme
-      </button>
+        {this.renderButton()}
       </form>
     );
   }
