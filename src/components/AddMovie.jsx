@@ -1,11 +1,11 @@
 // implement AddMovie component here
 import React from 'react';
 
-// const genreOptions = [
-//   { value: 'action', text: 'Ação' },
-//   { value: 'comedy', text: 'Comédia' },
-//   { value: 'thriller', text: 'Suspense' },
-// ];
+const genreOptions = [
+  { value: 'action', text: 'Ação' },
+  { value: 'comedy', text: 'Comédia' },
+  { value: 'thriller', text: 'Suspense' },
+];
 
 class AddMovie extends React.Component {
   constructor(props) {
@@ -24,6 +24,7 @@ class AddMovie extends React.Component {
     this.updateSubtitle = this.updateSubtitle.bind(this);
     this.updateStory = this.updateStory.bind(this);
     this.updateRating = this.updateRating.bind(this);
+    this.updateGenre = this.updateGenre.bind(this);
   }
 
   updateTitle(event) {
@@ -46,6 +47,10 @@ class AddMovie extends React.Component {
     this.setState({ rating: event.target.value });
   }
 
+  updateGenre(event) {
+    this.setState({ genre: event.target.value})
+  }
+
   render() {
     // console.log(this)
     return (
@@ -54,21 +59,30 @@ class AddMovie extends React.Component {
           <label htmlFor="title">Título</label>
           <input id="title" type="text" value={this.state.title} onChange={this.updateTitle} />
           <label htmlFor="subtitle">Subtítulo</label>
-          <input id="subtitle" type="text"
+          <input
+            id="subtitle"
+            type="text"
             value={this.state.subtitle}
             onChange={this.updateSubtitle}
           />
           <label htmlFor="image">Imagem</label>
           <input id="image"type="text" value={this.state.imagePath} onChange={this.updateImage} />
           <label htmlFor="sinopse">Sinopse</label>
-          <textarea type="text" id="sinopse"
-            value={this.state.storyline} 
+          <textarea
+            type="text"
+            id="sinopse"
+            value={this.state.storyline}
             onChange={this.updateStory}
           />
           <label htmlFor="rating">Avaliação</label>
           <input id="rating" type="number" value={this.state.rating} onChange={this.updateRating} />
           <label htmlFor="genre">Gênero</label>
-          <select name="" id="genre" value={this.state.genre} />
+          <select id="genre" value={this.state.genre} onChange={this.updateGenre}>
+            {genreOptions.map((elementos) => (
+              <option key={elementos.value} value={elementos.value}>{elementos.text}</option>
+            ))}
+          </select>
+          <button type="submit">Adicionar filme</button>
         </form>
       </div>
     );
