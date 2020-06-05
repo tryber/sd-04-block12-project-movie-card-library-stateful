@@ -1,12 +1,14 @@
 // implement MovieLibrary component here
 import React from 'react';
 import SearchBar from './SearchBar';
+import MovieList from './MovieList';
 
 export default class MovieLibrary extends React.Component {
   constructor(props) {
     super(props);
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
     this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
+    this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
@@ -17,7 +19,10 @@ export default class MovieLibrary extends React.Component {
 
   onSearchTextChange(event) {
     const { value } = event.target;
-    this.setState({ searchText: value });
+    const filtered = value === '' ? this.props.movies :
+      this.state.movies.filter(({ title, subtitle, storyline }) => title.includes(value)
+      || subtitle.includes(value) || storyline.includes(value));
+    this.setState({ searchText: value, movies: filtered });
   }
 
   onBookmarkedChange(event) {
@@ -39,8 +44,9 @@ export default class MovieLibrary extends React.Component {
           bookmarkedOnly={this.state.bookmarkedOnly}
           onBookmarkedChange={this.onBookmarkedChange}
           selectedGenre={this.state.selectedGenre}
-          onSelectedGenreChange={this.state.onSelectedGenreChange}
+          onSelectedGenreChange={this.onSelectedGenreChange}
         />
+        <MovieList movies={this.state.movies} />
         {JSON.stringify(this.state.searchText)}
       </div>
     );
