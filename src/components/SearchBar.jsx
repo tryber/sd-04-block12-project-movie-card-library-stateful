@@ -29,13 +29,12 @@ export default class SearchBar extends React.Component {
           </label>
           <label htmlFor="favoritos">Mostrar somente favoritos <input
             type="checkbox"
-            checked={this.props.bookmarkedOnly}
-            onChange={this.props.onBookmarkedChange}
+            checked={this.props.bookmarkedOnly} onChange={this.props.onBookmarkedChange}
           />
           </label>
-          <label htmlFor="genre">Filtrar por gênero<select
-            value={this.props.selectedGenre}
-            onChange={this.props.onSelectedGenreChange}
+          <label htmlFor="genre">Filtrar por gênero
+          <select
+            value={this.props.selectedGenre} onChange={this.props.onSelectedGenreChange}
           >
             <option value="">Todos</option>
             <option value="action">Ação</option>
