@@ -8,6 +8,14 @@ class SearchBar extends PureComponent {
     Suspense: 'thriller',
   };
 
+  generateOptions = (options) => {
+    return Object.keys(options).map((option) => (
+      <option key={options[option]} value={options[option]}>
+        {option}
+      </option>
+    ));
+  };
+
   render() {
     const {
       searchText,
@@ -30,11 +38,7 @@ class SearchBar extends PureComponent {
         />
         <label>Filtrar por gênero</label>
         <select value={selectedGenre} onChange={onSelectedGenreChange}>
-          {Object.keys(this.genres).map((genre) => (
-            <option key={this.genres[genre]} value={this.genres[genre]}>
-              {genre}
-            </option>
-          ))}
+          {this.generateOptions(this.genres)}
         </select>
       </form>
     );

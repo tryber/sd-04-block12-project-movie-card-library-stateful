@@ -22,6 +22,7 @@
 .package-lock.json
 .package.json
 .prettierrc.json
+.env
 
 npm-debug.log*
 yarn-debug.log*
