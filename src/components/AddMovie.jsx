@@ -38,7 +38,7 @@ class AddMovie extends Component {
   }
 
   valueRating(event) {
-    this.setState({ rating: event.target.value });
+    this.setState({ rating: Number(event.target.value) });
   }
 
   valueGenre(event) {
