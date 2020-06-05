@@ -1,16 +1,6 @@
 import React, { Component } from 'react';
 import SelectComp from './SelectComp';
-
-class Label extends Component {
-  render() {
-    return <label>{this.props.text}</label>
-  }
-}
-// class Input extends Component {
-//   render() {
-//     return <input value={this.props.value} onChange={() => {this.props.handleChange(this.props.value)}} />
-//   }
-// }
+import Label from './Label';
 
 class AddMovie extends Component {
   constructor(props) {
@@ -43,31 +33,39 @@ class AddMovie extends Component {
 
   onsubmit(event) {
     console.log(this.state);
-    event.preventDefault();  
+    event.preventDefault();
   }
 
   render() {
     return (
       <form className="addmovie-component" onSubmit={this.onsubmit}>
-        <Label text="Titulo" />
-        <input type="text" name="title" value={this.state.title} onChange={this.onTextChange} />
-        <Label text="Subtitulo" />
-        <input type="text" name="subtitle" value={this.state.subtitle} onChange={this.onTextChange} />
-        <Label text="Imagem" />
-        <input type="text" name="imagePath" value={this.state.imagePath} onChange={this.onTextChange} />
-        <Label text="Sinopse" />
-        <textarea name="storyline" value={this.state.storyline} onChange={this.onTextChange} />
-        <Label text="Avaliacao" />
-        <input name="rating" value={this.state.rating} onChange={this.onTextChange} />
-        <Label text="Genero" />
-        <SelectComp 
-          name = {this.state.genre} 
-          onChange = {this.onSelectChange}
-          defValue = {this.state.genre}
+        <Label 
+          text="Titulo" 
+          type="text" 
+          name="title" 
+          value={this.state.title} 
+          onChange={this.onTextChange} 
         />
-        <input type="submit" value="Adicionar Filme"/>
+        <Label text="Subtitulo" type="text" name="subtitle" 
+          value={this.state.subtitle} onChange={this.onTextChange} 
+        />
+        <Label text="Imagem" type="text" name="imagePath"
+          value={this.state.imagePath} onChange={this.onTextChange} 
+        />
+        <label>Sinopse</label>
+        <textarea name="storyline" value={this.state.storyline} onChange={this.onTextChange} />
+        <Label text="Avaliacao" name="rating"
+          value={this.state.rating} onChange={this.onTextChange} 
+        />
+        <Label text="Genero" />
+        <SelectComp
+          name={this.state.genre} 
+          onChange={this.onSelectChange}
+          defValue={this.state.genre}
+        />
+        <input type="submit" value="Adicionar Filme" />
       </form>
-    )
+    );
   }
 }
 
