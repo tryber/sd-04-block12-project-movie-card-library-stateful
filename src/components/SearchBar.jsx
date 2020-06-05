@@ -14,7 +14,7 @@ class SearchBar extends React.Component {
         <option value="comedy">Comédia</option>
         <option value="thriller">Suspense</option>
       </select>
-    )
+    );
   }
 
   render() {
