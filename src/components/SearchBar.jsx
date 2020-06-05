@@ -2,10 +2,6 @@
 import React, { PureComponents } from 'react';
 
 class SearchBar extends PureComponents {
-  constructor(props) {
-    super(props);
-    this.creatorOptions = this.props.bind(this);
-  };
 
   gender = {
     todos:"",
