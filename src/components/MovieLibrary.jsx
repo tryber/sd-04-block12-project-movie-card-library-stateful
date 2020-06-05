@@ -22,7 +22,9 @@ export default class extends React.Component {
     this.setState({ bookmarkedOnly: !bookmarkedOnly });
   }
 
-  renderMovieList(selectedGenre, bookmarkedOnly, movies, searchText) {
+  renderMovieList() {
+    const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
+
     let filteredMovies = movies.filter(
       (movie) =>
         movie.title.includes(searchText) ||
@@ -55,14 +57,7 @@ export default class extends React.Component {
             this.setState({ [e.target.name]: e.target.value })
           }
         />
-        <MovieList
-          movies={this.renderMovieList(
-            selectedGenre,
-            bookmarkedOnly,
-            movies,
-            searchText,
-          )}
-        />
+        <MovieList movies={this.renderMovieList({ movies })} />
         <AddMovie />
       </div>
     );
