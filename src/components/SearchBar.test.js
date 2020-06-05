@@ -1,11 +1,11 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { mount } from 'enzyme';
 
 import SearchBar from './SearchBar';
 
 let props;
 const searchBar = () => (
-  shallow(
+  mount(
     <SearchBar
       searchText={props.searchText}
       onSearchTextChange={props.onSearchTextChange}
@@ -40,7 +40,7 @@ describe('<SearchBar /> component Form', () => {
   beforeEach(() => beforeEachUnitTest());
 
   const searchBar = () => (
-    shallow(
+    mount(
       <SearchBar
         searchText={props.searchText}
         onSearchTextChange={props.onSearchTextChange}
@@ -61,7 +61,7 @@ describe('<SearchBar /> component Text input', () => {
   beforeEach(() => beforeEachUnitTest());
 
   const searchBar = () => (
-    shallow(
+    mount(
       <SearchBar
         searchText={props.searchText}
         onSearchTextChange={props.onSearchTextChange}
@@ -88,7 +88,10 @@ describe('<SearchBar /> component Text input', () => {
   });
 
   it('passes the `onSearchTextChange` prop to the `onChange` attribute of the input', () => {
-    expect(textInput().prop('onChange')).toBe(props.onSearchTextChange);
+    expect(textInput().prop('onChange')).toBe(textInput.instance().onSearchTextChange);
+
+  //   expect(component.find('SomeNestedComponent')
+  // .prop('onSomethingChange')).toBe(component.instance().onSomethingChange)
   });
 });
 
@@ -96,7 +99,7 @@ describe('<SearchBar /> component Bookmarked checkbox', () => {
   beforeEach(() => beforeEachUnitTest());
 
   const searchBar = () => (
-    shallow(
+    mount(
       <SearchBar
         searchText={props.searchText}
         onSearchTextChange={props.onSearchTextChange}
@@ -134,7 +137,7 @@ describe('<SearchBar /> component Movie Genre select', () => {
   beforeEach(() => beforeEachUnitTest());
 
   const searchBar = () => (
-    shallow(
+    mount(
       <SearchBar
         searchText={props.searchText}
         onSearchTextChange={props.onSearchTextChange}
