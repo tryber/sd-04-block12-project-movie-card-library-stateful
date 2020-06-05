@@ -14,10 +14,35 @@ class AddMovie extends Component {
     };
 
     this.valueTitle = this.valueTitle.bind(this);
+    this.valueSubtitle = this.valueSubtitle.bind(this);
+    this.valueImagePath = this.valueImagePath.bind(this);
+    this.valueStoryLine = this.valueStoryLine.bind(this);
+    this.valueRating = this.valueRating.bind(this);
+    this.valueGenre = this.valueGenre.bind(this);
   }
 
   valueTitle(event) {
     this.setState({ title: event.target.value });
+  }
+
+  valueSubtitle(event) {
+    this.setState({ subtitle: event.target.value });
+  }
+
+  valueImagePath(event) {
+    this.setState({ imagePath: event.target.value });
+  }
+
+  valueStoryLine(event) {
+    this.setState({ storyline: event.target.value });
+  }
+
+  valueRating(event) {
+    this.setState({ rating: event.target.value });
+  }
+
+  valueGenre(event) {
+    this.setState({ genre: event.target.value });
   }
 
   title() {
@@ -100,7 +125,14 @@ class AddMovie extends Component {
           {this.storyline()}
           {this.rating()}
           {this.genre()}
-          {/* onClick={} */}
+          <button
+            className="btn btn-primary"
+            type="button"
+            value="Adicionar filme"
+            onClick={this.handleClick}
+          >
+            Adicionar filme
+          </button>
         </form>
       </div>
     );

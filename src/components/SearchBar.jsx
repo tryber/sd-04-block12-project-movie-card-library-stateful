@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 class SearchBar extends Component {
   includedText() {
     const { searchText, onSearchTextChange } = this.props;
-
     return (
       <div>
         <label htmlFor="inputText">
@@ -19,29 +18,40 @@ class SearchBar extends Component {
     return (
       <div>
         <label htmlFor="inputFavorites">
-          <input type="checkbox" value={bookmarkedOnly} onChange={onBookmarkedChange} />
+          <input
+            type="checkbox"
+            value={bookmarkedOnly}
+            onChange={onBookmarkedChange}
+            checked={bookmarkedOnly}
+          />
           Mostrar somente favoritos
         </label>
       </div>
     );
   }
 
-  render() {
+  filterByGenre() {
     const { selectedGenre, onSelectedGenreChange } = this.props;
+    return (
+      <label htmlFor="inputGenre">
+        Filtrar por gênero:
+        <select value={selectedGenre} onChange={onSelectedGenreChange}>
+          <option value="">Todos</option>
+          <option value="action">Ação</option>
+          <option value="comedy">Comédia</option>
+          <option value="thriller">Suspense</option>
+        </select>
+      </label>
+    );
+  }
+
+  render() {
     return (
       <div>
         <form>
           {this.showOnlyFavorites()}
           {this.includedText()}
-          <label htmlFor="inputGenre">
-            Filtrar por gênero:
-            <select value={selectedGenre} onChange={onSelectedGenreChange}>
-              <option value="">Todos</option>
-              <option value="action">Ação</option>
-              <option value="comedy">Comédia</option>
-              <option value="thriller">Suspense</option>
-            </select>
-          </label>
+          {this.filterByGenre()}
         </form>
       </div>
     );

@@ -15,6 +15,27 @@ class MovieLibrary extends Component {
       selectedGenre: '',
       movies,
     };
+    this.handleClick = this.handleClick.bind(this);
+    this.handleChangeText = this.handleChangeText.bind(this);
+    this.handleCheckedBook = this.handleCheckedBook.bind(this);
+    this.handleGenre = this.handleGenre.bind(this);
+  }
+
+  handleClick(element) {
+    const { movies } = this.state;
+    this.setState({ movies: [...movies, element] });
+  }
+
+  handleCheckedBook(event) {
+    this.setState({ bookmarkedOnly: event.target.checked });
+  }
+
+  handleChangeText(event) {
+    this.setState({ searchText: event.target.value });
+  }
+
+  handleGenre(event) {
+    this.setState({ selectedGenre: event.target.value });
   }
 
   render() {
@@ -26,12 +47,12 @@ class MovieLibrary extends Component {
           searchText={searchText}
           bookmarkedOnly={bookmarkedOnly}
           selectedGenre={selectedGenre}
-          // onSearchTextChange={}
-          // onBookmarkedChange={}
-          // onSelectedGenreChange={}
+          onSearchTextChange={this.handleChangeText}
+          onSelectedGenreChange={this.handleGenre}
+          onBookmarkedChange={this.handleCheckedBook}
         />
         <MovieList movies={this.props.movies} />
-        <AddMovie />
+        <AddMovie onClick={this.handleClick} />
       </div>
     );
   }
