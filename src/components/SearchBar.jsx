@@ -8,17 +8,17 @@ class SearchBar extends Component {
       searchText, onSearchTextChange, bookmarkedOnly,
       onBookmarkedChange, selectedGenre, onSelectedGenreChange,
     } = this.props;
-    const input = ['Inclui o texto:', 'text', 'text', 'input', searchText, onSearchTextChange];
+    const input = ['Inclui o texto:', 'searchText', 'text', 'input', searchText, onSearchTextChange];
     return (
       <form>
         <Input key={input[1]} data={input} />
-        <label htmlFor="checkbox">
+        <label htmlFor="bookmarkedOnly">
           Mostrar somente favoritos
-          <input type="checkbox" checked={bookmarkedOnly} onChange={onBookmarkedChange} />
+          <input name="bookmarkedOnly" type="checkbox" checked={bookmarkedOnly} onChange={onBookmarkedChange} />
         </label>
-        <label htmlFor="genre">
+        <label htmlFor="selectedGenre">
           Filtrar por gênero
-          <select name="genre" value={selectedGenre} onChange={onSelectedGenreChange}>
+          <select name="selectedGenre" value={selectedGenre} onChange={onSelectedGenreChange}>
             <option value="">Todos</option>
             <option value="action">Ação</option>
             <option value="comedy">Comédia</option>
