@@ -50,7 +50,7 @@ class AddMovie extends Component {
     return (
       <label htmlFor="inputTitle">
         Título
-        <input type="text" name="title" value={title} />
+        <input type="text" name="title" value={title} onChange={this.valueTitle} />
       </label>
     );
   }
@@ -60,7 +60,7 @@ class AddMovie extends Component {
     return (
       <label htmlFor="inputSubtitle">
         Subtítulo
-        <input type="text" name="subtitulo" value={subtitle} />
+        <input type="text" name="subtitulo" value={subtitle} onChange={this.valueSubtitle} />
       </label>
     );
   }
@@ -70,7 +70,7 @@ class AddMovie extends Component {
     return (
       <label htmlFor="inputImagePath">
         Imagem
-        <input type="text" name="subtitulo" value={imagePath} />
+        <input type="text" name="subtitulo" value={imagePath} onChange={this.valueImagePath} />
       </label>
     );
   }
@@ -80,7 +80,12 @@ class AddMovie extends Component {
     return (
       <label htmlFor="inputStoryLine">
         Sinopse
-        <textarea type="textarea" name="subtitulo" value={storyline} />
+        <textarea
+          type="textarea"
+          name="subtitulo"
+          value={storyline}
+          onChange={this.valueStoryLine}
+        />
       </label>
     );
   }
@@ -90,7 +95,7 @@ class AddMovie extends Component {
     return (
       <label htmlFor="inputRating">
         Avaliação
-        <input type="text" name="subtitulo" value={rating} />
+        <input type="text" name="subtitulo" value={rating} onChange={rating} />
       </label>
     );
   }
@@ -100,7 +105,7 @@ class AddMovie extends Component {
     return (
       <label htmlFor="inputGenre">
         Gênero
-        <select type="text" name="subtitulo" value={genre}>
+        <select type="text" name="subtitulo" value={genre} onChange={this.valueGenre}>
           <option text="Ação" value="action">
             Ação
           </option>
