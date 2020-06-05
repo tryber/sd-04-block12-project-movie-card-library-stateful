@@ -57,7 +57,7 @@ export default class extends Component {
           <textarea name="storyline" value={storyline} type="text" onChange={this.handle} />
         </label>
         <label htmlFor="rating">Avaliação
-          <input name="rating" value={rating} type="number" min={0} max={5} onChange={this.handle} />
+          <input name="rating" value={rating} type="number" max={5} onChange={this.handle} />
         </label>
         <label htmlFor="genre">Gênero
           <select name="genre" value={genre} onChange={this.handle}>
