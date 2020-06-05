@@ -33,6 +33,8 @@ class AddMovie extends Component {
   }
 
   Clear() {
+    const { onClick } = this.props;
+    onClick(this.state);
     this.setState(() => ({
       subtitle: '',
       title: '',
@@ -44,7 +46,6 @@ class AddMovie extends Component {
   }
 
   render() {
-    const { onClick } = this.props;
     return (
       <div>
         <form>
@@ -64,7 +65,7 @@ class AddMovie extends Component {
               <option value="thriller">Suspense</option>
             </select>
           </label>
-          <button onClick={ onClick(this.state) this.Clear() } >Adicionar filme</button>
+          <button type="submit" onClick={ this.Clear } >Adicionar filme</button>
         </form>
       </div>
     );
