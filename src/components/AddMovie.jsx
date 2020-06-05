@@ -40,8 +40,6 @@ class AddMovie extends Component {
     this.resetState();
   }
 
-  createForm
-
   render() {
     const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
     return (
