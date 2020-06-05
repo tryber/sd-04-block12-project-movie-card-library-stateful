@@ -27,7 +27,7 @@ export default class extends Component {
     );
   }
 
-  updtSt(e) {
+  handle(e) {
     e.preventDefault();
     this.setState({ [e.target.name]: e.target.value });
   }
@@ -44,19 +44,19 @@ export default class extends Component {
     return (
       <form>
         <label htmlFor="title">Título
-          <input name="title" value={title} type="text" onChange={() => this.updtSt} /></label>
+          <input name="title" value={title} type="text" onChange={() => this.handle} /></label>
         <label htmlFor="subtitle">Subtítulo
-          <input name="subtitle" value={subtitle} type="text" onChange={() => this.updtSt} />
+          <input name="subtitle" value={subtitle} type="text" onChange={() => this.handle} />
         </label>
         <label htmlFor="imagePath">Imagem
-          <input name="imagePath" value={imagePath} onChange={() => this.updtSt} /></label>
+          <input name="imagePath" value={imagePath} onChange={() => this.handle} /></label>
         <label htmlFor="storyline">Sinopse
-          <textarea name="storyline" value={storyline} type="text" onChange={() => this.updtSt} />
+          <textarea name="storyline" value={storyline} type="text" onChange={() => this.handle} />
         </label>
         <label htmlFor="rating">Avaliação
-          <input name="rating" value={rating} type="number" onChange={() => this.updtSt} /></label>
+          <input name="rating" value={rating} type="number" onChange={() => this.handle} /></label>
         <label htmlFor="genre">Gênero
-          <select name="genre" value={genre} onChange={() => this.updtSt}>
+          <select name="genre" value={genre} onChange={() => this.handle}>
             <option value="action">Ação</option>
             <option value="comedy">Comédia</option>
             <option value="thriller">Suspense</option>

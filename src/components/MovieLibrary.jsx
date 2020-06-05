@@ -23,7 +23,8 @@ export default class extends Component {
     this.setState({ [e.target.name]: e.target.value });
   }
 
-  renderMovieList(selectedGenre, bookmarkedOnly, movies, searchText) {
+  renderMovieList() {
+    const { selectedGenre, bookmarkedOnly, movies, searchText } = this.state;
     let filteredMovies = movies.filter((movie) => (movie.title.includes(searchText)
     || movie.subtitle.includes(searchText)
     || movie.storyline.includes(searchText)));
@@ -35,7 +36,7 @@ export default class extends Component {
   }
 
   render() {
-    const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
+    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
     return (
       <div>
         <SearchBar
@@ -47,7 +48,7 @@ export default class extends Component {
           onSelectedGenreChange={this.updtSt}
         />
         <MovieList
-          movies={this.renderMovieList(selectedGenre, bookmarkedOnly, movies, searchText)}
+          movies={this.renderMovieList()}
         />
         <AddMovie />
       </div>
