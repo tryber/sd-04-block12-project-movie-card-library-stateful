@@ -18,11 +18,13 @@ export default class MovieLibrary extends React.Component {
     const { movies } = this.props;
     const { name, value } = event.target;
     this.setState({ [name]: value });
-    if (value !== '') {
-      const searchMovies = movies.filter(
-        ({ title, subtitle, storyline }) =>
-          title.includes(value) || subtitle.includes(value) || storyline.includes(value),
-      );
+    if (value !== '' || value !== undefined) {
+      const searchMovies = movies.filter(({ title, subtitle, storyline }) => {
+        const inTitle = title.includes(value);
+        const inSubtitle = subtitle.includes(value);
+        const inStoryline = storyline.includes(value);
+        return inTitle || inSubtitle || inStoryline;
+      });
       this.setState({ movies: searchMovies });
     }
   }
