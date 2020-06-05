@@ -31,8 +31,8 @@ class MovieLibrary extends React.Component {
     }
   }
 
-  handleChange(e) {
-    const { name, value, checked } = e.target;
+  handleChange(e, name) {
+    const { value, checked } = e.target;
     const valueToChange = name === 'bookmarkedOnly' ? checked : value;
     this.setState({ [name]: valueToChange });
     this.moviesFilter();
@@ -83,9 +83,9 @@ class MovieLibrary extends React.Component {
           searchText={searchText}
           bookmarkedOnly={bookmarkedOnly}
           selectedGenre={selectedGenre}
-          onSearchTextChange={this.handleChange}
-          onBookmarkedChange={this.handleChange}
-          onSelectedGenreChange={this.handleChange}
+          onSearchTextChange={(e) => this.handleChange(e, 'searchText')}
+          onBookmarkedChange={(e) => this.handleChange(e, 'bookmarkedOnly')}
+          onSelectedGenreChange={(e) => this.handleChange(e, 'selectedGenre')}
         />
         <MovieList movies={filteredMovies} />
         <AddMovie onClick={this.handleAddMovie} />
