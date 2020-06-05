@@ -40,11 +40,16 @@ class AddMovie extends React.Component {
   renderButton() {
     const { onClick } = this.props;
     return (
-      <button type="button" onClick={() => {
-        onClick(this.state);
-        this.resetState();
-      }}>Adicionar filme</button>
-    )
+      <button
+        type="button"
+        onClick={() => {
+          onClick(this.state);
+          this.resetState();
+        }}
+      >
+      Adicionar filme
+      </button>
+    );
   }
 
   render() {
