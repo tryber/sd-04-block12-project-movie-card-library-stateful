@@ -22,8 +22,10 @@ class SearchBar extends Component {
     return (
       <form>
         {inputs({ name: 'search', label: 'Inclui o texto:', type: 'text', value: searchText, onChange: onSearchTextChange })}
-        <label htmlFor='checkbox'>Mostrar somente favoritos</label>
-        <input type='checkbox' name='checkbox' checked={bookmarkedOnly} onChange={onBookmarkedChange} />
+        <label htmlFor="checkbox">Mostrar somente favoritos</label>
+        <input
+          type="checkbox" name="checkbox" checked={bookmarkedOnly} onChange={onBookmarkedChange}
+        />
         <label htmlFor="genre">
           Filtrar por gênero
           <select value={selectedGenre} name="genre" onChange={onSelectedGenreChange}>
