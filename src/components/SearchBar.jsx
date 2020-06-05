@@ -5,17 +5,17 @@ import Input from './form/Input';
 class SearchBar extends Component {
   render() {
     const {
-      searchText, onSearchTextChange, bookmarkedOnly,
-      onBookmarkedChange, selectedGenre, onSelectedGenreChange,
+      searchText, onSearchTextChange, bookmarkedOnly: marked,
+      onBookmarkedChange: markedChange, selectedGenre, onSelectedGenreChange,
     } = this.props;
-    const allInputs = [
-      ['Inclui o texto:', 'text', 'text', 'input', searchText, onSearchTextChange],
-      ['Mostrar somente favoritos', 'book', 'checkbox', 'input', bookmarkedOnly, onBookmarkedChange],
-    ];
+    const input = ['Inclui o texto:', 'text', 'text', 'input', searchText, onSearchTextChange];
     return (
       <form>
-        <Input key={allInputs[0][1]} data={allInputs[0]} />
-        <Input key={allInputs[1][1]} data={allInputs[1]} />
+        <Input key={input[1]} data={input} />
+        <label htmlFor="book">
+          Mostrar somente favoritos
+          <input name="book" type="checkbox" checked={marked} onChange={markedChange} />
+        </label>
         <label htmlFor="genre">
           Filtrar por gênero
           <select name="genre" value={selectedGenre} onChange={onSelectedGenreChange}>
