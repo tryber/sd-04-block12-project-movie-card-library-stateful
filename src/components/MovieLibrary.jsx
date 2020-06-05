@@ -45,15 +45,18 @@ export default class extends Component {
     genre = '',
   }) {
     return this.setState((state) => ({
-      movies: [...state.movies, {
-        title,
-        subtitle,
-        storyline,
-        rating,
-        imagePath,
-        bookmarked: false,
-        genre,
-      }],
+      movies: [
+        ...state.movies,
+        {
+          title,
+          subtitle,
+          storyline,
+          rating,
+          imagePath,
+          bookmarked: false,
+          genre,
+        },
+      ],
     }));
   }
 
