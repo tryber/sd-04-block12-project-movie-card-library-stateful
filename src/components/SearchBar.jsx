@@ -14,9 +14,8 @@ export default class SearchBar extends React.Component {
   }
 
   onSearchTextChange(event) {
-    console.log(event.target.value)
-    this.setState({searchText: event.target.value })
-  };
+    this.setState({ searchText: event.target.value });
+  }
 
   render() {
     return (
@@ -25,15 +24,19 @@ export default class SearchBar extends React.Component {
           <label htmlFor="texto">Inclui o texto: <input
             type="text"
             onChange={this.props.onSearchTextChange}
-            value={this.props.searchText} />
+            value={this.props.searchText}
+          />
           </label>
-          <label htmlFor="favoritos">Mostrar somente favoritos <input type="checkbox"
+          <label htmlFor="favoritos">Mostrar somente favoritos <input
+            type="checkbox"
             checked={this.props.bookmarkedOnly}
-            onChange={this.props.onBookmarkedChange} />
+            onChange={this.props.onBookmarkedChange}
+          />
           </label>
           <label htmlFor="genre">Filtrar por gênero<select
             value={this.props.selectedGenre}
-            onChange={this.props.onSelectedGenreChange}>
+            onChange={this.props.onSelectedGenreChange}
+          >
             <option value="">Todos</option>
             <option value="action">Ação</option>
             <option value="comedy">Comédia</option>
