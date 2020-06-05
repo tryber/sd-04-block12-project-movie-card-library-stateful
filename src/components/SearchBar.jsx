@@ -1,12 +1,13 @@
 import React, { PureComponent } from 'react';
 
+genres = {
+  Todos: '',
+  Ação: 'action',
+  Comédia: 'comedy',
+  Suspense: 'thriller',
+};
+
 class SearchBar extends PureComponent {
-  genres = {
-    Todos: '',
-    Ação: 'action',
-    Comédia: 'comedy',
-    Suspense: 'thriller',
-  };
 
   generateOptions = (options) => {
     return Object.keys(options).map((option) => (
