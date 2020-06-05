@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import SelectComp from './SelectComp';
+import Select from './SelectComp';
 import Label from './Label';
 
 class AddMovie extends Component {
@@ -55,9 +55,7 @@ class AddMovie extends Component {
           text="Avaliacao" name="rating" value={this.state.rating} onChange={this.onTextChange}
         />
         <label htmlFor="genre">Genero</label>
-        <SelectComp
-          name={this.state.genre} onChange={this.onSelectChange} defValue={this.state.genre}
-        />
+        <Select name={this.state.genre} onChange={this.onSelectChange} defValue={this.state.genre}/>
         <input type="submit" value="Adicionar Filme" />
       </form>
     );

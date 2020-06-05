@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class SelectComp extends Component {
+class Select extends Component {
   render() {
     const { name, onChange, defValue } = this.props;
     return (
@@ -14,4 +14,4 @@ class SelectComp extends Component {
   }
 }
 
-export default SelectComp;
+export default Select;
