@@ -12,12 +12,7 @@ export default class SearchBar extends React.Component {
       <div>
         <label htmlFor="searchText">
           Inclui o texto:
-          <input
-            type="text"
-            name="searchText"
-            value={searchText}
-            onChange={onSearchTextChange}
-          />
+          <input type="text" name="searchText" value={searchText} onChange={onSearchTextChange} />
         </label>
         <br />
         <label htmlFor="Mostrar somente favoritos">
