@@ -43,12 +43,12 @@ class MovieLibrary extends React.Component {
   }
 
   addMovie({
-    subtitle = '',
-    title = '',
-    imagePath = '',
-    storyline = '',
-    rating = 0,
-    genre = '',
+    subtitle,
+    title,
+    imagePath,
+    storyline,
+    rating,
+    genre,
   }) {
     return this.setState((state) => ({
       movies: [
@@ -79,7 +79,7 @@ class MovieLibrary extends React.Component {
           onBookmarkedChange={this.handleChange}
           selectedGenre={selectedGenre}
           onSelectedGenreChange={(e) =>
-            this.setState({ [e.target.name]: e.target.value })
+            this.setState({ selectedGenre: e.target.value })
           }
         />
         <MovieList movies={this.renderMovieList()} />
