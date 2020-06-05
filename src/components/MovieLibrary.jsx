@@ -22,26 +22,7 @@ class MovieLibrary extends React.Component {
     const { bookmarkedOnly } = this.state;
     this.setState({ bookmarkedOnly: !bookmarkedOnly });
   }
-
-  renderMovieList() {
-    const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
-
-    let filteredMovies = movies.filter(
-      (movie) =>
-        movie.title.includes(searchText) ||
-        movie.subtitle.includes(searchText) ||
-        movie.storyline.includes(searchText),
-    );
-    if (selectedGenre) {
-      filteredMovies = filteredMovies.filter(
-        (movie) => movie.genre === selectedGenre,
-      );
-    }
-    return bookmarkedOnly
-      ? filteredMovies.filter((movie) => movie.bookmarked)
-      : filteredMovies;
-  }
-
+  
   addMovie({
     subtitle,
     title,
@@ -64,6 +45,25 @@ class MovieLibrary extends React.Component {
         },
       ],
     }));
+  }
+  
+  renderMovieList() {
+    const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
+
+    let filteredMovies = movies.filter(
+      (movie) =>
+        movie.title.includes(searchText) ||
+        movie.subtitle.includes(searchText) ||
+        movie.storyline.includes(searchText),
+    );
+    if (selectedGenre) {
+      filteredMovies = filteredMovies.filter(
+        (movie) => movie.genre === selectedGenre,
+      );
+    }
+    return bookmarkedOnly
+      ? filteredMovies.filter((movie) => movie.bookmarked)
+      : filteredMovies;
   }
 
   render() {
