@@ -14,7 +14,8 @@ export default class SearchBar extends React.Component {
   }
 
   onSearchTextChange(event) {
-    this.setState({ searchText: event.target.value })
+    console.log(event.target.value)
+    this.setState({searchText: event.target.value })
   };
 
   render() {

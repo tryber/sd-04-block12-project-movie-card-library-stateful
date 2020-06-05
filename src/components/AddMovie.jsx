@@ -16,7 +16,8 @@ export default class AddMovie extends React.Component {
   }
 
   addMovie(event) {
-    this.setState({ title: event.target.value });
+  const {name , value} = event.target;
+    this.setState({ [name]: value });
   }
 
   render() {
