@@ -2,14 +2,18 @@
 import React, { PureComponents } from 'react';
 
 class SearchBar extends PureComponents {
-
-  gender = {
-    todos:"",
-    Ação:"action",
-    Comédia:"comedy",
-    Suspense:"thriller"
+  constructor(props) {
+    super(props);
+    this.creatorOptions = this.props.bind(this);
   };
 
+  gender = {
+    Todos: '',
+    Ação: 'action',
+    Comédia: 'comedy',
+    Suspense: 'thriller',
+  };
+  
   creatorOptions = (gender) => {
     return object.keys(gender).map(element => (
       <object key={element} value={gender[element]}>
