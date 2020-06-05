@@ -16,12 +16,11 @@ class AddMovie extends React.Component {
     };
   }
 
-  handleChange = event => {
-    let { name, value } = event.target;
-    this.setState(state => ({
+  handleChange = (e, name) => {
+    let { value } = e.target;
+    this.setState(() => ({
       [name]: value,
     }));
-    console.log('test', this.state.title )
   };
 
   handleSubmit = () => {
@@ -35,9 +34,7 @@ class AddMovie extends React.Component {
         rating: 0,
         genre: 'action'
     }));
-
   };
-
 
   render() {
     return (
@@ -49,6 +46,8 @@ class AddMovie extends React.Component {
                 name="title"
                 value={this.state.title}
                 onChange={this.handleChange}
+                onChange={(e) => this.handleChange(e, "title")}
+
               />
             </label>
         <button onClick={() => this.handleSubmit(this.state)} >Adicionar filme</button>
