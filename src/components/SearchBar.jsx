@@ -13,7 +13,7 @@ class SearchBar extends Components {
       <object key={element} value={gender[element]}>
         {element}
         </object>
-      ))
+    ))
   }
     
   gender = {
