@@ -27,7 +27,7 @@ class AddMovie extends React.Component {
   }
 
   hand(event, name) {
-    name === 'rating' ? 
+    return (name === 'rating') ? 
     this.setState({ [name]: Number(event.target.value) })
     : this.setState({ [name]: event.target.value });
   }
