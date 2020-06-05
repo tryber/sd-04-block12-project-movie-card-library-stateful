@@ -4,6 +4,13 @@ import SearchBar from './SearchBar';
 import MovieList from './MovieList';
 import AddMovie from './AddMovie';
 
+function filterText(movie, searchText) {
+  if (movie.title.includes(searchText)
+  || movie.subtitle.includes(searchText)
+  || movie.storyline.includes(searchText)) return true;
+  return false;
+}
+
 class MovieLibrary extends React.Component {
   constructor(props) {
     super(props);
@@ -41,10 +48,7 @@ class MovieLibrary extends React.Component {
         if (movie.genre === selectedGenre) return true;
         return false;
       }
-      if (movie.title.includes(searchText)
-      || movie.subtitle.includes(searchText)
-      || movie.storyline.includes(searchText)) return true;
-      return false;
+      return filterText(movie, searchText);
     });
   }
 

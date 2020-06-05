@@ -49,9 +49,9 @@ class AddMovie extends React.Component {
         {this.createElement('text', 'title', 'Título', title)}
         {this.createElement('text', 'subtitle', 'Subtítulo', subtitle)}
         {this.createElement('text', 'imagePath', 'Imagem', imagePath)}
-        <label htmlFor>
+        <label htmlFor="storyline">
           Sinopse
-          <textarea value={storyline} onChange={(event) => this.handleChange(event, 'storyline')} />
+          <textarea nome="storyline" value={storyline} onChange={(event) => this.handleChange(event, 'storyline')} />
         </label>
         {this.createElement('number', 'rating', 'Avaliação', rating)}
         <label htmlFor="genre">
