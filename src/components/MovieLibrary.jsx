@@ -12,62 +12,46 @@ export default class MovieLibrary extends React.Component {
       selectedGenre: '',
       movies: props.movies,
     };
+    this.insertMovie = this.insertMovie.bind(this);
+    this.renderMovieList = this.renderMovieList.bind(this);
   }
 
-  onSearchTextChange(event) {
+  insertMovie(newMovie) {
     const { movies } = this.props;
-    const { name, value } = event.target;
-    this.setState({ [name]: value });
-    if (value !== '' || value !== undefined) {
-      const searchMovies = movies.filter(({ title, subtitle, storyline }) => {
-        const inTitle = title.includes(value);
-        const inSubtitle = subtitle.includes(value);
-        const inStoryline = storyline.includes(value);
-        return inTitle || inSubtitle || inStoryline;
-      });
-      this.setState({ movies: searchMovies });
-    }
+    movies.push(newMovie);
+    this.setState({ movies });
   }
 
-  onBookmarkedChange(event) {
+  renderMovieList() {
     const { movies } = this.props;
-    const { name, checked } = event.target;
-    this.setState({ [name]: !checked });
-    if (checked) {
-      const bookmarkedMovies = movies.filter(({ bookmarked }) => bookmarked);
-      this.setState({ movies: bookmarkedMovies });
-    } else {
-      this.setState({ movies });
+    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
+    let filteredMovies = movies.filter(({ title, subtitle, storyline }) => {
+      const inTitle = title.includes(searchText);
+      const inSubtitle = subtitle.includes(searchText);
+      const inStoryline = storyline.includes(searchText);
+      return inTitle || inSubtitle || inStoryline;
+    });
+    if (selectedGenre) {
+      filteredMovies = filteredMovies.filter(({ genre }) => genre === selectedGenre);
     }
-  }
-
-  onSelectedGenreChange(event) {
-    const { name, value } = event.target;
-    const { movies } = this.props;
-    this.setState({ [name]: value });
-    if (value === '') {
-      this.setState({ movies });
-    } else {
-      const genreMovies = movies.filter(({ genre }) => genre === value);
-      this.setState({ movies: genreMovies });
-    }
+    return bookmarkedOnly ? filteredMovies.filter(({ bookmarked }) => bookmarked) : filteredMovies;
   }
 
   render() {
-    const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
+    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
     return (
       <div>
         <h2> My awesome movie library </h2>
         <SearchBar
           searchText={searchText}
-          onSearchTextChange={(event) => this.onSearchTextChange(event)}
+          onSearchTextChange={(event) => this.setState({ searchText: event.target.value })}
           bookmarkedOnly={bookmarkedOnly}
-          onBookmarkedChange={(event) => this.onBookmarkedChange(event)}
+          onBookmarkedChange={() => this.setState({ bookmarkedOnly: !bookmarkedOnly })}
           selectedGenre={selectedGenre}
-          onSelectedGenreChange={(event) => this.onSelectedGenreChange(event)}
+          onSelectedGenreChange={(event) => this.setState({ selectedGenre: event.target.value })}
         />
-        <MovieList movies={movies} />
-        <AddMovie />
+        <MovieList movies={this.renderMovieList()} />
+        <AddMovie insertMovie={this.insertMovie} />
       </div>
     );
   }
