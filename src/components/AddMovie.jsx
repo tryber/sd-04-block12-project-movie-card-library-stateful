@@ -1,69 +1,71 @@
-// implement AddMovie component here
 import React from 'react';
+
+const createPseudoElement = (id, label, value, onChange, type) => (
+  <label htmlFor={id}>
+    {label}
+    <input id={id} value={value} onChange={(e) => onChange(e, id)} type={type} />
+  </label>
+);
+
+const createTextarea = (id, label, value, onChange) => (
+  <label htmlFor={id}>
+    {label}
+    <textarea id={id} value={value} onChange={(e) => onChange(e, id)} />
+  </label>
+);
+
+const createSelect = (id, label, value, onChange) => (
+  <label htmlFor={id}>
+    {label}
+    <select id={id} value={value} onChange={(e) => onChange(e, id)}>
+      <option value="action">Ação</option>
+      <option value="comedy">Comédia</option>
+      <option value="thriller">Suspense</option>
+    </select>
+  </label>
+);
 
 class AddMovie extends React.Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-        subtitle: '',
-        title: '',
-        imagePath: '',
-        storyline: '',
-        rating: 0,
-        genre: 'action',
-      };
-    this.handleInputChange = this.handleInputChange.bind(this);
-    this.handleInput = this.handleInput.bind(this);
+    this.state = initialState;
+    this.changeHandler = this.changeHandler.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-    handleInput(state) {
+  changeHandler(event, id) {
+    let val = event.target.value;
+    if (id === 'rating') val = Number(val);
+    this.setState((state) => ({ ...state, [id]: val }));
+  }
+
+  handleSubmit(state) {
     const { onClick } = this.props;
     onClick(state);
     this.setState({
-        subtitle: '',
-        title: '',
-        imagePath: '',
-        storyline: '',
-        rating: 0,
-        genre: 'action',
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
     });
   }
 
-    handleInputChange(event, name) {
-    let value = event.target.value;
-    if (name === 'rating') value = Number(value);
-    this.setState((state) => ({
-        ...state, 
-        [name]: value,
-  })
-  );
-}
-
-
   render() {
+    const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
-    <div>
-        <form onSubmit={(e) => { e.preventDefault(); }}>
-            <label>Título</label>
-            <input name="title" value='' type="text" onChange={(e) => this.handleInputChange(e, 'title')} /><br />
-            <label>Subtítulo</label>
-            <input name="subtitle" value={this.state.subtitle} type="text" onChange={(e) => this.handleInputChange(e, 'subtitle')} /><br />
-            <label>Imagem</label>
-            <input name="imagePath" value={this.state.imagePath} type="text" onChange={(e) => this.handleInputChange(e, 'imagePath')} /><br />
-            <label>Sinopse</label>
-            <textarea name="storyline" value={this.state.storyline} type="text" onChange={(e) => this.handleInputChange(e, 'storyline')} /><br />
-            <label>Avaliação</label>
-            <input name="rating" value={this.state.rating} type="number" onChange={(e) => this.handleInputChange(e, 'rating')} /><br />
-            <label>Gênero</label>
-            <select name="genre" value={this.state.genre} onChange={(e) => this.handleInputChange(e, 'genre')}>
-                <option value="action">Ação</option>
-                <option value="comedy">Comédia</option>
-                <option value="thriller">Suspense</option>
-            </select><br />
-          <button onClick={() => this.handleInput(this.state)} type="submit">Adicionar filme</button>
-        </form>
-    </div>
+      <form onSubmit={(e) => { e.preventDefault(); }}>
+        {createPseudoElement('title', 'Título', title, this.changeHandler, 'text')}
+        {createPseudoElement('subtitle', 'Subtítulo', subtitle, this.changeHandler, 'text')}
+        {createPseudoElement('imagePath', 'Imagem', imagePath, this.changeHandler, 'text')}
+        {createTextarea('storyline', 'Sinopse', storyline, this.changeHandler)}
+        {createPseudoElement('rating', 'Avaliação', rating, this.changeHandler, 'number')}
+        {createSelect('genre', 'Gênero', genre, this.changeHandler)}
+        <button onClick={() => this.handleSubmit(this.state)} type="submit">
+          Adicionar filme
+        </button>
+      </form>
     );
   }
 }
