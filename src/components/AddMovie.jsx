@@ -27,7 +27,7 @@ class AddMovie extends React.Component {
   }
 
   handleChange(e, name) {
-    //Must be refracted
+    // Must be refracted
     if (name === 'rating') {
       const test = Number(e.target.value);
       this.setState(() => ({ [name]: test }));
@@ -58,7 +58,7 @@ class AddMovie extends React.Component {
           type={typeValue}
           name={name}
           value={valueValue}
-          onChange={e => this.handleChange(e, name)}
+          onChange={(e) => this.handleChange(e, name)}
         />
       </label>
     );
@@ -72,7 +72,7 @@ class AddMovie extends React.Component {
           type={typeValue}
           name={name}
           value={valueValue}
-          onChange={e => this.handleChange(e, name)}
+          onChange={(e) => this.handleChange(e, name)}
         />
       </label>
     );
@@ -91,9 +91,9 @@ class AddMovie extends React.Component {
           Gênero
           <select
             value={this.state.genre}
-            onChange={e => this.handleChange(e, 'genre')}
+            onChange={(e) => this.handleChange(e, 'genre')}
           >
-            {genres.map(genre => (
+            {genres.map((genre) => (
               <option key={genre.value} value={genre.value}>
                 {genre.text}
               </option>
