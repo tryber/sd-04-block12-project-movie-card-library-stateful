@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-fragments */
 import React, { Component } from 'react';
 import SearchBar from './SearchBar';
 import MovieList from './MovieList';
@@ -57,7 +58,7 @@ class MovieLibrary extends Component {
 
   render() {
     return (
-      <>
+      <React.Fragment>
         <SearchBar
           searchText={this.state.searchText}
           onSearchTextChange={this.textChange}
@@ -67,7 +68,7 @@ class MovieLibrary extends Component {
           onSelectedGenreChange={this.selectChange}
         />
         <MovieList movies={this.filterMethod()} />
-      </>
+      </React.Fragment>
     );
   }
 }
