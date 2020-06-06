@@ -28,7 +28,14 @@ const createSelect = (id, label, value, onChange) => (
 class AddMovie extends React.Component {
   constructor(props) {
     super(props);
-    this.state = initialState;
+    this.state = ({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
     this.changeHandler = this.changeHandler.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
