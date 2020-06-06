@@ -1,33 +1,26 @@
 import React, { Component } from 'react';
 
+const initialState = {
+  subtitle: '',
+  title: '',
+  imagePath: '',
+  storyline: '',
+  rating: 0,
+  genre: 'action',
+};
+
 class AddMovie extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      subtitle: '',
-      title: '',
-      imagePath: '',
-      storyline: '',
-      rating: 0,
-      genre: 'action',
-    };
+    this.state = initialState;
 
     this.handle = this.handle.bind(this);
     this.includeMovie = this.includeMovie.bind(this);
   }
 
   resetState() {
-    this.setState(
-      {
-        subtitle: '',
-        title: '',
-        imagePath: '',
-        storyline: '',
-        rating: 0,
-        genre: 'action',
-      },
-    );
+    this.setState(initialState);
   }
 
   handle(e, name) {

@@ -49,9 +49,15 @@ class MovieLibrary extends Component {
 
   renderMovieList() {
     const { selectedGenre, bookmarkedOnly, movies, searchText } = this.state;
-    let filteredMovies = movies.filter((movie) => (movie.title.includes(searchText)
-    || movie.subtitle.includes(searchText)
-    || movie.storyline.includes(searchText)));
+
+    let filteredMovies = movies.filter(({ title, subtitle, storyline }) => (
+      Object.values(
+        { title: title.toLowerCase(),
+          subtitle: subtitle.toLowerCase(),
+          storyline: storyline.toLowerCase()
+        }).some((line) => line.includes(searchText.toLowerCase()))
+    ));
+
     if (selectedGenre) {
       filteredMovies = filteredMovies
         .filter((movie) => movie.genre === selectedGenre);
