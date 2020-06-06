@@ -25,7 +25,7 @@ class AddMovie extends React.Component {
     this.updateStory = this.updateStory.bind(this);
     this.updateRating = this.updateRating.bind(this);
     this.updateGenre = this.updateGenre.bind(this);
-  }
+}
 
   updateTitle(event) {
     this.setState({ title: event.target.value });
@@ -52,19 +52,13 @@ class AddMovie extends React.Component {
   }
 
   render() {
-    // console.log(this)
     return (
       <div>
         <form>
           <label htmlFor="title">Título</label>
           <input id="title" type="text" value={this.state.title} onChange={this.updateTitle} />
-          <label htmlFor="subtitle">Subtítulo</label>
-          <input
-            id="subtitle"
-            type="text"
-            value={this.state.subtitle}
-            onChange={this.updateSubtitle}
-          />
+          <label htmlFor="subt">Subtítulo</label>
+          <input id="subt" type="text" value={this.state.subtitle} onChange={this.updateSubtitle} />
           <label htmlFor="image">Imagem</label>
           <input id="image"type="text" value={this.state.imagePath} onChange={this.updateImage} />
           <label htmlFor="sin">Sinopse</label>
