@@ -40,11 +40,12 @@ class AddMovie extends Component {
     return (
       <form className="addmovie-component" onSubmit={this.onsubmit}>
         <Label
-          text="Título" type="text" name="title" value={this.state.title} func={this.onTextChange}
+          text="Título" type="text" name="title"
+          value={this.state.title} onChange={this.onTextChange}
         />
         <Label
           text="Subtítulo" type="text" name="subtitle"
-          value={this.state.subtitle} func={this.onTextChange}
+          value={this.state.subtitle} onChange={this.onTextChange}
         />
         <Label
           text="Imagem" type="text" name="imagePath"
