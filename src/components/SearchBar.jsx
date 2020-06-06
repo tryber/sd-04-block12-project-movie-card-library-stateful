@@ -2,7 +2,8 @@ import React from 'react';
 
 export default class Searchbar extends React.Component {
   render() {
-    const { searchText, onSearchTextChange, onBookmarkedChange, bookmarkedOnly, selectedGenre, onSelectedGenreChange } = this.props;
+    const { searchText, onSearchTextChange, onBookmarkedChange,
+    bookmarkedOnly, selectedGenre, onSelectedGenreChange } = this.props;
     return (
       <div>
         <form action="">
@@ -10,7 +11,7 @@ export default class Searchbar extends React.Component {
           <br />
           <input onChange={onSearchTextChange} type="text" name="includesText" value={searchText} />
           <br />
-          <input onChange={onBookmarkedChange} type="checkbox" name="checkbox" checked={bookmarkedOnly} />
+          <input onChange={onBookmarkedChange} type="checkbox" checked={bookmarkedOnly} />
           <label htmlFor="checkbox">Mostrar somente favoritos</label>
           <br />
           <label htmlFor="select">Filtrar por gênero</label>
