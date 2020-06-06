@@ -25,7 +25,7 @@ class SearchBar extends React.Component {
             id="check"
             type="checkbox"
             checked={bookmarkedOnly}
-            onChange={onBookmarkedChange} 
+            onChange={onBookmarkedChange}
           />
           <label htmlFor="genre">Filtrar por gênero</label>
           <select name="" id="genre" value={selectedGenre} onChange={onSelectedGenreChange}>

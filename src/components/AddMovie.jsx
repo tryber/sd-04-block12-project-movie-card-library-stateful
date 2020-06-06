@@ -25,7 +25,7 @@ class AddMovie extends React.Component {
     this.updateStory = this.updateStory.bind(this);
     this.updateRating = this.updateRating.bind(this);
     this.updateGenre = this.updateGenre.bind(this);
-}
+  }
 
   updateTitle(event) {
     this.setState({ title: event.target.value });
