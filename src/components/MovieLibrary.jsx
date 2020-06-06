@@ -71,7 +71,6 @@ class MovieLibrary extends Component {
       selectedGenre,
       movies,
     } = this.state;
-    // console.log(this.state.movies);
     return (
       <div>
         <SearchBar

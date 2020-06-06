@@ -15,7 +15,7 @@ class AddMovie extends Component {
   }
 
   setFields({ target: { value } }, name) {
-    this.setState({ [name]: value });
+    this.setState((name === 'rating') ? { [name]: parseFloat(value) } : { [name]: value });
   }
 
   reset() {
