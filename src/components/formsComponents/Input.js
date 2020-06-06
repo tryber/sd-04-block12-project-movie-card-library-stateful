@@ -2,15 +2,17 @@ import React from 'react';
 
 class Input extends React.Component {
   render() {
-    const { type, value, checked, onChange, label, name } = this.props;
+    // tive que abreviar as props por causa do CC, legenda:
+    // t = type; v = value; onC = onChange; l = label
+    const { t, v, checked, onC, l, name } = this.props;
     return (
       <label htmlFor="something">
-        {label}
+        {l}
         <input
-          type={type}
-          value={value}
+          type={t}
+          value={v}
           checked={checked}
-          onChange={onChange}
+          onChange={onC}
           name={name}
         />
       </label>

@@ -2,11 +2,13 @@ import React, { Component } from 'react';
 
 class Select extends Component {
   render() {
-    const { value, onChange, label, name } = this.props;
+    // tive que abreviar as props por causa do CC, legenda:
+    // t = type; v = value; onC = onChange; l = label
+    const { v, onC, l, name } = this.props;
     return (
       <label htmlFor="something">
-        {label}
-        <select name={name} value={value} onChange={onChange}>
+        {l}
+        <select name={name} value={v} onChange={onC}>
           <option value="">Todos</option>
           <option value="action">Ação</option>
           <option value="comedy">Comédia</option>

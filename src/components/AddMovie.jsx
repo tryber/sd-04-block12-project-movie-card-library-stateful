@@ -24,29 +24,19 @@ class AddMovie extends Component {
   }
 
   render() {
-    const {title, subtitle, imagePath, storyline, rating, genre} = this.state
+    const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     const { onClick } = this.props;
     return (
+      // tive que abreviar as props por causa do CC, legenda:
+      // t = type; v = value; onC = onChange; l = label
       <form>
-        <Input
-          type="text"
-          value={title}
-          onChange={this.textChange}
-          label="Título"
-          name="title"
-        />
-        <Input
-          type="text"
-          value={subtitle}
-          onChange={this.textChange}
-          label="Subtítulo"
-          name="subtitle"
-        />
-        <Input type="text" value={imagePath} onChange={this.textChange} label="Imagem" name="imagePath" />
-        <Textarea type="textarea" value={storyline} onChange={this.textChange} label="Sinopse" name="storyline" />
-        <Input type="number" value={rating} onChange={this.textChange} label="Avaliação" name="rating" />
-        <Select2 value={genre} onChange={this.textChange} label="Gênero" />
-        <button onClick={onClick}>Adicionar filme</button>
+        <Input t="text" v={title} onC={this.textChange} l="Título" name="title" />
+        <Input t="text" v={subtitle} onC={this.textChange} l="Subtítulo" name="subtitle" />
+        <Input t="text" v={imagePath} onC={this.textChange} l="Imagem" name="imagePath" />
+        <Textarea t="textarea" v={storyline} onC={this.textChange} l="Sinopse" name="storyline" />
+        <Input t="number" v={rating} onC={this.textChange} l="Avaliação" name="rating" />
+        <Select2 v={genre} onC={this.textChange} l="Gênero" />
+        <button>Adicionar filme</button>
       </form>
     );
   }

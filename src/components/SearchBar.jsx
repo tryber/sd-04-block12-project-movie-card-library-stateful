@@ -5,32 +5,24 @@ import Select from './formsComponents/Select';
 class SearchBar extends Component {
   render() {
     const {
-      searchText,
-      onSearchTextChange,
-      bookmarkedOnly,
-      onBookmarkedChange,
-      selectedGenre,
-      onSelectedGenreChange,
+      searchText, onSearchTextChange, bookmarkedOnly,
+      onBookmarkedChange, selectedGenre, onSelectedGenreChange,
     } = this.props;
     return (
       <form>
         <Input
-          type="text"
-          value={searchText}
-          onChange={onSearchTextChange}
-          label="Inclui o texto:"
+          t="text"
+          v={searchText}
+          onC={onSearchTextChange}
+          l="Inclui o texto:"
         />
         <Input
-          type="checkbox"
+          t="checkbox"
           checked={bookmarkedOnly}
-          onChange={onBookmarkedChange}
-          label="Mostrar somente favoritos"
+          onC={onBookmarkedChange}
+          l="Mostrar somente favoritos"
         />
-        <Select
-          value={selectedGenre}
-          onChange={onSelectedGenreChange}
-          label="Filtrar por gênero"
-        />
+        <Select v={selectedGenre} onC={onSelectedGenreChange} l="Filtrar por gênero" />
       </form>
     );
   }
