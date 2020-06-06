@@ -14,6 +14,7 @@ class AddMovie extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.addmovie = this.addmovie.bind(this);
     this.addforminput = this.addforminput.bind(this);
+    this.addformTextarea = this.addformTextarea.bind(this);
 
     this.state = {
       subtitle: '',
@@ -49,11 +50,25 @@ class AddMovie extends React.Component {
     }));
   }
 
-  addforminput(htmlForValue, title, typeValue, name, valueValue) {
+  addforminput(title, typeValue, name, valueValue) {
     return (
-      <label htmlFor={htmlForValue}>
+      <label htmlFor={name}>
         {title}
         <input
+          type={typeValue}
+          name={name}
+          value={valueValue}
+          onChange={e => this.handleChange(e, name)}
+        />
+      </label>
+    );
+  }
+
+  addformTextarea(title, typeValue, name, valueValue) {
+    return (
+      <label htmlFor={name}>
+        {title}
+        <textarea
           type={typeValue}
           name={name}
           value={valueValue}
@@ -67,31 +82,11 @@ class AddMovie extends React.Component {
     const { title, subtitle, imagePath, storyline, rating } = this.state;
     return (
       <form>
-        {this.addforminput('title', 'Título', 'text', 'title', title)}
-        {this.addforminput(
-          'subtitle',
-          'Subtítulo',
-          'text',
-          'subtitle',
-          subtitle,
-        )}
-        {this.addforminput(
-          'imagePath',
-          'Imagem',
-          'text',
-          'imagePath',
-          imagePath,
-        )}
-        <label htmlFor="storyline">
-          Sinopse
-          <textarea
-            type="text"
-            name="storyline"
-            value={this.state.storyline}
-            onChange={e => this.handleChange(e, 'storyline')}
-          />
-        </label>
-        {this.addforminput('rating', 'Avaliação', 'number', 'rating', rating)}
+        {this.addforminput('Título', 'text', 'title', title)}
+        {this.addforminput('Subtítulo', 'text', 'subtitle', subtitle)}
+        {this.addforminput('Imagem', 'text', 'imagePath', imagePath)}
+        {this.addformTextarea('Sinopse', 'number', 'storyline', storyline)}
+        {this.addforminput('Avaliação', 'number', 'rating', rating)}
         <label htmlFor="genre">
           Gênero
           <select
@@ -106,8 +101,7 @@ class AddMovie extends React.Component {
           </select>
         </label>
         <button type="button" onClick={() => this.addmovie()}>
-          Adicionar filme
-        </button>
+          Adicionar filme </button>
       </form>
     );
   }
