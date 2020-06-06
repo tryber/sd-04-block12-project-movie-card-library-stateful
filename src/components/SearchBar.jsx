@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import SelectFilter from './SelectFilter';
-import Label from './Label';
 
 class SearchBar extends Component {
   constructor(props) {
@@ -33,12 +32,10 @@ class SearchBar extends Component {
   render() {
     return (
       <form className="sbar-component">
-        <Label
-          text="Inclui o texto:"
-          type="text"
-          name="searchText"
-          value={this.props.searchText}
-          onChange={this.props.onSearchTextChange}
+        <label htmlFor="searchText">Inclui o texto:</label>
+        <input
+          type="text" name="searchText"
+          value={this.props.searchText} onChange={this.props.onSearchTextChange}
         />
         <label htmlFor="checkbox">
           <input

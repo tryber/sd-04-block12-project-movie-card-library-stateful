@@ -5,9 +5,9 @@ class Select extends Component {
     const { name, onChange, selected, value } = this.props;
     return (
       <select name={name} value={value} onChange={onChange}>
-        <option defaultValue={selected} value='action'>Ação</option>
-        <option value='comedy'>Comédia</option>
-        <option value='thriller'>Suspense</option>
+        <option defaultValue={selected} value="action">Ação</option>
+        <option value="comedy">Comédia</option>
+        <option value="thriller">Suspense</option>
       </select>
     );
   }
