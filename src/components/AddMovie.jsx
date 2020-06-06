@@ -19,7 +19,7 @@ class AddMovie extends React.Component {
       rating: 0,
       genre: 'action',
     };
-    
+
     this.updateTitle = this.updateTitle.bind(this);
     this.updateSubtitle = this.updateSubtitle.bind(this);
     this.updateStory = this.updateStory.bind(this);
@@ -48,7 +48,7 @@ class AddMovie extends React.Component {
   }
 
   updateGenre(event) {
-    this.setState({ genre: event.target.value})
+    this.setState({ genre: event.target.value });
   }
 
   render() {
@@ -67,13 +67,8 @@ class AddMovie extends React.Component {
           />
           <label htmlFor="image">Imagem</label>
           <input id="image"type="text" value={this.state.imagePath} onChange={this.updateImage} />
-          <label htmlFor="sinopse">Sinopse</label>
-          <textarea
-            type="text"
-            id="sinopse"
-            value={this.state.storyline}
-            onChange={this.updateStory}
-          />
+          <label htmlFor="sin">Sinopse</label>
+          <textarea type="text" id="sin" value={this.state.storyline} onChange={this.updateStory} />
           <label htmlFor="rating">Avaliação</label>
           <input id="rating" type="number" value={this.state.rating} onChange={this.updateRating} />
           <label htmlFor="genre">Gênero</label>
