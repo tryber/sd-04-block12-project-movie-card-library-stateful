@@ -25,7 +25,7 @@ class AddMovie extends Component {
 
   render() {
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
-    const { onClick } = this.props;
+    // const { onClick } = this.props;
     return (
       // tive que abreviar as props por causa do CC, legenda:
       // t = type; v = value; onC = onChange; l = label
