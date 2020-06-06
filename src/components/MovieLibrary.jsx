@@ -12,6 +12,11 @@ class MovieLibrary extends Component {
       selectedGenre: '',
       movies: props.movies,
     };
+    this.addNewMovie = this.addNewMovie.bind(this);
+  }
+
+  addNewMovie(movie) {
+    this.setState((state) => ({ movies: [...state.movies, movie] }));
   }
 
   filterAcerv(filmes) {
@@ -66,7 +71,7 @@ class MovieLibrary extends Component {
       selectedGenre,
     } = this.state;
     const { movies } = this.props;
-
+    console.log(this.state.movies);
     return (
       <div>
         <SearchBar
@@ -78,7 +83,7 @@ class MovieLibrary extends Component {
           onSelectedGenreChange={(e) => this.setState({ selectedGenre: e.target.value })}
         />
         <MovieList movies={this.filterAcerv(movies)} />
-        <AddMovie onClick="" />
+        <AddMovie onClick={this.addNewMovie} />
       </div>
     );
   }

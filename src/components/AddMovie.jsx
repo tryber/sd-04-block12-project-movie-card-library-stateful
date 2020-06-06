@@ -73,7 +73,7 @@ class AddMovie extends Component {
       <form>
         {this.createPseudoElement('title', 'Título')}
         {this.createPseudoElement('subtitle', 'Subtítulo')}
-        {this.createPseudoElement('img', 'Imagem')}
+        {this.createPseudoElement('imagePath', 'Imagem')}
         <label htmlFor="sinopse">
           Sinopse
           <textarea value={storyline} onChange={(e) => this.setFields(e, 'storyline')} />
