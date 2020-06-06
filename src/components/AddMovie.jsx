@@ -12,26 +12,26 @@ class AddMovie extends Component {
       rating: 0,
       genre: 'action',
     };
-    this.txtChange = this.txtChange.bind(this);
+    this.txtChang = this.txtChang.bind(this);
     this.slctChange = this.slctChange.bind(this);
     this.onsubmit = this.onsubmit.bind(this);
   }
-
-  txtChange(event) {
-    const { name, value } = event.target;
-    console.log(`${name}: ${value}`);
-    this.setState(() => ({ [name]: value }));
-  }
-
-  slctChange(event) {
-    const { name, value } = event.target;
-    this.setState(() => ({ [name]: value }));
-  }
-
+  
   onsubmit(event) {
     console.log(this.state);
     event.preventDefault();
     this.setState(() => this.state);
+  }
+  
+  slctChange(event) {
+    const { name, value } = event.target;
+    this.setState(() => ({ [name]: value }));
+  }
+  
+  txtChang(event) {
+    const { name, value } = event.target;
+    console.log(`${name}: ${value}`);
+    this.setState(() => ({ [name]: value }));
   }
 
   render() {
@@ -39,15 +39,15 @@ class AddMovie extends Component {
     return (
       <form className="addmovie-component" onSubmit={this.onsubmit}>
         <label htmlFor="title">Título</label>
-        <input type="text" name="title" value={this.state.title} onChange={this.txtChange} />
+        <input type="text" name="title" value={this.state.title} onChange={this.txtChang} />
         <label htmlFor="subtitle">Subtítulo</label>
-        <input type="text" name="subtitle" value={this.state.subtitle} onChange={this.txtChange} />
+        <input type="text" name="subtitle" value={this.state.subtitle} onChange={this.txtChang} />
         <label htmlFor="imagePath">Imagem</label>
-        <input type="text" name="imagePath" value={this.state.imagePath} onChange={this.txtChange} />
+        <input type="text" name="imagePath" value={this.state.imagePath} onChange={this.txtChang} />
         <label htmlFor="storyline">Sinopse</label>
-        <textarea name="storyline" value={this.state.storyline} onChange={this.txtChange} />
-        <label htmlFor="rating">Avaliação</label>l
-        <input name="rating" type="Number" value={this.state.rating} onChange={this.txtChange} />
+        <textarea name="storyline" value={this.state.storyline} onChange={this.txtChang} />
+        <label htmlFor="rating">Avaliação</label>
+        <input name="rating" type="Number" value={this.state.rating} onChange={this.txtChang} />
         <label htmlFor="genre">Gênero</label>
         <Select
           name="genre" onChange={this.slctChange}
