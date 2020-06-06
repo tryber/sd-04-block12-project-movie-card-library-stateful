@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Select from './SelectComp';
+import Label from './Label';
 
 class SearchBar extends Component {
   constructor(props) {
@@ -7,48 +8,51 @@ class SearchBar extends Component {
     this.state = {
       searchText: '',
       bookMarkedOnly: false,
-      selectGenre: '',
+      selectedGenre: '',
     };
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
     this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
-    this.onSelectGenreChange = this.onSelectGenreChange.bind(this);
+    this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
   }
 
   onSearchTextChange(event) {
-    this.setState({ search: event.target.value });
+    const { name, value } = event.target;
+    console.log(`${name}: ${value}`);
+    this.setState(() => ({ [name]: value }));
   }
 
   onBookmarkedChange(event) {
-    this.setState({ bookMarkedOnly: event.target.value });
+    this.setState({ bookmarkedOnly: event.target });
   }
 
-  onSelectGenreChange(event) {
-    this.setState({ selectGenre: event.target.value });
+  onSelectedGenreChange(event) {
+    const { name, value } = event.target;
+    this.setState(() => ({ [name]: value }));
   }
 
   render() {
     return (
-      <div className="sbar-component">
-        <label htmlFor="#">Inclui o texto:</label>
-        <input
+      <form className="sbar-component">
+        <Label
+          text="Inclui o texto:"
           type="text"
-          value={this.state.searchText}
-          onChange={this.onSearchTextChange}
+          name="searchText"
+          value={this.props.searchText}
+          onChange={this.props.onSearchTextChange}
         />
-        <label htmlFor="#">
+        <label htmlFor="checkbox">
           <input
-            type="checkbox"
-            checked={this.state.bookMarkedOnly}
-            onChange={this.onBookmarkedChange}
+            type="checkbox" name="checkbox"
+            checked={this.props.bookmarkedOnly} onChange={this.props.onBookmarkedChange}
           />Mostrar somente favoritos
         </label>
-        <label htmlFor="select-genre">Filtrar por genero</label>
+        <label htmlFor="select-genre">Filtrar por gênero</label>
         <Select
           name="select-genre"
-          onChange={this.onSelectGenreChange}
-          defValue={this.state.selectGenre}
+          onChange={this.props.onSelectedGenreChange}
+          defValue={this.state.selectedGenre}
         />
-      </div>
+      </form>
     );
   }
 }
