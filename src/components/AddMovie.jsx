@@ -12,7 +12,6 @@ class AddMovie extends React.Component {
       rating: 0,
       genre: 'action',
     };
-
     this.handleChangeTitle = this.handleChangeTitle.bind(this);
     this.handleChangeSubtitle = this.handleChangeSubtitle.bind(this);
     this.handleChangeImage = this.handleChangeImage.bind(this);
@@ -21,6 +20,11 @@ class AddMovie extends React.Component {
     this.handleChangeGenero = this.handleChangeGenero.bind(this);
     this.initialState = this.state;
     this.adicionarFilme = this.adicionarFilme.bind(this);
+    this.InputTitle = this.InputTitle.bind(this);
+    this.InputSubtitle = this.InputSubtitle.bind(this);
+    this.InputImage = this.InputImage.bind(this);
+    this.InputStoryline = this.InputStoryline.bind(this);
+    this.InputRating = this.InputRating.bind(this);
   }
 
   // função ADICIONAR FILME -> botão final form
@@ -55,29 +59,59 @@ class AddMovie extends React.Component {
     this.setState({ genre: event.target.value });
   }
 
+  InputTitle() {
+    return (
+      <label htmlFor="title">
+      Título
+        <input type="text" value={this.state.title} onChange={this.handleChangeTitle} />
+      </label>
+    );
+  }
+
+  InputSubtitle() {
+    return (
+      <label htmlFor="subtitle">
+      Subtítulo
+        <input type="text" value={this.state.subtitle} onChange={this.handleChangeSubtitle} />
+      </label>
+    );
+  }
+
+  InputImage() {
+    return (
+      <label htmlFor="image">
+      Imagem
+        <input type="text" value={this.state.imagePath} onChange={this.handleChangeImage} />
+      </label>
+    );
+  }
+
+  InputStoryline() {
+    return (
+      <label htmlFor="storyline">
+      Sinopse
+        <textarea value={this.state.storyline} onChange={this.handleChangeSinopse} />
+      </label>
+    );
+  }
+
+  InputRating() {
+    return (
+      <label htmlFor="number">
+      Avaliação
+        <input type="number" value={this.state.rating} onChange={this.handleChangeAvaliacao} />
+      </label>
+    );
+  }
+
   render() {
     return (
       <form>
-        <label htmlFor="title">
-          Título
-          <input type="text" value={this.state.title} onChange={this.handleChangeTitle} />
-        </label>
-        <label htmlFor="subtitle">
-          Subtítulo
-          <input type="text" value={this.state.subtitle} onChange={this.handleChangeSubtitle} />
-        </label>
-        <label htmlFor="image">
-          Imagem
-          <input type="text" value={this.state.imagePath} onChange={this.handleChangeImage} />
-        </label>
-        <label htmlFor="storyline">
-          Sinopse
-          <textarea value={this.state.storyline} onChange={this.handleChangeSinopse} />
-        </label>
-        <label htmlFor="number">
-          Avaliação
-          <input type="number" value={this.state.rating} onChange={this.handleChangeAvaliacao} />
-        </label>
+        <this.InputTitle />
+        <this.InputSubtitle />
+        <this.InputImage />
+        <this.InputStoryline />
+        <this.InputRating />
         <label htmlFor="genre">
           Gênero
           <select value={this.state.genre} onChange={this.handleChangeGenero}>
