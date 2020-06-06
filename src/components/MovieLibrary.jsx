@@ -69,9 +69,9 @@ class MovieLibrary extends Component {
       searchText,
       bookmarkedOnly,
       selectedGenre,
+      movies,
     } = this.state;
-    const { movies } = this.props;
-    console.log(this.state.movies);
+    // console.log(this.state.movies);
     return (
       <div>
         <SearchBar
