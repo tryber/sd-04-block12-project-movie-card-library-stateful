@@ -24,50 +24,28 @@ class AddMovie extends Component {
   }
 
   render() {
+    const {title, subtitle, imagePath, storyline, rating, genre} = this.state
     const { onClick } = this.props;
     return (
       <form>
         <Input
           type="text"
-          value={this.state.title}
+          value={title}
           onChange={this.textChange}
           label="Título"
           name="title"
         />
         <Input
           type="text"
-          value={this.state.subtitle}
+          value={subtitle}
           onChange={this.textChange}
           label="Subtítulo"
           name="subtitle"
         />
-        <Input
-          type="text"
-          value={this.state.imagePath}
-          onChange={this.textChange}
-          label="Imagem"
-          name="imagePath"
-        />
-        <Textarea
-          type="textarea"
-          value={this.state.storyline}
-          onChange={this.textChange}
-          label="Sinopse"
-          name="storyline"
-        />
-        <Input
-          type="number"
-          value={this.state.rating}
-          onChange={this.textChange}
-          label="Avaliação"
-          name="rating"
-        />
-        <Select2
-          value={this.state.genre}
-          onChange={this.textChange}
-          label="Gênero"
-          name="genre"
-        />
+        <Input type="text" value={imagePath} onChange={this.textChange} label="Imagem" name="imagePath" />
+        <Textarea type="textarea" value={storyline} onChange={this.textChange} label="Sinopse" name="storyline" />
+        <Input type="number" value={rating} onChange={this.textChange} label="Avaliação" name="rating" />
+        <Select2 value={genre} onChange={this.textChange} label="Gênero" />
         <button onClick={onClick}>Adicionar filme</button>
       </form>
     );
