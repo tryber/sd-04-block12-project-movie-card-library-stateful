@@ -3,12 +3,7 @@ import React from 'react';
 const createPseudoElement = (id, label, value, onChange, type) => (
   <label htmlFor={id}>
     {label}
-    <input
-      id={id}
-      value={value}
-      onChange={(e) => onChange(e, id)}
-      type={type}
-    />
+    <input id={id} value={value} onChange={(e) => onChange(e, id)} type={type} />
   </label>
 );
 
@@ -72,35 +67,11 @@ class AddMovie extends React.Component {
           e.preventDefault();
         }}
       >
-        {createPseudoElement(
-          'title',
-          'Título',
-          title,
-          this.changeHandler,
-          'text',
-        )}
-        {createPseudoElement(
-          'subtitle',
-          'Subtítulo',
-          subtitle,
-          this.changeHandler,
-          'text',
-        )}
-        {createPseudoElement(
-          'imagePath',
-          'Imagem',
-          imagePath,
-          this.changeHandler,
-          'text',
-        )}
+        {createPseudoElement('title', 'Título', title, this.changeHandler, 'text')}
+        {createPseudoElement('subtitle', 'Subtítulo', subtitle, this.changeHandler, 'text')}
+        {createPseudoElement('imagePath', 'Imagem', imagePath, this.changeHandler, 'text')}
         {createTextarea('storyline', 'Sinopse', storyline, this.changeHandler)}
-        {createPseudoElement(
-          'rating',
-          'Avaliação',
-          rating,
-          this.changeHandler,
-          'number',
-        )}
+        {createPseudoElement('rating', 'Avaliação', rating, this.changeHandler, 'number')}
         {createSelect('genre', 'Gênero', genre, this.changeHandler)}
         <button onClick={() => this.handleSubmit(this.state)} type="submit">
           Adicionar filme
