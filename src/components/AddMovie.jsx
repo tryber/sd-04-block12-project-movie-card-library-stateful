@@ -16,18 +16,18 @@ class AddMovie extends Component {
     this.slctChange = this.slctChange.bind(this);
     this.onsubmit = this.onsubmit.bind(this);
   }
-  
+
   onsubmit(event) {
     console.log(this.state);
     event.preventDefault();
     this.setState(() => this.state);
   }
-  
+
   slctChange(event) {
     const { name, value } = event.target;
     this.setState(() => ({ [name]: value }));
   }
-  
+
   txtChang(event) {
     const { name, value } = event.target;
     console.log(`${name}: ${value}`);
