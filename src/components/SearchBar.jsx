@@ -1,5 +1,4 @@
 import React, { PureComponent } from 'react';
-import TextInput from './FormComponents/TextInput';
 
 class SearchBar extends PureComponent {
   genres = {
@@ -29,12 +28,8 @@ class SearchBar extends PureComponent {
 
     return (
       <form>
-        <TextInput
-          name="textSearch"
-          value={searchText}
-          onChange={onSearchTextChange}
-          label="Inclui o texto:"
-        />
+        <label>Inclui o texto</label>
+        <input name="searchText" type="text" value={searchText} onChange={onSearchTextChange} />
         <label>Mostrar somente favoritos</label>
         <input type="checkbox" checked={bookmarkedOnly} onChange={onBookmarkedChange} />
         <label>Filtrar por gênero</label>
