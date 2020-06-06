@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { mount } from 'enzyme';
 
 import AddMovie from './AddMovie';
 
@@ -17,7 +17,7 @@ let props;
 
 const addMovie = () => {
   if (!wrapper) {
-    wrapper = shallow(<AddMovie onClick={props.onClick} />);
+    wrapper = mount(<AddMovie onClick={props.onClick} />);
   }
   return wrapper;
 };
