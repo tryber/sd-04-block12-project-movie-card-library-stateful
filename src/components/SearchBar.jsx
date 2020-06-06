@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Select from './SelectComp';
+import SelectFilter from './SelectFilter';
 import Label from './Label';
 
 class SearchBar extends Component {
@@ -46,11 +46,10 @@ class SearchBar extends Component {
             checked={this.props.bookmarkedOnly} onChange={this.props.onBookmarkedChange}
           />Mostrar somente favoritos
         </label>
-        <label htmlFor="select-genre">Filtrar por gênero</label>
-        <Select
-          name="select-genre"
-          onChange={this.props.onSelectedGenreChange}
-          defValue={this.state.selectedGenre}
+        <label htmlFor="genre">Filtrar por gênero</label>
+        <SelectFilter
+          name="genre" onChange={this.props.onSelectedGenreChange}
+          selected={this.props.selectedGenre} value={this.props.selectedGenre}
         />
       </form>
     );

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Select from './SelectComp';
+import Select from './Select';
 import Label from './Label';
 
 class AddMovie extends Component {
@@ -32,18 +32,19 @@ class AddMovie extends Component {
   onsubmit(event) {
     console.log(this.state);
     event.preventDefault();
+    this.setState(()=> this.state)
   }
 
   render() {
+    const { onClick } = this.props;
     return (
       <form className="addmovie-component" onSubmit={this.onsubmit}>
         <Label
-          text="Titulo" type="text" name="title"
-          value={this.state.title} onChange={this.onTextChange}
+          text="Título" type="text" name="title" value={this.state.title} func={this.onTextChange}
         />
         <Label
-          text="Subtitulo" type="text" name="subtitle"
-          value={this.state.subtitle} onChange={this.onTextChange}
+          text="Subtítulo" type="text" name="subtitle"
+          value={this.state.subtitle} func={this.onTextChange}
         />
         <Label
           text="Imagem" type="text" name="imagePath"
@@ -52,11 +53,13 @@ class AddMovie extends Component {
         <label htmlFor="storyline">Sinopse</label>
         <textarea name="storyline" value={this.state.storyline} onChange={this.onTextChange} />
         <Label
-          text="Avaliacao" name="rating" value={this.state.rating} onChange={this.onTextChange}
+          text="Avaliação" name="rating" type="Number"
+          value={this.state.rating} onChange={this.onTextChange}
         />
-        <label htmlFor="genre">Genero</label>
-        <Select name="genre" onChange={this.onSelectChange} defValue={this.state.genre} />
-        <input type="submit" value="Adicionar Filme" />
+        <label htmlFor="genre">Gênero</label>
+        <Select name="genre" onChange={this.onSelectChange} 
+          selected={this.state.genre} value={this.state.genre} />
+        <button type="submit" onClick={onClick}>Adicionar Filme</button>
       </form>
     );
   }
