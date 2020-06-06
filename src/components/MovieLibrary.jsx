@@ -27,17 +27,17 @@ class MovieLibrary extends Component {
         (movie) =>
           movie.title.includes(searchText) ||
           movie.subtitle.includes(searchText) ||
-          movie.storyline.includes(searchText)
+          movie.storyline.includes(searchText),
       );
     }
     if (bookmarkedOnly) {
       changedData = changedData.filter(
-        (movie) => movie.bookmarked === bookmarkedOnly
+        (movie) => movie.bookmarked === bookmarkedOnly,
       );
     }
     if (selectedGenre) {
       changedData = changedData.filter(
-        (movie) => movie.genre === selectedGenre
+        (movie) => movie.genre === selectedGenre,
       );
     }
     return changedData;
