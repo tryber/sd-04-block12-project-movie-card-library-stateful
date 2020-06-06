@@ -11,11 +11,11 @@ class AddMovie extends Component {
       rating: 0,
       genre: 'action',
     };
+    this.setFields = this.setFields.bind(this);
   }
 
-  setFields(e) {
-    const { name, value } = e.target;
-    this.setState(({ [name]: value }));
+  setFields({ target: { value } }, name) {
+    this.setState({ [name]: value });
   }
 
   reset() {
@@ -29,40 +29,66 @@ class AddMovie extends Component {
     });
   }
 
+  createPseudoElement(name, text, tipo = 'text', callBack = this.setFields) {
+    const { state } = this;
+    return (
+      <label htmlFor={name}>
+        {text}
+        <input
+          id={name}
+          type={tipo}
+          name={name}
+          max={tipo === 'number' ? 5 : null}
+          min={tipo === 'number' ? 0 : null}
+          value={state[name]}
+          onChange={(e) => callBack(e, name)}
+        />
+      </label>
+    );
+  }
+
+  createPseudoDropDown() {
+    const { genre } = this.state;
+    return (
+      <label htmlFor="genre">
+        Gênero
+        <select
+          id="genre"
+          name="genre"
+          value={genre}
+          onChange={(e) => this.setFields(e, 'genre')}
+        >
+          <option value="action">Ação</option>
+          <option value="comedy">Comédia</option>
+          <option value="thriller">Suspense</option>
+        </select>
+      </label>
+    );
+  }
+
   render() {
-    const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
-    // const { onClick } = this.props;
+    const { storyline } = this.state;
+    const { onClick } = this.props;
     return (
       <form>
-        <label htmlFor="title">
-          Título
-          <input type="text" name="title" value={title} onChange={this.setFields} />
-        </label>
-        <label htmlFor="subtitle">
-          Subtítulo
-          <input type="text" name="subtitle" value={subtitle} onChange={this.setFields} />
-        </label>
-        <label htmlFor="img">
-          Imagem
-          <input type="text" name="imagePath" value={imagePath} onChange={this.setFields} />
-        </label>
+        {this.createPseudoElement('title', 'Título')}
+        {this.createPseudoElement('subtitle', 'Subtítulo')}
+        {this.createPseudoElement('img', 'Imagem')}
         <label htmlFor="sinopse">
           Sinopse
-          <textarea name="storyline" value={storyline} onChange={this.setFields} />
+          <textarea value={storyline} onChange={(e) => this.setFields(e, 'storyline')} />
         </label>
-        <label htmlFor="av">
-          Avaliação
-          <input type="number" name="rating" value={rating} onChange={this.setFields} />
-        </label>
-        <label htmlFor="gen">
-          Gênero
-          <select id="gen" name="genre" value={genre} onChange={this.setFields}>
-            <option value="action">Ação</option>
-            <option value="comedy">Comédia</option>
-            <option value="thriller">Suspense</option>
-          </select>
-        </label>
-        <button type="button" onClick="">Adicionar filme</button>
+        {this.createPseudoElement('rating', 'Avaliação', 'number')}
+        {this.createPseudoDropDown()}
+        <button
+          type="button"
+          onClick={() => {
+            onClick(this.state);
+            this.reset();
+          }}
+        >
+          Adicionar filme
+        </button>
       </form>
     );
   }

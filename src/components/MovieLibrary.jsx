@@ -14,6 +14,10 @@ class MovieLibrary extends Component {
     };
   }
 
+  // configText(e) {
+  //   this.setState({ });
+  // }
+
   render() {
     const {
       searchText,
@@ -25,11 +29,11 @@ class MovieLibrary extends Component {
       <div>
         <SearchBar
           searchText={searchText}
-          onSearchTextChange="Callback vai aqui"
+          onSearchTextChange={(e) => this.setState({ searchText: e.target.value })}
           bookmarkedOnly={bookmarkedOnly}
-          onBookmarkedChange="Callback vai aqui"
+          onBookmarkedChange={() => this.setState({ bookmarkedOnly: !bookmarkedOnly })}
           selectedGenre={selectedGenre}
-          onSelectedGenreChange="Callback vai aqui"
+          onSelectedGenreChange={(e) => this.setState({ selectedGenre: e.target.value })}
         />
         <MovieList movies={movies} />
         <AddMovie onClick="" />
