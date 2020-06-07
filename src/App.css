@@ -81,9 +81,3 @@ body {
   justify-content: flex-end;
   padding: 12px 20px;
 }
-
-.SearchBar {
-  display: flex;
-  flex-direction: column;
-  background-color: #007bff;
-}

@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 
 class SearchBar extends Component {
   // renderForm() Limite de 25 linhas agora é ignorado
-  renderForm = () => {
+  renderForm() {
     const {
     searchText, onSearchTextChange,
     bookmarkedOnly, onBookmarkedChange,

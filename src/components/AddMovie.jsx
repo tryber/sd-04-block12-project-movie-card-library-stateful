@@ -21,7 +21,7 @@ class AddMovie extends React.Component {
   
   //  resets AddMovie to its initial state when clicked by the user (21ms)
   //  mesma ideia do renderForm() em SearchBar para resolver o limite de 25 linhas em render
-  renderForm = () => {
+  renderForm() {
     const {
       title = '',
       subtitle = '',
