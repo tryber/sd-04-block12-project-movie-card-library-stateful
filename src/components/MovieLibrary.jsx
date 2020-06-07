@@ -12,13 +12,12 @@ class MovieLibrary extends React.Component {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      movies:this.props.movies,
+      movies: this.props.movies,
     };
 
     this.updateSearch = this.updateSearch.bind(this);
     this.updateBookMarket = this.updateBookMarked.bind(this);
     this.updateSelected = this.updateSelected.bind(this);
-
   }
 
   updateSearch(event) {
