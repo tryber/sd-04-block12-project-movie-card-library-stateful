@@ -14,7 +14,12 @@ class SearchBar extends Component {
           onChange={this.props.onBookmarkedChange}
         />
         <label htmlFor="Filtrar por gênero">Filtrar por gênero</label>
-        <select value={this.props.selectedGenre} onChange={this.props.onSelectedGenreChange} />
+        <select value={this.props.selectedGenre} onChange={this.props.onSelectedGenreChange}>
+          <option value="">Todos</option>
+          <option value="action">Ação</option>
+          <option value="comedy">Comédia</option>
+          <option value="thriller">Suspense</option>
+        </select>
       </form>
     );
   }
