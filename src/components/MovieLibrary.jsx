@@ -32,12 +32,12 @@ class MovieLibrary extends React.Component {
   onSelectedGenreChange(event) {
     this.setState({ selectedGenre: event.target.value });
   }
-  AddMoviefunc(addMovie) {
-    this.setState((state) => ({ movies: [...state.movies, addMovie] }));
+  AddMoviefunc(addMovie) {  // add a movie do propo movies after button been clicked
+    this.setState((state) => ({ movies: [...state.movies, addMovie] }));  // "push" addmovie movies
   }
 
-  moviesFilter() {
-    // Need to add 3 if below? Must be checked
+  moviesFilter() { // create a filter of displayed movies based on search bar and options
+    // Need to add 3 if below? Have to be checked
     const { searchText, selectedGenre } = this.state; // Porque tirar movies não passe os testes?
     let filteredMovies = this.state.movies.filter((movie) => movie.title.includes(searchText)
       || movie.subtitle.includes(searchText)
@@ -60,7 +60,7 @@ class MovieLibrary extends React.Component {
           selectedGenre={this.state.selectedGenre}
           onSelectedGenreChange={(event) => this.onSelectedGenreChange(event)}
         />
-        <MovieList movies={this.moviesFilter()} />
+        <MovieList movies={this.moviesFilter()} /> 
         <AddMovie onClick={this.AddMoviefunc} />
 
       </div>

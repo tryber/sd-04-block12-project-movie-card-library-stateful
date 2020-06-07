@@ -78,7 +78,7 @@ class AddMovie extends React.Component {
     );
   }
 
-  render() {
+  render() { // Would me nice to try remplace thoses func by components
     const { title, subtitle, imagePath, storyline, rating } = this.state;
     return (
       <form>
