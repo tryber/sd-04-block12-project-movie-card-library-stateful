@@ -21,7 +21,8 @@ class AddMovie extends Component {
 
   tChange(e) {
     const { name, value } = e.target;
-    this.setState({ [name]: value });
+    if (name === 'rating') this.setState({ [name]: Number(value) });
+    else this.setState({ [name]: value });
   }
 
   stateClear() {
