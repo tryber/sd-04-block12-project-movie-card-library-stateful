@@ -13,16 +13,18 @@ class AddMovie extends React.Component {
   constructor(props) {
     super(props);
     this.state = initialState;
+    this.btnAddMovie = this.btnAddMovie.bind(this);
+    this.changeInput = this.changeInput.bind(this);
   }
 
-  btnAddMovie = () => {
+  btnAddMovie() {
     /* Executa a callback passada para o componente AddMovie via props, chamada
     onClick, que recebe como parâmetro o estado atual de AddMovie */
     this.props.onClick(this.state);
     this.setState(initialState); // reseta o estado para o valor inicial
   };
 
-  changeInput = (event) => {
+  changeInput(event) {
     const { name, value } = event.target;
     this.setState({ [name]: name === 'rating' ? Number(value) : value });
   };
