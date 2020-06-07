@@ -45,7 +45,7 @@ class MovieLibrary extends React.Component {
     filteredMovies = filteredMovies.filter((movie) => [movie.genre, ''].includes(gF));
     if (this.state.bookmarkedOnly) filteredMovies = filteredMovies.filter((movie) => movie.bookmarked === true)
 
-    return filteredMovies
+    return  filteredMovies
   }
   render() {
     return (
@@ -58,7 +58,7 @@ class MovieLibrary extends React.Component {
           selectedGenre={this.state.selectedGenre}
           onSelectedGenreChange={(event) => this.onSelectedGenreChange(event)}
         />
-        <MovieList movies={this.state.filteredMovies} />
+        <MovieList movies={this.moviesFilter()} />
         <AddMovie onClick={this.AddMoviefunc} />
 
       </div>
