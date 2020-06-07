@@ -1,83 +1,58 @@
 import React, { Component } from 'react';
+import SearchBarText from './components/SearchBarText';
+import SearchBarBookMarked from'./components/SearchBarBookMarked';
+import SearchBarSelectedGenre from './components/SearchBarSelectedGenre';
 
 class SearchBar extends Component {
   constructor(props) {
-    super(props);
-    this.state = {
+		super(props);
+		// inicializo stado das variaveis que sofrerão alteração
+    this.state = { // objeto de ações
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-    };
+		};
+		// uso bind quando tenho alteração no meu state / controlador
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
     this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
-    this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this); //func sem usar
+    this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this); // func sem usar
   }
 
   onSearchTextChange = (event) => {
     const { value } = event.target;
     this.setState({
-      searchText: value,
+      searchText: value, // recebe o novo value
     });
   };
 
   onBookmarkedChange = (event) => {
     this.setState({
-      bookmarkedOnly: this.state.bookmarkedOnly ? false : true,
+      bookmarkedOnly: !this.state.bookmarkedOnly, // nega o que vem
     });
   };
 
   onSelectedGenreChange = (event) => {
     const { value } = event.target; // pegar valor do campo
     this.setState({
-      selectedGenre: value, // selectedGenre vale o que a arrow pegou
+      selectedGenre: value, // selectedGenre vale oque usuario seleciona
     });
   };
 
   render() {
     return (
       <form>
-        <div>
-          <label htmlFor="searchText" />
-          Inclui o texto:
-          <input
-            type="text"
-            name="searchText"
-            value={this.state.searchText}
-            onChange={this.onSearchTextChange}
-          />
-        </div>
-        <div>
-          <input
-            type="checkbox"
-            name="bookmarkedOnly"
-            checked={this.state.bookmarkedOnly}
-            onChange={this.onBookmarkedChange}
-          />
-          <label htmlFor="bookmarkedOnly" />
-          Mostrar somente favoritos
-        </div>
-        <div>
-          <label htmlFor="selectedGenre" />
-          Filtrar por gênero
-          <select
-            name="selectedGenre"
-            value={this.state.selectedGenre}
-            onChange={this.onSelectedGenreChange}
-          >
-            <option key="Todos" value="">
-              Todos
-            </option>
-            <option key="Ação" value="action">
-              Ação
-            </option>
-            <option key="Comédia" value="comedy">
-              Comédia
-            </option>
-            <option key="Suspense" value="thriller">
-              Suspense
-            </option>
-          </select>
-        </div>
+				<SearchBarText
+				searchText={this.state.searchText} // esta se passado para componente filha
+				onSearchTextChange={this.onSearchTextChange} /> 
+
+				<SearchBarBookMarked
+				bookmarkedOnly={this.state.bookmarkedOnly}
+				onBookmarkedChange={this.onBookmarkedChange} />
+       
+			 <SearchBarSelectedGenre
+			       selectedGenre={this.state.selectedGenre}
+						 onSelectedGenreChange={this.onSelectedGenreChange} />
+        
       </form>
     );
   }
