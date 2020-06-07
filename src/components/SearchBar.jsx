@@ -7,7 +7,7 @@ export default class SearchBar extends Component {
     return (
       <div>
         <form>
-          <label>
+          <label htmlFor="searchText">
             Inclui o texto:
             <input type="text" value={searchText} onChange={onSearchTextChange} />
           </label>
