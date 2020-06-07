@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 
 class AddMovie extends Component {
   render() {
-    const { title, subtitle, imagePath, storyline, rating, genre, onClick } = this.props;
+    const { title, subtitle, imagePath, storyline, rating, genre } = this.props;
     return (
       <form>
         <label htmlFor="Título">
