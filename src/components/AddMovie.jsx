@@ -15,6 +15,7 @@ class AddMovie extends React.Component {
     this.state = initialState;
     this.btnAddMovie = this.btnAddMovie.bind(this);
     this.changeInput = this.changeInput.bind(this);
+    this.htmlForm = this.htmlForm.bind(this);
   }
 
   btnAddMovie() {
@@ -22,29 +23,35 @@ class AddMovie extends React.Component {
     onClick, que recebe como parâmetro o estado atual de AddMovie */
     this.props.onClick(this.state);
     this.setState(initialState); // reseta o estado para o valor inicial
-  };
+  }
 
   changeInput(event) {
     const { name, value } = event.target;
     this.setState({ [name]: name === 'rating' ? Number(value) : value });
-  };
+  }
+
+  htmlForm() {
+    return (
+      <label htmlFor='title'>Título</label>
+      <input type="text" name="title" value={title} onChange={this.changeInput} />
+      <label htmlFor='subtitle'>Subtítulo</label>
+      <input type="text" name="subtitle" value={subtitle} onChange={this.changeInput} />
+      <label htmlFor='imagePath'>Imagem</label>
+      <input type="text" name="imagePath" value={imagePath} onChange={this.changeInput} />
+      <label htmlFor='storyline'>Sinopse</label>
+      <textarea name="storyline" value={storyline} onChange={this.changeInput} />
+      <label htmlFor='rating'>Avaliação</label>
+      <input type="number" name="rating" value={rating} onChange={this.changeInput} />
+    )
+  }
 
   render() {
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
       <div>
         <form>
-          <label>Título</label>
-          <input type="text" name="title" value={title} onChange={this.changeInput} />
-          <label>Subtítulo</label>
-          <input type="text" name="subtitle" value={subtitle} onChange={this.changeInput} />
-          <label>Imagem</label>
-          <input type="text" name="imagePath" value={imagePath} onChange={this.changeInput} />
-          <label>Sinopse</label>
-          <textarea name="storyline" value={storyline} onChange={this.changeInput}></textarea>
-          <label>Avaliação</label>
-          <input type="number" name="rating" value={rating} onChange={this.changeInput} />
-          <label>Gênero</label>
+          {this.htmlForm}
+          <label htmlFor='genre'>Gênero</label>
           <select name="genre" value={genre} onChange={this.changeInput}>
             <option value="action">Ação</option>
             <option value="comedy">Comédia</option>
