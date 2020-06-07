@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import SearchBar from './SearchBar';
 import MovieList from './MovieList';
+import AddMovie from './AddMovie';
 
 class MovieLibrary extends Component {
   constructor(props) {
@@ -16,10 +17,23 @@ class MovieLibrary extends Component {
     this.checkChange = this.checkChange.bind(this);
     this.selectChange = this.selectChange.bind(this);
     this.filterMethod = this.filterMethod.bind(this);
+    this.onClick = this.onClick.bind(this);
+  }
+
+  onClick({ title, subtitle, storyline, rating, imagePath, genre }) {
+    const newMovie = {
+      genre,
+      imagePath,
+      rating,
+      storyline,
+      subtitle,
+      title,
+    };
+    this.setState({ movies: [...this.state.movies, newMovie] });
   }
 
   filterMethod() {
-    const { movies } = this.props;
+    const { movies } = this.state;
     const { searchText, bookmarkedOnly, selectedGenre } = this.state;
     let changedData = movies;
     if (searchText) {
@@ -27,17 +41,17 @@ class MovieLibrary extends Component {
         (movie) =>
           movie.title.includes(searchText) ||
           movie.subtitle.includes(searchText) ||
-          movie.storyline.includes(searchText),
+          movie.storyline.includes(searchText)
       );
     }
     if (bookmarkedOnly) {
       changedData = changedData.filter(
-        (movie) => movie.bookmarked === bookmarkedOnly,
+        (movie) => movie.bookmarked === bookmarkedOnly
       );
     }
     if (selectedGenre) {
       changedData = changedData.filter(
-        (movie) => movie.genre === selectedGenre,
+        (movie) => movie.genre === selectedGenre
       );
     }
     return changedData;
@@ -68,6 +82,7 @@ class MovieLibrary extends Component {
           onSelectedGenreChange={this.selectChange}
         />
         <MovieList movies={this.filterMethod()} />
+        <AddMovie onClick={this.onClick} />
       </React.Fragment>
     );
   }

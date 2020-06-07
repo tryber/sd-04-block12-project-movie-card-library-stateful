@@ -3,40 +3,47 @@ import Input from './formsComponents/Input';
 import Textarea from './formsComponents/TextArea';
 import Select2 from './formsComponents/Select2';
 
+const initialState = {
+  genre: 'action',
+  imagePath: '',
+  rating: 0,
+  storyline: '',
+  subtitle: '',
+  title: '',
+};
 class AddMovie extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      subtitle: '',
-      title: '',
-      imagePath: '',
-      storyline: '',
-      rating: 0,
-      genre: 'action',
-    };
-    this.textChange = this.textChange.bind(this);
+    this.state = { ...initialState };
+    this.tChange = this.tChange.bind(this);
+    this.stateClear = this.stateClear.bind(this);
   }
 
-  textChange(e) {
-    const { name, value, type } = e.target;
-    if (type === 'number') this.state({ [name]: parseFloat(value) });
-    else this.setState({ [name]: value });
+  tChange(e) {
+    const { name, value } = e.target;
+    this.setState({ [name]: value });
+  }
+
+  stateClear() {
+    this.setState({ ...initialState });
   }
 
   render() {
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
-    // const { onClick } = this.props;
+    const { onClick } = this.props;
     return (
       // tive que abreviar as props por causa do CC, legenda:
-      // t = type; v = value; onC = onChange; l = label
+      // t = type; v = value; onC = onChange; l = label; s = limite superior; i = limite inferior
       <form>
-        <Input t="text" v={title} onC={this.textChange} l="Título" name="title" />
-        <Input t="text" v={subtitle} onC={this.textChange} l="Subtítulo" name="subtitle" />
-        <Input t="text" v={imagePath} onC={this.textChange} l="Imagem" name="imagePath" />
-        <Textarea t="textarea" v={storyline} onC={this.textChange} l="Sinopse" name="storyline" />
-        <Input t="number" v={rating} onC={this.textChange} l="Avaliação" name="rating" />
-        <Select2 v={genre} onC={this.textChange} l="Gênero" />
-        <button>Adicionar filme</button>
+        <Input t="text" v={title} onC={this.tChange} l="Título" name="title" />
+        <Input t="text" v={subtitle} onC={this.tChange} l="Subtítulo" name="subtitle" />
+        <Input t="text" v={imagePath} onC={this.tChange} l="Imagem" name="imagePath" />
+        <Textarea t="textarea" v={storyline} onC={this.tChange} l="Sinopse" name="storyline" />
+        <Input t="number" v={rating} onC={this.tChange} l="Avaliação" name="rating" f={5} i={0} />
+        <Select2 v={genre} onC={this.tChange} l="Gênero" />
+        <button type="button" onClick={() => { onClick(this.state); this.stateClear(); }}>
+          Adicionar filme
+        </button>
       </form>
     );
   }
