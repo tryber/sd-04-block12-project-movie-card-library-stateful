@@ -47,7 +47,7 @@ class MovieLibrary extends Component {
             this.setState({ searchText: event.target.value });
           }}
           bookmarkedOnly={bookmarkedOnly}
-          onBookmarkedChange={(event) => {
+          onBookmarkedChange={() => {
             this.setState({ bookmarkedOnly: !bookmarkedOnly });
           }}
           selectedGenre={selectedGenre}
