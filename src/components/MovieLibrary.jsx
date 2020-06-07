@@ -13,8 +13,9 @@ class MovieLibrary extends React.Component {
       bookmarkedOnly: false,
       selectedGenre: '',
       movies: this.props.movies,
-      filteredMovies: this.props.movies,
+      filteredMovies: this.props.filteredMovies,
     };
+
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
     this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
@@ -35,18 +36,18 @@ class MovieLibrary extends React.Component {
   AddMoviefunc(addMovie) {
     this.setState((state) => ({ movies: [...state.movies, addMovie] }));
   }
-  moviesFilter() {
-    console.log(this.state.searchText,'test', movies[0].title);
-    const sF = this.state.searchText;
-    const gF = this.state.selectedGenre;
-    let filteredMovies = movies.filter((movie) => [movie.title, ''].includes(sF)
-    || [movie.subtitle, ''].includes(sF) 
-    || [movie.storyline, ''].includes(sF));
-    filteredMovies = filteredMovies.filter((movie) => [movie.genre, ''].includes(gF));
-    if (this.state.bookmarkedOnly) filteredMovies = filteredMovies.filter((movie) => movie.bookmarked === true)
 
-    return  filteredMovies
+  moviesFilter() {
+    // Tem que usar 3 if? If para filtrar searchtest e 
+    const { searchText, selectedGenre, movies } = this.state; // Porque tirar movies não 
+    let filteredMovies = movies.filter((movie) => movie.title.includes(searchText)
+      || movie.subtitle.includes(searchText)
+      || movie.storyline.includes(searchText));
+    filteredMovies = filteredMovies.filter((movie) => movie.genre.includes(selectedGenre));
+    if (this.state.bookmarkedOnly) filteredMovies = filteredMovies.filter((movie) => movie.bookmarked === true)
+    return filteredMovies
   }
+
   render() {
     return (
       <div>
