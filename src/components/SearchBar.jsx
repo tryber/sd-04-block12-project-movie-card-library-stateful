@@ -18,7 +18,7 @@ class SearchBar extends Component {
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this); // func sem usar
   }
 
-  onSearchTextChange = (event) => {
+  onSearchTextChange = event => {
     const { value } = event.target;
     this.setState({
       searchText: value, // recebe o novo value

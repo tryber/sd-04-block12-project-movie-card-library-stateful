@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 const SearchText = ({ searchText, onSearchTextChange }) => (
   // recebe dois parametros, o texto digitado pelo usuário e a função
