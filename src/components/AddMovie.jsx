@@ -26,7 +26,7 @@ class AddMovie extends Component {
     this.setState({ [name]: Number(value) });
   }
 
-  addMovie(callback) {
+  resetState(callback) {
     callback(this.state);
     this.setState({
       title: '',
@@ -94,7 +94,7 @@ class AddMovie extends Component {
           />
         </label>
         {this.newSelectElement()}
-        <button onClick={() => this.addMovie(onClick)}>Adicionar filme</button>
+        <button onClick={() => this.resetState(onClick)}>Adicionar filme</button>
       </form>
     );
   }
