@@ -5,14 +5,15 @@ class SearchBar extends Component {
   render() {
     return (
       <form>
-        <label>Inclui o texto</label>
+        <label htmlFor="Inclui o texto">Inclui o texto</label>
         <input type="text" value={this.props.searchText} onChange={this.props.onSearchTextChange} />
-        <label>Mostrar somente favoritos</label>
-        <input type="checkbox" checked={this.props.bookmarkedOnly} onChange={this.props.onBookmarkedChange} />
-        <label>Filtrar por gênero</label>
+        <label htmlFor="Mostrar somente favoritos">Mostrar somente favoritos</label>
+        <input type="checkbox" checked={this.props.bookmarkedOnly}
+          onChange={this.props.onBookmarkedChange} />
+        <label htmlFor="Filtrar por gênero">Filtrar por gênero</label>
         <select value={this.props.selectedGenre} onChange={this.props.onSelectedGenreChange} />
       </form>
-    )
+    );
   }
 }
 
