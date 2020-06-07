@@ -1,12 +1,13 @@
 body {
-  background-color: whitesmoke;
+  background-color: rgb(19, 22, 20);
   box-sizing: border-box;
   font-size: 16px;
 }
 
 .movie-card-header {
   align-items: center;
-  background-color: #343a40;
+  background-color: #43165d;
+  color: whitesmoke;
   display: flex;
   height: 100px;
   justify-content: center;
@@ -26,7 +27,7 @@ body {
 }
 
 .movie-card {
-  background-color: white;
+  background-color: rgb(85, 14, 126);
   border: 1px solid rgba(0, 0, 0, 0.125);
   border-radius: 3px;
   display: flex;
@@ -37,6 +38,9 @@ body {
   width: 300px;
 }
 
+.movie-card:hover {
+  box-shadow: inset 0 0 1em #1d1c16 , 0 0 1em #d42929;
+}
 
 .movie-card-image {
   width: 100%;
@@ -48,25 +52,30 @@ body {
 }
 
 .movie-card-title {
+  color: whitesmoke;
   font-size: 24px;
   font-weight: 500;
   margin: 0 0 12px;
+  opacity: 0.9;
 }
 
 .movie-card-subtitle {
-  color: #6c757d;
+  color: whitesmoke;
   font-size: 16px;
   font-weight: 500;
   margin: 0 0 8px;
+  opacity: 0.8;
 }
 
 .movie-card-storyline {
+  color: whitesmoke;
   font-size: 14px;
+  opacity: 0.6;
   text-align: justify;
 }
 
 .rating {
-  background-color: #007bff;
+  background-color: #646557;
   border-radius: 25px;
   color: white;
   font-size: 16px;
@@ -80,4 +89,8 @@ body {
   display: flex;
   justify-content: flex-end;
   padding: 12px 20px;
+}
+
+.SearchBar {
+  border: tomato solid 2px;
 }
