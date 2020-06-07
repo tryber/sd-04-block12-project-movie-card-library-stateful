@@ -3,7 +3,7 @@ import './App.css';
 import Header from './components/Header';
 import MovieList from './components/MovieList';
 import data from './data';
-import SearchBar from './components/SearchBar'
+import SearchBar from './components/SearchBar';
 
 function App() {
   return (
