@@ -60,7 +60,7 @@ class MovieLibrary extends React.Component {
           selectedGenre={this.state.selectedGenre}
           onSelectedGenreChange={(event) => this.onSelectedGenreChange(event)}
         />
-        <MovieList movies={this.moviesFilter()} /> 
+        <MovieList movies={this.moviesFilter()} />
         <AddMovie onClick={this.AddMoviefunc} />
 
       </div>
