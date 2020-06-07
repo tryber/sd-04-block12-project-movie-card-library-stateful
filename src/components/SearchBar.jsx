@@ -7,7 +7,8 @@ class SearchBar extends Component {
     const {
       searchText, onSearchTextChange,
       bookmarkedOnly, onBookmarkedChange,
-      selectedGenre, onSelectedGenreChange } = this.props;
+      selectedGenre, onSelectedGenreChange
+    } = this.props;
     return (
       <form>
         <label htmlFor="searchText">Inclui o texto
