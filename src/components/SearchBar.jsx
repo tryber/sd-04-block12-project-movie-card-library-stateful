@@ -21,16 +21,16 @@ class SearchBar extends Component {
 
   onSearchTextChange(event) {
     const { value } = event.target;
-    this.setState({ searchText: value, }); // recebe o novo value
+    this.setState({ searchText: value }); // recebe o novo value
   }
 
   onBookmarkedChange() {
-    this.setState({ bookmarkedOnly: !this.state.bookmarkedOnly, });// nega o que vem
+    this.setState({ bookmarkedOnly: !this.state.bookmarkedOnly });// nega o que vem
   }
 
   onSelectedGenreChange(event) {
     const { value } = event.target; // pegar valor do campo
-    this.setState({ selectedGenre: value, }); // selectedGenre vale oque usuario seleciona
+    this.setState({ selectedGenre: value }); // selectedGenre vale oque usuario seleciona
   }
 
   render() {
