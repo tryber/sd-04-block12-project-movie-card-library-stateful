@@ -20,7 +20,7 @@ class MovieLibrary extends Component {
   }
 
   onSearchTextChange(event) {
-    this.upDate(event);
+    this.setState({ searchText: event.target.value });
   }
 
   onBookmarkedChange() {
@@ -29,21 +29,16 @@ class MovieLibrary extends Component {
   }
 
   onSelectedGenreChange(event) {
-    this.upDate(event);
-  }
-
-  upDate(event) {
-    const { name, value } = event.target;
-    this.setState(() => ({ [name]: value }));
+    this.setState({ selectedGenre: event.target.value });
   }
 
   addMovie(movie) {
     this.setState((state) => ({ movies: [...state.movies, movie] }));
   }
 
-  filteredMovies(movies) {
+  filteredMovies() {
     const { searchText, bookmarkedOnly, selectedGenre } = this.state;
-    let arrFiltered = movies;
+    let arrFiltered = this.props.movies;
 
     if (bookmarkedOnly) {
       arrFiltered = arrFiltered.filter((movie) => movie.bookmarked === true);
@@ -55,8 +50,8 @@ class MovieLibrary extends Component {
     if (searchText) {
       arrFiltered = arrFiltered.filter(
         (movie) =>
-          movie.title === searchText ||
-          movie.subtitle === searchText ||
+          movie.title.includes(searchText) ||
+          movie.subtitle.includes(searchText) ||
           movie.storyline.includes(searchText),
       );
     }
@@ -64,8 +59,8 @@ class MovieLibrary extends Component {
   }
 
   render() {
-    const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
-
+    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
+    const filteredMovies = this.filteredMovies();
     return (
       <div>
         <SearchBar
@@ -76,8 +71,8 @@ class MovieLibrary extends Component {
           selectedGenre={selectedGenre}
           onSelectedGenreChange={this.onSelectedGenreChange}
         />
-        <MovieList movies={this.filteredMovies(movies)} />
-        <AddMovie onCLick={this.addMovie} />
+        <MovieList movies={filteredMovies} />
+        <AddMovie onClick={this.addMovie} />
       </div>
     );
   }
