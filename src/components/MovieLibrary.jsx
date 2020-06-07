@@ -1,6 +1,6 @@
 // implement MovieLibrary component here
 import React from 'react';
-import movies from './../data';
+// import movies from './../data';
 import SearchBar from './SearchBar';
 import MovieList from './MovieList';
 import AddMovie from './AddMovie';
@@ -21,7 +21,6 @@ class MovieLibrary extends React.Component {
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
     this.AddMoviefunc = this.AddMoviefunc.bind(this);
     this.moviesFilter = this.moviesFilter.bind(this);
-
   }
 
   onSearchTextChange(event) {
@@ -38,14 +37,16 @@ class MovieLibrary extends React.Component {
   }
 
   moviesFilter() {
-    // Tem que usar 3 if? If para filtrar searchtest e 
-    const { searchText, selectedGenre, movies } = this.state; // Porque tirar movies não 
-    let filteredMovies = movies.filter((movie) => movie.title.includes(searchText)
+    // Need to add 3 if below? Must be checked
+    const { searchText, selectedGenre } = this.state; // Porque tirar movies não passe os testes?
+    let filteredMovies = this.state.movies.filter((movie) => movie.title.includes(searchText)
       || movie.subtitle.includes(searchText)
       || movie.storyline.includes(searchText));
     filteredMovies = filteredMovies.filter((movie) => movie.genre.includes(selectedGenre));
-    if (this.state.bookmarkedOnly) filteredMovies = filteredMovies.filter((movie) => movie.bookmarked === true)
-    return filteredMovies
+    if (this.state.bookmarkedOnly) {
+      filteredMovies = filteredMovies.filter((movie) => movie.bookmarked === true);
+    }
+    return filteredMovies;
   }
 
   render() {
