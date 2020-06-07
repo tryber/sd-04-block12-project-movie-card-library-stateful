@@ -55,9 +55,7 @@ export function register(config) {
 }
 
 function registerValidSW(swUrl, config) {
-  navigator.serviceWorker
-    .register(swUrl)
-    .then(registration => {
+  navigator.serviceWorker.register(swUrl).then(registration => {
       registration.onupdatefound = () => {
         const installingWorker = registration.installing;
         if (installingWorker == null) {
@@ -73,7 +71,6 @@ function registerValidSW(swUrl, config) {
                 'New content is available and will be used when all ' +
                   'tabs for this page are closed. See https://bit.ly/CRA-PWA.'
               );
-
               // Execute callback
               if (config && config.onUpdate) {
                 config.onUpdate(registration);
@@ -83,11 +80,8 @@ function registerValidSW(swUrl, config) {
               // It's the perfect time to display a
               // "Content is cached for offline use." message.
               console.log('Content is cached for offline use.');
-
               // Execute callback
-              if (config && config.onSuccess) {
-                config.onSuccess(registration);
-              }
+              if (config && config.onSuccess) config.onSuccess(registration);
             }
           }
         };
