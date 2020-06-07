@@ -23,15 +23,7 @@ class MovieLibrary extends Component {
     this.setState({ [e.target.name]: e.target.value });
   }
 
-
-  addMovie({
-    subtitle,
-    title,
-    imagePath,
-    storyline,
-    rating,
-    genre,
-  }) {
+  addMovie({ subtitle, title, imagePath, storyline, rating, genre }) {
     return this.setState((state) => ({
       movies: [
         ...state.movies,
@@ -50,17 +42,14 @@ class MovieLibrary extends Component {
   renderMovieList() {
     const { selectedGenre, bookmarkedOnly, movies, searchText } = this.state;
 
-    let filteredMovies = movies.filter(({ title, subtitle, storyline }) => (
-      Object.values(
-        { title: title.toLowerCase(),
-          subtitle: subtitle.toLowerCase(),
-          storyline: storyline.toLowerCase()
-        }).some((line) => line.includes(searchText.toLowerCase()))
-    ));
+    let filteredMovies = movies.filter(({ title, subtitle, storyline }) => Object.values({
+      title: title.toLowerCase(),
+      subtitle: subtitle.toLowerCase(),
+      storyline: storyline.toLowerCase(),
+    }).some((line) => line.includes(searchText.toLowerCase())));
 
     if (selectedGenre) {
-      filteredMovies = filteredMovies
-        .filter((movie) => movie.genre === selectedGenre);
+      filteredMovies = filteredMovies.filter((movie) => movie.genre === selectedGenre);
     }
     return bookmarkedOnly ? filteredMovies.filter((movie) => movie.bookmarked) : filteredMovies;
   }
@@ -77,9 +66,7 @@ class MovieLibrary extends Component {
           selectedGenre={selectedGenre}
           onSelectedGenreChange={(e) => this.setState({ selectedGenre: e.target.value })}
         />
-        <MovieList
-          movies={this.renderMovieList()}
-        />
+        <MovieList movies={this.renderMovieList()} />
         <AddMovie onClick={this.addMovie} />
       </div>
     );
