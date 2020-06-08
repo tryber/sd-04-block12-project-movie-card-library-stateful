@@ -13,13 +13,13 @@ class AddMovie extends Component {
       rating: 0,
       genre: 'action',
     };
+    this.storeTitle = this.storeTitle.bind(this);
   }
-  storeTitle = (e) => {
+  storeTitle(e) {
     this.setState({
       title: e.target.value,
     });
-  };
-
+  }
   render() {
     return (
       <SearchBar>
