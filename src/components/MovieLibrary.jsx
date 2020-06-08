@@ -46,6 +46,9 @@ export default class MovieLibrary extends React.Component {
       return movies;
   }
   
+  newMovie(movie) {
+    console.log(movie)
+  }
 
 render() {
   const { searchText, bookmarkedOnly, selectedGenre } = this.state;
@@ -60,7 +63,7 @@ render() {
         onBookmarkedChange={this.onBookmarkedChange}
       />
       <MovieList movies={this.filtredMovies()} />
-      <AddMovie />
+      <AddMovie onClick={this.newMovie}/>
     </div>
 
   )

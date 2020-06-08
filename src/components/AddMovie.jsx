@@ -12,15 +12,12 @@ export default class AddMovie extends React.Component {
       rating: 0,
       genre: 'action',
     };
-    this.addMovie = this.addMovie.bind(this);
   }
 
-  addMovie(event) {
+  changes(event) {
     const { name, value } = event.target;
-    this.setState({ [name]: value });
+    this.setState({ [name]: value })
   }
-
-  
 
   render() {
     const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
@@ -28,18 +25,18 @@ export default class AddMovie extends React.Component {
       <div>
         <form>
           <label htmlFor="title">
-            Título<input type="text" onChange={this.addMovie} value={title} /></label>
+            Título<input type="text" onChange={this.changes} value={title} /></label>
           <label htmlFor="subtitle">
-            Subtítulo<input type="text" onChange={this.addMovie} value={subtitle} /></label>
+            Subtítulo<input type="text" onChange={this.changes} value={subtitle} /></label>
           <label htmlFor="image">
-            Imagem<input type="text" onChange={this.addMovie} value={imagePath} /></label>
+            Imagem<input type="text" onChange={this.changes} value={imagePath} /></label>
           <label htmlFor="story">
-            Sinopse<textarea onChange={this.addMovie} value={storyline} /></label>
+            Sinopse<textarea onChange={this.changes} value={storyline} /></label>
           <label htmlFor="rate">
-            Avaliação<input type="number" onChange={this.addMovie} value={rating} /></label>
+            Avaliação<input type="number" onChange={this.changes} value={rating} /></label>
           <label htmlFor="genre">Gênero<select
             value={genre}
-            onChange={this.addMovie}
+            onChange={this.changes}
           >
             <option value="action">Ação</option>
             <option value="comedy">Comédia</option><option value="thriller">Suspense</option>
