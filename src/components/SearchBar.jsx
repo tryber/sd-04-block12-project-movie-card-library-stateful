@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 export default class SearchBar extends Component {
   funSearch() {
-    const { searchText, onSearchTextChange  } = this.props;
+    const { searchText, onSearchTextChange } = this.props;
     return (
       <label htmlFor="searchText">
         Inclui o texto:
@@ -35,7 +35,7 @@ export default class SearchBar extends Component {
       </label>
     );
   }
-  
+
   render() {
     return (
       <div>
