@@ -36,9 +36,9 @@ class AddMovie extends Component {
       // tive que abreviar as props por causa do CC, legenda:
       // t = type; v = value; onC = onChange; l = label; s = limite superior; i = limite inferior
       <form>
-        <Input t="text" v={title} onC={this.tChange} l="Título" name="title" />
-        <Input t="text" v={subtitle} onC={this.tChange} l="Subtítulo" name="subtitle" />
-        <Input t="text" v={imagePath} onC={this.tChange} l="Imagem" name="imagePath" />
+        <Input v={title} onC={this.tChange} l="Título" name="title" />
+        <Input v={subtitle} onC={this.tChange} l="Subtítulo" name="subtitle" />
+        <Input v={imagePath} onC={this.tChange} l="Imagem" name="imagePath" />
         <Textarea t="textarea" v={storyline} onC={this.tChange} l="Sinopse" name="storyline" />
         <Input t="number" v={rating} onC={this.tChange} l="Avaliação" name="rating" f={5} i={0} />
         <Select2 v={genre} onC={this.tChange} l="Gênero" />

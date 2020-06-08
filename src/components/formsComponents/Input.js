@@ -22,4 +22,6 @@ class Input extends React.Component {
   }
 }
 
+Input.defaultProps = { t: 'text' };
+
 export default Input;

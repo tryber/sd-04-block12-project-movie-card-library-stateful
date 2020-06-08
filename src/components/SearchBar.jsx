@@ -10,12 +10,7 @@ class SearchBar extends Component {
     } = this.props;
     return (
       <form>
-        <Input
-          t="text"
-          v={searchText}
-          onC={onSearchTextChange}
-          l="Inclui o texto:"
-        />
+        <Input v={searchText} onC={onSearchTextChange} l="Inclui o texto:" />
         <Input
           t="checkbox"
           checked={bookmarkedOnly}
