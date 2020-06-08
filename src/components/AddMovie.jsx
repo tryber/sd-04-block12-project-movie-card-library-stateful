@@ -40,8 +40,8 @@ class AddMovie extends Component {
         <label htmlFor="storyline">Sinopse</label>
         <textarea
           type="text" id="storyline" name="storyline"
-          value={this.state.storyline} onChange={this.storeState}>
-        </textarea>
+          value={this.state.storyline} onChange={this.storeState}
+        />
       </form>
     );
   }
