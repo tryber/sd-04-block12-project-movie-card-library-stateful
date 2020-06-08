@@ -20,7 +20,11 @@ class SearchBar extends Component {
           onChange={this.props.onBookmarkedChange}
         />
         <label htmlFor="gen">Filtrar por gênero</label>
-        <select id="gen" value={this.props.selectedGenre} onChange={this.props.onSelectedGenreChange}>
+        <select
+          id="gen"
+          value={this.props.selectedGenre}
+          onChange={this.props.onSelectedGenreChange}
+        >
           <option value="">Todos</option>
           <option value="action">Ação</option>
           <option value="comedy">Comédia</option>
