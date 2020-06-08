@@ -54,10 +54,8 @@ class SearchBar extends Component {
         <small>SearchBar: Req: 1-5</small>
         <br />
         <form>
-          {/* {this.createForm('inputText', 'Inclui o texto:', 'text', searchText, onSearchTextChange)} */}
           {this.textIncluded()}
           <br />
-          {/* {this.createForm('fav', 'Mostrar favoritos', 'radio', bookmakedOnly, onBookmarkedChange)} */}
           {this.favoriteOnly()}
           <br />
           {this.genreFilter()}
