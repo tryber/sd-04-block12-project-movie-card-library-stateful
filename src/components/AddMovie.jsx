@@ -14,9 +14,18 @@ class AddMovie extends Component {
       genre: 'action',
     };
   }
+  storeTitle = (e) => {
+    this.setState({
+      title: e.target.value,
+    });
+  };
+
   render() {
     return (
-      <SearchBar />
+      <SearchBar>
+        <label htmlFor="title">Título</label>
+        <input type="text" id="title" value={this.state.title} onChange={this.storeTitle} />
+      </SearchBar>
     );
   }
 }

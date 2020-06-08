@@ -50,7 +50,7 @@ describe('<AddMovie /> component initial state', () => {
 describe('<AddMovie /> component Form', () => {
   beforeEach(() => beforeEachUnitTest());
 
-  it.skip('renders a form', () => {
+  it('renders a form', () => {
     expect(addMovie().find('form').length).toEqual(1);
   });
 });
