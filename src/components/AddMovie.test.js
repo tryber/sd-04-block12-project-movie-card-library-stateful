@@ -68,11 +68,11 @@ describe('<AddMovie /> component title input', () => {
     expect(addMovie().find('label').at(0).text()).toEqual('Título');
   });
 
-  it.skip('the title input initial value, "", comes from the AddMovie initial state, via "title"', () => {
+  it('the title input initial value, "", comes from the AddMovie initial state, via "title"', () => {
     expect(titleInput().prop('value')).toEqual(initialState.title);
   });
 
-  it.skip('updates the component state when title input changes', () => {
+  it('updates the component state when title input changes', () => {
     const simulatedEvent = { target: { value: 'my awesome movie title', name: 'title' } };
 
     titleInput().simulate('change', simulatedEvent);
@@ -85,19 +85,19 @@ describe('<AddMovie /> component subtitle input', () => {
 
   const subtitleInput = () => addMovie().find('form input[type="text"]').at(1);
 
-  it.skip('renders a subtitle input so as the user can type the movie subtitle', () => {
+  it('renders a subtitle input so as the user can type the movie subtitle', () => {
     expect(subtitleInput().exists()).toBeTruthy();
   });
 
-  it.skip('renders the label "Subtítulo" for the movie subtitle input', () => {
+  it('renders the label "Subtítulo" for the movie subtitle input', () => {
     expect(addMovie().find('label').at(1).text()).toEqual('Subtítulo');
   });
 
-  it.skip('the subtitle input initial value, "", comes from the AddMovie initial state, via "subtitle"', () => {
+  it('the subtitle input initial value, "", comes from the AddMovie initial state, via "subtitle"', () => {
     expect(subtitleInput().prop('value')).toEqual(initialState.subtitle);
   });
 
-  it.skip('updates the component state when subtitle input changes', () => {
+  it('updates the component state when subtitle input changes', () => {
     const simulatedEvent = { target: { value: 'my awesome movie subtitle', name: 'subtitle' } };
 
     subtitleInput().simulate('change', simulatedEvent);

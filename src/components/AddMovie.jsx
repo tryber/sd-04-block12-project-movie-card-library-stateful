@@ -12,16 +12,32 @@ class AddMovie extends Component {
       rating: 0,
       genre: 'action',
     };
-    this.storeTitle = this.storeTitle.bind(this);
+    this.storeState = this.storeState.bind(this);
   }
-  storeTitle(e) {
-    this.setState({ title: e.target.value });
+  storeState(e) {
+    const id = e.target.name;
+    const value = e.target.value;
+    this.setState({ [id]: value });
   }
   render() {
     return (
       <form>
         <label htmlFor="title">Título</label>
-        <input type="text" id="title" value={this.state.title} onChange={this.storeTitle} />
+        <input
+          type="text"
+          id="title"
+          name="title"
+          value={this.state.title}
+          onChange={this.storeState}
+        />
+        <label htmlFor="subtitle">Subtítulo</label>
+        <input
+          type="text"
+          id="subtitle"
+          name="subtitle"
+          value={this.state.subtitle}
+          onChange={this.storeState}
+        />
       </form>
     );
   }
