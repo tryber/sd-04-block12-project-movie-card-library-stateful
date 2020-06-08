@@ -1,5 +1,6 @@
 // implement AddMovie component here
 import React, { Component } from 'react';
+
 const initialState = {
   subtitle: '',
   title: '',
@@ -84,91 +85,3 @@ class AddMovie extends Component {
 }
 
 export default AddMovie;
-
-//   title = () => {
-//     return (
-//       <label htmlFor="title">
-//         Título
-//         <input
-//           type="text"
-//           name="title"
-//           // style={sytleForm}
-//           value={this.state.title}
-//           onChange={this.handleChange}
-//         />
-//       </label>
-//     );
-//   };
-
-// const { onClick } = this.props;
-// const styleForm = { width: '100%' };
-// const input = (name, value, onChange) => {
-//   <input name={name} value={value} onChange={onChange} />;
-// };
-// {
-/*{this.imagePath()}
-          {this.storyline()}
-          {this.rating()}
-          {this.genre()} */
-// }
-// {
-/* 
-          <br />
-          <label htmlFor="subtitle">
-            Subtítulo
-            <input
-              type="text"
-              name="subtitle"
-              //   style={sytleForm}
-              value={this.state.subtitle}
-              onChange={this.handleChange}
-            />
-          </label>
-          <br />
-          <label htmlFor="imagePath">
-            Imagem
-            <input
-              type="text"
-              name="imagePath"
-              //   style={sytleForm}
-              value={this.state.imagePath}
-              onChange={this.handleChange}
-            />
-          </label>
-          <br />
-          <label htmlFor="storyline">
-            Sinopse
-            <textarea
-              // type="text"
-              name="storyline"
-              //   style={sytleForm}
-              value={this.state.storyline}
-              onChange={this.handleChange}
-            />
-          </label>
-          <br />
-          <label htmlFor="rating">
-            Avaliação
-            <input
-              type="number"
-              name="rating"
-              value={this.state.rating}
-              onChange={this.handleChange}
-            />
-          </label>
-          <br />
-          <label htmlFor="genre">
-            Gênero
-            <select
-              name="genre"
-              //   style={sytleForm}
-              value={this.state.genre}
-              onChange={this.handleChange}
-            >
-              <option value="action">Ação</option>
-              <option value="comedy">Comédia</option>
-              <option value="thriller">Suspense</option>
-            </select>
-          </label>
-          <br /> */
-// }
