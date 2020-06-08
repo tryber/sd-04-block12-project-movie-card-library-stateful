@@ -15,9 +15,9 @@ class AddMovie extends Component {
     this.storeState = this.storeState.bind(this);
   }
   storeState(e) {
-    const id = e.target.name;
+    const name = e.target.name;
     const value = e.target.value;
-    this.setState({ [id]: value });
+    this.setState({ [name]: value });
   }
   render() {
     return (
@@ -41,6 +41,11 @@ class AddMovie extends Component {
         <textarea
           type="text" id="storyline" name="storyline"
           value={this.state.storyline} onChange={this.storeState}
+        />
+        <label htmlFor="rating">Avaliação</label>
+        <input
+          type="number" id="rating" name="rating"
+          value={this.state.rating} onChange={this.storeState}
         />
       </form>
     );

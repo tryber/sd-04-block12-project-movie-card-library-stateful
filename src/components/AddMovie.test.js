@@ -160,20 +160,20 @@ describe('<AddMovie /> component rating input', () => {
 
   const ratingInput = () => addMovie().find('form input[type="number"]');
 
-  it.skip('renders a rating input so as the user can type the movie rating', () => {
+  it('renders a rating input so as the user can type the movie rating', () => {
     expect(ratingInput(addMovie()).length).toEqual(1);
   });
 
-  it.skip('renders the label "Avaliação" for the movie rating input', () => {
+  it('renders the label "Avaliação" for the movie rating input', () => {
     expect(addMovie().find('label').at(4).text()).toEqual('Avaliação');
   });
 
-  it.skip('the rating input initial value, 0, comes from the AddMovie initial state, via "rating"', () => {
+  it('the rating input initial value, 0, comes from the AddMovie initial state, via "rating"', () => {
     expect(ratingInput().prop('value')).toEqual(initialState.rating);
   });
 
-  it.skip('updates the component state when movie rating input changes', () => {
-    const simulatedEvent = { target: { value: '1.5', name: 'rating' } };
+  it('updates the component state when movie rating input changes', () => {
+    const simulatedEvent = { target: { value: 1.5, name: 'rating' } };
 
     ratingInput().simulate('change', simulatedEvent);
     expect(addMovie().state('rating')).toEqual(1.5);
@@ -191,15 +191,15 @@ describe('<AddMovie /> component genre selection', () => {
 
   const genreSelection = () => addMovie().find('form select');
 
-  it.skip('renders a movie genre selection so as the user can select the movie genre', () => {
-    expect(genreSelection().length).toEqual(1);
+  it('renders a movie genre selection so as the user can select the movie genre', () => {
+    expect(genreSelection().length).toEqual(1); 
   });
 
-  it.skip('renders the label "Gênero" for the movie genre selection', () => {
+  it('renders the label "Gênero" for the movie genre selection', () => {
     expect(addMovie().find('label').at(5).text()).toMatch('Gênero');
   });
 
-  it.skip('renders all genre options inside the selection with expected text and values', () => {
+  it('renders all genre options inside the selection with expected text and values', () => {
     const options = genreSelection().find('option');
 
     expect(options.length).toEqual(genreOptions.length);
@@ -209,11 +209,11 @@ describe('<AddMovie /> component genre selection', () => {
     });
   });
 
-  it.skip('the genre selection initial value, "action", comes from the AddMovie initial state, via "genre"', () => {
+  it('the genre selection initial value, "action", comes from the AddMovie initial state, via "genre"', () => {
     expect(genreSelection(addMovie()).prop('value')).toEqual(initialState.genre);
   });
 
-  it.skip('updates the component state when movie genre selection changes', () => {
+  it('updates the component state when movie genre selection changes', () => {
     const givenGenre = genreOptions[0];
     const simulatedEvent = { target: { value: givenGenre , name: 'genre'} };
 
@@ -235,11 +235,11 @@ describe('<AddMovie /> component creation button', () => {
     genre: 'action',
   };
 
-  it.skip('has "Adicionar filme" as content', () => {
+  it('has "Adicionar filme" as content', () => {
     expect(button().text()).toEqual('Adicionar filme');
   });
 
-  it.skip('calls `onClick` received as props from AddMovie, using its current state as parameter', () => {
+  it('calls `onClick` received as props from AddMovie, using its current state as parameter', () => {
     addMovie().setState(currentState);
 
     button().simulate('click');
@@ -247,7 +247,7 @@ describe('<AddMovie /> component creation button', () => {
     expect(props.onClick).toHaveBeenCalledWith(currentState);
   });
 
-  it.skip('resets AddMovie to its initial state when clicked by the user', () => {
+  it('resets AddMovie to its initial state when clicked by the user', () => {
     addMovie().setState(currentState);
 
     expect(addMovie().state()).toEqual(currentState);
