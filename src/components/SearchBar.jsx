@@ -6,7 +6,7 @@ class SearchBar extends Component {
     return (
       <form>
         <label htmlFor="search">Inclui o texto:</label>
-        <input 
+        <input
           id="search"
           type="text"
           value={this.props.searchText}
