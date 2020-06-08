@@ -34,7 +34,7 @@ describe('<AddMovie /> component', () => {
     addMovie();
   });
 
-  it.skip('renders a form', () => {
+  it('renders a form', () => {
     expect(addMovie().find('form').length).toEqual(1);
   });
 });
@@ -42,7 +42,7 @@ describe('<AddMovie /> component', () => {
 describe('<AddMovie /> component initial state', () => {
   beforeEach(() => beforeEachUnitTest());
 
-  it.skip('sets expected initial state', () => {
+  it('sets expected initial state', () => {
     expect(addMovie().state()).toEqual(initialState);
   });
 });
