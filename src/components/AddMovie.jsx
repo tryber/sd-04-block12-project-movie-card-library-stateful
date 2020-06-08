@@ -14,6 +14,7 @@ class AddMovie extends Component {
     this.state = initialState; // https://bit.ly/2UjQzyh
     this.handleChange = this.handleChange.bind(this);
     this.resetBuilder = this.resetBuilder.bind(this);
+    this.createForm = this.createForm.bind(this);
   }
   // https://bit.ly/3cJhOsq
   handleChange(e) {
@@ -23,7 +24,7 @@ class AddMovie extends Component {
   resetBuilder(values) {
     this.setState(this.initialState);
   }
-  createForm = (key, mark, kind) => {
+  createForm(key, mark, kind) {
     const styleForm = {
       width: '100%',
       border: '1px solid #999',
@@ -43,7 +44,7 @@ class AddMovie extends Component {
         />
       </label>
     );
-  };
+  }
   createOption = () => {
     return (
       <label htmlFor="genre">
