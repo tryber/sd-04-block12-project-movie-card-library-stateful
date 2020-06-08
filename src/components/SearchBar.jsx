@@ -7,8 +7,7 @@ class SearchBar extends Component {
     return (
       <form>
         <Search
-          searchText={this.props.searchText}
-          onSearchTextChange={this.props.onSearchTextChange}
+          searchText={this.props.searchText} onSearchTextChange={this.props.onSearchTextChange}
         />
         <label htmlFor="check-fav">Mostrar somente favoritos</label>
         <input
