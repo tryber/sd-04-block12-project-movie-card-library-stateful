@@ -1,19 +1,13 @@
-import React from 'react';
+// import React from 'react';
 
-class AddMovie extends React.Component {
-  
-  
-  
-  
-  render() {
-    const { onClick } = this.props;
+// class AddMovie extends React.Component {
+//   render() {
+//     const { onClick } = this.props;
 
-    return (
-      <form>
-    
-    
-      </form>
-    );
-  }
-}
-export default AddMovie;
+//     return (
+//       <form>
+//       </form>
+//     );
+//   }
+// }
+// export default AddMovie;
