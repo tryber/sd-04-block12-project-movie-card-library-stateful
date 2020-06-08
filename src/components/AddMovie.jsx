@@ -23,23 +23,14 @@ class AddMovie extends Component {
     return (
       <form>
         <label htmlFor="title">Título</label>
-        <input type="text" id="title" name="title" value={this.state.title} onChange={this.storeState} />
+        <input type="text" id="title" name="title"
+          value={this.state.title} onChange={this.storeState} />
         <label htmlFor="subtitle">Subtítulo</label>
-        <input
-          type="text"
-          id="subtitle"
-          name="subtitle"
-          value={this.state.subtitle}
-          onChange={this.storeState}
-        />
+        <input type="text" id="subtitle" name="subtitle"
+          value={this.state.subtitle} onChange={this.storeState} />
         <label htmlFor="image-path">Imagem</label>
-        <input
-          type="text"
-          id="image-path"
-          name="imagePath"
-          value={this.state.imagePath}
-          onChange={this.storeState}
-        />
+        <input type="text" id="image-path" name="imagePath"
+          value={this.state.imagePath} onChange={this.storeState} />
       </form>
     );
   }
