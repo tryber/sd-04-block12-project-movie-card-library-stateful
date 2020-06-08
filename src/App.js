@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import SearchBar from './components/SearchBar';
-import AddMovie from './components/AddMovie';
+import MovieLibrary from './components/MovieLibrary';
 import Header from './components/Header';
 
 class App extends Component {
@@ -9,8 +8,7 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
-        <SearchBar />
-        <AddMovie />
+        <MovieLibrary />
       </div>
     );
   }
