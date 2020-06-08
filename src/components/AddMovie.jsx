@@ -53,7 +53,7 @@ class AddMovie extends React.Component {
     return (
       <div>
         <form>
-          {this.htmlForm}
+          {this.htmlForm()}
           <label htmlFor="genre">Gênero</label>
           <select name="genre" value={genre} onChange={this.changeInput}>
             <option value="action">Ação</option>
