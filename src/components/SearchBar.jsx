@@ -2,36 +2,36 @@
 import React, { Component } from 'react';
 
 class SearchBar extends Component {
-  createForm(alias, kind, grade, change) {
-    return (
-      <div>
-        <label htmlFor={alias}>
-          Inclui o texto:
-          <input type={kind} name={alias} value={grade} onChange={change} />
-        </label>
-      </div>
-    );
-  }
-  // textIncluded() {
-  //   const { searchText, onSearchTextChange } = this.props;
+  // createForm(alias, mark, kind, grade, change) {
   //   return (
   //     <div>
-  //       <label htmlFor="input">
-  //         Inclui o texto:
-  //         <input type="text" name="input" value={searchText} onChange={onSearchTextChange} />
+  //       <label htmlFor={alias}>
+  //         {mark}
+  //         <input type={kind} name={alias} value={grade} onChange={change} />
   //       </label>
   //     </div>
   //   );
   // }
-  // favoriteOnly() {
-  //   const { bookmakedOnly, onBookmarkedChange } = this.props;
-  //   return (
-  //     <label htmlFor="favOnly">
-  //       <input type="radio" name="favOnly" value={bookmakedOnly} onChange={onBookmarkedChange} />
-  //       Mostrar somente favoritos
-  //     </label>
-  //   );
-  // }
+  textIncluded() {
+    const { searchText, onSearchTextChange } = this.props;
+    return (
+      <div>
+        <label htmlFor="input">
+          Inclui o texto:
+          <input type="text" name="input" value={searchText} onChange={onSearchTextChange} />
+        </label>
+      </div>
+    );
+  }
+  favoriteOnly() {
+    const { bookmakedOnly, onBookmarkedChange } = this.props;
+    return (
+      <label htmlFor="fav">
+        <input type="radio" name="fav" value={bookmakedOnly} onChange={onBookmarkedChange} />
+        Mostrar somente favoritos
+      </label>
+    );
+  }
   genreFilter() {
     const { selectedGenre, onSelectedGenreChange } = this.props;
     return (
@@ -48,15 +48,17 @@ class SearchBar extends Component {
     );
   }
   render() {
-    const { searchText, onSearchTextChange, bookmakedOnly, onBookmarkedChange } = this.props;
+    // const { searchText, onSearchTextChange, bookmakedOnly, onBookmarkedChange } = this.props;
     return (
       <div>
         <small>SearchBar: Req: 1-5</small>
         <br />
         <form>
-          {this.createForm('inputText', 'text', searchText, onSearchTextChange)}
+          {/* {this.createForm('inputText', 'Inclui o texto:', 'text', searchText, onSearchTextChange)} */}
+          {this.textIncluded()}
           <br />
-          {this.createForm('favorite', 'radio', bookmakedOnly, onBookmarkedChange)}
+          {/* {this.createForm('fav', 'Mostrar favoritos', 'radio', bookmakedOnly, onBookmarkedChange)} */}
+          {this.favoriteOnly()}
           <br />
           {this.genreFilter()}
           <br />
