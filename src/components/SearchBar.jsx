@@ -1,16 +1,14 @@
 // implement SearchBar component here
 import React, { Component } from 'react';
+import Search from './Search.js';
 
 class SearchBar extends Component {
   render() {
     return (
       <form>
-        <label htmlFor="search">Inclui o texto:</label>
-        <input
-          id="search"
-          type="text"
-          value={this.props.searchText}
-          onChange={this.props.onSearchTextChange}
+        <Search
+          searchText={this.props.searchText}
+          onSearchTextChange={this.props.onSearchTextChange}
         />
         <label htmlFor="check-fav">Mostrar somente favoritos</label>
         <input
@@ -19,9 +17,9 @@ class SearchBar extends Component {
           checked={this.props.bookmarkedOnly}
           onChange={this.props.onBookmarkedChange}
         />
-        <label htmlFor="gen">Filtrar por gênero</label>
+        <label htmlFor="filt-gen">Filtrar por gênero</label>
         <select
-          id="gen"
+          id="filt-gen"
           value={this.props.selectedGenre}
           onChange={this.props.onSelectedGenreChange}
         >
