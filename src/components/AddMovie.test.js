@@ -135,19 +135,19 @@ describe('<AddMovie /> component storyline input', () => {
 
   const storylineInput = () => addMovie().find('form textarea');
 
-  it.skip('renders a storyline input so as the user can type the movie storyline', () => {
+  it('renders a storyline input so as the user can type the movie storyline', () => {
     expect(storylineInput().length).toEqual(1);
   });
 
-  it.skip('renders the label "Sinopse" for the movie storyline input', () => {
+  it('renders the label "Sinopse" for the movie storyline input', () => {
     expect(addMovie().find('label').at(3).text()).toEqual('Sinopse');
   });
 
-  it.skip('the storyline input initial value, "", comes from the AddMovie initial state, via "storyline"', () => {
+  it('the storyline input initial value, "", comes from the AddMovie initial state, via "storyline"', () => {
     expect(storylineInput().prop('value')).toEqual(initialState.storyline);
   });
 
-  it.skip('updates the component state when movie storyline input changes', () => {
+  it('updates the component state when movie storyline input changes', () => {
     const simulatedEvent = { target: { value: 'In the following movie, everyone dies.', name: 'storyline' } };
 
     storylineInput().simulate('change', simulatedEvent);

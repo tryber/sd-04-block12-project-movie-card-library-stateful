@@ -37,6 +37,11 @@ class AddMovie extends Component {
           type="text" id="image-path" name="imagePath"
           value={this.state.imagePath} onChange={this.storeState}
         />
+        <label htmlFor="storyline">Sinopse</label>
+        <textarea
+          type="text" id="storyline" name="storyline"
+          value={this.state.storyline} onChange={this.storeState}>
+        </textarea>
       </form>
     );
   }
