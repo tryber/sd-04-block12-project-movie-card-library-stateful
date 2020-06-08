@@ -30,7 +30,7 @@ const beforeEachUnitTest = () => {
 describe('<AddMovie /> component', () => {
   beforeEach(() => beforeEachUnitTest());
 
-  it.skip('renders without crashing', () => {
+  it('renders without crashing', () => {
     addMovie();
   });
 
