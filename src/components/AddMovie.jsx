@@ -12,27 +12,17 @@ class AddMovie extends Component {
   constructor(props) {
     super(props);
     this.state = initialState; // https://bit.ly/2UjQzyh
+    this.handleChange = this.handleChange.bind(this);
+    this.resetBuilder = this.resetBuilder.bind(this);
   }
   // https://bit.ly/3cJhOsq
-  handleChange = (e) => this.setState({ [e.target.name]: e.target.value });
+  handleChange(e) {
+    this.setState({ [e.target.name]: e.target.value });
+  }
   // https://bit.ly/2UjQzyh
-  resetBuilder = (values) => {
+  resetBuilder(values) {
     this.setState(this.initialState);
-  };
-  //   title = () => {
-  //     return (
-  //       <label htmlFor="title">
-  //         Título
-  //         <input
-  //           type="text"
-  //           name="title"
-  //           // style={sytleForm}
-  //           value={this.state.title}
-  //           onChange={this.handleChange}
-  //         />
-  //       </label>
-  //     );
-  //   };
+  }
   createForm = (key, mark, kind) => {
     const styleForm = {
       width: '100%',
@@ -58,12 +48,7 @@ class AddMovie extends Component {
     return (
       <label htmlFor="genre">
         Gênero
-        <select
-          name="genre"
-          //   style={sytleForm}
-          value={this.state.genre}
-          onChange={this.handleChange}
-        >
+        <select name="genre" value={this.state.genre} onChange={this.handleChange}>
           <option value="action">Ação</option>
           <option value="comedy">Comédia</option>
           <option value="thriller">Suspense</option>
@@ -98,6 +83,22 @@ class AddMovie extends Component {
 }
 
 export default AddMovie;
+
+//   title = () => {
+//     return (
+//       <label htmlFor="title">
+//         Título
+//         <input
+//           type="text"
+//           name="title"
+//           // style={sytleForm}
+//           value={this.state.title}
+//           onChange={this.handleChange}
+//         />
+//       </label>
+//     );
+//   };
+
 // const { onClick } = this.props;
 // const styleForm = { width: '100%' };
 // const input = (name, value, onChange) => {

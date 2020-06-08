@@ -2,46 +2,42 @@
 import React, { Component } from 'react';
 
 class SearchBar extends Component {
-  textIncluded = (searchText, onSearchTextChange) => {
+  createForm(alias, kind, grade, change) {
     return (
-      <label htmlFor="textIncluded">
-        Inclui o texto:
-        <input
-          type="text"
-          width="200px"
-          name="textIncluded"
-          // style={input}
-          value={searchText}
-          onChange={() => onSearchTextChange}
-        />
-      </label>
-      // <br />
+      <div>
+        <label htmlFor={alias}>
+          Inclui o texto:
+          <input type={kind} name={alias} value={grade} onChange={change} />
+        </label>
+      </div>
     );
-  };
-  favoriteOnly = (bookmakedOnly, onBookmarkedChange) => {
-    return (
-      <label htmlFor="favOnly">
-        <input
-          type="radio"
-          name="favOnly"
-          value={bookmakedOnly}
-          onChange={() => onBookmarkedChange}
-        />
-        Mostrar somente favoritos
-      </label>
-      // <br />
-    );
-  };
-  genreFilter = (selectedGenre, onSelectedGenreChange) => {
+  }
+  // textIncluded() {
+  //   const { searchText, onSearchTextChange } = this.props;
+  //   return (
+  //     <div>
+  //       <label htmlFor="textIncluded">
+  //         Inclui o texto:
+  //         <input type="text" name="textIncluded" value={searchText} onChange={onSearchTextChange} />
+  //       </label>
+  //     </div>
+  //   );
+  // }
+  // favoriteOnly() {
+  //   const { bookmakedOnly, onBookmarkedChange } = this.props;
+  //   return (
+  //     <label htmlFor="favOnly">
+  //       <input type="radio" name="favOnly" value={bookmakedOnly} onChange={onBookmarkedChange} />
+  //       Mostrar somente favoritos
+  //     </label>
+  //   );
+  // }
+  genreFilter() {
+    const { selectedGenre, onSelectedGenreChange } = this.props;
     return (
       <label htmlFor="genreFilter">
         Filtrar por Gênero:
-        <select
-          name="genreFilter"
-          // style={input}
-          value={selectedGenre}
-          onChange={() => onSelectedGenreChange}
-        >
+        <select name="genreFilter" value={selectedGenre} onChange={onSelectedGenreChange}>
           <option value="">Todos</option>
           <option value="action">Ação</option>
           <option value="comedy">Comédia</option>
@@ -50,25 +46,19 @@ class SearchBar extends Component {
       </label>
       // <br />
     );
-  };
+  }
   render() {
-    const {
-      searchText,
-      bookmakedOnly,
-      selectedGenre,
-      onSearchTextChange,
-      onBookmarkedChange,
-      onSelectedGenreChange,
-    } = this.props;
-    // const input = { width: '100%' };
+    const { searchText, onSearchTextChange, bookmakedOnly, onBookmarkedChange } = this.props;
     return (
       <div>
         <small>SearchBar: Req: 1-5</small>
         <br />
         <form>
-          {this.textIncluded(searchText, onSearchTextChange)}
-          {this.favoriteOnly(bookmakedOnly, onBookmarkedChange)}
-          {this.genreFilter(selectedGenre, onSelectedGenreChange)}
+          {this.createForm('inputText', 'text', searchText, onSearchTextChange)}
+          <br />
+          {this.createForm('favorite', 'radio', bookmakedOnly, onBookmarkedChange)}
+          <br />
+          {this.genreFilter()}
           <br />
         </form>
         <hr />
@@ -78,7 +68,15 @@ class SearchBar extends Component {
 }
 
 export default SearchBar;
-
+// const {
+//   searchText,
+//   bookmakedOnly,
+//   selectedGenre,
+//   onSearchTextChange,
+//   onBookmarkedChange,
+//   onSelectedGenreChange,
+// } = this.props;
+// const input = { width: '100%' };
 // render() {
 //   const {
 //     searchText,
