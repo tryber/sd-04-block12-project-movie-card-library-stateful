@@ -5,9 +5,12 @@ class SearchBar extends Component {
   render() {
     return (
       <form>
-        <label>Inclui o texto:
-          <input type="text" value={this.props.searchText} onChange={this.props.onSearchTextChange} />
-        </label>
+        <label for="search">Inclui o texto:</label>
+        <input id="search"
+               type="text"
+               value={this.props.searchText}
+               onChange={this.props.onSearchTextChange}
+        />
       </form>
     );
   }
