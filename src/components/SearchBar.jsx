@@ -16,6 +16,20 @@ class SearchBar extends React.Component {
     );
   }
 
+  renderCheck() {
+    return (
+      <label htmlFor="check">
+        Mostrar somente favoritos
+        <input
+          type="checkbox"
+          name="check"
+          checked={this.props.bookmarkedOnly}
+          onChange={this.props.onBookmarkedChange}
+        />
+      </label>
+    );
+  }
+
   render() {
     return (
       <div>
@@ -24,13 +38,7 @@ class SearchBar extends React.Component {
         <form>
           {this.renderSearch()}
           <br />
-          <label htmlFor="check">Mostrar somente favoritos</label>
-          <input
-            type="checkbox"
-            name="check"
-            checked={this.props.bookmarkedOnly}
-            onChange={this.props.onBookmarkedChange}
-          />
+          {this.renderCheck()}
           <br />
           <label htmlFor="selecao">Filtrar por gênero</label>
           <select

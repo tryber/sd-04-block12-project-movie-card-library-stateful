@@ -53,7 +53,7 @@ class AddMovie extends React.Component {
     );
   }
 
-  renderSubtitle = () => {
+  renderSubtitle() {
     const { subtitle } = this.state;
     return (
       <label htmlFor="subtitle">
@@ -69,7 +69,7 @@ class AddMovie extends React.Component {
     );
   };
 
-  renderImage = () => {
+  renderImage() {
     const { imagePath } = this.state;
     return (
       <label htmlFor="image">
@@ -85,7 +85,7 @@ class AddMovie extends React.Component {
     );
   };
 
-  renderStoryline = () => {
+  renderStoryline() {
     const { storyline } = this.state;
     return (
       <label htmlFor="story">
@@ -101,7 +101,7 @@ class AddMovie extends React.Component {
     );
   };
 
-  renderRating = () => {
+  renderRating() {
     const { rating } = this.state;
     return (
       <label htmlFor="rate">
@@ -117,7 +117,7 @@ class AddMovie extends React.Component {
     );
   };
 
-  renderSelect = () => {
+  renderSelect() {
     const { genre } = this.state;
     return (
       <label htmlFor="genre">
