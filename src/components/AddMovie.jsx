@@ -19,7 +19,7 @@ class AddMovie extends React.Component {
   }
 
   handleInputChange(event) {
-    let name = event.target.name;
+    const name = event.target.name;
     let value = event.target.value;
     // let { name, value } = event.target;
     if (name === 'rating') value = Number(value);
@@ -67,7 +67,7 @@ class AddMovie extends React.Component {
         />
       </label>
     );
-  };
+  }
 
   renderImage() {
     const { imagePath } = this.state;
@@ -83,7 +83,7 @@ class AddMovie extends React.Component {
         />
       </label>
     );
-  };
+  }
 
   renderStoryline() {
     const { storyline } = this.state;
@@ -99,7 +99,7 @@ class AddMovie extends React.Component {
         />
       </label>
     );
-  };
+  }
 
   renderRating() {
     const { rating } = this.state;
@@ -115,7 +115,7 @@ class AddMovie extends React.Component {
         />
       </label>
     );
-  };
+  }
 
   renderSelect() {
     const { genre } = this.state;
@@ -129,7 +129,7 @@ class AddMovie extends React.Component {
         </select>
       </label>
     );
-  };
+  }
 
   render() {
     const { onClick } = this.props;
