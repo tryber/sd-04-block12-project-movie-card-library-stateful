@@ -65,15 +65,15 @@ class AddMovie extends Component {
           <small>AddMovie Req: 6-15</small>
         </p>
         <form>
-          {this.createForm('title', 'Título', 'text')}
+          {this.createForm(this.state.title, 'Título', 'text')}
           <br />
-          {this.createForm('subTitle', 'Subtítulo', 'text')}
+          {this.createForm(this.state.subTitle, 'Subtítulo', 'text')}
           <br />
-          {this.createForm('imagePath', 'Imagem', 'text')}
+          {this.createForm(this.state.imagePath, 'Imagem', 'text')}
           <br />
-          {this.createForm('storyline', 'Sinopse', 'text')}
+          {this.createForm(this.state.storyline, 'Sinopse', 'text')}
           <br />
-          {this.createForm('rating', 'Avaliação', 'number')}
+          {this.createForm(this.state.rating, 'Avaliação', 'number')}
           <br />
           {this.createOption()}
           <br />
