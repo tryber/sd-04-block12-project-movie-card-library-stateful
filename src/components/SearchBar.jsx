@@ -6,7 +6,8 @@ class SearchBar extends Component {
     return (
       <form>
         <label htmlFor="search">Inclui o texto:</label>
-        <input id="search"
+        <input 
+          id="search"
           type="text"
           value={this.props.searchText}
           onChange={this.props.onSearchTextChange}
