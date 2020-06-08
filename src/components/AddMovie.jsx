@@ -1,6 +1,5 @@
 // implement AddMovie component here
 import React, { Component } from 'react';
-import SearchBar from './SearchBar.jsx';
 
 class AddMovie extends Component {
   constructor(props) {
@@ -20,10 +19,10 @@ class AddMovie extends Component {
   }
   render() {
     return (
-      <SearchBar>
+      <form>
         <label htmlFor="title">Título</label>
         <input type="text" id="title" value={this.state.title} onChange={this.storeTitle} />
-      </SearchBar>
+      </form>
     );
   }
 }

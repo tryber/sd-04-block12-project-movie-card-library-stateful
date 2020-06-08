@@ -60,11 +60,11 @@ describe('<AddMovie /> component title input', () => {
 
   const titleInput = () => addMovie().find('form input[type="text"]').at(0);
 
-  it.skip('renders a text input so as the user can type the movie title', () => {
+  it('renders a text input so as the user can type the movie title', () => {
     expect(titleInput().exists()).toBeTruthy();
   });
 
-  it.skip('renders the label "Título" for the movie title input', () => {
+  it('renders the label "Título" for the movie title input', () => {
     expect(addMovie().find('label').at(0).text()).toEqual('Título');
   });
 
