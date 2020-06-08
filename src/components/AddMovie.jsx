@@ -19,7 +19,9 @@ class AddMovie extends React.Component {
   }
 
   handleInputChange(event) {
-    let { name, value } = event.target;
+    let name = event.target.name;
+    let value = event.target.value;
+    // let { name, value } = event.target;
     if (name === 'rating') value = Number(value);
     this.setState({ [name]: value });
   }
@@ -35,34 +37,61 @@ class AddMovie extends React.Component {
     });
   }
 
-  render() {
-    const { onClick } = this.props;
+  renderTitle = () => {
+    const { title } = this.state;
     return (
-      <form>
-        <label htmlFor="title">Título</label>
+      <label htmlFor="title">
+        Título
         <input
           type="text"
           name="title"
           id="title"
-          value={this.state.title}
+          value={title}
           onChange={this.handleInputChange}
         />
-        <label htmlFor="subtitle">Subtítulo</label>
+      </label>
+    );
+  };
+
+  renderSubtitle = () => {
+    const { subtitle } = this.state;
+    return (
+      <label htmlFor="subtitle">
+        Subtítulo
         <input
           type="text"
           name="subtitle"
           id="subtitle"
-          value={this.state.subtitle}
+          value={subtitle}
           onChange={this.handleInputChange}
         />
-        <label htmlFor="image">Imagem</label>
+      </label>
+    );
+  };
+
+  renderImage = () => {
+    const { imagePath } = this.state;
+    return (
+      <label htmlFor="image">
+        Imagem
         <input
           type="text"
           name="imagePath"
           id="image"
-          value={this.state.imagePath}
+          value={imagePath}
           onChange={this.handleInputChange}
         />
+      </label>
+    );
+  };
+
+  render() {
+    const { onClick } = this.props;
+    return (
+      <form>
+        {this.renderTitle()}
+        {this.renderSubtitle()}
+        {this.renderImage()}
         <label htmlFor="story">Sinopse</label>
         <textarea
           type="text"
