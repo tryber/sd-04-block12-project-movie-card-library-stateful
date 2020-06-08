@@ -122,7 +122,7 @@ class AddMovie extends React.Component {
     return (
       <label htmlFor="genre">
         Gênero
-        <select id="genre" name="genre" value={this.state.genre} onChange={this.handleInputChange}>
+        <select id="genre" name="genre" value={genre} onChange={this.handleInputChange}>
           <option value="action">Ação</option>
           <option value="comedy">Comédia</option>
           <option value="thriller">Suspense</option>

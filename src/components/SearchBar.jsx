@@ -2,19 +2,27 @@
 import React from 'react';
 
 class SearchBar extends React.Component {
+  renderSearch() {
+    return (
+      <label htmlFor="entrada">
+        Inclui o texto:
+        <input
+          type="text"
+          name="entrada"
+          value={this.props.searchText}
+          onChange={this.props.onSearchTextChange}
+        />
+      </label>
+    );
+  }
+
   render() {
     return (
       <div>
         {' '}
         {/* CRIANDO O FORMS */}
         <form>
-          <label htmlFor="entrada">Inclui o texto: </label>
-          <input
-            type="text"
-            name="entrada"
-            value={this.props.searchText}
-            onChange={this.props.onSearchTextChange}
-          />
+          {this.renderSearch()}
           <br />
           <label htmlFor="check">Mostrar somente favoritos</label>
           <input
