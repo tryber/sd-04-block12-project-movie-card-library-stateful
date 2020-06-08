@@ -1,6 +1,7 @@
 // implement SearchBar component here
 import React from 'react';
-import InputText from './formComponents/InputText';
+import InputComp from './formComponents/InputComp';
+import SelectComp from './formComponents/SelectComp';
 
 function SearchBar({
   searchText,
@@ -12,33 +13,27 @@ function SearchBar({
 }) {
   return (
     <form>
-      <InputText v={searchText} oC={onSearchTextChange} />
-      <label htmlFor="Favs">
-        Mostrar somente favoritos:
-        <input
-          type="checkbox"
-          name="Favs"
-          checked={bookmarkedOnly}
-          placeholder="Insert your search"
-          onChange={onBookmarkedChange}
-        />
-      </label>
-      <label htmlFor="Genre">
-        Filtrar por gênero:
-        <select
-          type="select"
-          name="Genre"
-          value={selectedGenre}
-          placeholder="Insert your search"
-          onChange={onSelectedGenreChange}
-        >
-          <option value="">Todos</option>
-          <option value="action">Ação</option>
-          <option value="comedy">Comédia</option>
-          <option value="thriller">Suspense</option>
-        </select>
-      </label>
-      <input type="submit" value="Submit" />
+      <InputComp
+        lTx="Inclui o texto:"
+        t="text"
+        n="Search"
+        v={searchText}
+        pH="Insert your search"
+        oC={onSearchTextChange}
+      />
+      <InputComp
+        lTx="Mostrar somente favoritos:"
+        t="checkbox"
+        n="Favs"
+        c={bookmarkedOnly}
+        oC={onBookmarkedChange}
+      />
+      <SelectComp
+        lTx="Filtrar por gênero:"
+        n="Genre"
+        v={selectedGenre}
+        oC={onSelectedGenreChange}
+      />
     </form>
   );
 }
