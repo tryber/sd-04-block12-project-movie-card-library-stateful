@@ -12,6 +12,13 @@ class SearchBar extends Component {
           value={this.props.searchText}
           onChange={this.props.onSearchTextChange}
         />
+        <label htmlFor="check">Mostrar somente favoritos</label>
+        <input
+          id="check"
+          type="checkbox"
+          checked={this.props.bookmarkedOnly}
+          onChange={this.props.onBookmarkedChange}
+        />
       </form>
     );
   }
