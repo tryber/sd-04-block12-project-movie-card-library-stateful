@@ -16,7 +16,7 @@ class AddMovie extends Component {
     this.storeTitle = this.storeTitle.bind(this);
   }
   storeTitle(e) {
-    this.setState({title: e.target.value});
+    this.setState({ title: e.target.value });
   }
   render() {
     return (
