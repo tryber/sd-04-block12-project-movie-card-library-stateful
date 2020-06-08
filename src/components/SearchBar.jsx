@@ -5,7 +5,9 @@ class SearchBar extends Component {
   render() {
     return (
       <form>
-        <input type="text" />
+        <label>Inclui o texto:
+          <input type="text" value={this.props.searchText} onChange={this.props.onSearchTextChange} />
+        </label>
       </form>
     );
   }
