@@ -16,9 +16,9 @@ class SearchBar extends Component {
   //   const { searchText, onSearchTextChange } = this.props;
   //   return (
   //     <div>
-  //       <label htmlFor="textIncluded">
+  //       <label htmlFor="input">
   //         Inclui o texto:
-  //         <input type="text" name="textIncluded" value={searchText} onChange={onSearchTextChange} />
+  //         <input type="text" name="input" value={searchText} onChange={onSearchTextChange} />
   //       </label>
   //     </div>
   //   );

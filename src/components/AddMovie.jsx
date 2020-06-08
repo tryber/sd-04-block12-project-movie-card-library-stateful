@@ -21,7 +21,7 @@ class AddMovie extends Component {
     this.setState({ [e.target.name]: e.target.value });
   }
   // https://bit.ly/2UjQzyh
-  resetBuilder(values) {
+  resetBuilder() {
     this.setState(this.initialState);
   }
   createForm(key, mark, kind) {
@@ -45,7 +45,7 @@ class AddMovie extends Component {
       </label>
     );
   }
-  createOption = () => {
+  createOption() {
     return (
       <label htmlFor="genre">
         Gênero
@@ -56,7 +56,7 @@ class AddMovie extends Component {
         </select>
       </label>
     );
-  };
+  }
   render() {
     return (
       <div>
@@ -74,7 +74,7 @@ class AddMovie extends Component {
           <br />
           {this.createForm('rating', 'Avaliação', 'number')}
           <br />
-          {this.createOption('genre', 'Gênero')}
+          {this.createOption()}
           <br />
           <button onClick={this.resetBuilder(this.state)}>Adicionar Filme</button>
         </form>
