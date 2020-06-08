@@ -37,7 +37,7 @@ class AddMovie extends React.Component {
     });
   }
 
-  renderTitle = () => {
+  renderTitle() {
     const { title } = this.state;
     return (
       <label htmlFor="title">
@@ -51,7 +51,7 @@ class AddMovie extends React.Component {
         />
       </label>
     );
-  };
+  }
 
   renderSubtitle = () => {
     const { subtitle } = this.state;
@@ -85,6 +85,52 @@ class AddMovie extends React.Component {
     );
   };
 
+  renderStoryline = () => {
+    const { storyline } = this.state;
+    return (
+      <label htmlFor="story">
+        Sinopse
+        <textarea
+          type="text"
+          name="storyline"
+          id="story"
+          value={storyline}
+          onChange={this.handleInputChange}
+        />
+      </label>
+    );
+  };
+
+  renderRating = () => {
+    const { rating } = this.state;
+    return (
+      <label htmlFor="rate">
+        Avaliação
+        <input
+          type="number"
+          name="rating"
+          id="rate"
+          value={rating}
+          onChange={this.handleInputChange}
+        />
+      </label>
+    );
+  };
+
+  renderSelect = () => {
+    const { genre } = this.state;
+    return (
+      <label htmlFor="genre">
+        Gênero
+        <select id="genre" name="genre" value={this.state.genre} onChange={this.handleInputChange}>
+          <option value="action">Ação</option>
+          <option value="comedy">Comédia</option>
+          <option value="thriller">Suspense</option>
+        </select>
+      </label>
+    );
+  };
+
   render() {
     const { onClick } = this.props;
     return (
@@ -92,29 +138,9 @@ class AddMovie extends React.Component {
         {this.renderTitle()}
         {this.renderSubtitle()}
         {this.renderImage()}
-        <label htmlFor="story">Sinopse</label>
-        <textarea
-          type="text"
-          name="storyline"
-          id="story"
-          value={this.state.storyline}
-          onChange={this.handleInputChange}
-        />
-        <label htmlFor="rate">Avaliação</label>
-        <input
-          type="number"
-          name="rating"
-          id="rate"
-          value={this.state.rating}
-          onChange={this.handleInputChange}
-        />
-
-        <label htmlFor="genre">Gênero</label>
-        <select id="genre" name="genre" value={this.state.genre} onChange={this.handleInputChange}>
-          <option value="action">Ação</option>
-          <option value="comedy">Comédia</option>
-          <option value="thriller">Suspense</option>
-        </select>
+        {this.renderStoryline()}
+        {this.renderRating()}
+        {this.renderSelect()}
 
         <button
           value={this.state}
