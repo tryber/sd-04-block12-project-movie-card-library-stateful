@@ -7,20 +7,19 @@ class MovieLibrary extends Component {
   constructor(props) {
     super(props);
     this.state = {
-        searchText: '',
-        bookmarkedOnly: false,
-        selectedGenre: '',
-        movies: '',
-    };   
+      searchText: '',
+      bookmarkedOnly: false,
+      selectedGenre: '',
+      movies: '',
+    };
   }
-  
   render() {
     return (
-        <div>
-            <SearchBar />
-            {/* <MovieList /> */}
-            <AddMovie />
-        </div>
+      <div>
+        <SearchBar />
+        {/* <MovieList /> */}
+        <AddMovie />
+      </div>
     );
   }
 }
