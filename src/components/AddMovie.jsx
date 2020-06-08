@@ -20,6 +20,8 @@ export default class AddMovie extends React.Component {
     this.setState({ [name]: value });
   }
 
+  
+
   render() {
     const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
     return (
