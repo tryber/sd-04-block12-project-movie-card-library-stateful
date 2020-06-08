@@ -110,19 +110,19 @@ describe('<AddMovie /> component image path input', () => {
 
   const imageInput = () => addMovie().find('form input[type="text"]').at(2);
 
-  it.skip('renders an image input so as the user can type the movie image path', () => {
+  it('renders an image input so as the user can type the movie image path', () => {
     expect(imageInput().exists()).toBeTruthy();
   });
 
-  it.skip('renders the label "Imagem" for the movie image path input', () => {
+  it('renders the label "Imagem" for the movie image path input', () => {
     expect(addMovie().find('label').at(2).text()).toEqual('Imagem');
   });
 
-  it.skip('the image input initial value, "", comes from the AddMovie initial state, via "imagePath"', () => {
+  it('the image input initial value, "", comes from the AddMovie initial state, via "imagePath"', () => {
     expect(imageInput().prop('value')).toEqual(initialState.imagePath);
   });
 
-  it.skip('updates the component state when image path input changes', () => {
+  it('updates the component state when image path input changes', () => {
     const simulatedEvent = { target: { value: 'http://localhost:3000/images/Appleseed_Alpha.jpg', name: 'imagePath' } };
 
     imageInput().simulate('change', simulatedEvent);
