@@ -40,15 +40,17 @@ export default class MovieLibrary extends React.Component {
   filtredMovies() {
     const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
     if (bookmarkedOnly) return movies.filter((movie) => movie.bookmarked === true);
-    if (selectedGenre)
+    if (selectedGenre) {
       return movies.filter((movie) => movie.genre === selectedGenre);
-    if (searchText)
+    }
+    if (searchText) {
       return movies.filter(
         (movie) =>
           movie.title.includes(searchText) ||
           movie.subtitle.includes(searchText) ||
           movie.storyline.includes(searchText),
       );
+    }
     return movies;
   }
 

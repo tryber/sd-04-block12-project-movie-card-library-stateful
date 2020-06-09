@@ -22,33 +22,31 @@ export default class AddMovie extends React.Component {
   }
 
   inputs(type, label, value, name) {
-    if (type === 'textarea')
+    if (type === 'textarea') {
       return (
         <label htmlFor={value}>
           Sinopse
           <textarea onChange={(e) => this.changeValues(e, name)} value={value} />
         </label>
       );
-    if (label === 'Gênero')
+    }
+    if (label === 'Gênero') {
       return (
-        <label htmlFor='genre'>
+        <label htmlFor="genre">
           Gênero
           <select value={value} onChange={(e) => this.changeValues(e, name)}>
-            <option value='action'>Ação</option>
-            <option value='comedy'>Comédia</option>
-            <option value='thriller'>Suspense</option>
+            <option value="action">Ação</option>
+            <option value="comedy">Comédia</option>
+            <option value="thriller">Suspense</option>
           </select>
         </label>
       );
+    }
     return (
       <div>
         <label htmlFor={value}>
           {label}
-          <input
-            type={type}
-            onChange={(e) => this.changeValues(e, name)}
-            value={value}
-          />
+          <input type={type} onChange={(e) => this.changeValues(e, name)} value={value} />
         </label>
       </div>
     );
@@ -78,7 +76,7 @@ export default class AddMovie extends React.Component {
         {this.inputs('text', 'Gênero', genre, 'genre')}
 
         <button
-          type='button'
+          type="button"
           onClick={() => {
             this.resetState(this.state);
           }}>
