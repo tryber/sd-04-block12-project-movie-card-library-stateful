@@ -95,8 +95,6 @@ export default class AddMovie extends Component {
   }
 
   submit(event) {
-    const { onClick } = this.props;
-    onClick(this.state);
     this.setState({
       subtitle: '',
       title: '',
@@ -105,6 +103,8 @@ export default class AddMovie extends Component {
       rating: 0,
       genre: 'action',
     });
+    const { onClick } = this.props;
+    onClick(this.state);
     event.preventDefault();
   }
 
