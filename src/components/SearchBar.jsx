@@ -15,7 +15,7 @@ class SearchBar extends Component {
         <CreateElement.LabelElement htmlFor="searchText" text="Inclui o texto" />
         <CreateElement.InputElement name="searchText" type="text" value={searchText} onChange={onSearchTextChange} placeholder="Procurar" />
         {/* Check box */}
-        <CreateElement.InputElement name="bookmarkedOnly" type="checkbox" checked={bookmarkedOnly} onChange={onBookmarkedChange}/>
+        <CreateElement.InputElement name="bookmarkedOnly" type="checkbox" checked={bookmarkedOnly} onChange={onBookmarkedChange} />
         <CreateElement.LabelElement htmlFor="bookmarkedOnly" text="Mostrar somente favoritos" />
         {/* Select */}
         <CreateElement.LabelElement htmlFor="selectedGenre"text="Filtrar por gênero" />
@@ -24,7 +24,7 @@ class SearchBar extends Component {
           <option value="action">Ação</option>
           <option value="comedy">Comédia</option>
           <option value="thriller">Suspense</option>
-          </select>
+        </select>
       </form>
     );
   }

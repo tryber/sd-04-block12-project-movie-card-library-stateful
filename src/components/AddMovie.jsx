@@ -12,24 +12,19 @@ class AddMovie extends React.Component {
       storyline: '',
       genre: 'action',
       rating: 0,
-    }
+    };
     this.handleChange = this.handleChange.bind(this);
     // this.AddBtnOnClick = this.AddBtnOnClick(this);
   }
-  
+
   handleChange(event) {
     const { name, value } = event.target;
     this.setState({ [name]: (name === 'rating') ? Number(value) : value });
   }
 
-  // AddBtnOnClick(onClick) {
-  //   const bolo = { title = '', subtitle = '', imagePath = '', storyline = '', genre = 'action', rating = 0, } = this.props;
-  //   this.setState(bolo);
-  // }
-
   render() {
     const { title = '', subtitle = '', imagePath = '', storyline = '', genre = 'action', rating = 0, } = this.state;
-  return (
+    return (
       <form>
         <CreateElement.LabelElement htmlFor="title" text="Título" />
         <CreateElement.InputElement name="title" type="text" value={title} onChange={(event) => this.handleChange(event)} />
