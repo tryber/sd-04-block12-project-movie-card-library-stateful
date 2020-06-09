@@ -173,7 +173,7 @@ describe('<AddMovie /> component rating input', () => {
   });
 
   it('updates the component state when movie rating input changes', () => {
-    const simulatedEvent = { target: { value: 1.5, name: 'rating' } };
+    const simulatedEvent = { target: { value: '1.5', name: 'rating' } };
 
     ratingInput().simulate('change', simulatedEvent);
     expect(addMovie().state('rating')).toEqual(1.5);
