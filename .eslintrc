@@ -8,9 +8,9 @@
     "object-curly-newline": ["error", { "multiline": true }],
     "arrow-parens": [2, "always"]
   },
-    "env": {
-      "browser": true,
-      "node": true,
-      "jest": true
-    }
+  "env": {
+    "browser": true,
+    "node": true,
+    "jest": true
+  }
 }
