@@ -19,7 +19,23 @@ export default class AddMovie extends React.Component {
 
   changeValues(event, name) {
     const { value } = event.target;
-    name === 'rating' ? this.setState({ [name]: Number(value) }) : this.setState({ [name]: value });
+    if (name === 'rating') {
+      this.setState({ [name]: Number(value) });
+    }
+    this.setState({ [name]: value });
+  }
+
+  inputGenre(value, name) {
+    return (
+      <label htmlFor="genre">
+        Gênero
+        <select value={value} onChange={(e) => this.changeValues(e, name)}>
+          <option value="action">Ação</option>
+          <option value="comedy">Comédia</option>
+          <option value="thriller">Suspense</option>
+        </select>
+      </label>
+    );
   }
 
   inputs(type, label, value, name) {
@@ -28,18 +44,6 @@ export default class AddMovie extends React.Component {
         <label htmlFor={value}>
           Sinopse
           <textarea onChange={(e) => this.changeValues(e, name)} value={value} />
-        </label>
-      );
-    }
-    if (label === 'Gênero') {
-      return (
-        <label htmlFor="genre">
-          Gênero
-          <select value={value} onChange={(e) => this.changeValues(e, name)}>
-            <option value="action">Ação</option>
-            <option value="comedy">Comédia</option>
-            <option value="thriller">Suspense</option>
-          </select>
         </label>
       );
     }
@@ -73,15 +77,9 @@ export default class AddMovie extends React.Component {
         {this.inputs('text', 'Imagem', imagePath, 'imagePath')}
         {this.inputs('textarea', 'Sinopse', storyline, 'storyline')}
         {this.inputs('number', 'Avaliação', rating, 'rating')}
-        {this.inputs('text', 'Gênero', genre, 'genre')}
+        {this.inputGenre(genre, 'genre')}
 
-        <button
-          type="button"
-          onClick={() => {
-            this.resetState();
-          }}>
-          Adicionar filme
-        </button>
+        <button type="submit">Adicionar filme</button>
       </form>
     );
   }
