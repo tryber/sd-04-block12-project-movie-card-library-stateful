@@ -40,9 +40,13 @@ class AddMovie extends React.Component {
         <AddLabel htmlFor="subtitle" text="Subtítulo" />
         <AddInput name="subtitle" type="text" value={subtitle} onChange={(e) => this.hChange(e)} />
         <AddLabel htmlFor="imagePath" text="Imagem" />
-        <AddInput name="imagePath" type="text" value={imagePath} onChange={(e) => this.hChange(e)} />
+        <AddInput
+          name="imagePath" type="text" value={imagePath} onChange={(e) => this.hChange(e)}
+        />
         <AddLabel htmlFor="storyline" text="Sinopse" />
-        <textarea name="storyline" type="text" value={storyline} onChange={(e) => this.hChange(e)} />
+        <textarea
+          name="storyline" type="text" value={storyline} onChange={(e) => this.hChange(e)}
+        />
         <AddLabel htmlFor="rating" text="Avaliação" />
         <AddInput name="rating" type="number" value={rating} onChange={(e) => this.hChange(e)} />
         <AddLabel htmlFor="selectedGenre" text="Gênero" />
