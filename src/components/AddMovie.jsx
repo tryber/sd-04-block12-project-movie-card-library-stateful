@@ -17,10 +17,10 @@ export default class AddMovie extends Component {
     return (
       <label htmlFor="title">
         Título
-        <input 
+        <input
           type="text"
           value={this.state.title}
-          onChange={(event) => this.setState({ title:event.target.value })}
+          onChange={(event) => this.setState({ title: event.target.value })}
         />
       </label>
     );
@@ -30,10 +30,10 @@ export default class AddMovie extends Component {
     return (
       <label htmlFor="subTitle">
         Subtítulo
-        <input 
+        <input
           type="text"
           value={this.state.subtitle}
-          onChange={(event) => this.setState({ subtitle:event.target.value })}
+          onChange={(event) => this.setState({ subtitle :event.target.value })}
         />
       </label>
     );
@@ -43,10 +43,10 @@ export default class AddMovie extends Component {
     return (
       <label htmlFor="imagePath">
         Imagem
-        <input 
+        <input
           type="text"
           value={this.state.imagePath}
-          onChange={(event) => this.setState({ imagePath:event.target.value })}
+          onChange={(event) => this.setState({ imagePath : event.target.value })}
         />
       </label>
     );
@@ -56,7 +56,7 @@ export default class AddMovie extends Component {
     return (
       <label htmlFor="sinopse">
         Sinopse
-        <textarea 
+        <textarea
           value={this.state.storyline}
           onChange={(event) => this.setState({ storyline:event.target.value })}
         />
@@ -68,10 +68,10 @@ export default class AddMovie extends Component {
     return (
       <label htmlFor="raiting">
         Avaliação
-        <input 
+        <input
           type="number"
           value={this.state.rating}
-          onChange={(event) => this.setState({ rating: parseFloat(event.target.value) })} 
+          onChange={(event) => this.setState({ rating:parseFloat(event.target.value) })} 
         />
       </label>
     );
@@ -84,7 +84,7 @@ export default class AddMovie extends Component {
         {this.funSubTitle()}
         {this.funImagePath()}
         {this.funSinopse()}
-        {this.funRaiting()}		
+        {this.funRaiting()}
       </form>
     );
   }
