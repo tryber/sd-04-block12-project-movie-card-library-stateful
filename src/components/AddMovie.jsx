@@ -79,7 +79,7 @@ class AddMovie extends Component {
         <label htmlFor="rating">Avaliação</label>
         <InpRating value={this.state.rating} onchange={this.storeState} />
         <label htmlFor="genre">Gênero</label>
-        <select value={this.state.genre} onChange={(e) => this.setState({genre: e.target.value})}>
+        <select value={this.state.genre} onChange={(e) => this.setState({ genre: e.target.value })}>
           <option value="action">Ação</option>
           <option value="comedy">Comédia</option>
           <option value="thriller">Suspense</option>
