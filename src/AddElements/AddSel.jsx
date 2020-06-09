@@ -4,7 +4,7 @@ class AddSel extends Component {
   render() {
     const { name, ...props } = this.props;
     return (
-      <select name={name} {...props}></select>
+      <select name={name} {...props} />
     );
   }
 }
