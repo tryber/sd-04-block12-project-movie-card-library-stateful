@@ -12,27 +12,33 @@ class SearchBar extends Component {
       selectedGenre, onSelectedGenreChange,
     } = this.props;
     return (
-      <form>
+      <form className="SearchBar">
         {/* Search Bar */}
-        <AddLabel htmlFor="searchText" text="Inclui o texto" />
-        <AddInput
-          name="searchText" type="text" value={searchText}
-          onChange={onSearchTextChange} placeholder="Procurar"
-        />
+        <div>
+          <AddLabel htmlFor="searchText" text="Inclui o texto" />
+          <AddInput
+            name="searchText" type="text" value={searchText}
+            onChange={onSearchTextChange} placeholder="Procurar"
+          />
+        </div>
         {/* Check box */}
-        <AddInput
-          name="bookmarkedOnly" type="checkbox"
-          checked={bookmarkedOnly} onChange={onBookmarkedChange}
-        />
-        <AddLabel htmlFor="bookmarkedOnly" text="Mostrar somente favoritos" />
+        <div>
+          <AddInput
+            name="bookmarkedOnly" type="checkbox"
+            checked={bookmarkedOnly} onChange={onBookmarkedChange}
+          />
+          <AddLabel htmlFor="bookmarkedOnly" text="Mostrar somente favoritos" />
+        </div>
         {/* Select */}
-        <AddLabel htmlFor="selectedGenre" text="Filtrar por gênero" />
-        <AddSel name="selectedGenre" value={selectedGenre} onChange={onSelectedGenreChange}>
-          <AddOpt value="" text="Todos" />
-          <AddOpt value="action" text="Ação" />
-          <AddOpt value="comedy" text="Comédia" />
-          <AddOpt value="thriller" text="Suspense" />
-        </AddSel>
+        <div>
+          <AddLabel htmlFor="selectedGenre" text="Filtrar por gênero" />
+          <AddSel name="selectedGenre" value={selectedGenre} onChange={onSelectedGenreChange}>
+            <AddOpt value="" text="Todos" />
+            <AddOpt value="action" text="Ação" />
+            <AddOpt value="comedy" text="Comédia" />
+            <AddOpt value="thriller" text="Suspense" />
+          </AddSel>
+        </div>
       </form>
     );
   }
