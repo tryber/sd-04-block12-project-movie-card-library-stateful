@@ -37,7 +37,7 @@ class AddMovie extends React.Component {
   CreateInput(keyId, value, text, type = "text") {
     // otimização de código dos inputs
     return (
-      <>
+      <div>
         <label htmlFor={keyId}>{text}</label>
         <input
           type={type}
@@ -45,7 +45,7 @@ class AddMovie extends React.Component {
           value={value}
           onChange={(event) => this.Change(event, keyId)}
         />
-      </>
+      </div>
     );
   }
 
