@@ -21,14 +21,14 @@ class AddMovie extends Component {
   changeHandler = (event) => {
     const { name, value } = event.target;
     if (name === 'rating') {
-      this.setState((state) => ({ [name]: Number(value) }));
+      this.setState({ [name]: Number(value) });
     } else {
-      this.setState((state) => ({ [name]: value }));
+      this.setState({ [name]: value });
     }
   };
 
   stateClear = () => {
-    this.setState((state) => ({ ...initialState }));
+    this.setState({ ...initialState });
   };
 
   render() {
