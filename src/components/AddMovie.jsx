@@ -17,12 +17,12 @@ class AddMovie extends React.Component {
       genre: 'action',
       rating: 0,
     };
-    this.handleChange = this.handleChange.bind(this);
+    this.hChange = this.hChange.bind(this);
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
     // this.AddBtnOnClick = this.AddBtnOnClick(this);
   }
 
-  handleChange(event) {
+  hChange(event) {
     const { name, value } = event.target;
     this.setState({ [name]: (name === 'rating') ? Number(value) : value });
   }
@@ -36,15 +36,15 @@ class AddMovie extends React.Component {
     return (
       <form>
         <AddLabel htmlFor="title" text="Título" />
-        <AddInput name="title" type="text" value={title} onChange={(e) => this.handleChange(e)} />
+        <AddInput name="title" type="text" value={title} onChange={(e) => this.hChange(e)} />
         <AddLabel htmlFor="subtitle" text="Subtítulo" />
-        <AddInput name="subtitle" type="text" value={subtitle} onChange={(e) => this.handleChange(e)} />
+        <AddInput name="subtitle" type="text" value={subtitle} onChange={(e) => this.hChange(e)} />
         <AddLabel htmlFor="imagePath" text="Imagem" />
-        <AddInput name="imagePath" type="text" value={imagePath} onChange={(e) => this.handleChange(e)} />
+        <AddInput name="imagePath" type="text" value={imagePath} onChange={(e) => this.hChange(e)} />
         <AddLabel htmlFor="storyline" text="Sinopse" />
-        <textarea name="storyline" type="text" value={storyline} onChange={(e) => this.handleChange(e)} />
+        <textarea name="storyline" type="text" value={storyline} onChange={(e) => this.hChange(e)} />
         <AddLabel htmlFor="rating" text="Avaliação" />
-        <AddInput name="rating" type="number" value={rating} onChange={(e) => this.handleChange(e)} />
+        <AddInput name="rating" type="number" value={rating} onChange={(e) => this.hChange(e)} />
         <AddLabel htmlFor="selectedGenre" text="Gênero" />
         <AddSel name="selectedGenre" value={genre} onChange={(e) => this.onSelectedGenreChange(e)}>
           <AddOpt value="action" text="Ação" />
