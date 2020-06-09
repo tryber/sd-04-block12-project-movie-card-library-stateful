@@ -27,16 +27,18 @@ class MovieLibrary extends React.Component {
     this.setState((state) => ({ bookmarkedOnly: !state.bookmarkedOnly }));
   }
   onSelectedGenreChange(event) {
-    this.setState({selectedGenre: event.target.value});
+    this.setState({ selectedGenre: event.target.value });
   }
   render() {
     const { searchText, bookmarkedOnly, selectedGenre } = this.state;
     return (
       <div>
         <h2> My awesome movie library </h2>
-        <SearchBar searchText={searchText} onSearchTextChange={(event) => this.onSearchTextChange(event)}
-           bookmarkedOnly={bookmarkedOnly} onBookmarkedChange={this.onBookmarkedChange}
-           selectedGenre={selectedGenre} onSelectedGenreChange={this.onSelectedGenreChange}/>
+        <SearchBar
+          searchText={searchText} onSearchTextChange={(event) => this.onSearchTextChange(event)}
+          bookmarkedOnly={bookmarkedOnly} onBookmarkedChange={this.onBookmarkedChange}
+          selectedGenre={selectedGenre} onSelectedGenreChange={this.onSelectedGenreChange}
+        />
         <MovieList movies={data} />
         <AddMovie onClick={data} />
       </div>

@@ -28,11 +28,11 @@ class AddMovie extends React.Component {
   }
 
   onSelectedGenreChange(event) {
-    this.setState({genre: event.target.value});
+    this.setState({ genre: event.target.value );
   }
   // falta evento do botão
   render() {
-    const { title, subtitle, imagePath, storyline, genre, rating, } = this.state;
+    const { title, subtitle, imagePath, storyline, genre, rating } = this.state;
     return (
       <form>
         <AddLabel htmlFor="title" text="Título" />

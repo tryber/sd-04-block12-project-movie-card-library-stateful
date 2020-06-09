@@ -4,8 +4,8 @@ class AddOpt extends Component {
   render() {
     const { value, text } = this.props;
     return (
-    <option value={value}>{text}</option>
-        );
+      <option value={value}>{text}</option>
+    );
   }
 }
 
