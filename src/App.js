@@ -8,6 +8,8 @@ function App() {
   return (
     <div className="App">
       <Header />
+      {/* MovieLibrary é o componente o movies é a props e eu
+      estou pasando {data} como valor da props. */}
       <MovieLibrary movies={data} />
     </div>
   );

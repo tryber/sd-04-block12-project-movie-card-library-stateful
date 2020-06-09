@@ -26,6 +26,12 @@ class AddMovie extends React.Component {
     });
   }
 
+  // o bigodinho azul é o primeiro parâmetro da função
+  // this.setState muda o valor do estado
+  // quando coloca o {} ele diz que é um objeto e o name entre [] pega o valor de name e
+  // coloca como uma chave no objeto e diz que o valor é o Number(value)
+  // para isso ele usa : .
+
   changeRating({ target: { value } }, name) {
     this.setState({ [name]: Number(value) });
   }
@@ -35,6 +41,7 @@ class AddMovie extends React.Component {
   }
 
   createElement(name, text, inputType = 'text', callback = this.changeInput) {
+    // const xablau = { xablau: this.state[name] }
     return (
       <label htmlFor={name}>
         {text}
@@ -49,37 +56,50 @@ class AddMovie extends React.Component {
     );
   }
 
+  textArea(onChange = this.changeInput) {
+    const { storyline } = this.state;
+    return (
+      <label htmlFor="input">
+        Sinopse
+        <textarea
+          value={storyline}
+          onChange={(e) => onChange(e, 'storyline')}
+        />
+      </label>
+    );
+  }
+
+  selectGenero() {
+    const { genre } = this.state;
+    return (
+      <label htmlFor="genre">
+       Gênero
+        <select
+          type="text"
+          id="genre"
+          name="genre"
+          value={genre}
+          onChange={(element) => this.changeInput(element, 'genre')}
+        >
+          <option value="action">Ação</option>
+          <option value="comedy">Comédia</option>
+          <option value="thriller">Suspense</option>
+        </select>
+      </label>
+    );
+  }
+
   render() {
     const { onClick } = this.props;
-    const { storyline } = this.state;
-    const { genre } = this.state;
 
     return (
       <form>
         {this.createElement('title', 'Título')}
         {this.createElement('subtitle', 'Subttítulo')}
         {this.createElement('imagePath', 'Imagem')}
-        <label htmlFor="input">
-          Sinopse
-          <textarea
-            value={storyline}
-            onChange={(e) => this.changeInput(e, 'storyline')}
-          />
-        </label>
-        <label htmlFor="genre">
-          Gênero
-          <select
-            type="text"
-            id="genre"
-            name="genre"
-            value={genre}
-            onChange={(element) => this.changeInput(element, 'genre')}
-          >
-            <option value="action">Ação</option>
-            <option value="comedy">Comédia</option>
-            <option value="thriller">Suspense</option>
-          </select>
-        </label>
+        {this.textArea()}
+        {this.createElement('rating', 'Avaliação', 'number', this.changeRating)}
+        {this.selectGenero()}
         <buton
           type="button"
           value="Adicionar filme"
