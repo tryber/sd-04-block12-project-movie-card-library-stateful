@@ -8,4 +8,5 @@ class AddLabel extends Component {
     );
   }
 }
+
 export default AddLabel;
