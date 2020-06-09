@@ -33,7 +33,7 @@ export default class AddMovie extends Component {
         <input
           type="text"
           value={this.state.subtitle}
-          onChange={(event) => this.setState({ subtitle :event.target.value })}
+          onChange={(event) => this.setState({ subtitle: event.target.value })}
         />
       </label>
     );
@@ -46,7 +46,7 @@ export default class AddMovie extends Component {
         <input
           type="text"
           value={this.state.imagePath}
-          onChange={(event) => this.setState({ imagePath : event.target.value })}
+          onChange={(event) => this.setState({ imagePath: event.target.value })}
         />
       </label>
     );
@@ -58,7 +58,7 @@ export default class AddMovie extends Component {
         Sinopse
         <textarea
           value={this.state.storyline}
-          onChange={(event) => this.setState({ storyline:event.target.value })}
+          onChange={(event) => this.setState({ storyline: event.target.value })}
         />
       </label>
     );
@@ -71,7 +71,7 @@ export default class AddMovie extends Component {
         <input
           type="number"
           value={this.state.rating}
-          onChange={(event) => this.setState({ rating:parseFloat(event.target.value) })} 
+          onChange={(event) => this.setState({ rating: parseFloat(event.target.value) })} 
         />
       </label>
     );
