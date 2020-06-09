@@ -28,7 +28,7 @@ class AddMovie extends React.Component {
   }
 
   onSelectedGenreChange(event) {
-    this.setState({ genre: event.target.value );
+    this.setState({ genre: event.target.value });
   }
   // falta evento do botão
   render() {
