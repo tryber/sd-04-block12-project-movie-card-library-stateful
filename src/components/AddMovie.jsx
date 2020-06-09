@@ -27,14 +27,14 @@ class AddMovie extends React.Component {
 
   Change(event, name) {
     const { value } = event.target; // seta estados dinamicamente
-    this.setState({ [name]: name === "rating" ? Number(value) : value });
+    this.setState({ [name]: name === 'rating' ? Number(value) : value });
   }
 
   ClearState() {
     this.setState(stateEmpty);
   }
 
-  CreateInput(keyId, value, text, type = "text") {
+  CreateInput(keyId, value, text, type = 'text') {
     // otimização de código dos inputs
     return (
       <div>
@@ -57,7 +57,7 @@ class AddMovie extends React.Component {
           name="genre"
           id="genre"
           value={this.state.genre}
-          onChange={(event) => this.Change(event, "genre")}
+          onChange={(event) => this.Change(event, 'genre')}
         >
           {genreOptions.map((option) => (
             <option key={option.value} value={option.value}>
@@ -74,16 +74,16 @@ class AddMovie extends React.Component {
     return (
       <div>
         <form>
-          {this.CreateInput("title", this.state.title, "Título")}
-          {this.CreateInput("subtitle", this.state.subtitle, "Subtítulo")}
-          {this.CreateInput("imagePath", this.state.imagePath, "Imagem")}
+          {this.CreateInput("title", this.state.title, 'Título')}
+          {this.CreateInput("subtitle", this.state.subtitle, 'Subtítulo')}
+          {this.CreateInput("imagePath", this.state.imagePath, 'Imagem')}
           <label htmlFor="storyline">Sinopse</label>
           <textarea
-            id="storyline"
+            id='storyline'
             value={this.state.storyline}
-            onChange={(event) => this.Change(event, "storyline")}
-          ></textarea>
-          {this.CreateInput("rating", this.state.rating, "Avaliação", "number")}
+            onChange={(event) => this.Change(event, 'storyline')}
+          >{this.state.storyline}</textarea>
+          {this.CreateInput('rating', this.state.rating, 'Avaliação', 'number')}
           {this.CreateSelect()}
           <button
             onClick={() => { onClick(this.state); this.ClearState(); }}

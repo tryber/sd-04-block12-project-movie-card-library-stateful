@@ -7,7 +7,7 @@ const genreOptions = [
   { text: 'Suspense', value: 'thriller' },
 ];
 
-function inputSearchText (searchText, onSearchTextChange) {
+function inputSearchText(searchText, onSearchTextChange) {
   return (
     <div>
       <label htmlFor="searchText">Inclui o texto</label>
@@ -21,7 +21,7 @@ function inputSearchText (searchText, onSearchTextChange) {
   );
 }
 
-function selectGenre (selectedGenre, onSelectedGenreChange) {
+function selectGenre(selectedGenre, onSelectedGenreChange) {
   return (
     <div>
       <label htmlFor="selectedGenre">Filtrar por gênero</label>
