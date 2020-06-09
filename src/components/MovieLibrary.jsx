@@ -10,9 +10,9 @@ class MovieLibrary extends Component {
     // inicializo stado das variaveis que sofrerão alteração
     this.state = {
       // objeto de ações
-      searchText: "",
+      searchText: '',
       bookmarkedOnly: false,
-      selectedGenre: "",
+      selectedGenre: '',
       movies: this.props.movies,
     };
     // uso bind quando tenho alteração no meu state / controlador
