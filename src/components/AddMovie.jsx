@@ -2,7 +2,8 @@
 import React from 'react';
 import AddLabel from '../AddElements/AddLabel';
 import AddInput from '../AddElements/AddInput';
-import AddButton from '../AddElements/AddButton';
+// import AddButton from '../AddElements/AddButton';
+//  por alguma razão não funcionou usando a sintaze de campos de classe¯\_(ツ)_/¯
 import AddSel from '../AddElements/AddSel';
 import AddOpt from '../AddElements/AddOpt';
 
@@ -10,16 +11,16 @@ class AddMovie extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      subtitle: '',
       title: '',
+      subtitle: '',
       imagePath: '',
       storyline: '',
-      genre: 'action',
       rating: 0,
+      genre: 'action',
     };
     this.hChange = this.hChange.bind(this);
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
-    // this.AddBtnOnClick = this.AddBtnOnClick(this);
+    // this.btadd = this.btadd.bind(this);
   }
 
   onSelectedGenreChange(event) {
@@ -30,9 +31,21 @@ class AddMovie extends React.Component {
     const { name, value } = event.target;
     this.setState({ [name]: (name === 'rating') ? Number(value) : value });
   }
-  // falta evento do botão
+
+  btadd() {
+    this.props.onClick(this.state);
+    this.setState({
+      title: '',
+      subtitle: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
+  }
+
   render() {
-    const { title, subtitle, imagePath, storyline, genre, rating } = this.state;
+    const { title = '', subtitle = '', imagePath = '', storyline = '', genre = 'action', rating = 0 } = this.state;
     return (
       <form>
         <AddLabel htmlFor="title" text="Título" />
@@ -53,7 +66,7 @@ class AddMovie extends React.Component {
           <AddOpt value="comedy" text="Comédia" />
           <AddOpt value="thriller" text="Suspense" />
         </AddSel>
-        <AddButton type="button" text="Adicionar filme" />
+        <button type="button" onClick={() => this.btadd()}>Adicionar filme</button>
       </form>
     );
   }
