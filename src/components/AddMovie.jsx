@@ -84,7 +84,8 @@ export default class AddMovie extends Component {
         Gênero
         <select
           value={this.state.genre}
-          onChange={(event) => this.setState({ genre: event.target.value })}>
+          onChange={(event) => this.setState({ genre: event.target.value })}
+        >
           <option value="action" >Ação</option>
           <option value="comedy" >Comédia</option>
           <option value="thriller" >Suspense</option>
@@ -116,7 +117,7 @@ export default class AddMovie extends Component {
         {this.funSinopse()}
         {this.funRaiting()}
         {this.funSelect()}
-        <button type='submit' onSubmit={this.submit}>Adicionar filme</button>
+        <button type="submit" onSubmit={this.submit}>Adicionar filme</button>
       </form>
     );
   }
