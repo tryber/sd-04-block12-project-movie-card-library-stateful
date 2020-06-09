@@ -1,6 +1,7 @@
 // implement SearchBar component here
 import React, { Component } from 'react';
-import CreateElement from './CreateElement';
+import AddLabel from '../AddElements/AddLabel';
+import AddInput from '../AddElements/AddInput';
 
 class SearchBar extends Component {
   render() {
@@ -12,13 +13,13 @@ class SearchBar extends Component {
     return (
       <form>
         {/* Search Bar */}
-        <CreateElement.LabelElement htmlFor="searchText" text="Inclui o texto" />
-        <CreateElement.InputElement name="searchText" type="text" value={searchText} onChange={onSearchTextChange} placeholder="Procurar" />
+        <AddLabel htmlFor="searchText" text="Inclui o texto" />
+        <AddInput name="searchText" type="text" value={searchText} onChange={onSearchTextChange} placeholder="Procurar" />
         {/* Check box */}
-        <CreateElement.InputElement name="bookmarkedOnly" type="checkbox" checked={bookmarkedOnly} onChange={onBookmarkedChange} />
-        <CreateElement.LabelElement htmlFor="bookmarkedOnly" text="Mostrar somente favoritos" />
+        <AddInput name="bookmarkedOnly" type="checkbox" checked={bookmarkedOnly} onChange={onBookmarkedChange} />
+        <AddLabel htmlFor="bookmarkedOnly" text="Mostrar somente favoritos" />
         {/* Select */}
-        <CreateElement.LabelElement htmlFor="selectedGenre"text="Filtrar por gênero" />
+        <AddLabel htmlFor="selectedGenre"text="Filtrar por gênero" />
         <select name="selectedGenre" value={selectedGenre} onChange={onSelectedGenreChange}>
           <option value="">Todos</option>
           <option value="action">Ação</option>
