@@ -66,7 +66,7 @@ class MovieLibrary extends Component {
   render() {
     const { searchText, bookmarkedOnly, selectedGenre } = this.state;
     return (
-      <>
+      <React.Fragment>
         <SearchBar
           searchText={searchText}
           onSearchTextChange={this.setSearchText}
@@ -77,7 +77,7 @@ class MovieLibrary extends Component {
         />
         <MovieList movies={this.movieFilter()} />
         <AddMovie onClick={this.onClick} />
-      </>
+      </React.Fragment>
     );
   }
 }
