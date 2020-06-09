@@ -1,5 +1,42 @@
 // implement AddMovie component here
 import React, { Component } from 'react';
+// import Input from './Input.js';
+
+function InpTitle(props) {
+  return (
+    <input
+      type="text" id="title" name="title"
+      value={props.value} onChange={props.onchange}
+    />
+  );
+}
+
+function InpSubtitle(props) {
+  return (
+    <input
+      type="text" id="subtitle" name="subtitle"
+      value={props.value} onChange={props.onchange}
+    />
+  );
+}
+
+function InpImage(props) {
+  return (
+    <input
+      type="text" id="image-path" name="imagePath"
+      value={props.value} onChange={props.onchange}
+    />
+  );
+}
+
+function InpRating(props) {
+  return (
+    <input
+      type="number" id="rating" name="rating"
+      value={props.value} onChange={props.onchange}
+    />
+  );
+}
 
 class AddMovie extends Component {
   constructor(props) {
@@ -14,39 +51,27 @@ class AddMovie extends Component {
     };
     this.storeState = this.storeState.bind(this);
   }
+
   storeState(e) {
-    const name = e.target.name;
-    const value = e.target.value;
-    this.setState({ [name]: value });
+    this.setState({ [e.target.name]: e.target.value });
   }
+
   render() {
     return (
       <form>
         <label htmlFor="title">Título</label>
-        <input
-          type="text" id="title" name="title"
-          value={this.state.title} onChange={this.storeState}
-        />
+        <InpTitle value={this.state.title} onchange={this.storeState} />
         <label htmlFor="subtitle">Subtítulo</label>
-        <input
-          type="text" id="subtitle" name="subtitle"
-          value={this.state.subtitle} onChange={this.storeState}
-        />
+        <InpSubtitle value={this.state.subtitle} onchange={this.storeState} />
         <label htmlFor="image-path">Imagem</label>
-        <input
-          type="text" id="image-path" name="imagePath"
-          value={this.state.imagePath} onChange={this.storeState}
-        />
+        <InpImage value={this.state.imagePath} onchange={this.storeState} />
         <label htmlFor="storyline">Sinopse</label>
         <textarea
           type="text" id="storyline" name="storyline"
           value={this.state.storyline} onChange={this.storeState}
         />
         <label htmlFor="rating">Avaliação</label>
-        <input
-          type="number" id="rating" name="rating"
-          value={this.state.rating} onChange={this.storeState}
-        />
+        <InpRating value={this.state.rating} onchange={this.storeState} />
       </form>
     );
   }
