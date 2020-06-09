@@ -53,19 +53,19 @@ describe('<MovieLibrary /> component', () => {
 describe('<MovieLibrary /> component initial state', () => {
   beforeEach(() => beforeEachUnitTest());
 
-  it.skip('initializes `searchText` in state with an empty string', () => {
+  it('initializes `searchText` in state with an empty string', () => {
     expect(movieLibrary().state().searchText).toBe('');
   });
 
-  it.skip('initializes `bookmarkedOnly` in state with `false`', () => {
+  it('initializes `bookmarkedOnly` in state with `false`', () => {
     expect(movieLibrary().state().bookmarkedOnly).toBe(false);
   });
 
-  it.skip('initializes `selectedGenre` in state with an empty string', () => {
+  it('initializes `selectedGenre` in state with an empty string', () => {
     expect(movieLibrary().state().selectedGenre).toBe('');
   });
 
-  it.skip('initializes `movies` in state with the prop `movies`', () => {
+  it('initializes `movies` in state with the prop `movies`', () => {
     expect(movieLibrary().state().movies).toEqual(movies);
   });
 });
