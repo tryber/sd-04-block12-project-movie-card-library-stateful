@@ -47,6 +47,26 @@ class AddMovie extends React.Component {
         />
       </div>
     );
+	}
+	
+  CreateSelect() {
+    return (
+      <div>
+        <label htmlFor="genre">Gênero</label>
+        <select
+          name="genre"
+          id="genre"
+          value={this.state.genre}
+          onChange={(event) => this.Change(event, "genre")}
+        >
+          {genreOptions.map((option) => (
+            <option key={option.value} value={option.value}>
+              {option.text}
+            </option>
+          ))}
+        </select>
+      </div>
+    );
   }
 
   render() {
@@ -62,14 +82,7 @@ class AddMovie extends React.Component {
             value={this.state.storyline} onChange={(event) => this.Change(event, 'storyline')}
           ></textarea>
           {this.CreateInput('rating', this.state.rating, 'Avaliação', 'number')}
-          <label htmlFor="genre">Gênero</label>
-					<select name="genre" id="genre"
-            value={this.state.genre} onChange={(event) => this.Change(event, 'genre')}>
-            {genreOptions.map((option) => (
-              <option key={option.value} value={option.value}>{option.text}
-              </option>
-            ))}
-          </select>
+          {this.CreateSelect()}
           <button
             onClick={() => { onClick(this.state); this.ClearState(); }}>Adicionar filme
           </button>

@@ -1,7 +1,4 @@
-// import React, { Component } from 'react';
-// import SearchBarText from './components/SearchBarText';
-// import SearchBarBookMarked from './components/SearchBarBookMarked';
-// import SearchBarSelectedGenre from './components/SearchBarSelectedGenre';
+import React, { Component } from 'react';
 
 // class SearchBar extends Component {
 //   constructor(props) {
