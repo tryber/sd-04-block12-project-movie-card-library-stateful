@@ -55,10 +55,11 @@ class AddMovie extends Component {
   storeState(e) {
     const name = e.target.name;
     const value = e.target.value;
-    if (name === 'rating')
+    if (name === 'rating') {
       this.setState({ [name]: +(value) });
-    else
+    } else {
       this.setState({ [name]: value });
+    }
   }
 
   render() {
