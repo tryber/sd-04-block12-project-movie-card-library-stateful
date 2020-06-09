@@ -22,13 +22,13 @@ class AddMovie extends React.Component {
     // this.AddBtnOnClick = this.AddBtnOnClick(this);
   }
 
+  onSelectedGenreChange(event) {
+    this.setState({ genre: event.target.value });
+  }
+
   hChange(event) {
     const { name, value } = event.target;
     this.setState({ [name]: (name === 'rating') ? Number(value) : value });
-  }
-
-  onSelectedGenreChange(event) {
-    this.setState({ genre: event.target.value });
   }
   // falta evento do botão
   render() {
