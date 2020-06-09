@@ -11,6 +11,7 @@ export default class AddMovie extends Component {
       rating: 0,
       genre: 'action',
     };
+    this.submit = this.submit.bind(this);
   }
 
   funTitle() {
@@ -77,6 +78,35 @@ export default class AddMovie extends Component {
     );
   }
 
+  funSelect() {
+    return (
+      <label htmlFor="selected">
+        Gênero
+        <select
+          value={this.state.genre}
+          onChange={(event) => this.setState({ genre: event.target.value })}>
+          <option value="action" >Ação</option>
+          <option value="comedy" >Comédia</option>
+          <option value="thriller" >Suspense</option>
+        </select>
+      </label>
+    );
+  }
+
+  submit(event) {
+    const { onClick } = this.props;
+    onClick(this.state);
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
+    event.preventDefault();
+  }
+
   render() {
     return (
       <form>
@@ -85,6 +115,8 @@ export default class AddMovie extends Component {
         {this.funImagePath()}
         {this.funSinopse()}
         {this.funRaiting()}
+        {this.funSelect()}
+        <button type='submit' onSubmit={this.submit}>Adicionar filme</button>
       </form>
     );
   }
