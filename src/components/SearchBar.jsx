@@ -17,7 +17,7 @@ export default class SearchBar extends React.Component {
             Inclui o texto: <input type="text" onChange={onSearchTextChange} value={searchText} />
           </label>
           <label htmlFor="favoritos">
-            Mostrar somente favoritos{' '}
+            Mostrar somente favoritos
             <input type="checkbox" checked={bookmarkedOnly} onChange={onBookmarkedChange} />
           </label>
           <label htmlFor="genre">
