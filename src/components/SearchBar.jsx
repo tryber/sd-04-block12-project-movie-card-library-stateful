@@ -14,31 +14,24 @@ class SearchBar extends Component {
     return (
       <form className="SearchBar">
         {/* Search Bar */}
-        <div>
-          <AddLabel htmlFor="searchText" text="Inclui o texto" />
+        <AddLabel htmlFor="searchText" text="Inclui o texto" />
           <AddInput
             name="searchText" type="text" value={searchText}
             onChange={onSearchTextChange} placeholder="Procurar"
           />
-        </div>
         {/* Check box */}
-        <div>
-          <AddInput
-            name="bookmarkedOnly" type="checkbox"
-            checked={bookmarkedOnly} onChange={onBookmarkedChange}
-          />
-          <AddLabel htmlFor="bookmarkedOnly" text="Mostrar somente favoritos" />
-        </div>
+        <AddInput
+          name="bookmarkedOnly" type="checkbox"
+          checked={bookmarkedOnly} onChange={onBookmarkedChange}
+        /><AddLabel htmlFor="bookmarkedOnly" text="Mostrar somente favoritos" />
         {/* Select */}
-        <div>
-          <AddLabel htmlFor="selectedGenre" text="Filtrar por gênero" />
+        <AddLabel htmlFor="selectedGenre" text="Filtrar por gênero" />
           <AddSel name="selectedGenre" value={selectedGenre} onChange={onSelectedGenreChange}>
             <AddOpt value="" text="Todos" />
             <AddOpt value="action" text="Ação" />
             <AddOpt value="comedy" text="Comédia" />
             <AddOpt value="thriller" text="Suspense" />
           </AddSel>
-        </div>
       </form>
     );
   }

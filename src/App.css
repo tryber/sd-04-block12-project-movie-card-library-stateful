@@ -85,11 +85,3 @@ body {
   justify-content: flex-end;
   padding: 12px 20px;
 }
-
-.SearchBar {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin: 10px;
-}
