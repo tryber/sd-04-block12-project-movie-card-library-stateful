@@ -71,7 +71,7 @@ export default class AddMovie extends Component {
         <input
           type="number"
           value={this.state.rating}
-          onChange={(event) => this.setState({ rating: parseFloat(event.target.value) })} 
+          onChange={(event) => this.setState({ rating: parseFloat(event.target.value) })}
         />
       </label>
     );
