@@ -1,51 +1,32 @@
 // implement SearchBar component here
-import React, { Component } from 'react';
+import React, { Component, createElement, } from 'react';
+import CreateElement from './CreateElement';
 
 class SearchBar extends Component {
-  // renderForm() Limite de 25 linhas agora é ignorado
-  renderForm() {
+  
+  render() {
     const {
     searchText, onSearchTextChange,
     bookmarkedOnly, onBookmarkedChange,
     selectedGenre, onSelectedGenreChange,
-    } = this.props;
-    return(
+  } = this.props;
+  return (
       <form>
         {/* Search Bar */}
-        <label htmlFor="searchText">
-          Inclui o texto
-          <input
-            name="searchText"
-            type="text"
-            value={searchText}
-            onChange={onSearchTextChange}
-          />
-        </label>
+        <CreateElement.LabelElement htmlFor="searchText" text="Inclui o texto" />
+        <CreateElement.InputElement name="searchText" type="text" value={searchText} onChange={onSearchTextChange} placeholder="Procurar" />
         {/* Check box */}
-        <label htmlFor="bookmarkedOnly">
-          Mostrar somente favoritos
-          <input
-            name="bookmarkedOnly"
-            type="checkbox"
-            checked={bookmarkedOnly}
-            onChange={onBookmarkedChange}
-          />
-        </label>
+        <CreateElement.InputElement name="bookmarkedOnly" type="checkbox" checked={bookmarkedOnly} onChange={onBookmarkedChange}/>
+        <CreateElement.LabelElement htmlFor="bookmarkedOnly" text="Mostrar somente favoritos" />
         {/* Select */}
-        <label htmlFor="selectedGenre">Filtrar por gênero
-          <select name="selectedGenre" value={selectedGenre} onChange={onSelectedGenreChange}>
-            <option value="">Todos</option>
-            <option value="action">Ação</option>
-            <option value="comedy">Comédia</option>
-            <option value="thriller">Suspense</option>
+        <CreateElement.LabelElement htmlFor="selectedGenre"text="Filtrar por gênero" />
+        <select name="selectedGenre" value={selectedGenre} onChange={onSelectedGenreChange}>
+          <option value="">Todos</option>
+          <option value="action">Ação</option>
+          <option value="comedy">Comédia</option>
+          <option value="thriller">Suspense</option>
           </select>
-        </label>
       </form>
-    );
-  }
-  render() {
-    return (
-      this.renderForm()
     );
   }
 }
