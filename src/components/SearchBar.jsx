@@ -31,6 +31,7 @@ function SearchBar({
       <SelectComp
         lTx="Filtrar por gênero:"
         n="Genre"
+        opt="1"
         v={selectedGenre}
         oC={onSelectedGenreChange}
       />
