@@ -50,9 +50,9 @@ class AddMovie extends Component {
         <label htmlFor="subtitle">Subtítulo</label>
         <input type="text" name="subtitle" value={this.state.subtitle} onChange={this.txtChang} />
         <label htmlFor="imagePath">Imagem</label>
-        <input 
-          type="text" name="imagePath" value={this.state.imagePath} 
-          onChange={this.txtChang} 
+        <input
+          type="text" name="imagePath" value={this.state.imagePath}
+          onChange={this.txtChang}
         />
         <label htmlFor="storyline">Sinopse</label>
         <textarea name="storyline" value={this.state.storyline} onChange={this.txtChang} />
