@@ -6,6 +6,7 @@ export default class AddMovie extends React.Component {
 
     this.inputs = this.inputs.bind(this);
     this.resetState = this.resetState.bind(this);
+
     this.state = {
       subtitle: '',
       title: '',
@@ -18,7 +19,7 @@ export default class AddMovie extends React.Component {
 
   changeValues(event, name) {
     const { value } = event.target;
-    this.setState({ [name]: value });
+    name === 'rating' ? this.setState({ [name]: Number(value) }) : this.setState({ [name]: value });
   }
 
   inputs(type, label, value, name) {
@@ -52,8 +53,7 @@ export default class AddMovie extends React.Component {
     );
   }
 
-  resetState(callback) {
-    callback(this.state);
+  resetState() {
     this.state({
       subtitle: '',
       title: '',
@@ -70,7 +70,7 @@ export default class AddMovie extends React.Component {
       <form>
         {this.inputs('text', 'Título', title, 'title')}
         {this.inputs('text', 'Subtítulo', subtitle, 'subtitle')}
-        {this.inputs('text', 'Image', imagePath, 'imagePath')}
+        {this.inputs('text', 'Imagem', imagePath, 'imagePath')}
         {this.inputs('textarea', 'Sinopse', storyline, 'storyline')}
         {this.inputs('number', 'Avaliação', rating, 'rating')}
         {this.inputs('text', 'Gênero', genre, 'genre')}
@@ -78,7 +78,7 @@ export default class AddMovie extends React.Component {
         <button
           type="button"
           onClick={() => {
-            this.resetState(this.state);
+            this.resetState();
           }}>
           Adicionar filme
         </button>

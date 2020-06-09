@@ -1,4 +1,5 @@
 import React from 'react';
+import Select from './Select';
 
 export default class SearchBar extends React.Component {
   render() {
@@ -14,21 +15,14 @@ export default class SearchBar extends React.Component {
       <div>
         <form>
           <label htmlFor="texto">
-            Inclui o texto: <input type="text" onChange={onSearchTextChange} value={searchText} />
+            Inclui o texto:
+            <input type="text" onChange={onSearchTextChange} value={searchText} />
           </label>
           <label htmlFor="favoritos">
             Mostrar somente favoritos
             <input type="checkbox" checked={bookmarkedOnly} onChange={onBookmarkedChange} />
           </label>
-          <label htmlFor="genre">
-            Filtrar por gênero
-            <select value={selectedGenre} onChange={onSelectedGenreChange}>
-              <option value="">Todos</option>
-              <option value="action">Ação</option>
-              <option value="comedy">Comédia</option>
-              <option value="thriller">Suspense</option>
-            </select>
-          </label>
+          <Select selectedGenre={selectedGenre} onSelectedGenreChange={onSelectedGenreChange} />
         </form>
       </div>
     );
