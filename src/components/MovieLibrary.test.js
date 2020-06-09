@@ -45,7 +45,7 @@ const movieLibrary = () => {
 const beforeEachUnitTest = () => (movieLibraryWrapper = undefined);
 
 describe('<MovieLibrary /> component', () => {
-  it.skip('renders without crashing', () => {
+  it('renders without crashing', () => {
     movieLibrary();
   });
 });
