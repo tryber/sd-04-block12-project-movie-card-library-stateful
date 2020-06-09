@@ -62,7 +62,7 @@ class AddMovie extends Component {
     }
   }
 
-  // resetState() {    
+  // resetState() {
   // }
 
   render() {
