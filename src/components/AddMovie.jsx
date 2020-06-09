@@ -74,12 +74,12 @@ class AddMovie extends React.Component {
     return (
       <div>
         <form>
-          {this.CreateInput("title", this.state.title, 'Título')}
-          {this.CreateInput("subtitle", this.state.subtitle, 'Subtítulo')}
-          {this.CreateInput("imagePath", this.state.imagePath, 'Imagem')}
+          {this.CreateInput('title', this.state.title, 'Título')}
+          {this.CreateInput('subtitle', this.state.subtitle, 'Subtítulo')}
+          {this.CreateInput('imagePath', this.state.imagePath, 'Imagem')}
           <label htmlFor="storyline">Sinopse</label>
           <textarea
-            id='storyline'
+            id="storyline"
             value={this.state.storyline}
             onChange={(event) => this.Change(event, 'storyline')}
           >{this.state.storyline}</textarea>
