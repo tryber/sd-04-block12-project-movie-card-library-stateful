@@ -1,5 +1,3 @@
-// export default MovieList;
-
 // import React, { Component } from 'react';
 // import SearchBarText from './components/SearchBarText';
 // import SearchBarBookMarked from './components/SearchBarBookMarked';
