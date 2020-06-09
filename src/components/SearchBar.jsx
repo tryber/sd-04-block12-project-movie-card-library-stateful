@@ -1,16 +1,15 @@
 // implement SearchBar component here
-import React, { Component, createElement, } from 'react';
+import React, { Component } from 'react';
 import CreateElement from './CreateElement';
 
 class SearchBar extends Component {
-  
   render() {
     const {
     searchText, onSearchTextChange,
     bookmarkedOnly, onBookmarkedChange,
     selectedGenre, onSelectedGenreChange,
   } = this.props;
-  return (
+    return (
       <form>
         {/* Search Bar */}
         <CreateElement.LabelElement htmlFor="searchText" text="Inclui o texto" />
