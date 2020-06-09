@@ -7,7 +7,7 @@ const genreOptions = [
   { text: 'Suspense', value: 'thriller' },
 ];
 
-const inputSearchText = (searchText, onSearchTextChange) => {
+function inputSearchText (searchText, onSearchTextChange) {
   return (
     <div>
       <label htmlFor="searchText">Inclui o texto</label>
@@ -19,9 +19,9 @@ const inputSearchText = (searchText, onSearchTextChange) => {
       />
     </div>
   );
-};
+}
 
-const selectGenre = (selectedGenre, onSelectedGenreChange) => {
+function selectGenre (selectedGenre, onSelectedGenreChange) {
   return (
     <div>
       <label htmlFor="selectedGenre">Filtrar por gênero</label>
@@ -38,7 +38,7 @@ const selectGenre = (selectedGenre, onSelectedGenreChange) => {
       </select>
     </div>
   );
-};
+}
 
 class SearchBar extends React.Component {
   render() {

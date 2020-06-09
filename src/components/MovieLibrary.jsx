@@ -1,6 +1,5 @@
-import React, { Component } from 'react';
-
-// class SearchBar extends Component {
+// import React, { Component } from 'react';
+// class MovieLibrary extends Component {
 //   constructor(props) {
 //     super(props);
 //     // inicializo stado das variaveis que sofrerão alteração
