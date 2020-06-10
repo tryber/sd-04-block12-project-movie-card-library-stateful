@@ -8,7 +8,7 @@ Aqui você vai encontrar os detalhes de como estruturar o desenvolvimento do seu
 
 ### Data de Entrega
 
-O projeto tem até a seguinte data: `11/06/2020 - 14:00h`. Para ser entregue a avaliação final.
+O projeto tem até a seguinte data: `15/06/2020 - 14:00h`. Para ser entregue a avaliação final.
 
 
 ## O que deverá ser desenvolvido
