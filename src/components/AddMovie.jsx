@@ -47,15 +47,14 @@ export default class AddMovie extends React.Component {
   }
 
   render() {
-    const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
       <form onSubmit={(e) => e.preventDefault()}>
-        {Input('Título', 'title', 'text', title, this.changeState)}
-        {Input('Subtítulo', 'subtitle', 'text', subtitle, this.changeState)}
-        {Input('Imagem', 'imagePath', 'text', imagePath, this.changeState)}
-        {Input('Sinopse', 'storyline', 'textarea', storyline, this.changeState)}
-        {Input('Avaliação', 'rating', 'number', rating, this.changeState)}
-        {Select('Gênero', genre, this.changeState)}
+        {Input('Título', 'title', 'text', this.state.title, this.changeState)}
+        {Input('Subtítulo', 'subtitle', 'text', this.state.subtitle, this.changeState)}
+        {Input('Imagem', 'imagePath', 'text', this.state.imagePath, this.changeState)}
+        {Input('Sinopse', 'storyline', 'textarea', this.state.storyline, this.changeState)}
+        {Input('Avaliação', 'rating', 'number', this.state.rating, this.changeState)}
+        {Select('Gênero', this.state.genre, this.changeState)}
         <button type="submit" onClick={() => this.handleButton(this.state)} >Adicionar filme
         </button>
       </form>
