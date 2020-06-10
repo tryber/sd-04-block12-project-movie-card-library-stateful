@@ -38,9 +38,7 @@ class MovieLibrary extends Component {
       rating,
       genre,
     };
-    this.setState((state) => ({
-      movies: state.movies.push(newMov),
-    }));
+    this.setState((state) => ({movies: state.movies.push(newMov),}));
   }
 
   showMovies() {
@@ -49,16 +47,16 @@ class MovieLibrary extends Component {
     let fil = movies.filter((movie) => {
       const { title, subtitle, storyline } = movie;
       return title.includes(searchText) || subtitle.includes(searchText) ||
-        storyline.includes(searchText)
+        storyline.includes(searchText);
     });
     if (selectedGenre) {
       fil = fil.filter((movie) => {
         const { genre } = movie;
-        return selectedGenre === genre
+        return selectedGenre === genre;
       });
     }
-    if(bookmarkedOnly) {
-      fil = fil.filter((movie) => movie.bookmarked)
+    if (bookmarkedOnly) {
+      fil = fil.filter((movie) => movie.bookmarked);
     }
     return fil;
   }
