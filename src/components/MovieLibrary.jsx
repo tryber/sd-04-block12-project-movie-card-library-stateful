@@ -29,16 +29,7 @@ class MovieLibrary extends Component {
   }
 
   addMov(stt) {
-    const { subtitle, title, imagePath, storyline, rating, genre } = stt;
-    const newMov = {
-      subtitle,
-      title,
-      imagePath,
-      storyline,
-      rating,
-      genre,
-    };
-    this.setState((state) => ({ movies: state.movies.push(newMov) }));
+    this.setState((state) => ({ movies: state.movies.concat([stt]) }));
   }
 
   showMovies() {
