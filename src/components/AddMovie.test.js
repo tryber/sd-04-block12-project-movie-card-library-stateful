@@ -126,7 +126,9 @@ describe('<AddMovie /> component image path input', () => {
     const simulatedEvent = { target: { value: 'http://localhost:3000/images/Appleseed_Alpha.jpg', name: 'imagePath' } };
 
     imageInput().simulate('change', simulatedEvent);
-    expect(addMovie().state('imagePath')).toEqual('http://localhost:3000/images/Appleseed_Alpha.jpg');
+    expect(addMovie().state('imagePath')).toEqual(
+      'http://localhost:3000/images/Appleseed_Alpha.jpg'
+    );
   });
 });
 
