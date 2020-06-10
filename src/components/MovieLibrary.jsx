@@ -19,15 +19,15 @@ class MovieLibrary extends Component {
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
   }
 
-  onSearchTextChange = () => {
+  onSearchTextChange() {
     this.setState((this.searchText: 'true'));
-  };
-  onBookmarkedOnly = () => {
+  }
+  onBookmarkedOnly() {
     this.setState((this.bookmarkedOnly: true));
-  };
-  onSelectedGenreChange = () => {
+  }
+  onSelectedGenreChange() {
     this.setState((this.selectedGenre: 'true'));
-  };
+  }
   // handleChange = (e) => this.setState({ [e.target.name]: e.target.value });
   render() {
     // const { movies } = this.props;
