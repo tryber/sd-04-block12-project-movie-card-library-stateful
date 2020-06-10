@@ -63,7 +63,7 @@ class AddMovie extends Component {
           name="genre" onChange={this.slctChange}
           selected={this.state.genre} value={this.state.genre}
         />
-        <button type="submit" onClick={onClick}>Adicionar Filme</button>
+        <button type="submit" onClick={onClick}>Adicionar filme</button>
       </form>
     );
   }
