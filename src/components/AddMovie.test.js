@@ -192,7 +192,7 @@ describe('<AddMovie /> component genre selection', () => {
   const genreSelection = () => addMovie().find('form select');
 
   it('renders a movie genre selection so as the user can select the movie genre', () => {
-    expect(genreSelection().length).toEqual(1);
+    expect(genreSelection().length).toEqual(1); 
   });
 
   it('renders the label "Gênero" for the movie genre selection', () => {
