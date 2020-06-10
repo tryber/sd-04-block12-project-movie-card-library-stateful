@@ -38,11 +38,11 @@ class MovieLibrary extends Component {
       rating,
       genre,
     };
-    this.setState((state) => ({movies: state.movies.push(newMov),}));
+    this.setState((state) => ({ movies: state.movies.push(newMov) }));
   }
 
   showMovies() {
-    const movies = this.props.movies
+    const movies = this.props.movies;
     const { searchText, bookmarkedOnly, selectedGenre } = this.state;
     let fil = movies.filter((movie) => {
       const { title, subtitle, storyline } = movie;
