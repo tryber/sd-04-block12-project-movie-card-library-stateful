@@ -36,7 +36,7 @@ class MovieLibrary extends Component {
       storyline,
       rating,
       genre,
-    }
+    };
     this.state.movies.push(newMov);
   }
 
