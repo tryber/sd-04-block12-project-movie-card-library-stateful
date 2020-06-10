@@ -50,6 +50,10 @@ export default class MovieLibrary extends React.Component {
     return movies;
   }
 
+  addMovie(movie) {
+    this.setState((state) => ({ movies: [...state.movies, movie] }));
+  }
+
   render() {
     const { searchText, bookmarkedOnly, selectedGenre } = this.state;
     return (
