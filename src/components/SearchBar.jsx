@@ -18,16 +18,27 @@ class SearchBar extends Component {
       <div>
         <label htmlFor="input">
           Inclui o texto:
-          <input type="text" name="input" value={searchText} onChange={onSearchTextChange} />
+          <input
+            type="text"
+            name="input"
+            value={searchText}
+            onChange={(e) => onSearchTextChange(e.target.value)}
+          />
         </label>
       </div>
     );
   }
   favoriteOnly() {
-    const { bookmakedOnly, onBookmarkedChange } = this.props;
+    const { bookmarkedOnly, onBookmarkedChange } = this.props;
     return (
       <label htmlFor="fav">
-        <input type="radio" name="fav" value={bookmakedOnly} onChange={onBookmarkedChange} />
+        <input
+          type="checkbox"
+          id="fav"
+          checked={bookmarkedOnly}
+          value={bookmarkedOnly}
+          onChange={onBookmarkedChange}
+        />
         Mostrar somente favoritos
       </label>
     );
@@ -36,7 +47,7 @@ class SearchBar extends Component {
     const { selectedGenre, onSelectedGenreChange } = this.props;
     return (
       <label htmlFor="genreFilter">
-        Filtrar por Gênero
+        Filtrar por gênero
         <select name="genreFilter" value={selectedGenre} onChange={onSelectedGenreChange}>
           <option value="">Todos</option>
           <option value="action">Ação</option>
@@ -48,7 +59,7 @@ class SearchBar extends Component {
     );
   }
   render() {
-    // const { searchText, onSearchTextChange, bookmakedOnly, onBookmarkedChange } = this.props;
+    // const { searchText, onSearchTextChange, bookmarkedOnly, onBookmarkedChange } = this.props;
     return (
       <div>
         <small>SearchBar: Req: 1-5</small>
