@@ -97,8 +97,10 @@ describe('<AddMovie /> component subtitle input', () => {
     expect(subtitleInput().prop('value')).toEqual(initialState.subtitle);
   });
 
+
   it('updates the component state when subtitle input changes', () => {
     const simulatedEvent = { target: { value: 'my awesome movie subtitle', name: 'subtitle' } };
+
 
     subtitleInput().simulate('change', simulatedEvent);
     expect(addMovie().state('subtitle')).toEqual('my awesome movie subtitle');
@@ -147,8 +149,10 @@ describe('<AddMovie /> component storyline input', () => {
     expect(storylineInput().prop('value')).toEqual(initialState.storyline);
   });
 
+
   it('updates the component state when movie storyline input changes', () => {
     const simulatedEvent = { target: { value: 'In the following movie, everyone dies.', name: 'storyline' } };
+
 
     storylineInput().simulate('change', simulatedEvent);
     expect(addMovie().state('storyline')).toEqual('In the following movie, everyone dies.');
@@ -172,8 +176,10 @@ describe('<AddMovie /> component rating input', () => {
     expect(ratingInput().prop('value')).toEqual(initialState.rating);
   });
 
+
   it('updates the component state when movie rating input changes', () => {
     const simulatedEvent = { target: { value: '1.5', name: 'rating' } };
+
 
     ratingInput().simulate('change', simulatedEvent);
     expect(addMovie().state('rating')).toEqual(1.5);

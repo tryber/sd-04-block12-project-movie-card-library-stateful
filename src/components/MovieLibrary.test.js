@@ -3,6 +3,7 @@ import { mount, shallow } from 'enzyme';
 
 import MovieLibrary from './MovieLibrary';
 
+
 const movies = [
   {
     title: 'An awesome title',
