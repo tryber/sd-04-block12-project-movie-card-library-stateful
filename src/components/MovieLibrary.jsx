@@ -15,7 +15,8 @@ class MovieLibrary extends Component {
       movies: this.props.movies,
     };
     this.changeState = this.changeState.bind(this);
-    this.curState = this.curState.bind(this);
+    this.addMov = this.addMov.bind(this);
+    this.showMovies = this.showMovies.bind(this);
   }
 
   changeState(e) {
@@ -27,7 +28,7 @@ class MovieLibrary extends Component {
     });
   }
 
-  curState(stt) {
+  addMov(stt) {
     const { subtitle, title, imagePath, storyline, rating, genre } = stt;
     const newMov = {
       subtitle,
@@ -37,7 +38,29 @@ class MovieLibrary extends Component {
       rating,
       genre,
     };
-    this.state.movies.push(newMov);
+    this.setState((state) => ({
+      movies: state.movies.push(newMov),
+    }));
+  }
+
+  showMovies() {
+    const movies = this.props.movies
+    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
+    let fil = movies.filter((movie) => {
+      const { title, subtitle, storyline } = movie;
+      return title.includes(searchText) || subtitle.includes(searchText) ||
+        storyline.includes(searchText)
+    });
+    if (selectedGenre) {
+      fil = fil.filter((movie) => {
+        const { genre } = movie;
+        return selectedGenre === genre
+      });
+    }
+    if(bookmarkedOnly) {
+      fil = fil.filter((movie) => movie.bookmarked)
+    }
+    return fil;
   }
 
   render() {
@@ -49,8 +72,8 @@ class MovieLibrary extends Component {
           bookmarkedOnly={this.state.bookmarkedOnly} onBookmarkedChange={this.changeState}
           selectedGenre={this.state.selectedGenre} onSelectedGenreChange={this.changeState}
         />
-        <MovieList movies={this.props.movies} />
-        <AddMovie onClick={this.curState} />
+        <MovieList movies={this.showMovies()} />
+        <AddMovie onClick={this.addMov} />
       </div>
     );
   }
