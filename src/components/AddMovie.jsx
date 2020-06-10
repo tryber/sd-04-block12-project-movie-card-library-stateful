@@ -111,12 +111,16 @@ export default class AddMovie extends Component {
   render() {
     return (
       <form>
-        {this.funTitle()}
-        {this.funSubTitle()}
-        {this.funImagePath()}
-        {this.funSinopse()}
-        {this.funRaiting()}
-        {this.funSelect()}
+        <div>
+          {this.funTitle()}
+          {this.funSubTitle()}
+          {this.funImagePath()}
+        </div>
+        <div>
+          {this.funSinopse()}
+          {this.funRaiting()}
+          {this.funSelect()}
+        </div>
         <button type="submit" onSubmit={this.submit}>Adicionar filme</button>
       </form>
     );

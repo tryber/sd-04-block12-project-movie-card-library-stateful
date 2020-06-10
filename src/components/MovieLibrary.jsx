@@ -14,16 +14,28 @@ export default class MovieLibrary extends Component {
 		};
 	}
 
+	funSearchBarChange(event) {
+		this.setState({ searchText: event.target.value });
+	}
+	
+	funBookMarckChange(event) {
+		this.setState({ bookmarkedOnly: event.target.checked });
+	}
+
+	funGenreChange(event) {
+		this.setState({ selectedGenre: event.target.value });
+	}
+
 	render() {
 		return (
 			<div>
 				<SearchBar
-					SearchBar=""
-					onSearchTextChange=""
-					bookmarkedOnly=""
-					onBookmarkedChange=""
-					selectedGenre=""
-					onSelectedGenreChange=""
+					searchText={this.state.searchText}
+					onSearchTextChange={(event) => this.funSearchBarChange(event)}
+					bookmarkedOnly={this.state.bookmarkedOnly}
+					onBookmarkedChange={(event) => this.funBookMarckChange(event)}
+					selectedGenre={this.state.selectedGenre}
+					onSelectedGenreChange={(event) => this.funGenreChange(event)}
 				/>
 				<AddMovie onClick="" />
 			</div>
