@@ -49,7 +49,7 @@ class AddMovie extends Component {
       genre: 'action',
     };
     this.storeState = this.storeState.bind(this);
-    this.resetState = this.resetState.bind(this);
+    this.addResetState = this.addResetState.bind(this);
   }
 
   storeState(e) {
@@ -62,7 +62,8 @@ class AddMovie extends Component {
     }
   }
 
-  resetState() {
+  addResetState() {
+    this.props.onClick(this.state);
     this.setState({
       subtitle: '',
       title: '',
@@ -95,7 +96,7 @@ class AddMovie extends Component {
           <option value="comedy">Comédia</option>
           <option value="thriller">Suspense</option>
         </select>
-        <button onClick={this.resetState}>Adicionar filme</button>
+        <button onClick={this.addResetState}>Adicionar filme</button>
       </form>
     );
   }

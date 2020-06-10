@@ -15,6 +15,7 @@ class MovieLibrary extends Component {
       movies: this.props.movies,
     };
     this.changeState = this.changeState.bind(this);
+    this.curState = this.curState.bind(this);
   }
 
   changeState(e) {
@@ -24,6 +25,19 @@ class MovieLibrary extends Component {
       bookmarkedOnly: e.target.checked,
       selectedGenre: e.target.value,
     });
+  }
+
+  curState(stt) {
+    const { subtitle, title, imagePath, storyline, rating, genre } = stt;
+    const newMov = {
+      subtitle,
+      title,
+      imagePath,
+      storyline,
+      rating,
+      genre,
+    }
+    this.state.movies.push(newMov);
   }
 
   render() {
@@ -36,7 +50,7 @@ class MovieLibrary extends Component {
           selectedGenre={this.state.selectedGenre} onSelectedGenreChange={this.changeState}
         />
         <MovieList movies={this.props.movies} />
-        <AddMovie />
+        <AddMovie onClick={this.curState} />
       </div>
     );
   }
