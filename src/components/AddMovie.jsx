@@ -7,15 +7,15 @@ const resetar = {
   storyline: '',
   rating: 0,
   genre: 'action',
-}
+};
 
 class addMovie extends React.Component {
   constructor(props) {
     super(props);
-      this.state = resetar;
-      this.buttonAdd = this.buttonAdd.bind(this);
-      this.changeState = this.changeState.bind(this);
-      this.creatorInp = this.creatorInp.bind(this);
+    this.state = resetar;
+    this.buttonAdd = this.buttonAdd.bind(this);
+    this.changeState = this.changeState.bind(this);
+    this.creatorInp = this.creatorInp.bind(this);
   }
 
   buttonAdd() {
@@ -23,15 +23,10 @@ class addMovie extends React.Component {
     this.setState(resetar);
   }
 
-
   changeState(event) {
     const { value, name } = event.target;
-    if(name === 'rating') {
-      this.setState({ [name]:Number(value) });
-    }
-    else {
-      this.setState({ [name]:value });
-    }
+    if (name === 'rating') this.setState({ [name]: Number(value) });
+    else this.setState({ [name]: value });
   }
 
   creatorInp() {
@@ -49,7 +44,7 @@ class addMovie extends React.Component {
         <label htmlFor="rating">Avaliação</label>
         <input type="number" name="rating" value={rating} onChange={this.changeState} />
       </div>
-    )
+    );
   }
   render() {
     const { genre } = this.state;
