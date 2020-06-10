@@ -4,7 +4,7 @@ import { mount } from 'enzyme';
 import SearchBar from './SearchBar';
 
 let props;
-const searchBar = () => (
+const searchBar = () =>
   mount(
     <SearchBar
       searchText={props.searchText}
@@ -14,8 +14,7 @@ const searchBar = () => (
       selectedGenre={props.selectedGenre}
       onSelectedGenreChange={props.onSelectedGenreChange}
     />,
-  )
-);
+  );
 
 const beforeEachUnitTest = () => {
   props = {
@@ -39,7 +38,7 @@ describe('<SearchBar /> component', () => {
 describe('<SearchBar /> component Form', () => {
   beforeEach(() => beforeEachUnitTest());
 
-  const searchBar = () => (
+  const searchBar = () =>
     mount(
       <SearchBar
         searchText={props.searchText}
@@ -49,8 +48,7 @@ describe('<SearchBar /> component Form', () => {
         selectedGenre={props.selectedGenre}
         onSelectedGenreChange={props.onSelectedGenreChange}
       />,
-    )
-  );
+    );
 
   it('renders a form', () => {
     expect(searchBar().find('form').length).toEqual(1);
@@ -60,7 +58,7 @@ describe('<SearchBar /> component Form', () => {
 describe('<SearchBar /> component Text input', () => {
   beforeEach(() => beforeEachUnitTest());
 
-  const searchBar = () => (
+  const searchBar = () =>
     mount(
       <SearchBar
         searchText={props.searchText}
@@ -70,8 +68,7 @@ describe('<SearchBar /> component Text input', () => {
         selectedGenre={props.selectedGenre}
         onSelectedGenreChange={props.onSelectedGenreChange}
       />,
-    )
-  );
+    );
 
   const textInput = () => searchBar().find('form input[type="text"]');
 
@@ -95,7 +92,7 @@ describe('<SearchBar /> component Text input', () => {
 describe('<SearchBar /> component Bookmarked checkbox', () => {
   beforeEach(() => beforeEachUnitTest());
 
-  const searchBar = () => (
+  const searchBar = () =>
     mount(
       <SearchBar
         searchText={props.searchText}
@@ -105,16 +102,16 @@ describe('<SearchBar /> component Bookmarked checkbox', () => {
         selectedGenre={props.selectedGenre}
         onSelectedGenreChange={props.onSelectedGenreChange}
       />,
-    )
-  );
+    );
 
   it('renders a checkbox input inside the form', () => {
     expect(searchBar().find('form input[type="checkbox"]').length).toBe(1);
   });
 
   it('has a label with the text "Mostrar somente favoritos"', () => {
-    expect(searchBar().find('label').at(1).text())
-      .toMatch('Mostrar somente favoritos');
+    expect(searchBar().find('label').at(1).text()).toMatch(
+      'Mostrar somente favoritos',
+    );
   });
 
   it('passes the `bookmarkedOnly` prop to the `checked` attribute of the input', () => {
@@ -133,7 +130,7 @@ describe('<SearchBar /> component Bookmarked checkbox', () => {
 describe('<SearchBar /> component Movie Genre select', () => {
   beforeEach(() => beforeEachUnitTest());
 
-  const searchBar = () => (
+  const searchBar = () =>
     mount(
       <SearchBar
         searchText={props.searchText}
@@ -143,15 +140,16 @@ describe('<SearchBar /> component Movie Genre select', () => {
         selectedGenre={props.selectedGenre}
         onSelectedGenreChange={props.onSelectedGenreChange}
       />,
-    )
-  );
+    );
 
   it('renders a select inside the form', () => {
     expect(searchBar().find('form select').length).toEqual(1);
   });
 
   it('has a label with the text "Filtrar por gênero"', () => {
-    expect(searchBar().find('label').at(2).text()).toMatch('Filtrar por gênero');
+    expect(searchBar().find('label').at(2).text()).toMatch(
+      'Filtrar por gênero',
+    );
   });
 
   it('passes the `selectedGenre` prop as the value of the select', () => {
