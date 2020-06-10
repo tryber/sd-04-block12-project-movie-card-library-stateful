@@ -7,20 +7,20 @@ import MovieList from './MovieList';
 class MovieLibrary extends Component {
   constructor(props) {
     super(props);
+    const { movies } = this.props;
     // inicializo stado das variaveis que sofrerão alteração
     this.state = {
       // objeto de ações
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      movies: this.props.movies,
+      movies: movies,
     };
     // uso bind quando tenho alteração no meu state / controlador
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
     this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this); // func sem usar
   }
-
   onSearchTextChange(event) {
     const { value } = event.target;
     this.setState({ searchText: value }); // recebe o novo value
