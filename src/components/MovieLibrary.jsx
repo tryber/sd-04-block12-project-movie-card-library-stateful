@@ -38,7 +38,7 @@ export default class MovieLibrary extends Component {
           selectedGenre={this.state.selectedGenre}
           onSelectedGenreChange={(event) => this.funGenreChange(event)}
         />
-				<MovieList movies={this.state.movies}/>
+        <MovieList movies={this.state.movies}/>
         <AddMovie onClick="" />
       </div>
     );
