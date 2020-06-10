@@ -236,7 +236,7 @@ describe('<MovieLibrary /> should render <MovieList />', () => {
 describe('<MovieLibrary /> should render <AddMovie />', () => {
   beforeEach(() => beforeEachUnitTest());
 
-  it.skip('renders a `AddMovie` component', () => {
+  it('renders a `AddMovie` component', () => {
     expect(movieLibrary().find('AddMovie').length).toBe(1);
   });
 
@@ -246,7 +246,7 @@ describe('<MovieLibrary /> should render <AddMovie />', () => {
   // The callback receives the movie to be inserted.
   // The callback should update MovieLibrary's state,
   // by adding the new movie at the end of the `movies`.
-  it.skip('passes to `AddMovie` a callback to enable adding the new movie at the end of the movies list', () => {
+  it('passes to `AddMovie` a callback to enable adding the new movie at the end of the movies list', () => {
     // Initially, MovieLibrary's state field selectedGenere is empty
     const wrapper = mount(<MovieLibrary movies={movies} />);
     const addMovie = wrapper.find('AddMovie');
