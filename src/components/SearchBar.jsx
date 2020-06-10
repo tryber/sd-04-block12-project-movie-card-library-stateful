@@ -1,6 +1,6 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 
-class SearchBar extends PureComponent {
+class SearchBar extends Component {
   genres = {
     Todos: '',
     Ação: 'action',
