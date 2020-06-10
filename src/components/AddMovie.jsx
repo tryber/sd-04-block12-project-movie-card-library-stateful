@@ -46,8 +46,9 @@ class AddMovie extends React.Component {
       }
     );
   }
+
   createTextInputs() {
-    const { title = '', subtitle = '', imagePath = '', } = this.state;
+    const { title = '', subtitle = '', imagePath = '' } = this.state;
     return (
       <div className="depoiseupenso">
         <AddLabel htmlFor="title" text="Título" />
@@ -68,6 +69,7 @@ class AddMovie extends React.Component {
       </div>
     );
   }
+
   createTextArea() {
     const { storyline = '' } = this.state;
     return (
@@ -80,6 +82,7 @@ class AddMovie extends React.Component {
       </div>
     );
   }
+
   createRatingElement() {
     const { rating = 0 } = this.state;
     return (
@@ -92,6 +95,7 @@ class AddMovie extends React.Component {
       </div>
     );
   }
+
   createGenreSelection() {
     const { genre = 'action' } = this.state;
     return (
@@ -104,6 +108,7 @@ class AddMovie extends React.Component {
       </div>
     );
   }
+
   render() {
     return (
       <form>
