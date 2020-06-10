@@ -12,37 +12,37 @@ class MovieLibrary extends Component {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      movies: this.props.movies,
+      movies: props.movies,
     };
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
-    this.onBookmarkedOnly = this.onBookmarkedOnly.bind(this);
+    this.onBookmarkedOnly = this.onBookmarkedChange.bind(this);
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
   }
 
-  onSearchTextChange() {
-    this.setState((this.searchText = 'true'));
+  onSearchTextChange(e) {
+    this.setState({ searchText: e.target.value });
   }
-  onBookmarkedOnly() {
-    this.setState((this.bookmarkedOnly = true));
+  onBookmarkedChange() {
+    this.setState((state) => ({ bookmarkedOnly: !state.bookmarkedOnly }));
   }
-  onSelectedGenreChange() {
-    this.setState((this.selectedGenre = 'true'));
+  onSelectedGenreChange(e) {
+    this.setState({ selectedGenre: e.target.value });
   }
   // handleChange = (e) => this.setState({ [e.target.name]: e.target.value });
   render() {
-    // const { movies } = this.props;
+    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
     return (
       <div>
         <p>
           <small>MovieLibrary Req: 16-20</small>
         </p>
         <SearchBar
-          searchText={this.state.searchText}
-          bookmarkedOnly={this.state.bookmarkedOnly}
-          selectedGenre={this.state.selectedGenre}
-          onSearchTextChange={this.props.onSearchTextChange}
-          onBookmarkedOnly={this.props.onBookmarkedOnly}
-          onSelectedGenreChange={this.props.onSelectedGenreChange}
+          searchText={this.searchText}
+          bookmarkedOnly={this.bookmarkedOnly}
+          selectedGenre={this.selectedGenre}
+          onSearchTextChange={(e) => this.onSearchTextChange(e)}
+          onBookmarkedOnly={this.onBookmarkedChange}
+          onSelectedGenreChange={this.onSelectedGenreChange}
         />
         {/* <MovieList /> */}
         <AddMovie />
