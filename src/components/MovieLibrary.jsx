@@ -14,13 +14,26 @@ class MovieLibrary extends Component {
       selectedGenre: '',
       movies: this.props.movies,
     };
+    this.changeState = this.changeState.bind(this);
+  }
+
+  changeState(e) {
+    // const valSel = e.target.options[e.target.selectedIndex].value;
+    this.setState({
+      searchText: e.target.value,
+      bookmarkedOnly: e.target.checked,
+      selectedGenre: e.target.value,
+    });
   }
 
   render() {
     return (
       <div>
         <h2> My awesome movie library </h2>
-        <SearchBar />
+        <SearchBar searchText={this.state.searchText} onSearchTextChange={this.changeState}
+          bookmarkedOnly={this.state.bookmarkedOnly} onBookmarkedChange={this.changeState}
+          selectedGenre={this.state.selectedGenre} onSelectedGenreChange={this.changeState}
+        />
         <MovieList movies={this.props.movies} />
         <AddMovie />
       </div>

@@ -49,7 +49,7 @@ class AddMovie extends Component {
       genre: 'action',
     };
     this.storeState = this.storeState.bind(this);
-    // this.resetState = this.resetState.bind(this);
+    this.resetState = this.resetState.bind(this);
   }
 
   storeState(e) {
@@ -62,8 +62,16 @@ class AddMovie extends Component {
     }
   }
 
-  // resetState() {
-  // }
+  resetState() {
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
+  }
 
   render() {
     return (
@@ -87,7 +95,7 @@ class AddMovie extends Component {
           <option value="comedy">Comédia</option>
           <option value="thriller">Suspense</option>
         </select>
-        <input type="submit" value="Adicionar filme" />
+        <button onClick={this.resetState}>Adicionar filme</button>
       </form>
     );
   }
