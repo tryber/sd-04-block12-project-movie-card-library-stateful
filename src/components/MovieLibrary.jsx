@@ -15,21 +15,46 @@ class MovieLibrary extends React.Component {
       movies: this.props.movies,
     };
 
-    this.updateSearch = this.updateSearch.bind(this);
-    this.updateBookMarket = this.updateBookMarked.bind(this);
-    this.updateSelected = this.updateSelected.bind(this);
+    this.onSearchTextChange = this.onSearchTextChange.bind(this);
+    this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
+    this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
+    this.addNewMovie = this.addNewMovie.bind(this);
   }
 
-  updateSearch(event) {
+  onSearchTextChange(event) {
     this.setState({ searchText: event.target.value });
   }
 
-  updateBookMarked(event) {
+  onBookmarkedChange(event) {
     this.setState({ bookmarkedOnly: event.target.checked });
   }
 
-  updateSelected(event) {
+  onSelectedGenreChange(event) {
     this.setState({ selectedGenre: event.target.value });
+  }
+
+  moviesFiltered() {
+    const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
+    let filterMovies = [...movies];
+    if(bookmarkedOnly) {
+      filterMovies = filterMovies.filter((filme) => filme.bookmarked === true);
+    }
+    if(selectedGenre) {
+      filterMovies = filterMovies.filter((filme) => filme.genre === selectedGenre);
+    }
+    if(searchText) {
+      filterMovies = filterMovies.filter((filme) => 
+      filme.title.includes(searchText) ||
+      filme.subtitle.includes(searchText) ||
+      filme.storyline.includes(searchText),
+      );
+    }
+    return filterMovies;
+  }
+
+  addNewMovie(newMovie) {
+    const { movies } = this.state;
+    this.setState({ movies: [...movies, newMovie] });
   }
 
   render() {
@@ -39,14 +64,14 @@ class MovieLibrary extends React.Component {
         <h2> My awesome movie library </h2>
         <SearchBar
           searchText={this.state.searchText}
-          onSearchTextChange={this.updateSearch}
+          onSearchTextChange={this.onSearchTextChange}
           bookmarkedOnly={this.state.bookmarkedOnly}
-          onBookmarkedChange={this.updateBookMarket}
+          onBookmarkedChange={this.onBookmarkedChange}
           selectedGenre={this.state.selectedGenre}
-          onSelectedGenreChange={this.updateSelected}
+          onSelectedGenreChange={this.onSelectedGenreChange}
         />
-        <MovieList movies={this.props.movies} />
-        <AddMovie />
+        <MovieList movies={this.moviesFiltered()} />
+        <AddMovie onClick={this.addNewMovie} />
       </div>
     );
   }
