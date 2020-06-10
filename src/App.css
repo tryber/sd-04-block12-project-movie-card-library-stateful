@@ -1,15 +1,14 @@
 body {
-  background-color: rgb(19, 22, 20);
+  background-color: rgb(26, 32, 28);
   box-sizing: border-box;
   font-size: 16px;
 }
-
 .movie-card-header {
   align-items: center;
-  background-color: #43165d;
+  background-color: rgb(19, 22, 20);
   display: flex;
-  height: 100px;
-  justify-content: center;
+  height: 180px;
+  justify-content: flex-start;
 }
 
 .page-title {
@@ -20,25 +19,42 @@ body {
 }
 
 .movie-list {
+  align-items: stretch;
+  align-content: flex-start;
   display: flex;
   flex-flow: row wrap;
-  padding: 48px 30px;
+  justify-content: left;
+  /* padding: 48px 30px; */
+  /* background-color: pink; */
 }
 
 .movie-card {
-  background-color: rgb(85, 14, 126);
+  background-color: rgb(26, 32, 28);
   border: 1px solid rgba(0, 0, 0, 0.125);
   border-radius: 3px;
   display: flex;
   flex-direction: column;
-  height: 450px;
-  margin: 5px;
+  height: 145px;
+  margin: 2px;
+  opacity: 0.6;
   overflow: hidden;
-  width: 300px;
+  transition: .3s ease;;
+  width: 250px;
 }
 
 .movie-card:hover {
-  box-shadow: inset 0 0 1em #1d1c16 , 0 0 1em #d42929;
+  box-shadow: inset 0 0 1em #1d1c16 , 0 0 1em rgb(92, 94, 104);
+  /* height: 500px; */
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+h1 {
+  font-size: 48px !important;
+}
+
+h2 {
+  font-size: 36px !important;
 }
 
 .movie-card-image {
@@ -57,7 +73,6 @@ body {
 }
 
 .movie-card-subtitle {
-  color: whitesmoke;
   font-size: 16px;
   font-weight: 500;
   margin: 0 0 8px;
@@ -84,4 +99,38 @@ body {
   display: flex;
   justify-content: flex-end;
   padding: 12px 20px;
+}
+
+.movie-card-genre {
+  color: whitesmoke;
+}
+
+.library-options {
+  align-items: flex-start;
+  background-color: rgb(19, 22, 20);
+  display: flex;
+  flex-flow: column;
+  justify-content: start;
+  margin: 0;
+  padding:  15px;
+  max-width: 330px;
+  min-width: 330px;
+}
+
+.Movie-Library {
+  align-items: stretch;
+  display: flex;
+  flex-flow: row;
+  color: whitesmoke;
+  margin: 0;
+  text-align: left;
+  justify-content: initial;
+}
+
+.bookmarked {
+  align-items: center;
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+  margin: 0;
 }

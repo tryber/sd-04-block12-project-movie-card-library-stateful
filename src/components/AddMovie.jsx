@@ -7,6 +7,7 @@ import AddInput from '../AddElements/AddInput';
 import AddSel from '../AddElements/AddSel';
 import AddOpt from '../AddElements/AddOpt';
 
+
 class AddMovie extends React.Component {
   constructor(props) {
     super(props);
@@ -34,38 +35,82 @@ class AddMovie extends React.Component {
 
   btadd() {
     this.props.onClick(this.state);
-    this.setState({
-      title: '',
-      subtitle: '',
-      imagePath: '',
-      storyline: '',
-      rating: 0,
-      genre: 'action',
-    });
+    this.setState(
+      this.state = {
+        title: '',
+        subtitle: '',
+        imagePath: '',
+        storyline: '',
+        rating: 0,
+        genre: 'action',
+      }
+    );
   }
-
-  render() {
-    const { title = '', subtitle = '', imagePath = '', storyline = '', genre = 'action', rating = 0 } = this.state;
+  createTextInputs() {
+    const { title = '', subtitle = '', imagePath = '', } = this.state;
     return (
-      <form>
+      <div className="depoiseupenso">
         <AddLabel htmlFor="title" text="Título" />
-        <AddInput name="title" type="text" value={title} onChange={(e) => this.hChange(e)} />
+        <AddInput
+          name="title" type="text" value={title}
+          placeholder=" Digite o título" onChange={(event) => this.hChange(event)}
+        />
         <AddLabel htmlFor="subtitle" text="Subtítulo" />
-        <AddInput name="subtitle" type="text" value={subtitle} onChange={(e) => this.hChange(e)} />
-        <AddLabel htmlFor="imagePath" text="Imagem" /><AddInput
-          name="imagePath" type="text" value={imagePath} onChange={(e) => this.hChange(e)}
+        <AddInput
+          name="subtitle" type="text" value={subtitle}
+          placeholder=" Digite o subtítulo" onChange={(event) => this.hChange(event)}
         />
-        <AddLabel htmlFor="storyline" text="Sinopse" /><textarea
-          name="storyline" type="text" value={storyline} onChange={(e) => this.hChange(e)}
+        <AddLabel htmlFor="imagePath" text="Imagem" />
+        <AddInput
+          name="imagePath" type="text" value={imagePath}
+          placeholder=" Escolha uma imagem" onChange={(event) => this.hChange(event)}
         />
+      </div>
+    );
+  }
+  createTextArea() {
+    const { storyline = '' } = this.state;
+    return (
+      <div>
+        <AddLabel htmlFor="storyline" text="Sinopse" />
+        <textarea
+          name="storyline" type="text" value={storyline}
+          placeholder=" Sinopse" onChange={(event) => this.hChange(event)}
+        />
+      </div>
+    );
+  }
+  createRatingElement() {
+    const { rating = 0 } = this.state;
+    return (
+      <div>
         <AddLabel htmlFor="rating" text="Avaliação" />
-        <AddInput name="rating" type="number" value={rating} onChange={(e) => this.hChange(e)} />
-        <AddLabel htmlFor="selectedGenre" text="Gênero" />
+        <AddInput
+          name="rating" type="number" value={rating}
+          onChange={(event) => this.hChange(event)}
+        />
+      </div>
+    );
+  }
+  createGenreSelection() {
+    const { genre = 'action' } = this.state;
+    return (
+      <div><AddLabel htmlFor="selectedGenre" text="Gênero" />
         <AddSel name="selectedGenre" value={genre} onChange={(e) => this.onSelectedGenreChange(e)}>
           <AddOpt value="action" text="Ação" />
           <AddOpt value="comedy" text="Comédia" />
           <AddOpt value="thriller" text="Suspense" />
         </AddSel>
+      </div>
+    );
+  }
+  render() {
+    return (
+      <form>
+        {this.createTextInputs()}
+        {this.createTextArea()}
+        {this.createRatingElement()}
+        {this.createGenreSelection()}
         <button type="button" onClick={() => this.btadd()}>Adicionar filme</button>
       </form>
     );
