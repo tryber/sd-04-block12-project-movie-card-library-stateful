@@ -43,7 +43,7 @@ class AddMovie extends React.Component {
         storyline: '',
         rating: 0,
         genre: 'action',
-      }
+      },
     );
   }
 
