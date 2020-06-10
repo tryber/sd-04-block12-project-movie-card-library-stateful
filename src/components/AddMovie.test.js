@@ -5,7 +5,7 @@ import AddMovie from './AddMovie';
 
 const initialState = {
   subtitle: '',
-  title: '',
+  title: '', 
   imagePath: '',
   storyline: '',
   rating: 0,
