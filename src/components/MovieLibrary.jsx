@@ -30,18 +30,18 @@ class MovieLibrary extends Component {
   }
   // handleChange = (e) => this.setState({ [e.target.name]: e.target.value });
   render() {
-    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
+    // const { searchText, bookmarkedOnly, selectedGenre } = this.state;
     return (
       <div>
         <p>
           <small>MovieLibrary Req: 16-20</small>
         </p>
         <SearchBar
-          searchText={this.searchText}
-          bookmarkedOnly={this.bookmarkedOnly}
-          selectedGenre={this.selectedGenre}
+          searchText={this.state.searchText}
+          bookmarkedOnly={this.state.bookmarkedOnly}
+          selectedGenre={this.state.selectedGenre}
           onSearchTextChange={(e) => this.onSearchTextChange(e)}
-          onBookmarkedOnly={this.onBookmarkedChange}
+          onBookmarkedChange={(e) => this.onBookmarkedChange(e)}
           onSelectedGenreChange={this.onSelectedGenreChange}
         />
         {/* <MovieList /> */}
