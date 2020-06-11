@@ -15,6 +15,7 @@ class AddMovie extends Component {
     this.txtChang = this.txtChang.bind(this);
     this.slctChange = this.slctChange.bind(this);
     this.onsubmit = this.onsubmit.bind(this);
+    this.ratingValue = this.ratingValue.bind(this);
   }
 
   onsubmit(event) {
@@ -41,6 +42,10 @@ class AddMovie extends Component {
     this.setState(() => ({ [name]: value }));
   }
 
+  ratingValue(event) {
+    this.setState(() => ({ rating: parseFloat(event.target.value) }))
+  }
+
   render() {
     return (
       <form className="addmovie-component" >
@@ -56,7 +61,7 @@ class AddMovie extends Component {
         <label htmlFor="storyline">Sinopse</label>
         <textarea name="storyline" value={this.state.storyline} onChange={this.txtChang} />
         <label htmlFor="rating">Avaliação</label>
-        <input name="rating" type="Number" value={this.state.rating} onChange={this.txtChang} />
+        <input name="rating" type="number" value={this.state.rating} onChange={this.ratingValue} />
         <label htmlFor="genre">Gênero</label>
         <Select
           name="genre" onChange={this.slctChange}
