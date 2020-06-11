@@ -43,7 +43,7 @@ class AddMovie extends Component {
   }
 
   ratingValue(event) {
-    this.setState(() => ({ rating: parseFloat(event.target.value) }))
+    this.setState(() => ({ rating: parseFloat(event.target.value) }));
   }
 
   render() {
