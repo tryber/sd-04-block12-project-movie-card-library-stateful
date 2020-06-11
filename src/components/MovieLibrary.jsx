@@ -17,12 +17,12 @@ class MovieLibrary extends Component {
 
   render() {
     const { movies } = this.props;
-    const { searchTest, bookmarkedOnly, selectedGenre } = this.state;
+    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
     return (
       <div>
         <h2> My awesome movie library </h2>
         <SearchBar
-          searchTest={searchTest}
+          searchText={searchText}
           bookmarkedOnly={bookmarkedOnly}
           selectedGenre={selectedGenre}
         />
