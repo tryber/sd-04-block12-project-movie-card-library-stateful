@@ -1,0 +1,8 @@
+.movie-list {
+  align-content: flex-start;
+  align-items: stretch;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  margin: 6px 0;
+}

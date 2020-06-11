@@ -1,0 +1,8 @@
+.bookmarked {
+  align-items: flex-start;
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+  margin: 0;
+  width: 100%;
+}

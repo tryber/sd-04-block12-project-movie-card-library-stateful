@@ -7,7 +7,7 @@ import MovieLibrary from './components/MovieLibrary';
 function App() {
   return (
     <div className="App">
-      <Header />
+      <Header className="mcl-s-header" />
       <MovieLibrary movies={data} />
     </div>
   );

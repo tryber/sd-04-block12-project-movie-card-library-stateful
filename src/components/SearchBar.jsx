@@ -4,7 +4,7 @@ import AddLabel from '../AddElements/AddLabel';
 import AddInput from '../AddElements/AddInput';
 import AddSel from '../AddElements/AddSel';
 import AddOpt from '../AddElements/AddOpt';
-
+import './SearchBar.css';
 
 class SearchBar extends Component {
   createSearchBar() {

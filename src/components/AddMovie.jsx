@@ -2,11 +2,9 @@
 import React from 'react';
 import AddLabel from '../AddElements/AddLabel';
 import AddInput from '../AddElements/AddInput';
-// import AddButton from '../AddElements/AddButton';
-//  por alguma razão não funcionou usando a sintaze de campos de classe¯\_(ツ)_/¯
 import AddSel from '../AddElements/AddSel';
 import AddOpt from '../AddElements/AddOpt';
-
+import './AddMovie.css';
 
 class AddMovie extends React.Component {
   constructor(props) {
@@ -47,10 +45,10 @@ class AddMovie extends React.Component {
     );
   }
 
-  createTextInputs() {
+  renderTextInputs() {
     const { title = '', subtitle = '', imagePath = '' } = this.state;
     return (
-      <div className="depoiseupenso">
+      <div className="txt-input">
         <AddLabel htmlFor="title" text="Título" />
         <AddInput
           name="title" type="text" value={title}
@@ -70,10 +68,10 @@ class AddMovie extends React.Component {
     );
   }
 
-  createTextArea() {
+  renderTextArea() {
     const { storyline = '' } = this.state;
     return (
-      <div>
+      <div className="txt-input">
         <AddLabel htmlFor="storyline" text="Sinopse" />
         <textarea
           name="storyline" type="text" value={storyline}
@@ -83,23 +81,25 @@ class AddMovie extends React.Component {
     );
   }
 
-  createRatingElement() {
+  renderRatingElement() {
     const { rating = 0 } = this.state;
     return (
-      <div>
+      <div className="ratin-element">
         <AddLabel htmlFor="rating" text="Avaliação" />
         <AddInput
           name="rating" type="number" value={rating}
           onChange={(event) => this.hChange(event)}
+          className="number-input"
         />
       </div>
     );
   }
 
-  createGenreSelection() {
+  renderGenreSelection() {
     const { genre = 'action' } = this.state;
     return (
-      <div><AddLabel htmlFor="selectedGenre" text="Gênero" />
+      <div>
+        <AddLabel htmlFor="selectedGenre" text="Gênero" />
         <AddSel name="selectedGenre" value={genre} onChange={(e) => this.onSelectedGenreChange(e)}>
           <AddOpt value="action" text="Ação" />
           <AddOpt value="comedy" text="Comédia" />
@@ -112,11 +112,13 @@ class AddMovie extends React.Component {
   render() {
     return (
       <form>
-        {this.createTextInputs()}
-        {this.createTextArea()}
-        {this.createRatingElement()}
-        {this.createGenreSelection()}
-        <button type="button" onClick={() => this.btadd()}>Adicionar filme</button>
+        {this.renderTextInputs()}
+        {this.renderTextArea()}
+        <div className="bottom-part">
+          {this.renderRatingElement()}
+          {this.renderGenreSelection()}
+        </div>
+          <button className="btadd" type="button" onClick={() => this.btadd()}>Adicionar filme</button>
       </form>
     );
   }
