@@ -25,7 +25,7 @@ const initialState = {
   rating: 0,
   genre: 'action',
 };
-export default class AddMovie extends React.Component {
+class AddMovie extends React.Component {
   constructor(props) {
     super(props);
     this.state = initialState;
@@ -61,3 +61,5 @@ export default class AddMovie extends React.Component {
     );
   }
 }
+
+export default AddMovie;

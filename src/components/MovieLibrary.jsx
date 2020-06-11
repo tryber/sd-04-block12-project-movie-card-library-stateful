@@ -3,7 +3,7 @@ import SearchBar from './SearchBar';
 import MovieList from './MovieList';
 import AddMovie from './AddMovie';
 
-export default class MovieLibrary extends React.Component {
+class MovieLibrary extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -50,3 +50,5 @@ export default class MovieLibrary extends React.Component {
     );
   }
 }
+
+export default MovieLibrary;
