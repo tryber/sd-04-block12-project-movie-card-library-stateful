@@ -15,7 +15,6 @@ export default class MovieLibrary extends React.Component {
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
     this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
-    this.filterMovies = this.filterMovies.bind(this);
   }
   onSearchTextChange(e) {
     const value = e.target.value;
