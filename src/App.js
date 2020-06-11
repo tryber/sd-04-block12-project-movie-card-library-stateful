@@ -7,6 +7,7 @@ function App() {
   return (
     <div className="App">
       <Header />
+      {/*let's the games begin*/}
     </div>
   );
 }
