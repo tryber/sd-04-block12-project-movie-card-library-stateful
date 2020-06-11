@@ -47,10 +47,19 @@ const gener = (a, b) => (
   </label>
 );
 
+const standard = {
+  subtitle: '',
+  title: '',
+  imagePath: '',
+  storyline: '',
+  rating: 0,
+  genre: 'action',
+};
+
 class AddMovie extends Component {
   constructor(props) {
     super(props);
-    this.state = { title: '' };
+    this.state = standard;
 
     this.tito = this.tito.bind(this);
     this.sub = this.sub.bind(this);
@@ -58,6 +67,7 @@ class AddMovie extends Component {
     this.sty = this.sty.bind(this);
     this.rat = this.rat.bind(this);
     this.gen = this.gen.bind(this);
+    this.reset = this.reset.bind(this);
   }
 
   tito(e) {
@@ -84,9 +94,13 @@ class AddMovie extends Component {
     return this.setState({ genre: e.target.value });
   }
 
+  reset() {
+    this.setState(standard);
+  }
+
   render() {
-    const { subtitle, imagePath, storyline, rating, genre } = this.props;
-    const { title } = this.state;
+    const { onClick } = this.props;
+    const { title, subtitle, storyline, imagePath, rating, genre } = this.state;
     return (
       <form>
         {titulo(title, this.tito)}
@@ -95,7 +109,9 @@ class AddMovie extends Component {
         {story(storyline, this.sty)}
         {avalia(rating, this.rat)}
         {gener(genre, this.gen)}
-        <button type="submit">Adicionar filme</button>
+        <button type="submit" onClick={() => { onClick(this.state); this.reset(); }}>
+          Adicionar filme
+        </button>
       </form>
     );
   }
