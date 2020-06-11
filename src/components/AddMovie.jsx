@@ -42,9 +42,8 @@ class AddMovie extends Component {
   }
 
   render() {
-    const { onClick } = this.props;
     return (
-      <form className="addmovie-component" onSubmit={this.onsubmit}>
+      <form className="addmovie-component" >
         <label htmlFor="title">Título</label>
         <input type="text" name="title" value={this.state.title} onChange={this.txtChang} />
         <label htmlFor="subtitle">Subtítulo</label>
@@ -63,7 +62,7 @@ class AddMovie extends Component {
           name="genre" onChange={this.slctChange}
           selected={this.state.genre} value={this.state.genre}
         />
-        <button type="submit" onClick={onClick}>Adicionar filme</button>
+        <button type="submit" onClick={this.onsubmit}>Adicionar filme</button>
       </form>
     );
   }
