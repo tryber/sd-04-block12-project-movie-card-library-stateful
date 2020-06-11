@@ -25,7 +25,7 @@ class MovieLibrary extends Component {
   }
 
   bm(e) {
-    return this.setState({ bookmarkedOnly: e.target.value });
+    return this.setState({ bookmarkedOnly: !e.target.value });
   }
 
   sg(e) {
