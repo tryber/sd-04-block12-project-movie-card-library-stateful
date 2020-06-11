@@ -1,8 +1,6 @@
 import React from "react";
 
-import FormIncludesText from "./FormIncludesText";
-import FormBookmarkedOnly from "./FormBookmarkedOnly";
-import FormSelectedGenre from "./FormSelectedGenre";
+import GenreSelection from "./GenreSelection";
 
 class SearchBar extends React.Component {
   render() {
@@ -16,17 +14,43 @@ class SearchBar extends React.Component {
     } = this.props;
     return (
       <form>
-        <FormIncludesText
-          searchText={searchText}
-          onSearchTextChange={onSearchTextChange}
-        />
-        <FormBookmarkedOnly
-          bookmarkedOnly={bookmarkedOnly}
-          onBookmarkedChange={onBookmarkedChange}
-        />
-        <FormSelectedGenre
-          selectedGenre={selectedGenre}
-          onSelectedGenreChange={onSelectedGenreChange}
+        <label htmlFor="includesText">
+          Inclui o texto:
+          <input
+            type="text"
+            id="includesText"
+            value={searchText}
+            onChange={onSearchTextChange}
+          />
+        </label>
+        <label htmlFor="bookmarkedOnly">
+          Mostrar somente favoritos
+          <input
+            type="checkbox"
+            id="bookmarkedOnly"
+            checked={bookmarkedOnly}
+            onChange={onBookmarkedChange}
+          />
+        </label>
+        <GenreSelection
+          id="selectedGenre"
+          label="Filtrar pro gênero"
+          value={selectedGenre}
+          onChange={onSelectedGenreChange}
+          items={[
+            <option key="all" value="">
+              Todos
+            </option>,
+            <option key="action" value="action">
+              Ação
+            </option>,
+            <option key="comedy" value="comedy">
+              Comédia
+            </option>,
+            <option key="thriller" value="thriller">
+              Suspense
+            </option>
+          ]}
         />
       </form>
     );
