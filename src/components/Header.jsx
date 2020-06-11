@@ -1,17 +1,20 @@
 import React from 'react';
-import './Header.css'
+import './Header.css';
+
+function toggleMenu() {
+  const HeaderMenu = document.querySelector('.library-options');
+  const LibOptshow = 'library-options Showed';
+  const LibOptShowOff = 'library-options notShowed';
+  HeaderMenu.className === 'library-options notShowed' ?
+    HeaderMenu.className = LibOptshow : HeaderMenu.className = LibOptShowOff;
+}
 
 class Header extends React.Component {
-  funteste() {
-    const MAA = document.querySelector('.library-options');
-    MAA.className === 'library-options notShowed' ?
-      MAA.className = 'library-options Showed' : MAA.className = 'library-options notShowed';
-  }
   render() {
     const { className } = this.props;
     return (
       <header className={className}>
-        <h2 className="header-menu" onClick={() => this.funteste()}>
+        <h2 className="header-menu" onClick={() => toggleMenu()}>
           <div className="menu-icon"></div>
           <div className="menu-icon"></div>
           <div className="menu-icon"></div>

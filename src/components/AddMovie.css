@@ -3,7 +3,7 @@ form {
   display: flex;
   flex-direction: column;
   font-size: 12px;
-  justify-content: start;
+  justify-content: flex-start;
   width: 100%;
 }
 
@@ -56,8 +56,8 @@ textarea:focus-within {
   align-items: center;
   display: flex;
   flex-flow: row;
-  height: 10vh;
   font-size: 12px;
+  height: 10vh;
   justify-content: space-around;
   margin-right: 8px;
   width: 100%;
