@@ -8,7 +8,7 @@ Aqui você vai encontrar os detalhes de como estruturar o desenvolvimento do seu
 
 ### Data de Entrega
 
-O projeto tem até a seguinte data: `15/06/2020 - 14:00h`. Para ser entregue a avaliação final.
+O projeto tem até a seguinte data: `11/06/2020 - 14:00h`. Para ser entregue a avaliação final.
 
 
 ## O que deverá ser desenvolvido
@@ -421,7 +421,7 @@ export default MovieLibrary;
   * Clique no botão verde _"Create pull request"_
   * Adicione uma descrição para o _Pull Request_ e clique no botão verde _"Create pull request"_
   * **Não se preocupe em preencher mais nada por enquanto!**
-  * Volte até a [página de _Pull Requests_ do repositório](https://github.com/tryber/sd-04-block12-project-movie-card-library-stateful/pulls) e confira que o seu _Pull Request_ está criado
+  * Volte até a [página de _Pull Requests_ do repositório](https/://github.com/trybersd-04-block12-project-movie-card-library-stateful/pulls) e confira que o seu _Pull Request_ está criado
 
 ---
 
