@@ -28,7 +28,7 @@ class App extends Component {
       <div className="App">
         <Header />
         <MovieLibray />
-        <AddMovie />
+        {/* <AddMovie /> */}
         {/* <SearchBar
           searchText={this.state.searchText}
           bookmarkedOnly={this.state.bookmarkedOnly}
