@@ -145,11 +145,11 @@ Esse componente renderizará uma barra com filtros acima da listagem de cartões
   - `selectedGenre`, uma string
   - `onSelectedGenreChange`, uma callback
 
-#### Renderize um formulário dentro de `SearchBar`
+#### Renderize um formulário dentro de `SearchBar` (OK)
 
 Dentro desse formulário haverá campos usados na filtragem de cartões.
 
-#### Renderize um input do tipo texto dentro do formulário em `SearchBar`
+#### Renderize um input do tipo texto dentro do formulário em `SearchBar` (OK)
 
 - O input deve ter uma label associada com o texto: **"Inclui o texto:"**;
 
@@ -157,7 +157,7 @@ Dentro desse formulário haverá campos usados na filtragem de cartões.
 
 - A propriedade `onChange` do input deve receber o valor da prop `onSearchTextChange`.
 
-#### Renderize um input do tipo checkbox dentro do formulário em `SearchBar`
+#### Renderize um input do tipo checkbox dentro do formulário em `SearchBar` (OK)
 
 - O input deve ter uma label associada com o texto: **"Mostrar somente favoritos"**;
 
@@ -165,7 +165,7 @@ Dentro desse formulário haverá campos usados na filtragem de cartões.
 
 - A propriedade `onChange` do input deve receber o valor da prop `onBookmarkedChange`.
 
-#### Renderize um select dentro do formulário em `SearchBar`
+#### Renderize um select dentro do formulário em `SearchBar` (OK)
 
 - O select deve ter uma label associada com o texto: **"Filtrar por gênero"**;
 
@@ -194,7 +194,7 @@ Esse componente renderizará um formulário que permite adicionar na biblioteca 
 
   - `onClick`, uma callback
 
-#### Configure o estado inicial do componente `AddMovie`
+#### Configure o estado inicial do componente `AddMovie` (OK)
 
 O componente `AddMovie` possui como estado as seguintes propriedades:
 
@@ -216,11 +216,11 @@ O estado inicial do componente `AddMovie` deve ser:
   - `rating`: 0;
   - `genre`: 'action'.
 
-#### Renderize um formulário dentro de `AddMovie`
+#### Renderize um formulário dentro de `AddMovie` (OK)
 
 Dentro desse formulário haverá campos usados para preencher informações do novo cartão a ser adicionado na biblioteca.
 
-#### Renderize um input do tipo texto dentro do formulário em `AddMovie` para obter o título do novo filme
+#### Renderize um input do tipo texto dentro do formulário em `AddMovie` para obter o título do novo filme (OK)
 
 - O input deve ter uma label associada com o texto: **"Título"**;
 
@@ -228,7 +228,7 @@ Dentro desse formulário haverá campos usados para preencher informações do n
 
 - A propriedade `onChange` deve atualizar o estado de `AddMovie`, atribuindo a `title` o atual título contido no input.
 
-#### Renderize um input do tipo texto dentro do formulário em `AddMovie` para obter o subtítulo do novo filme
+#### Renderize um input do tipo texto dentro do formulário em `AddMovie` para obter o subtítulo do novo filme (OK)
 
 - O input deve ter uma label associada com o texto: **"Subtítulo"**;
 
@@ -236,7 +236,7 @@ Dentro desse formulário haverá campos usados para preencher informações do n
 
 - A propriedade `onChange` deve atualizar o estado de `AddMovie`, atribuindo a `subtitle` o atual subtítulo contido no input.
 
-#### Renderize um input do tipo texto dentro do formulário em `AddMovie` para obter o caminho da imagem do novo filme
+#### Renderize um input do tipo texto dentro do formulário em `AddMovie` para obter o caminho da imagem do novo filme (OK)
 
 - O input deve ter uma label associada com o texto: **"Imagem"**;
 
@@ -244,7 +244,7 @@ Dentro desse formulário haverá campos usados para preencher informações do n
 
 - A propriedade `onChange` deve atualizar o estado de `AddMovie`, atribuindo a `imagePath` o atual caminho da imagem contido no input.
 
-#### Renderize uma `textarea` dentro do formulário em `AddMovie` para obter a sinopse do novo filme
+#### Renderize uma `textarea` dentro do formulário em `AddMovie` para obter a sinopse do novo filme (OK)
 
 - A `textarea` deve ter uma label associada com o texto: **"Sinopse"**;
 
@@ -252,7 +252,7 @@ Dentro desse formulário haverá campos usados para preencher informações do n
 
 - A propriedade `onChange` deve atualizar o estado de `AddMovie`, atribuindo a `storyline` a sinopse atual continda na `textarea`.
 
-#### Renderize um `input` do tipo `number` dentro do formulário em `AddMovie` para obter a avaliação do novo filme
+#### Renderize um `input` do tipo `number` dentro do formulário em `AddMovie` para obter a avaliação do novo filme (OK)
 
 - O `input` deve ter uma label associada com o texto: **"Avaliação"**;
 
@@ -260,7 +260,7 @@ Dentro desse formulário haverá campos usados para preencher informações do n
 
 - A propriedade `onChange` deve atualizar o estado de `AddMovie`, atribuindo a `rating` a avaliação atual continda no input.
 
-#### Renderize um `select` do formulário em `AddMovie` para selecionar o gênero do novo filme
+#### Renderize um `select` do formulário em `AddMovie` para selecionar o gênero do novo filme (OK)
 
 - O `select` deve ter uma label associada com o texto: **"Gênero"**;
 
@@ -273,7 +273,7 @@ Dentro desse formulário haverá campos usados para preencher informações do n
    - `Comédia`, com o valor `comedy`;
    - `Suspense`, com o valor `thriller`.
 
-#### Renderize um botão do formulário em `AddMovie` para fazer uso dos dados do novo filme, contidos no estado de `AddMovie`
+#### Renderize um botão do formulário em `AddMovie` para fazer uso dos dados do novo filme, contidos no estado de `AddMovie` (OK)
 
 - O botão precisa ter escrito o seguinte texto: **"Adicionar filme"**;
 
@@ -281,15 +281,14 @@ Dentro desse formulário haverá campos usados para preencher informações do n
   - Executa a callback passada para o componente `AddMovie` via props, chamada `onClick`, que recebe como parâmetro o estado atual de `AddMovie`;
   - Reseta o estado de `AddMovie`, voltando para o inicial, conforme mencionado anteriormente.
 
-#### Crie um componente chamado `MovieLibrary`
-
+#### Crie um componente chamado `MovieLibrary` (OK)
 Esse componente renderizará a biblioteca de filmes, com a possiblidade de filtrar por filmes e adicionar um filme à biblioteca.
 
 `MovieLibrary` deve receber como props:
 
   - `movies`, um array
 
-#### Configure o estado inicial do componente `MovieLibray`
+#### Configure o estado inicial do componente `MovieLibray` (OK)
 
 O componente `MovieLibrary` possui como estado as seguintes propriedades:
 
