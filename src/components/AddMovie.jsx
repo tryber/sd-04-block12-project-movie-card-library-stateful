@@ -24,11 +24,11 @@ class AddMovie extends React.Component {
     this.setState({});
   }
 
-  createTextInput(label, id, value) {
+  createInput(label, id, value, type) {
     return (
       <label htmlFor={id}>
         {label}
-        <input type="text" id={id} value={value} onChange={this.changeState} />
+        <input type={type} id={id} value={value} onChange={this.changeState} />
       </label>
     );
   }
@@ -51,17 +51,18 @@ class AddMovie extends React.Component {
     const { title, subtitle, imagePath, storyline, rating } = this.state;
     return (
       <form>
-        {this.createTextInput("Título", "title", title)}
-        {this.createTextInput("Subtítulo", "subtitle", subtitle)}
-        {this.createTextInput("Imagem", "imagePath", imagePath)}
+        {this.createInput("Título", "title", title, "text")}
+        {this.createInput("Subtítulo", "subtitle", subtitle, "text")}
+        {this.createInput("Imagem", "imagePath", imagePath, "text")}
         <label htmlFor="storyline">
           Sinopse
-          <textarea id="storyline" value={storyline} onChange={this.changeState} />
+          <textarea
+            id="storyline"
+            value={storyline}
+            onChange={this.changeState}
+          />
         </label>
-        <label htmlFor="rating">
-          Avaliação
-          <input type="number" value={rating} id={rating} onChange={this.changeState} />
-        </label>
+        {this.createInput("Avaliação", "rating", rating, "number")}
         {this.createSelectInput()}
         <button type="submit" onClick={this.submitMovie}>
           Adicionar filme
