@@ -17,8 +17,7 @@ class AddMovie extends React.Component {
   }
 
   changeState(event) {
-    this.setState({ [event.target.id]: event.target.value });
-    console.log(this.state);
+    this.setState({ [event.target.name]: event.target.value });
   }
 
   submitMovie(callback) {
@@ -33,11 +32,17 @@ class AddMovie extends React.Component {
     });
   }
 
-  createInput(label, id, value, type) {
+  createInput(label, id, name, value, type) {
     return (
       <label htmlFor={id}>
         {label}
-        <input type={type} id={id} value={value} onChange={this.changeState} />
+        <input
+          type={type}
+          id={id}
+          name={name}
+          value={value}
+          onChange={this.changeState}
+        />
       </label>
     );
   }
@@ -47,7 +52,12 @@ class AddMovie extends React.Component {
     return (
       <label htmlFor="genre">
         Gênero
-        <select id="genre" value={genre} onChange={this.changeState}>
+        <select
+          id="genre"
+          name="genre"
+          value={genre}
+          onChange={this.changeState}
+        >
           <option value="action">Ação</option>
           <option value="comedy">Comédia</option>
           <option value="thriller">Suspense</option>
@@ -61,18 +71,19 @@ class AddMovie extends React.Component {
     const { title, subtitle, imagePath, storyline, rating } = this.state;
     return (
       <form>
-        {this.createInput("Título", "title", title, "text")}
-        {this.createInput("Subtítulo", "subtitle", subtitle, "text")}
-        {this.createInput("Imagem", "imagePath", imagePath, "text")}
+        {this.createInput("Título", "title", title, title, "text")}
+        {this.createInput("Subtítulo", "subtitle", subtitle, subtitle, "text")}
+        {this.createInput("Imagem", "imagePath", imagePath, imagePath, "text")}
         <label htmlFor="storyline">
           Sinopse
           <textarea
             id="storyline"
+            name="storyline"
             value={storyline}
             onChange={this.changeState}
           />
         </label>
-        {this.createInput("Avaliação", "rating", rating, "number")}
+        {this.createInput("Avaliação", "rating", rating, rating, "number")}
         {this.createSelectInput()}
         <button type="button" onClick={() => this.submitMovie(onClick)}>
           Adicionar filme
