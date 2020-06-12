@@ -17,7 +17,11 @@ class AddMovie extends React.Component {
   }
 
   changeState(event) {
-    this.setState({ [event.target.name]: event.target.value });
+    if (event.target.name === "rating") {
+      this.setState({ [event.target.name]: +event.target.value });
+    } else {
+      this.setState({ [event.target.name]: event.target.value });
+    }
   }
 
   submitMovie(callback) {
@@ -83,7 +87,7 @@ class AddMovie extends React.Component {
             onChange={this.changeState}
           />
         </label>
-        {this.createInput("Avaliação", "rating", rating, rating, "number")}
+        {this.createInput("Avaliação", "rating", "rating", rating, "number")}
         {this.createSelectInput()}
         <button type="button" onClick={() => this.submitMovie(onClick)}>
           Adicionar filme
