@@ -36,18 +36,16 @@ class SearchBar extends React.Component {
         </label>
         <label htmlFor="genderfilter">Filtrar por gênero
           <select
-            type="text" value={this.props.selectedGenre}
+            value={this.props.selectedGenre}
             onChange={this.props.onSelectedGenreChange}
           >
             {genres.map((genre) => (
               <option key={genre.value} value={genre.value}>
-                {genre.text}
-              </option>
+                {genre.text}</option>
             ))}
           </select>
         </label>
-      </form>
-    );
+      </form>);
   }
 }
 
