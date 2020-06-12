@@ -1,18 +1,19 @@
 // implement MovieLibrary component
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import SearchBar from './SearchBar';
-import MoveList from './MovieList'
-import AddMovie from './AddMovie'
+import MoveList from './MovieList';
+import AddMovie from './AddMovie';
 
 class MovieLibrary extends Component {
   constructor(props) {
     super(props);
-      this.state = {
-        searchText:'',
-        bookmarkedOnly:false,
-        selectedGenre:'',
-        movies: this.props.movies
-    };
+    this.state = {
+      searchText: '',
+      bookmarkedOnly: false,
+      selectedGenre: '',
+      movies: this.props.movies,
+      };
+    this.setSearchText = this.setSearchText.bind(this);
     this.addMovies = this.addMovies.bind(this);
     this.allMovies = this.allMovies.bind(this);
   }
@@ -21,31 +22,31 @@ class MovieLibrary extends Component {
     this.setState({
       searchText: event.target.value,
       selectedGenre: event.target.value,
-      bookmarkedOnly: event.target.value = true
-    })
-  };
+      bookmarkedOnly: event.target.checked,
+    });
+  }
 
   addMovies(value) {
-    this.setState((state) => ({movies: state.movies.concat([value])}));
+    this.setState((state) => ({ movies: state.movies.concat([value]) }));
   }
 
   allMovies() {
     const movies = this.props.movies;
     const { searchText, bookmarkedOnly, selectedGenre } = this.state;
-    let filtro = movies.filter((movie) =>{
+    let filtro = movies.filter((movie) => {
       const { title, subtitle, storyline } = movie;
       return title.includes(searchText) || subtitle.includes(searchText) ||
       storyline.includes(searchText);
     });
 
-    if(selectedGenre === true) {
+    if (selectedGenre === true) {
       filtro = filtro.filter((movie) => {
         const { genre } = movie;
         return selectedGenre === genre;
       });
     }
 
-    if(bookmarkedOnly) {
+    if (bookmarkedOnly) {
       filtro = filtro.filter((movie) => movie.bookmarked);
     }
     return filtro;
@@ -59,8 +60,8 @@ class MovieLibrary extends Component {
           bookmarkedOnly={this.state.bookmarkedOnly} onBookmarkedChange={this.setSearchText}
           selectedGenre={this.state.selectedGenre} onSelectedGenreChange={this.setSearchText}
         />
-        <MoveList movies={this.allMovies()}/>
-        <AddMovie onClick={this.addMovies}/>
+        <MoveList movies={this.allMovies()} />
+        <AddMovie onClick={this.addMovies} />
       </div>
     );
   }
