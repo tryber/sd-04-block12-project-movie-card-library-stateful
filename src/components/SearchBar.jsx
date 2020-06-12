@@ -1,57 +1,34 @@
 import React from "react";
 
-import GenreSelection from "./GenreSelection";
-
 class SearchBar extends React.Component {
+  createSelectInput() {
+    const { selectedGenre, onSelectedGenreChange } = this.props;
+    return (
+      <label htmlFor="genre">
+        Filtrar por gênero
+        <select id="genre" value={selectedGenre} onChange={onSelectedGenreChange}>
+          <option value="">Todos</option>
+          <option value="action">Ação</option>
+          <option value="comedy">Comédia</option>
+          <option value="thriller">Suspense</option>
+        </select>
+      </label>
+    );
+  }
+
   render() {
-    const {
-      searchText,
-      onSearchTextChange,
-      bookmarkedOnly,
-      onBookmarkedChange,
-      selectedGenre,
-      onSelectedGenreChange
-    } = this.props;
+    const { searchText, onSearchTextChange, bookmarkedOnly, onBookmarkedChange } = this.props;
     return (
       <form>
         <label htmlFor="includesText">
           Inclui o texto:
-          <input
-            type="text"
-            id="includesText"
-            value={searchText}
-            onChange={onSearchTextChange}
-          />
+          <input type="text" value={searchText} onChange={onSearchTextChange} />
         </label>
-        <label htmlFor="bookmarkedOnly">
-          Mostrar somente favoritos
-          <input
-            type="checkbox"
-            id="bookmarkedOnly"
-            checked={bookmarkedOnly}
-            onChange={onBookmarkedChange}
-          />
+        <label htmlFor="onlyBookmarked">
+          Mostrar soomente favoritos
+          <input type="checkbox" checked={bookmarkedOnly} onChange={onBookmarkedChange} />
         </label>
-        <GenreSelection
-          id="selectedGenre"
-          label="Filtrar pro gênero"
-          value={selectedGenre}
-          onChange={onSelectedGenreChange}
-          items={[
-            <option key="all" value="">
-              Todos
-            </option>,
-            <option key="action" value="action">
-              Ação
-            </option>,
-            <option key="comedy" value="comedy">
-              Comédia
-            </option>,
-            <option key="thriller" value="thriller">
-              Suspense
-            </option>
-          ]}
-        />
+        {this.createSelectInput()}
       </form>
     );
   }
