@@ -13,9 +13,10 @@ class AddMovie extends Component {
       rating: 0,
       genre: 'action'
     };
+    this.handleTitle = this.handleTitle.bind(this);
   }
 
-  handleTitle = (e) => {
+  handleTitle(e) {
     this.setState({title:e.target.value});
   }
   handleSub = (e) => {

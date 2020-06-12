@@ -17,7 +17,7 @@ class MovieLibrary extends Component {
     this.allMovies = this.allMovies.bind(this);
   }
 
-  setSearchText = (event) => {
+  setSearchText(event) {
     this.setState({
       searchText: event.target.value,
       selectedGenre: event.target.value,

@@ -9,7 +9,7 @@ class SearchBar extends Component {
         <input type="text" value={this.props.searchText} onChange={this.props.onSearchTextChange} />
         <label htmlFor="titulo">Mostrar somente favoritos</label>
         <input
-          type='checkbox' checked={this.props.bookmarkedOnly}
+          type="checkbox" checked={this.props.bookmarkedOnly}
           onChange={this.props.onBookmarkedChange}
         />
         <label htmlFor="filtro">Filtrar por gênero</label>
