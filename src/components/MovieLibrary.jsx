@@ -1,1 +1,91 @@
-// implement MovieLibrary component here
+/* eslint-disable react/jsx-fragments */
+import React, { Component } from 'react';
+import SearchBar from './SearchBar';
+import MovieList from './MovieList';
+import AddMovie from './AddMovie';
+
+class MovieLibrary extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      searchText: '',
+      bookmarkedOnly: false,
+      selectedGenre: '',
+      movies: props.movies,
+    };
+    this.textChange = this.textChange.bind(this);
+    this.checkChange = this.checkChange.bind(this);
+    this.selectChange = this.selectChange.bind(this);
+    this.filterMethod = this.filterMethod.bind(this);
+    this.onClick = this.onClick.bind(this);
+  }
+
+  onClick({ title, subtitle, storyline, rating, imagePath, genre }) {
+    const newMovie = {
+      genre,
+      imagePath,
+      rating,
+      storyline,
+      subtitle,
+      title,
+    };
+    this.setState({ movies: [...this.state.movies, newMovie] });
+  }
+
+  filterMethod() {
+    const { movies } = this.state;
+    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
+    let changedData = movies;
+    if (searchText) {
+      changedData = changedData.filter(
+        (movie) =>
+          movie.title.includes(searchText) ||
+          movie.subtitle.includes(searchText) ||
+          movie.storyline.includes(searchText),
+      );
+    }
+    if (bookmarkedOnly) {
+      changedData = changedData.filter(
+        (movie) => movie.bookmarked === bookmarkedOnly,
+      );
+    }
+    if (selectedGenre) {
+      changedData = changedData.filter(
+        (movie) => movie.genre === selectedGenre,
+      );
+    }
+    return changedData;
+  }
+
+  textChange(e) {
+    this.setState({ searchText: e.target.value });
+  }
+
+  checkChange() {
+    const { bookmarkedOnly } = this.state;
+    this.setState({ bookmarkedOnly: !bookmarkedOnly });
+  }
+
+  selectChange(e) {
+    this.setState({ selectedGenre: e.target.value });
+  }
+
+  render() {
+    return (
+      <React.Fragment>
+        <SearchBar
+          searchText={this.state.searchText}
+          onSearchTextChange={this.textChange}
+          bookmarkedOnly={this.state.bookmarkedOnly}
+          onBookmarkedChange={this.checkChange}
+          selectedGenre={this.state.selectedGenre}
+          onSelectedGenreChange={this.selectChange}
+        />
+        <MovieList movies={this.filterMethod()} />
+        <AddMovie onClick={this.onClick} />
+      </React.Fragment>
+    );
+  }
+}
+
+export default MovieLibrary;
