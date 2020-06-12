@@ -13,31 +13,23 @@ class AddMovie extends Component {
       rating: 0,
       genre: 'action'
     };
-    this.handleTitle = this.handleTitle.bind(this);
-    this.handleSub = this.handleSub.bind(this);
+    this.modState = this.modState.bind(this);
+    this.btnMovie = this.btnMovie.bind(this);
   }
 
-  handleTitle(e) {
-    this.setState({title:e.target.value});
-  }
-  handleSub(e) {
-    this.setState({subtitle:e.target.value});
-  }
-  handleImg = (e) => {
-    this.setState({imagePath:e.target.value});
-  }
-  handleStory = (e) => {
-    this.setState({storyline:e.target.value});
-  }
-  handleRating = (e) => {
-    this.setState({rating:Number(e.target.value)});
-  }
-  handleGenre = (e) => {
-    this.setState({genre:e.target.value});
+  modState(e) {
+    this.setState({
+      title:e.target.value,
+      subtitle:e.target.value,
+      imagePath:e.target.value,
+      storyline:e.target.value,
+      rating:Number(e.target.value),
+      genre:e.target.value,
+    })
   }
 
   //Função btnMovie obtên o estado inicial do objeto e passa o onClik pela props
-  btnMovie = () => {
+  btnMovie() {
     this.props.onClick(this.state);
     this.setState({
       subtitle: '',
@@ -53,17 +45,17 @@ class AddMovie extends Component {
     return (
       <form>
         <label>Título</label>
-        <input type='text' value={this.state.title} onChange={this.handleTitle}/>
+        <input type='text' value={this.state.title} onChange={this.modState}/>
         <label>Subtítulo</label>
-        <input type='text' value={this.state.subtitle} onChange={this.handleSub}/>
+        <input type='text' value={this.state.subtitle} onChange={this.modState}/>
         <label>Imagem</label>
-        <input type='text' value={this.state.imagePath} onChange={this.handleImg}/>
+        <input type='text' value={this.state.imagePath} onChange={this.modState}/>
         <label>Sinopse</label>
-        <textarea value={this.state.storyline} onChange={this.handleStory}></textarea>
+        <textarea value={this.state.storyline} onChange={this.modState}></textarea>
         <label>Avaliação</label>
-        <input type='number' step='0' value={this.state.rating} onChange={this.handleRating}/>
+        <input type='number' step='0' value={this.state.rating} onChange={this.modState}/>
         <label>Gênero</label>
-        <select value={this.state.genre} onChange={this.handleGenre}>
+        <select value={this.state.genre} onChange={this.modState}>
           <option value='action'>Ação</option>
           <option value='comedy'>Comédia</option>
           <option value='thriller'>Suspense</option>
