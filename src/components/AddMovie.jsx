@@ -20,9 +20,11 @@ class AddMovie extends Component {
 
   // https://bit.ly/3cJhOsq
   setChange(e) {
-    e.target.name !== 'rating'
-      ? this.setState({ [e.target.name]: e.target.value })
-      : this.setState({ [e.target.name]: Number(e.target.value) });
+    this.setState(
+      e.target.name !== 'rating'
+        ? { [e.target.name]: e.target.value }
+        : { rating: Number(e.target.value) }
+    );
   }
   // https://bit.ly/2UjQzyh
   resetBuilder() {

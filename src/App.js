@@ -3,7 +3,7 @@ import './App.css';
 // import SearchBar from './components/SearchBar';
 import Header from './components/Header';
 import MovieLibray from './components/MovieLibrary';
-import AddMovie from './components/AddMovie';
+// import AddMovie from './components/AddMovie';
 
 class App extends Component {
   // constructor(props) {
