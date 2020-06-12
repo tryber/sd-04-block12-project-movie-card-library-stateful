@@ -14,12 +14,13 @@ class AddMovie extends Component {
       genre: 'action'
     };
     this.handleTitle = this.handleTitle.bind(this);
+    this.handleSub = this.handleSub.bind(this);
   }
 
   handleTitle(e) {
     this.setState({title:e.target.value});
   }
-  handleSub = (e) => {
+  handleSub(e) {
     this.setState({subtitle:e.target.value});
   }
   handleImg = (e) => {

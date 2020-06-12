@@ -12,7 +12,7 @@ class MovieLibrary extends Component {
       bookmarkedOnly: false,
       selectedGenre: '',
       movies: this.props.movies,
-      };
+    };
     this.setSearchText = this.setSearchText.bind(this);
     this.addMovies = this.addMovies.bind(this);
     this.allMovies = this.allMovies.bind(this);
