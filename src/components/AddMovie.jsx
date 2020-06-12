@@ -18,10 +18,19 @@ class AddMovie extends React.Component {
 
   changeState(event) {
     this.setState({ [event.target.id]: event.target.value });
+    console.log(this.state);
   }
 
-  submitMovie() {
-    this.setState({});
+  submitMovie(callback) {
+    callback(this.state);
+    this.setState({
+      subtitle: "",
+      title: "",
+      imagePath: "",
+      storyline: "",
+      rating: 0,
+      genre: "action"
+    });
   }
 
   createInput(label, id, value, type) {
@@ -48,6 +57,7 @@ class AddMovie extends React.Component {
   }
 
   render() {
+    const { onClick } = this.props;
     const { title, subtitle, imagePath, storyline, rating } = this.state;
     return (
       <form>
@@ -64,7 +74,7 @@ class AddMovie extends React.Component {
         </label>
         {this.createInput("Avaliação", "rating", rating, "number")}
         {this.createSelectInput()}
-        <button type="submit" onClick={this.submitMovie}>
+        <button type="button" onClick={() => this.submitMovie(onClick)}>
           Adicionar filme
         </button>
       </form>
