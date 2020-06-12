@@ -10,7 +10,7 @@ class AddMovie extends Component {
       imagePath: '',
       storyline: '',
       rating: 0,
-      genre: 'action'
+      genre: 'action',
     };
     this.modState = this.modState.bind(this);
     this.btnMovie = this.btnMovie.bind(this);
@@ -27,7 +27,7 @@ class AddMovie extends Component {
     });
   }
 
-  //Função btnMovie obtên o estado inicial do objeto e passa o onClik pela props
+  // Função btnMovie obtên o estado inicial do objeto e passa o onClik pela props
   btnMovie() {
     this.props.onClick(this.state);
     this.setState({
@@ -52,7 +52,7 @@ class AddMovie extends Component {
         <label htmlFor="sinopse">Sinopse</label>
         <textarea value={this.state.storyline} onChange={this.modState} />
         <label htmlFor="avaliacao">Avaliação</label>
-        <input type="number" step='0' value={this.state.rating} onChange={this.modState} />
+        <input type="number" step="0" value={this.state.rating} onChange={this.modState} />
         <label htmlFor="genero">Gênero</label>
         <select value={this.state.genre} onChange={this.modState}>
           <option value="action">Ação</option>
