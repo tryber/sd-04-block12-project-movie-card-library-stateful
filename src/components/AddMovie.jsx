@@ -31,7 +31,7 @@ class AddMovie extends React.Component {
     return (
       <label htmlFor={name}>
         {title}
-        <input 
+        <input
           name={name} type={type} value={value} onChange={((e) => this.handleChange(e, name))}
         />
       </label>
