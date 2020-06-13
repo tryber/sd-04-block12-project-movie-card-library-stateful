@@ -21,11 +21,10 @@ class AddMovie extends React.Component {
       rating: 0,
       genre: 'action',
     };
-  };
+  }
 
   handleChange(event, name) {
-    this.setState(() => ({ [name]: event.target.value }))
-    console.log(event.target)
+    this.setState(() => ({ [name]: event.target.value }));
   }
 
   createFormComponent(title, name, type = 'text', value) {
@@ -33,7 +32,7 @@ class AddMovie extends React.Component {
       <label htmlFor={name}>
         {title}
         <input 
-          name={name} type={type} value={value} onChange={((e) => this.handleChange(e, name))} 
+          name={name} type={type} value={value} onChange={((e) => this.handleChange(e, name))}
         />
       </label>
     );
@@ -66,9 +65,9 @@ class AddMovie extends React.Component {
         {this.createFormComponent('Avaliação', 'rating', 'number', rating)}
         <label htmlFor="genre">Gênero
           <select value={genre} onChange={((e) => this.handleChange(e, 'genre'))}>
-            {genres.map((genre) => (
-              <option key={genre.value} value={genre.value}>
-                {genre.text}
+            {genres.map((option) => (
+              <option key={option.value} value={option.value}>
+                {option.text}
               </option>
             ))}
           </select>
