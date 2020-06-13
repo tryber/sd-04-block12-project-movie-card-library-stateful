@@ -14,13 +14,12 @@ class AddMovie extends Component {
     };
     this.txtChang = this.txtChang.bind(this);
     this.slctChange = this.slctChange.bind(this);
-    this.onsubmit = this.onsubmit.bind(this);
+    this.submitForm = this.submitForm.bind(this);
     this.ratingValue = this.ratingValue.bind(this);
   }
 
-  onsubmit(event) {
-    console.log(this.state);
-    event.preventDefault();
+  submitForm() {
+    this.props.onClick(this.state);
     this.setState({
       subtitle: '',
       title: '',
@@ -43,7 +42,8 @@ class AddMovie extends Component {
   }
 
   ratingValue(event) {
-    this.setState(() => ({ rating: parseFloat(event.target.value) }));
+    const { name, value } = event.target;
+    this.setState(() => ({ [name]: parseFloat(value) }));
   }
 
   render() {
@@ -67,7 +67,7 @@ class AddMovie extends Component {
           name="genre" onChange={this.slctChange}
           selected={this.state.genre} value={this.state.genre}
         />
-        <button type="submit" onClick={this.onsubmit} >Adicionar filme</button>
+        <button type="submit" onClick={this.submitForm} >Adicionar filme</button>
       </form>
     );
   }
