@@ -121,9 +121,9 @@ class AddMovie extends React.Component {
           {this.renderGenreSelection()}
         </div>
         <button
-            className="btadd"
-            type="button"
-            onClick={() => this.btadd()}>Adicionar filme
+          className="btadd"
+          type="button"
+          onClick={() => this.btadd()}>Adicionar filme
         </button>
       </form>
     );
