@@ -23,7 +23,7 @@ class AddMovie extends Component {
     this.setState(
       e.target.name !== 'rating'
         ? { [e.target.name]: e.target.value }
-        : { rating: Number(e.target.value) }
+        : { rating: Number(e.target.value) },
     );
   }
   // https://bit.ly/2UjQzyh
