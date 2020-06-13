@@ -123,8 +123,8 @@ class AddMovie extends React.Component {
         <button
           className="btadd"
           type="button"
-          onClick={() => this.btadd()}>Adicionar filme
-        </button>
+          onClick={() => this.btadd()}
+        >Adicionar filme</button>
       </form>
     );
   }
