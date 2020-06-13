@@ -23,14 +23,14 @@ class AddMovie extends Component {
     this.setState(
       e.target.name !== 'rating'
         ? { [e.target.name]: e.target.value }
-        : { rating: Number(e.target.value) },
+        : { rating: Number(e.target.value) }
     );
   }
   // https://bit.ly/2UjQzyh
   resetBuilder() {
-    this.setState(this.initialState);
+    this.props.onClick(this.state);
+    this.setState(initialState);
   }
-
   createOption() {
     return (
       <label htmlFor="genre">
@@ -61,7 +61,9 @@ class AddMovie extends Component {
           <label htmlFor="rating">Avaliação</label>
           <input id="rating" type="number" value={this.state.rating} onChange={this.setChange} />
           {this.createOption()}
-          <button onClick={this.resetBuilder(this.state)}>Adicionar filme</button>
+          <button type="submit" onClick={this.resetBuilder}>
+            Adicionar filme
+          </button>
         </form>
       </div>
     );
@@ -69,36 +71,3 @@ class AddMovie extends Component {
 }
 
 export default AddMovie;
-
-// createForm(key, mark, kind) {
-//   const styleForm = {
-//     width: '100%',
-//     border: '1px solid #999',
-//     borderRadius: 3,
-//     padding: 3,
-//     fontSize: 14,
-//   };
-//   return (
-//     <label htmlFor={key}>
-//       {mark}
-//       <input
-//         type={kind}
-//         style={styleForm}
-//         id={key}
-//         value={this.state.key}
-//         onChange={this.setChange}
-//       />
-//     </label>
-//   );
-// }
-
-// {this.createForm(this.state.title.value, 'Título', 'text')}
-// <br />
-// {this.createForm(this.state.subtitle, 'Subtítulo', 'text')}
-// <br />
-// {this.createForm(this.state.imagePath, 'Imagem', 'text')}
-// <br />
-// {this.createForm(this.state.storyline, 'Sinopse', 'text')}
-// <br />
-// {this.createForm(this.state.rating, 'Avaliação', 'number')}
-// <br />

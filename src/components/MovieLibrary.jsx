@@ -28,9 +28,11 @@ class MovieLibrary extends Component {
   onSelectedGenreChange(e) {
     this.setState({ selectedGenre: e.target.value });
   }
-  // handleChange = (e) => this.setState({ [e.target.name]: e.target.value });
+  onAddMovie(otherMovie) {
+    const { movies } = this.state;
+    this.setState({ movies: [...movies, otherMovie] });
+  }
   render() {
-    // const { searchText, bookmarkedOnly, selectedGenre } = this.state;
     return (
       <div>
         <p>
@@ -45,7 +47,7 @@ class MovieLibrary extends Component {
           onSelectedGenreChange={this.onSelectedGenreChange}
         />
         {/* <MovieList /> */}
-        <AddMovie />
+        <AddMovie onCLick={this.onAddMovie} />
       </div>
     );
   }

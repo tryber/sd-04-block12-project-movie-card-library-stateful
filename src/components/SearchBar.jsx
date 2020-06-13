@@ -2,16 +2,6 @@
 import React, { Component } from 'react';
 
 class SearchBar extends Component {
-  // createForm(alias, mark, kind, grade, change) {
-  //   return (
-  //     <div>
-  //       <label htmlFor={alias}>
-  //         {mark}
-  //         <input type={kind} name={alias} value={grade} onChange={change} />
-  //       </label>
-  //     </div>
-  //   );
-  // }
   textIncluded() {
     const { searchText, onSearchTextChange } = this.props;
     return (
@@ -50,11 +40,9 @@ class SearchBar extends Component {
           <option value="thriller">Suspense</option>
         </select>
       </label>
-      // <br />
     );
   }
   render() {
-    // const { searchText, onSearchTextChange, bookmarkedOnly, onBookmarkedChange } = this.props;
     return (
       <div>
         <small>SearchBar: Req: 1-5</small>
