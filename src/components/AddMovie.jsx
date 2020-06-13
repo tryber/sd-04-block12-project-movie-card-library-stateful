@@ -46,7 +46,7 @@ class AddMovie extends React.Component {
   renderTextInputs() {
     const { title = '', subtitle = '', imagePath = '' } = this.state;
     return (
-      <div className="txt-input">
+      <div>
         <FormLabel htmlFor="title" text="Título" />
         <FormInput
           name="title" type="text" value={title}
