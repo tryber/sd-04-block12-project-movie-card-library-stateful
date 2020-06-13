@@ -1,4 +1,3 @@
- 
 import React, { Component } from 'react';
 
 class FormOpt extends Component {
@@ -10,4 +9,4 @@ class FormOpt extends Component {
   }
 }
 
-export default FormOpt
+export default FormOpt;

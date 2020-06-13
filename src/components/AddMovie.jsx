@@ -98,7 +98,10 @@ class AddMovie extends React.Component {
     return (
       <div>
         <FormLabel htmlFor="selectedGenre" text="Gênero" />
-        <FormSelc name="selectedGenre" value={genre} onChange={(e) => this.onSelectedGenreChange(e)}>
+        <FormSelc
+        name="selectedGenre"
+        value={genre}
+        onChange={(e) => this.onSelectedGenreChange(e)}>
           <FormOpt value="action" text="Ação" />
           <FormOpt value="comedy" text="Comédia" />
           <FormOpt value="thriller" text="Suspense" />
@@ -116,7 +119,10 @@ class AddMovie extends React.Component {
           {this.renderRatingElement()}
           {this.renderGenreSelection()}
         </div>
-          <button className="btadd" type="button" onClick={() => this.btadd()}>Adicionar filme</button>
+          <button
+            className="btadd"
+            type="button"
+            onClick={() => this.btadd()}>Adicionar filme</button>
       </form>
     );
   }

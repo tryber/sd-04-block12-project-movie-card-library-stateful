@@ -1,7 +1,7 @@
 import React from 'react';
 
 class FormButton extends React.Component {
-  render () {
+  render() {
     const { type, text } = this.props;
     return (
       <button type={type} text={text} />
