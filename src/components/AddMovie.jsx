@@ -42,7 +42,7 @@ const gener = (a, b) => (
     <select value={a} onChange={(e) => b(e)}>
       <option value="action">Ação</option>
       <option value="comedy">Comédia</option>
-      <option value="thriller">Suspence</option>
+      <option value="thriller">Suspense</option>
     </select>
   </label>
 );
@@ -87,7 +87,7 @@ class AddMovie extends Component {
   }
 
   rat(e) {
-    return this.setState({ rating: e.target.value });
+    return this.setState({ rating: Number(e.target.value) });
   }
 
   gen(e) {
@@ -109,7 +109,13 @@ class AddMovie extends Component {
         {story(storyline, this.sty)}
         {avalia(rating, this.rat)}
         {gener(genre, this.gen)}
-        <button type="submit" onClick={() => { onClick(this.state); this.reset(); }}>
+        <button
+          type="submit"
+          onClick={() => {
+            onClick(this.state);
+            this.reset();
+          }}
+        >
           Adicionar filme
         </button>
       </form>
