@@ -14,7 +14,7 @@ class MovieLibrary extends Component {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      movies: movies,
+      movies,
     };
     // uso bind quando tenho alteração no meu state / controlador
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
@@ -39,25 +39,25 @@ class MovieLibrary extends Component {
   FilterMoviesBookMarkedFavorits() {
     let moviesFilter = this.state.movies;
     if (this.state.bookmarkedOnly) {
-      moviesFilter = moviesFilter.filter(movie => movie.bookmarked === true);
+      moviesFilter = moviesFilter.filter((movie) => movie.bookmarked === true);
     }
     if (this.state.selectedGenre !== '') {
-      moviesFilter = moviesFilter.filter(movie => movie.genre === this.state.selectedGenre);
-    } 
-   
+      moviesFilter = moviesFilter.filter((movie) => movie.genre === this.state.selectedGenre);
+    }
     return moviesFilter;
   }
 
   render() {
     return (
       <div>
-        <SearchBar searchText={this.state.searchText}
+        <SearchBar
+          searchText={this.state.searchText}
           onSearchTextChange={this.onSearchTextChange}
           bookmarkedOnly={this.state.bookmarkedOnly}
           onBookmarkedChange={this.onBookmarkedChange}
           selectedGenre={this.state.selectedGenre}
           onSelectedGenreChange={this.onSelectedGenreChange}
-           />
+        />
         <MovieList movies={this.FilterMoviesBookMarkedFavorits()} />
         <AddMovie />
       </div>
