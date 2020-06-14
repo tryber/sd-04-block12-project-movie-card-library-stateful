@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { Component } from 'react';
+
 import SearchBar from './SearchBar';
 import MovieList from './MovieList';
 import AddMovie from './AddMovie';
 
-class MovieLibrary extends React.Component {
+class MovieLibrary extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -36,12 +37,14 @@ class MovieLibrary extends React.Component {
     if (this.state.bookmarkedOnly !== false) {
       selectedMovies = selectedMovies.filter((movie) => movie.bookmarked === true);
     }
-    if (this.state.selectedGenre !== '') {
-      selectedMovies = selectedMovies.filter((movie) => movie.gender === this.state.selectedGenre);
+    if (this.state.selectedGenre) {
+      selectedMovies = selectedMovies.filter((movie) => movie.genrer === this.state.selectedGenre);
     }
     if (this.state.searchText !== '') {
       const searchText = new RegExp(this.state.searchText, 'i');
-      selectedMovies = selectedMovies.filter((movie) => searchText.test(movie.title));
+      selectedMovies = selectedMovies.filter((movie) => searchText.test(movie.title) ||
+      searchText.test(movie.subtitle) ||
+      searchText.test(movie.storyline));
     }
     return selectedMovies;
   }
