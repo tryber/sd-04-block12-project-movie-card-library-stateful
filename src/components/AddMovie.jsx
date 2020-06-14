@@ -10,9 +10,6 @@ class AddMovie extends React.Component {
   constructor(props) {
     super(props);
     this.handleChange = this.handleChange.bind(this);
-    this.createFormComponent = this.createFormComponent.bind(this);
-    this.resetState = this.resetState.bind(this);
-
     this.state = {
       subtitle: '',
       title: '',
@@ -21,6 +18,9 @@ class AddMovie extends React.Component {
       rating: 0,
       genre: 'action',
     };
+
+    this.createFormComponent = this.createFormComponent.bind(this);
+    this.resetState = this.resetState.bind(this);
   }
 
   handleChange(event, name) {
