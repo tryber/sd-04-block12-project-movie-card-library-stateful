@@ -33,7 +33,7 @@ class AddMovie extends React.Component {
     }
   }
 
-  createFormComponent(title, name, type = 'text', value) {
+  createFormComponent(title, name, type, value) {
     return (
       <label htmlFor={name}>
         {title}
@@ -64,9 +64,9 @@ class AddMovie extends React.Component {
     const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
     return (
       <form>
-        {this.createFormComponent('Título', 'title', title)}
-        {this.createFormComponent('Subtítulo', 'subtitle', subtitle)}
-        {this.createFormComponent('Imagem', 'image', imagePath)}
+        {this.createFormComponent('Título', 'title', 'text', title)}
+        {this.createFormComponent('Subtítulo', 'subtitle', 'text', subtitle)}
+        {this.createFormComponent('Imagem', 'imagePath', 'text', imagePath)}
         <label htmlFor="storyline">Sinopse
           <textarea value={storyline} onChange={((e) => this.handleChange(e, 'storyline'))} />
         </label>
