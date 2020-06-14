@@ -85,7 +85,7 @@ class AddMovie extends React.Component {
           >{this.state.storyline}</textarea>
           {this.CreateInput('rating', this.state.rating, 'Avaliação', 'number')}
           {this.CreateSelect()}
-          <button
+          <button type="submit"
             onClick={() => { onClick(this.state); this.ClearState(); }}
           >Adicionar filme
           </button>
