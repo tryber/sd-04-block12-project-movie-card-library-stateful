@@ -1,13 +1,18 @@
 // implement SearchBar component here
 import React from 'react';
 
+const genreOptions = [
+  { text: 'Todos', value: '' },
+  { text: 'Ação', value: 'action' },
+  { text: 'Comédia', value: 'comedy' },
+  { text: 'Suspense', value: 'thriller' },
+];
 const Select = (selectedGenre, onSelectedGenreChange) => (
   <label htmlFor="gender">Filtrar por gênero
     <select id="gender" type="select" value={selectedGenre} onChange={onSelectedGenreChange}>
-      <option value="">Todos</option>
-      <option value="action">Ação</option>
-      <option value="comedy">Comédia</option>
-      <option value="thriller">Suspense</option>
+      {genreOptions.map(({ text, value }) =>
+        <option key={value} value={value}>{text}</option>,
+      )}
     </select>
   </label>
 );
