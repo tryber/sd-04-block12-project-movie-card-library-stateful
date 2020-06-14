@@ -5,14 +5,18 @@ const Input = (label, name, type, value, onChange) => (
     <input name={name} type={type} onChange={(e) => onChange(e, name)} value={value} />
   </label>
 );
-
+const genreOptions = [
+  { text: 'Ação', value: 'action' },
+  { text: 'Comédia', value: 'comedy' },
+  { text: 'Suspense', value: 'thriller' },
+];
 const Select = (name, value, onChange) => (
   <label htmlFor={name}>
     Gênero
     <select name={name} value={value} onChange={(e) => onChange(e, name)}>
-      <option value="action">Ação</option>
-      <option value="comedy">Comédia</option>
-      <option value="thriller">Suspense</option>
+      {genreOptions.map((option) =>
+        <option key={option.value} value={option.value}>{option.text}</option>,
+      )}
     </select>
   </label>
 );
