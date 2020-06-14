@@ -44,6 +44,12 @@ class MovieLibrary extends Component {
     if (this.state.selectedGenre !== '') {
       moviesFilter = moviesFilter.filter((movie) => movie.genre === this.state.selectedGenre);
     }
+    if (this.state.searchText !== '') {
+      const regexFilter = new RegExp(this.state.searchText,'i');
+      moviesFilter = moviesFilter.filter((movie) => regexFilter.test(movie.title) ||
+        regexFilter.test(movie.subtitle) ||
+        regexFilter.test(movie.storyline));
+    }
     return moviesFilter;
   }
 
