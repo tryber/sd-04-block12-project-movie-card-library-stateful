@@ -13,11 +13,15 @@ class AddMovie extends Component {
       genre: 'action',
     };
 
-    // this.inputChange = this.inputChange.bind(this);
+    this.inputChange = this.inputChange.bind(this);
     this.emptyValue = this.emptyValue.bind(this);
   }
 
-  // inputChange() {}
+  inputChange(event) {
+    const name = event.target.name;
+    let value = event.target.value;
+    if (name==='rating') value = Number(value)
+     }
 
   emptyValue() {
     this.setState({
@@ -31,6 +35,7 @@ class AddMovie extends Component {
   }
 
   render() {
+    const { onclick } = this.props;
     return (
       <form>
         <label htmlFor="title">
@@ -39,7 +44,7 @@ class AddMovie extends Component {
             type="text"
             name="title"
             id="title"
-            // value={this.state.title}
+            value={this.state.title}
             onChange={this.inputChange}
           />
         </label>
@@ -49,7 +54,7 @@ class AddMovie extends Component {
             type="text"
             name="subtitle"
             id="subtitle"
-            // value={this.state.subtitle}
+            value={this.state.subtitle}
             onChange={this.inputChange}
           />
         </label>
@@ -59,7 +64,7 @@ class AddMovie extends Component {
             type="text"
             name="imagem"
             id="imagem"
-            // value={this.state.imagePath}
+            value={this.state.imagePath}
             onChange={this.inputChange}
           />
         </label>
@@ -69,7 +74,7 @@ class AddMovie extends Component {
             type="text"
             name="sinopse"
             id="sinopse"
-            // value={this.state.storyline}
+            value={this.state.storyline}
             onChange={this.inputChange}
           />
         </label>
@@ -79,7 +84,7 @@ class AddMovie extends Component {
             type="number"
             name="evaluation"
             id="evaluation"
-            // value={this.state.rating}
+            value={this.state.rating}
             onChange={this.inputChange}
           />
         </label>
@@ -88,7 +93,7 @@ class AddMovie extends Component {
           <select
             id="genre"
             name="genre"
-            // value={this.state.genre}
+            value={this.state.genre}
             onChange={this.inputChange}
           >
             <option value="action">Ação</option>
