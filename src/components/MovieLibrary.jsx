@@ -37,8 +37,8 @@ class MovieLibrary extends React.Component {
     this.setState({ movies: [...movies, movie] });
   }
 
-  filterMovies() {
-    const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
+  filterMovies(movies) {
+    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
 
     let filteredMovies = movies.filter((movie) => movie.title.includes(searchText)
     || movie.subtitle.includes(searchText)

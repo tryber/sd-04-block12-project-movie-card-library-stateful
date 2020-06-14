@@ -9,7 +9,6 @@ const genres = [
 class AddMovie extends React.Component {
   constructor(props) {
     super(props);
-    this.handleChange = this.handleChange.bind(this);
     this.state = {
       subtitle: '',
       title: '',
@@ -19,12 +18,19 @@ class AddMovie extends React.Component {
       genre: 'action',
     };
 
+    this.handleChange = this.handleChange.bind(this);
     this.createFormComponent = this.createFormComponent.bind(this);
     this.resetState = this.resetState.bind(this);
   }
 
   handleChange(event, name) {
-    this.setState(() => ({ [name]: event.target.value }));
+    if (name === 'rating') {
+      const n = Number(event.target.value);
+      this.setState(() => ({ [name]: n }));
+    } else {
+      const { value } = event.target;
+      this.setState(() => ({ [name]: value }));
+    }
   }
 
   createFormComponent(title, name, type = 'text', value) {
@@ -52,8 +58,8 @@ class AddMovie extends React.Component {
   }
 
   render() {
+    console.log(this.state);
     const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
-    console.log(title);
     return (
       <form>
         {this.createFormComponent('Título', 'title', title)}
@@ -72,7 +78,7 @@ class AddMovie extends React.Component {
             ))}
           </select>
         </label>
-        <button type="button" onClick={() => this.resetState}>
+        <button type="button" onClick={() => this.resetState()}>
           Adicionar filme
         </button>
       </form>
