@@ -4,8 +4,8 @@ import Rating from './Rating';
 
 class MovieCard extends React.Component {
   render() {
-    const { movie } = this.props;
-    const { title, subtitle, storyline, rating, imagePath } = movie;
+    const { movie } = this.props; // pegando as propriedades de quem chama ele, Movie List
+    const { title, subtitle, storyline, rating, imagePath } = movie; // pegando de movie, todos as info
     return (
       <div className="movie-card">
         <img alt="Movie Cover" className="movie-card-image" src={imagePath} />
@@ -19,5 +19,5 @@ class MovieCard extends React.Component {
     );
   }
 }
-
+// só exibição na tela este componente
 export default MovieCard;

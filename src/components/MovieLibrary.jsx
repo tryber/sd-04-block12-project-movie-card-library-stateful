@@ -20,6 +20,7 @@ class MovieLibrary extends Component {
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
     this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this); // func sem usar
+    this.FilterMoviesBookMarkedFavorits = this.FilterMoviesBookMarkedFavorits.bind(this);
   }
   onSearchTextChange(event) {
     const { value } = event.target;
@@ -31,15 +32,33 @@ class MovieLibrary extends Component {
   }
 
   onSelectedGenreChange(event) {
-    const { value } = event.target; // pegar valor do campo
-    this.setState({ selectedGenre: value }); // selectedGenre vale oque usuario seleciona
+    const { value } = event.target; // pega valor do campo
+    this.setState({ selectedGenre: value }); // selectedGenre vale o que o usuário seleciona
+  }
+
+  FilterMoviesBookMarkedFavorits() {
+    let moviesFilter = this.state.movies;
+    if (this.state.bookmarkedOnly) {
+      moviesFilter = moviesFilter.filter(movie => movie.bookmarked === true);
+    }
+    if (this.state.selectedGenre !== '') {
+      moviesFilter = moviesFilter.filter(movie => movie.genre === this.state.selectedGenre);
+    } 
+   
+    return moviesFilter;
   }
 
   render() {
     return (
       <div>
-        <SearchBar state={this.state} />
-        <MovieList movies={this.state.movies} />
+        <SearchBar searchText={this.state.searchText}
+          onSearchTextChange={this.onSearchTextChange}
+          bookmarkedOnly={this.state.bookmarkedOnly}
+          onBookmarkedChange={this.onBookmarkedChange}
+          selectedGenre={this.state.selectedGenre}
+          onSelectedGenreChange={this.onSelectedGenreChange}
+           />
+        <MovieList movies={this.FilterMoviesBookMarkedFavorits()} />
         <AddMovie />
       </div>
     );
