@@ -38,7 +38,10 @@ class AddMovie extends React.Component {
       <label htmlFor={name}>
         {title}
         <input
-          name={name} type={type} value={value} onChange={((e) => this.handleChange(e, name))}
+          name={name}
+          type={type}
+          value={value}
+          onChange={((e) => this.handleChange(e, name))}
         />
       </label>
     );
@@ -65,11 +68,13 @@ class AddMovie extends React.Component {
         {this.createFormComponent('Título', 'title', title)}
         {this.createFormComponent('Subtítulo', 'subtitle', subtitle)}
         {this.createFormComponent('Imagem', 'image', imagePath)}
-        <label htmlFor="storyline">Sinopse
+        <label htmlFor="storyline">
+          Sinopse
           <textarea value={storyline} onChange={((e) => this.handleChange(e, 'storyline'))} />
         </label>
         {this.createFormComponent('Avaliação', 'rating', 'number', rating)}
-        <label htmlFor="genre">Gênero
+        <label htmlFor="genre">
+          Gênero
           <select value={genre} onChange={((e) => this.handleChange(e, 'genre'))}>
             {genres.map((option) => (
               <option key={option.value} value={option.value}>
