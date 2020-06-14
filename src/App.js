@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import Addmovie from './components/AddMovie';
 
 import Header from './components/Header';
 
@@ -10,6 +11,7 @@ function App() {
     <div className="App">
       <Header />
       <MovieLibrary />
+      <Addmovie />
     </div>
   );
 }
