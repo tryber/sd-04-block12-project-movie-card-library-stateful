@@ -61,20 +61,17 @@ class AddMovie extends React.Component {
   }
 
   render() {
-    console.log(this.state);
     const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
     return (
       <form>
         {this.createFormComponent('Título', 'title', title)}
         {this.createFormComponent('Subtítulo', 'subtitle', subtitle)}
         {this.createFormComponent('Imagem', 'image', imagePath)}
-        <label htmlFor="storyline">
-          Sinopse
+        <label htmlFor="storyline">Sinopse
           <textarea value={storyline} onChange={((e) => this.handleChange(e, 'storyline'))} />
         </label>
         {this.createFormComponent('Avaliação', 'rating', 'number', rating)}
-        <label htmlFor="genre">
-          Gênero
+        <label htmlFor="genre">Gênero
           <select value={genre} onChange={((e) => this.handleChange(e, 'genre'))}>
             {genres.map((option) => (
               <option key={option.value} value={option.value}>
