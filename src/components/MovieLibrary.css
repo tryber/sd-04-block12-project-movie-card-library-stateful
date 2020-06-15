@@ -2,21 +2,27 @@ h3 {
   font-size: 18px;
   opacity: 0.9;
 }
-  
+
+.MovieList {
+  position: absolute;
+  left: 20vw;
+}
+
 .Movie-Library {
   align-items: flex-start;
-  background-color: rgb(19, 28, 28);
+  background-color: rgb(19, 20, 28);
   color: whitesmoke;
   display: flex;
   flex-flow: nowrap;
   font-size: 16px;
   justify-content: flex-start;
   margin: 0;
+  top: 10vh;
 }
 
 .library-options {
   font-size: 16px;
-  position: sticky;
+  position: fixed;
   top: 10vh;
 }
 

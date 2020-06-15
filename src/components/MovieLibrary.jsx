@@ -74,7 +74,9 @@ class MovieLibrary extends React.Component {
           {this.renderSearchBar()}
           {this.renderAddMovie()}
         </div>
-        <MovieList movies={this.filterMovies()} />
+        <div className="MovieList">
+          <MovieList movies={this.filterMovies()} />
+        </div>
       </div>
     );
   }
