@@ -20,7 +20,7 @@ input:hover {
   border: tomato solid 2px;
 }
 
-input:focus-within{
+input:focus-within {
   border: tomato solid 2px;
   opacity: 1;
 }
@@ -35,7 +35,7 @@ textarea:focus-within {
   opacity: 1;
 }
 
-.rating-element{
+.rating-element {
   align-items: center;
   display: flex;
   justify-content: center;
@@ -45,6 +45,7 @@ textarea:focus-within {
   height: 20px;
   width: 40px;
 }
+
 .txt-input {
   display: flex;
   flex-flow: column;

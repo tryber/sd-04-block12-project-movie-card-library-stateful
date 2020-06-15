@@ -16,9 +16,9 @@ class Header extends React.Component {
       <header className={className}>
         <h2>
           <button className="header-menu" onClick={() => toggleMenu()}>
-            <div className="menu-icon"></div>
-            <div className="menu-icon"></div>
-            <div className="menu-icon"></div>
+            <div className="menu-icon" />
+            <div className="menu-icon" />
+            <div className="menu-icon" />
           </button>
         </h2>
         <h1 className="page-title">Movie Cards Library</h1>

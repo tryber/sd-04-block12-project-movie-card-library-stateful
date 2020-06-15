@@ -1,6 +1,6 @@
 // implement MovieLibrary component here
 import React from 'react';
-import './MovieLibrary.css'
+import './MovieLibrary.css';
 import SearchBar from './SearchBar';
 import MovieList from './MovieList';
 import AddMovie from './AddMovie';

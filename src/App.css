@@ -11,7 +11,6 @@ body {
   display: flex;
   flex-direction: column;
   height: 25vh;
-  /* justify-content: center; */
   margin: 0 2px 4px;
   opacity: 0.6;
   overflow: hidden;
@@ -47,14 +46,14 @@ body {
   bottom: 6px;
   font-size: 16px;
   font-weight: 500;
-  margin: 0 0 8px;
   left: 6px;
+  margin: 0 0 8px;
   position: fixed;
 }
 
 .movie-card-storyline {
-  display: none;
   color: whitesmoke;
+  display: none;
   font-size: 14px;
   text-align: justify;
 }
@@ -65,9 +64,7 @@ body {
   color: white;
   font-size: 16px;
   font-weight: 700;
-  /* padding: 3px 9px; */
   position: fixed;
-  /* opacity: 0.5; */
   right: 5px;
   text-align: right;
 }
@@ -79,9 +76,8 @@ body {
   display: flex;
   justify-content: flex-end;
   right: 30px;
-  /* padding: 12px 20px; */
-  position: fixed;
   opacity: 0.5;
+  position: fixed;
   width: 100%;
 }
 
