@@ -24,8 +24,8 @@ class SearchBar extends React.Component {
         <input
           id="textMovie"
           type="text"
-          value={this.props.searchText}
           onChange={this.props.onSearchTextChange}
+          value={this.props.searchText}
         /></label>
         <label htmlFor="fav">Mostrar somente favoritos
         <input
