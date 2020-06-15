@@ -12,7 +12,6 @@ export default class MovieLibrary extends Component {
       bookmarkedOnly: false,
       selectedGenre: '',
       movies,
-      newMovies: movies,
     };
     this.funTrocaGeral = this.funTrocaGeral.bind(this);
     this.funLowerSplit = this.funLowerSplit.bind(this);
