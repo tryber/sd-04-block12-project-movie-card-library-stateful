@@ -1,33 +1,44 @@
-// implement SearchBar component here
-import React, { Component } from 'react';
-// import PropTypes from "prop-types";
 
-class SearchBar extends Component {
-  render() {
-    const {
-      searchText, onSearchTextChange, bookmarkedOnly, onBookmarkedChange, selectedGenre,
-      onSelectedGenreChange,
-    } = this.props;
+import React, { Component } from 'react';
+
+class SearchBar extends React.Component {
+  renderSearch() {
     return (
-      <form>
-        <label htmlFor="text-enclude">
+      <label htmlFor="entrada">
         Inclui o texto:
-          <input type="text" value={searchText} onChange={onSearchTextChange} />
-        </label>
-        <label htmlFor="favorite">
+        <input
+          type="text"
+          name="entrada"
+          value={this.props.searchText}
+          onChange={this.props.onSearchTextChange}
+        />
+      </label>
+    );
+  }
+
+  render() {
+    return (
+
+        <form>
+          {this.renderSearch()}
+          <br />
+          <label htmlFor="check">
           Mostrar somente favoritos
-          <input type="checkbox" checked={bookmarkedOnly} onChange={onBookmarkedChange} />
-        </label>
-        <label htmlFor="genrer">
-          Filtrar por gênero
-          <select value={selectedGenre} onChange={onSelectedGenreChange}>
+            <input
+              type="checkbox"
+              name="check"
+              checked={this.props.bookmarkedOnly}
+              onChange={this.props.onBookmarkedChange}
+            />
+          </label>
+          <label htmlFor="selection"> Filtrar por gênero </label>
+          <select name="selection" value={this.props.selectedGenre} onChange={this.props.onSelectedGenreChange}>
             <option value="">Todos</option>
             <option value="action">Ação</option>
             <option value="comedy">Comédia</option>
             <option value="thriller">Suspense</option>
           </select>
-        </label>
-      </form>
+        </form>
     );
   }
 }
