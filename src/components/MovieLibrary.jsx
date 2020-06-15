@@ -19,6 +19,7 @@ class MovieLibrary extends React.Component {
       bookmarkedOnly: false,
       selectedGenre: '',
       movies: props.movies,
+      show: false,
     };
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
     this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
@@ -48,7 +49,7 @@ class MovieLibrary extends React.Component {
   renderSearchBar() {
     const { searchText, bookmarkedOnly, selectedGenre } = this.state;
     return (
-      <div className="lib-opt">
+      <div>
         <h3>Pesquisa</h3>
         <SearchBar
           className="SearchBar"
@@ -61,7 +62,7 @@ class MovieLibrary extends React.Component {
   }
   renderAddMovie() {
     return (
-      <div className="lib-opt">
+      <div>
         <h3>Add Movie</h3>
         <AddMovie onClick={(e) => this.addNewMovie(e)} />
       </div>
@@ -70,9 +71,19 @@ class MovieLibrary extends React.Component {
   render() {
     return (
       <div className="Movie-Library">
-        <div className="library-options notShowed">
-          {this.renderSearchBar()}
-          {this.renderAddMovie()}
+
+        <div className="menu">
+          <div className="menu-btn">
+            <div className="menu-icon" />
+            <div className="menu-icon" />
+            <div className="menu-icon" />
+          </div>
+
+          <div className='lib-opt show'>
+            {this.renderSearchBar()}
+            {this.renderAddMovie()}
+          </div>
+
         </div>
         <div className="MovieList">
           <MovieList movies={this.filterMovies()} />
