@@ -32,7 +32,6 @@ export default class MovieLibrary extends Component {
 
   funAddMovie(newMovie) {
     this.setState((state) => ({ movies: [...state.movies, newMovie] }));
-    console.log("do it");
   }
 
   funLowerSplit(ti, subTi, story) {
