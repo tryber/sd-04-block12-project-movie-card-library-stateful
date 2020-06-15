@@ -1,5 +1,6 @@
 header {
-  /* position: sticky (deixei fixed para passar no cc)*/
+
+  /* position: sticky (deixei fixed para passar no cc) */
   align-items: center;
   background-color: rgb(19, 22, 20);
   display: flex;
