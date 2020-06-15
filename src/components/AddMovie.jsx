@@ -18,8 +18,8 @@ class AddMovie extends Component {
   }
 
   inputChange(event) {
-    const name = event.target.name;
-    let value = event.target.value;
+    const { name } = event.target.name;
+    let { value } = event.target.value;
     if (name === 'rating') value = Number(value);
     this.setState({ [name]: value });
   }
@@ -111,25 +111,6 @@ class AddMovie extends Component {
           value={rating}
           onChange={this.handleInputChange}
         />
-      </label>
-    );
-  }
-
-  renderSelect() {
-    const { genre } = this.state;
-    return (
-      <label htmlFor="genre">
-        Gênero
-        <select
-          id="genre"
-          name="genre"
-          value={genre}
-          onChange={this.handleInputChange}
-        >
-          <option value="action">Ação</option>
-          <option value="comedy">Comédia</option>
-          <option value="thriller">Suspense</option>
-        </select>
       </label>
     );
   }
