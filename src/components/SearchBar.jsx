@@ -18,7 +18,6 @@ class SearchBar extends Component {
 
   render() {
     return (
-
       <form>
         {this.renderSearch()}
         <br />
@@ -34,7 +33,7 @@ class SearchBar extends Component {
         <label htmlFor="selection"> Filtrar por gênero </label>
         <select
           name="selection"
-          value={ this.props.selectedGenre} 
+          value={this.props.selectedGenre}
           onChange={this.props.onSelectedGenreChange}
         >
           <option value="">Todos</option>
