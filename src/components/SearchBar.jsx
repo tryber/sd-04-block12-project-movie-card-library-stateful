@@ -32,9 +32,11 @@ class SearchBar extends Component {
           />
         </label>
         <label htmlFor="selection"> Filtrar por gênero </label>
-        <select name="selection" 
-          value={this.props.selectedGenre} 
-          onChange={this.props.onSelectedGenreChange}>
+        <select
+          name="selection"
+          value={ this.props.selectedGenre} 
+          onChange={this.props.onSelectedGenreChange}
+        >
           <option value="">Todos</option>
           <option value="action">Ação</option>
           <option value="comedy">Comédia</option>

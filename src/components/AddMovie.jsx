@@ -146,6 +146,7 @@ class AddMovie extends Component {
         {this.renderSelect()}
 
         <button
+          type="button"
           value={this.state}
           onClick={() => {
             onClick(this.state);
