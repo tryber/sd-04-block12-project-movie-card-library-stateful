@@ -133,7 +133,6 @@ class AddMovie extends React.Component {
 
   render() {
     const { onClick } = this.props;
-    console.log(this.props)
     return (
       <form>
         {this.renderTitle()}
