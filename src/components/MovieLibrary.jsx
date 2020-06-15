@@ -15,6 +15,7 @@ export default class MovieLibrary extends Component {
       newMovies: movies,
     };
     this.funTrocaGeral = this.funTrocaGeral.bind(this);
+    this.funLowerSplit = this.funLowerSplit.bind(this);
   }
 
   funSearchBarChange(event) {
