@@ -15,6 +15,7 @@ export default class MovieLibrary extends Component {
     };
     this.funTrocaGeral = this.funTrocaGeral.bind(this);
     this.funLowerSplit = this.funLowerSplit.bind(this);
+    this.funAddMovie = this.funAddMovie.bind(this);
   }
 
   funSearchBarChange(event) {
@@ -27,6 +28,11 @@ export default class MovieLibrary extends Component {
 
   funGenreChange(event) {
     this.setState({ selectedGenre: event.target.value });
+  }
+
+  funAddMovie(newMovie) {
+    this.setState((state) => ({ movies: [...state.movies, newMovie] }));
+    console.log("do it");
   }
 
   funLowerSplit(ti, subTi, story) {
@@ -79,7 +85,7 @@ export default class MovieLibrary extends Component {
           onSelectedGenreChange={(event) => this.funGenreChange(event)}
         />
         <MovieList movies={this.funTrocaGeral()} />
-        <AddMovie onClick="" />
+        <AddMovie onClick={this.funAddMovie} />
       </div>
     );
   }

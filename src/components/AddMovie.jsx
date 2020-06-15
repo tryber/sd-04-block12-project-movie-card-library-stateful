@@ -72,6 +72,7 @@ export default class AddMovie extends Component {
         <input
           type="number"
           value={this.state.rating}
+          step="0.1" 
           onChange={(event) => this.setState({ rating: parseFloat(event.target.value) })}
         />
       </label>
@@ -94,7 +95,8 @@ export default class AddMovie extends Component {
     );
   }
 
-  submit(event) {
+  submit(event, click) {
+    click(this.state);
     this.setState({
       subtitle: '',
       title: '',
@@ -103,12 +105,11 @@ export default class AddMovie extends Component {
       rating: 0,
       genre: 'action',
     });
-    const { onClick } = this.props;
-    onClick(this.state);
     event.preventDefault();
   }
 
   render() {
+    const { onClick } = this.props;
     return (
       <form>
         <div>
@@ -121,7 +122,7 @@ export default class AddMovie extends Component {
           {this.funRaiting()}
           {this.funSelect()}
         </div>
-        <button type="submit" onSubmit={this.submit}>Adicionar filme</button>
+        <button type="button" onClick={(event) => this.submit(event, onClick)}>Adicionar filme</button>
       </form>
     );
   }
