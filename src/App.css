@@ -37,20 +37,19 @@ body {
 .movie-card-title {
   font-size: 24px;
   font-weight: 500;
-  margin: 0 0 12px;
   left: 6px;
+  margin: 0 0 12px;
   position: fixed;
   top: 6px;
-  /* z-index: 1; */
 }
 
 .movie-card-subtitle {
+  bottom: 6px;
   font-size: 16px;
   font-weight: 500;
   margin: 0 0 8px;
   left: 6px;
   position: fixed;
-  bottom: 6px;
 }
 
 .movie-card-storyline {
@@ -62,6 +61,7 @@ body {
 
 .rating {
   background-color: rgb(20, 20, 28);
+  bottom: 3px;
   color: white;
   font-size: 16px;
   font-weight: 700;
@@ -69,19 +69,18 @@ body {
   position: fixed;
   /* opacity: 0.5; */
   right: 5px;
-  bottom: 3px;
   text-align: right;
 }
 
 .movie-card-rating {
   background-color: rgb(20, 20, 28);
   border-top: 1px solid rgba(0, 0, 0, 0.125);
+  bottom: 3px;
   display: flex;
   justify-content: flex-end;
   right: 30px;
   /* padding: 12px 20px; */
   position: fixed;
-  bottom: 3px;
   opacity: 0.5;
   width: 100%;
 }

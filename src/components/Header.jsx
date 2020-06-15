@@ -14,10 +14,12 @@ class Header extends React.Component {
     const { className } = this.props;
     return (
       <header className={className}>
-        <h2 className="header-menu" onClick={() => toggleMenu()}>
-          <div className="menu-icon"></div>
-          <div className="menu-icon"></div>
-          <div className="menu-icon"></div>
+        <h2>
+          <button className="header-menu" onClick={() => toggleMenu()}>
+            <div className="menu-icon"></div>
+            <div className="menu-icon"></div>
+            <div className="menu-icon"></div>
+          </button>
         </h2>
         <h1 className="page-title">Movie Cards Library</h1>
       </header>
