@@ -20,7 +20,6 @@ class SearchBar extends Component {
     return (
       <form>
         {this.renderSearch()}
-        <br />
         <label htmlFor="check">
           Mostrar somente favoritos
           <input
