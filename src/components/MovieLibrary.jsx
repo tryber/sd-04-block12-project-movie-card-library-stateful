@@ -79,7 +79,7 @@ class MovieLibrary extends React.Component {
             <div className="menu-icon" />
           </div>
 
-          <div className='lib-opt show'>
+          <div className="lib-opt show">
             {this.renderSearchBar()}
             {this.renderAddMovie()}
           </div>
