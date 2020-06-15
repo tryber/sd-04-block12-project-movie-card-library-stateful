@@ -5,7 +5,7 @@ function toggleMenu() {
   const HeaderMenu = document.querySelector('.library-options');
   const LibOptshow = 'library-options Showed';
   const LibOptShowOff = 'library-options notShowed';
-  HeaderMenu.className === 'library-options notShowed' ?
+  HeaderMenu.className == 'library-options notShowed' ?
     HeaderMenu.className = LibOptshow : HeaderMenu.className = LibOptShowOff;
 }
 
