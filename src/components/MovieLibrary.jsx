@@ -34,6 +34,7 @@ export default class MovieLibrary extends Component {
     let aux = '';
     let lower = '';
 
+    console.log(this.state.genre);
     aux = `${ti} ${subTi} ${story}`;
     lower = aux.toLowerCase();
     resposta = lower.split(' ');
