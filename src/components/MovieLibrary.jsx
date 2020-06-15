@@ -29,7 +29,6 @@ export default class MovieLibrary extends Component {
     this.setState({ selectedGenre: event.target.value });
   }
 
-
   funLowerSplit(ti, subTi, story) {
     let resposta = [];
     let aux = '';
