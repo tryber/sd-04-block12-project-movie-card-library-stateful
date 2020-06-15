@@ -14,7 +14,7 @@ class AddMovie extends Component {
     };
 
     this.inputChange = this.inputChange.bind(this);
-    this.emptyValue = this.emptyValue.bind(this);
+    this.valueRating = this.valueRating.bind(this);
   }
 
   inputChange(event) {
@@ -24,7 +24,7 @@ class AddMovie extends Component {
     this.setState({ [name]: value });
   }
 
-  emptyValue() {
+  valueRating() {
     this.setState({
       subtitle: '',
       title: '',
@@ -109,7 +109,7 @@ class AddMovie extends Component {
           name="rating"
           id="rate"
           value={rating}
-          onChange={this.handleInputChange}
+          onChange={this.inputChange}
         />
       </label>
     );
@@ -124,7 +124,7 @@ class AddMovie extends Component {
           id="genre"
           name="genre"
           value={genre}
-          onChange={this.handleInputChange}
+          onChange={this.inputChange}
         >
           <option value="action">Ação</option>
           <option value="comedy">Comédia</option>
@@ -150,7 +150,7 @@ class AddMovie extends Component {
           value={this.state}
           onClick={() => {
             onClick(this.state);
-            this.emptyValue();
+            this.valueRating();
           }}
         >
           Adicionar filme
