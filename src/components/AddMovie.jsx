@@ -12,7 +12,7 @@ class AddMovie extends React.Component {
       genre: 'action',
     };
   }
-  ChangeState = (event) => {
+  changeState = (event) => {
     if (event.target.name === 'rating') {
       this.setState({ rating: Number(event.target.value) });
     } else {
@@ -27,7 +27,7 @@ class AddMovie extends React.Component {
           type={type}
           name={name}
           value={this.state[name]}
-          onChange={this.ChangeState}
+          onChange={this.changeState}
         />
       </div>
     );
@@ -41,18 +41,18 @@ class AddMovie extends React.Component {
         {this.createImput('text', 'imagePath', 'Imagem')}
         <label htmlFor="storyline">Sinopse</label>
         <textarea
-          onChange={this.ChangeState}
+          onChange={this.changeState}
           name="storyline"
           value={this.state.storyline}
         />
         {this.createImput('number', 'rating', 'Avaliação')}
         <label htmlFor="genre">Gênero</label>
-        <select type="text" onChange={this.ChangeState} name="genre" value={this.state.genre} >
+        <select type="text" onChange={this.changeState} name="genre" value={this.state.genre} >
           <option value="action">Ação</option>
           <option value="comedy">Comédia</option>
           <option value="thriller">Suspense</option>
         </select>
-        <button onClick={() => console.log('clicou')}>Adicionar filme</button>
+        <button onClick={ () => console.log('clicou') }>Adicionar filme</button>
       </form>
     );
   }

@@ -30,8 +30,7 @@ export default class MovieLibrary extends React.Component {
           onSelectedGenreChange=""
         />
         <MovieList movies={movies} />
-        <AddMovie onClick={() => console.log('clicou')}/>
-        />
+        <AddMovie />
       </div>
     );
   }
