@@ -46,7 +46,6 @@ class SearchBar extends React.Component {
             value={this.props.selectedGenre}
             onChange={this.props.onSelectedGenreChange}
           >
-            <br />
             <option value="">Todos</option>
             <option value="action">Ação</option>
             <option value="comedy">Comédia</option>

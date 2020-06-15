@@ -133,6 +133,7 @@ class AddMovie extends React.Component {
 
   render() {
     const { onClick } = this.props;
+    console.log(this.props)
     return (
       <form>
         {this.renderTitle()}
@@ -144,6 +145,7 @@ class AddMovie extends React.Component {
 
         <button
           value={this.state}
+          type="button"
           onClick={() => {
             onClick(this.state);
             this.initialValue();
