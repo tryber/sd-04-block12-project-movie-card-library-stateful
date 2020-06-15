@@ -18,8 +18,8 @@ class AddMovie extends Component {
   }
 
   inputChange(event) {
-    const { name } = event.target.name;
-    let { value } = event.target.value;
+    const name = event.target.name;
+    let value = event.target.value;
     if (name === 'rating') value = Number(value);
     this.setState({ [name]: value });
   }
