@@ -72,7 +72,7 @@ export default class AddMovie extends Component {
         <input
           type="number"
           value={this.state.rating}
-          step="0.1" 
+          step="0.1"
           onChange={(event) => this.setState({ rating: parseFloat(event.target.value) })}
         />
       </label>
@@ -122,7 +122,9 @@ export default class AddMovie extends Component {
           {this.funRaiting()}
           {this.funSelect()}
         </div>
-        <button type="button" onClick={(event) => this.submit(event, onClick)}>Adicionar filme</button>
+        <button type="button" onClick={(event) => this.submit(event, onClick)}>
+          Adicionar filme
+        </button>
       </form>
     );
   }
