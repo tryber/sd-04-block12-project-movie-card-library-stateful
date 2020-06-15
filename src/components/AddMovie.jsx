@@ -19,7 +19,6 @@ class AddMovie extends React.Component {
     };
     this.hChange = this.hChange.bind(this);
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
-    // this.btadd = this.btadd.bind(this);
   }
 
   onSelectedGenreChange(event) {
@@ -118,8 +117,10 @@ class AddMovie extends React.Component {
           {this.renderRatingElement()}
           {this.renderGenreSelection()}
         </div>
-          <button className="btadd" type="button" onClick={() => this.btadd()}>
-            Adicionar filme
+        <button
+          className="btadd" type="button" onClick={() => this.btadd()}
+        >
+          Adicionar filme
           </button>
       </form>
     );

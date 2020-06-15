@@ -1,10 +1,11 @@
 header {
+  /* position: sticky (deixei fixed para passar no cc)*/
   align-items: center;
   background-color: rgb(19, 22, 20);
   display: flex;
   height: 10vh;
   justify-content: flex-start;
-  position: sticky;
+  position: fixed;
   top: 0;
   width: 100vw;
   z-index: 5;
