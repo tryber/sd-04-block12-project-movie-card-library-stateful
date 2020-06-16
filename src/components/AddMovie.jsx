@@ -19,8 +19,8 @@ class AddMovie extends React.Component {
     } else {
       this.setState({ [event.target.name]: event.target.value });
     }
-  };
-  createImput (type, name, text) {
+  }
+  createImput(type, name, text) {
     return (
       <div>
         <label htmlFor={name}>{text}</label>
@@ -32,9 +32,8 @@ class AddMovie extends React.Component {
         />
       </div>
     );
-  };
+  }
   render() {
-    const { onClick } = this.props;
     return (
       <form>
         {this.createImput('text', 'title', 'Título')}
@@ -53,7 +52,7 @@ class AddMovie extends React.Component {
           <option value="comedy">Comédia</option>
           <option value="thriller">Suspense</option>
         </select>
-        <button onClick={ () => console.log('clicou') }>Adicionar filme</button>
+        <button onClick={() => console.log('clicou')}>Adicionar filme</button>
       </form>
     );
   }
