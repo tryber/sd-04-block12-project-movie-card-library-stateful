@@ -11,8 +11,9 @@ class AddMovie extends React.Component {
       rating: 0,
       genre: 'action',
     };
+    this.changeState = this.changeState.bind(this);
   }
-  changeState = (event) => {
+  changeState(event) {
     if (event.target.name === 'rating') {
       this.setState({ rating: Number(event.target.value) });
     } else {
