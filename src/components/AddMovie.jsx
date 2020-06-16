@@ -20,7 +20,7 @@ class AddMovie extends React.Component {
       this.setState({ [event.target.name]: event.target.value });
     }
   };
-  createImput = (type, name, text) => {
+  createImput (type, name, text) {
     return (
       <div>
         <label htmlFor={name}>{text}</label>
