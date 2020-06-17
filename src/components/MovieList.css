@@ -5,4 +5,15 @@
   flex-flow: row wrap;
   justify-content: flex-start;
   margin: 6px 0;
+  position: relative;
+  top: 20vh;
+}
+
+.test-appear {
+  opacity: 0;
+}
+
+.test-appear.test-appear-active {
+  opacity: 1;
+  transition: 1000ms linear;
 }

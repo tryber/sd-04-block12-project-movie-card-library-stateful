@@ -6,8 +6,15 @@ header {
   display: flex;
   height: 10vh;
   justify-content: flex-start;
+  padding-left: 10vh;
   position: fixed;
   top: 0;
   width: 100vw;
-  z-index: 5;
+  z-index: 3;
+}
+
+.page-title {
+  color: #f8f9fa;
+  font-size: 36px;
+  font-weight: 500;
 }

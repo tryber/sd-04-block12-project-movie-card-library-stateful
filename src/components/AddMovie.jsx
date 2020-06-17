@@ -19,6 +19,7 @@ class AddMovie extends React.Component {
     };
     this.hChange = this.hChange.bind(this);
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
+    this.btadd = this.btadd.bind(this);
   }
 
   onSelectedGenreChange(event) {
@@ -33,7 +34,7 @@ class AddMovie extends React.Component {
   btadd() {
     this.props.onClick(this.state);
     this.setState(
-      this.state = {
+      {
         title: '',
         subtitle: '',
         imagePath: '',
