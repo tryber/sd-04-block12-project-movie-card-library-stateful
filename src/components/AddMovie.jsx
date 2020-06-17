@@ -30,7 +30,7 @@ class AddMovie extends React.Component {
     this.setState({ [name]: (name === 'rating') ? Number(value) : value });
   }
 
-  btadd() {
+  btnadd() {
     this.props.onClick(this.state);
     this.setState(
       this.state = {
