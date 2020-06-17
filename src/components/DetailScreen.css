@@ -1,0 +1,78 @@
+.movie-details {
+    background-color: rgb(26, 32, 28);
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 3px;
+    display: flex;
+    flex-direction: column;
+    height: 40vh;
+    margin: auto;
+    overflow: hidden;
+    position: fixed;
+    top: 10vh;
+    transition: 0.3s ease;
+    width: 79%;
+    z-index: 2;
+  }
+  
+  .movie-card-image {
+    width: 100%;
+  }
+  
+  .movie-card-body {
+    flex: 1 1 auto;
+    padding: 20px;
+  }
+  
+  .movie-card-title {
+    font-size: 24px;
+    font-weight: 500;
+    left: 6px;
+    margin: 0 0 12px;
+    position: fixed;
+    top: 6px;
+  }
+  
+  .movie-card-subtitle {
+    bottom: 6px;
+    font-size: 16px;
+    font-weight: 500;
+    left: 6px;
+    margin: 0 0 8px;
+    position: fixed;
+  }
+  
+  .movie-card-storyline {
+    color: whitesmoke;
+    display: none;
+    font-size: 14px;
+    text-align: justify;
+  }
+  
+  .rating {
+    background-color: rgb(20, 20, 28);
+    bottom: 3px;
+    color: white;
+    font-size: 16px;
+    font-weight: 700;
+    position: fixed;
+    right: 5px;
+    text-align: right;
+    z-index: 0;
+  }
+  
+  .movie-card-rating {
+    background-color: rgb(20, 20, 28);
+    border-top: 1px solid rgba(0, 0, 0, 0.125);
+    bottom: 3px;
+    display: flex;
+    justify-content: flex-end;
+    opacity: 0.5;
+    position: absolute;
+    right: 30px;
+    width: 100%;
+  }
+  
+  .movie-card-genre {
+    color: whitesmoke;
+  }
+  
