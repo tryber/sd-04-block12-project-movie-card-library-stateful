@@ -1,0 +1,72 @@
+form {
+  background-color: rgb(20, 20, 20);
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  font-size: 12px;
+  justify-content: flex-start;
+  opacity: 1;
+  width: 100%;
+}
+
+label {
+  margin: 0 5px;
+}
+
+input {
+  margin: 0 5px 5px;
+  opacity: 0.4;
+}
+
+input:hover {
+  border: tomato solid 2px;
+}
+
+input:focus-within {
+  border: tomato solid 2px;
+  opacity: 1;
+}
+
+textarea {
+  margin: 0 5px;
+  opacity: 0.5;
+}
+
+textarea:focus-within {
+  border: tomato solid 2px;
+  opacity: 1;
+}
+
+.rating-element {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.number-input {
+  height: 20px;
+  width: 40px;
+}
+
+.txt-input {
+  display: flex;
+  flex-flow: column;
+  margin: 0;
+  width: 100%;
+}
+
+.bottom-part {
+  align-items: center;
+  display: flex;
+  flex-flow: row;
+  font-size: 12px;
+  height: 10vh;
+  justify-content: space-around;
+  margin-right: 8px;
+  width: 100%;
+}
+
+.btadd {
+  font-size: 12px;
+  margin: 2px 0;
+}
