@@ -5,7 +5,7 @@ class SearchBar extends React.Component {
   render() {
     return (
       <form>
-        <label htmlFor="titulo">IContém:</label>
+        <label htmlFor="titulo">Contém:</label>
         <input type="text" value={this.props.searchText} onChange={this.props.onSearchTextChange} />
         <label htmlFor="titulo">Favoritos</label>
         <input
@@ -23,3 +23,5 @@ class SearchBar extends React.Component {
     );
   }
 }
+
+export default SearchBar;
