@@ -46,7 +46,7 @@ class MovieLibrary extends Component {
       movieArray = movieArray.filter((item) =>
         item.title.includes(searchText) ||
         item.subtitle.includes(searchText) ||
-        item.storyline.includes(searchText)
+        item.storyline.includes(searchText),
         );
     }
     return movieArray;
