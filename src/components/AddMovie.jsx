@@ -1,1 +1,76 @@
-// implement AddMovie component here
+import React, { Component } from 'react';
+import Select from './Select';
+
+class AddMovie extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    };
+    this.txtChang = this.txtChang.bind(this);
+    this.slctChange = this.slctChange.bind(this);
+    this.submitForm = this.submitForm.bind(this);
+    this.ratingValue = this.ratingValue.bind(this);
+  }
+
+  submitForm() {
+    this.props.onClick(this.state);
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
+  }
+
+  slctChange(event) {
+    const { name, value } = event.target;
+    this.setState(() => ({ [name]: value }));
+  }
+
+  txtChang(event) {
+    const { name, value } = event.target;
+    console.log(`${name}: ${value}`);
+    this.setState(() => ({ [name]: value }));
+  }
+
+  ratingValue(event) {
+    const { name, value } = event.target;
+    this.setState(() => ({ [name]: parseFloat(value) }));
+  }
+
+  render() {
+    return (
+      <form className="addmovie-component" >
+        <label htmlFor="title">Título</label>
+        <input type="text" name="title" value={this.state.title} onChange={this.txtChang} />
+        <label htmlFor="subtitle">Subtítulo</label>
+        <input type="text" name="subtitle" value={this.state.subtitle} onChange={this.txtChang} />
+        <label htmlFor="imagePath">Imagem</label>
+        <input
+          type="text" name="imagePath" value={this.state.imagePath}
+          onChange={this.txtChang}
+        />
+        <label htmlFor="storyline">Sinopse</label>
+        <textarea name="storyline" value={this.state.storyline} onChange={this.txtChang} />
+        <label htmlFor="rating">Avaliação</label>
+        <input name="rating" type="number" value={this.state.rating} onChange={this.ratingValue} />
+        <label htmlFor="genre">Gênero</label>
+        <Select
+          name="genre" onChange={this.slctChange}
+          selected={this.state.genre} value={this.state.genre}
+        />
+        <button type="submit" onClick={this.submitForm} >Adicionar filme</button>
+      </form>
+    );
+  }
+}
+
+export default AddMovie;
