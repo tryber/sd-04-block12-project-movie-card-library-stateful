@@ -32,24 +32,24 @@ class MovieLibrary extends Component {
   }
 
   setMovies(item) {
-    this.setState({ movies: [...this.state.movies, item]})
+    this.setState({ movies: [...this.state.movies, item] });
   }
 
   filterMovies() {
     const { bookmarkedOnly, movies, searchText, selectedGenre } = this.state;
     let movieArray = [...movies];
-    if(bookmarkedOnly) {
-      movieArray = movieArray.filter(item => item.bookmarked === true);
-    } else if(selectedGenre) {
-      movieArray = movieArray.filter(item => item.genre === selectedGenre);
-    } else if(searchText) {
-      movieArray = movieArray.filter(item => 
+    if (bookmarkedOnly) {
+      movieArray = movieArray.filter((item) => item.bookmarked === true);
+    } else if (selectedGenre) {
+      movieArray = movieArray.filter((item) => item.genre === selectedGenre);
+    } else if (searchText) {
+      movieArray = movieArray.filter((item) =>
         item.title.includes(searchText) ||
         item.subtitle.includes(searchText) ||
         item.storyline.includes(searchText)
         );
     }
-    return movieArray;  
+    return movieArray;
   }
 
   render() {
