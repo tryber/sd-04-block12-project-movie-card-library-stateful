@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default class Searchbar extends React.Component {
+export default class SearchBar extends React.Component {
   render() {
     const {
       searchText, onSearchTextChange, onBookmarkedChange,

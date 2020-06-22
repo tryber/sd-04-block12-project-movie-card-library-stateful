@@ -13,6 +13,7 @@ class AddMovie extends React.Component {
     };
     this.changeState = this.changeState.bind(this);
   }
+
   changeState(event) {
     if (event.target.name === 'rating') {
       this.setState({ rating: Number(event.target.value) });
@@ -20,6 +21,7 @@ class AddMovie extends React.Component {
       this.setState({ [event.target.name]: event.target.value });
     }
   }
+
   createImput(type, name, text) {
     return (
       <div>
@@ -33,6 +35,7 @@ class AddMovie extends React.Component {
       </div>
     );
   }
+
   render() {
     return (
       <form>
