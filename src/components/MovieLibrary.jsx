@@ -1,5 +1,5 @@
 // implement MovieLibrary component here
-import React from 'react'
+import React from 'react';
 import SearchBar from './SearchBar';
 import MovieList from './MovieList';
 import AddMovie from './AddMovie';
@@ -19,7 +19,6 @@ class MovieLibrary extends React.Component {
     this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
     this.addMovie = this.addMovie.bind(this);
-
   }
 
   onSearchTextChange(event) {
@@ -61,9 +60,9 @@ class MovieLibrary extends React.Component {
           bookmarkedOnly={bookmarkedOnly}
           onBookmarkedChange={this.onBookmarkedChange}
           selectedGenre={selectedGenre}
-          onSelectedGenreChange={this.onSelectedGenreChange} 
+          onSelectedGenreChange={this.onSelectedGenreChange}
         />
-        <MovieList movies={this.filterMovies(movies)}/>
+        <MovieList movies={this.filterMovies(movies)} />
         <AddMovie onClick={this.addMovie} />
       </div>
     );
