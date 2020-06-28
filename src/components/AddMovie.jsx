@@ -1,5 +1,5 @@
 // implement AddMovie component here
-import React from 'react'
+import React from 'react';
 
 const genreOptions = [
   { value: 'action', text: 'Ação' },
@@ -26,11 +26,11 @@ class AddMovie extends React.Component {
   }
 
   textChange(event, text) {
-    this.setState(() => ({ [text]: event.target.value}));
+    this.setState(() => ({ [text]: event.target.value }));
   }
 
   numberChange(event) {
-    this.setState(() => ({ rating: Number(event.target.value)}));
+    this.setState(() => ({ rating: Number(event.target.value) }));
   }
 
   reset() {
@@ -52,24 +52,24 @@ class AddMovie extends React.Component {
     return (
       <form>
         <label htmlFor="title">Título
-          <input type="text" value={title} onChange={(e) => this.textChange(e, 'title')}/>
+          <input type="text" value={title} onChange={(e) => this.textChange(e, 'title')} />
         </label>
         <label htmlFor="subtitle">Subtítulo
           <input type="text" value={subtitle} onChange={(e) => this.textChange(e, 'subtitle')} />
         </label>
         <label htmlFor="imagePath">Imagem
-          <input type="text" value={imagePath} onChange={(e) => this.textChange(e, 'imagePath')}/>
+          <input type="text" value={imagePath} onChange={(e) => this.textChange(e, 'imagePath')} />
         </label>
         <label htmlFor="storyline">Sinopse
-          <textarea value={storyline} onChange={(e) => this.textChange(e, 'storyline')}/>
+          <textarea value={storyline} onChange={(e) => this.textChange(e, 'storyline')} />
         </label>
         <label htmlFor="rating">Avaliação
-          <input type="number" value={rating} onChange={this.numberChange}/>
+          <input type="number" value={rating} onChange={this.numberChange} />
         </label>
         <label htmlFor="genre">Gênero
           <select value={genre} onChange={(e) => this.textChange(e, 'genre')}>
-            {genreOptions.map((genre) => (
-              <option key={genre.value} value={genre.value}>{genre.text}</option>
+            {genreOptions.map((gOption) => (
+              <option key={gOption.value} value={gOption.value}>{gOption.text} </option>
             ))}
           </select>
         </label>
