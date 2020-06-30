@@ -9,7 +9,7 @@ const SearchTextInput = (props) => {
         id="search"
         type="text"
         value={searchText}
-        onChange={onSearchTextChange}
+        onChange={(e) => onSearchTextChange(e.target.value)}
       />
     </div>
   );
@@ -24,7 +24,7 @@ const BookmarkedOnlyInput = (props) => {
         id="bookmark"
         type="checkbox"
         checked={bookmarkedOnly}
-        onChange={onBookmarkedChange}
+        onChange={(e) => onBookmarkedChange(e.target.checked)}
       />
     </div>
   );
@@ -38,7 +38,7 @@ const GenreFilterSelect = (props) => {
       <select
         id="genre"
         value={selectedGenre}
-        onChange={onSelectedGenreChange}
+        onChange={(e) => onSelectedGenreChange(e.target.value)}
       >
         <option value="">Todos</option>
         <option value="action">Ação</option>
