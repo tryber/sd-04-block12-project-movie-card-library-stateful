@@ -4,36 +4,39 @@ const SearchTextInput = (props) => {
   const { searchText, onSearchTextChange } = props;
   return (
     <div>
-      <label>Inclui o texto: </label>
+      <label htmlFor="search">Inclui o texto: </label>
       <input
+        id="search"
         type="text"
         value={searchText}
         onChange={onSearchTextChange}
-      ></input>
+      />
     </div>
   );
-}
+};
 
 const BookmarkedOnlyInput = (props) => {
   const { bookmarkedOnly, onBookmarkedChange } = props;
   return (
     <div>
-      <label>Mostrar somente favoritos:</label>
+      <label htmlFor="bookmark">Mostrar somente favoritos:</label>
       <input
+        id="bookmark"
         type="checkbox"
         checked={bookmarkedOnly}
         onChange={onBookmarkedChange}
-      ></input>
+      />
     </div>
   );
-}
+};
 
 const GenreFilterSelect = (props) => {
   const { selectedGenre, onSelectedGenreChange } = props;
   return (
     <div>
-      <label>Filtrar por gênero:</label>
+      <label htmlFor="genre">Filtrar por gênero:</label>
       <select
+        id="genre"
         value={selectedGenre}
         onChange={onSelectedGenreChange}
       >
@@ -44,7 +47,7 @@ const GenreFilterSelect = (props) => {
       </select>
     </div>
   );
-}
+};
 
 class SearchBar extends React.Component {
   render() {
