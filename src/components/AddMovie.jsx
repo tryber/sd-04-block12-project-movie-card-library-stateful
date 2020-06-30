@@ -16,7 +16,8 @@ class AddMovie extends React.Component {
   }
 
   onClickSubmit() {
-    this.props.onClick(this.state);
+    const onClick = this.props.onClick;
+    onClick(this.state);
     this.setState(initialState);
   }
 
@@ -32,39 +33,39 @@ class AddMovie extends React.Component {
 
     return (
       <form>
-        <label>Título:</label>
+        <label>Título</label>
         <input
           type="text"
           onChange={(e) => this.setState({ title: e.target.value, })}
           value={title}
         ></input>
-        <label>Subtítulo:</label>
+        <label>Subtítulo</label>
         <input
           type="text"
           onChange={(e) => this.setState({ subtitle: e.target.value, })}
           value={subtitle}
         ></input>
-        <label>Imagem:</label>
+        <label>Imagem</label>
         <input
           type="text"
           onChange={(e) => this.setState({ imagePath: e.target.value, })}
           value={imagePath}
         ></input>
-        <label>Sinopse:</label>
+        <label>Sinopse</label>
         <textarea
           onChange={(e) => this.setState({ storyline: e.target.value, })}
           value={storyline}
         ></textarea>
-        <label>Avaliação:</label>
+        <label>Avaliação</label>
         <input
           type="number"
           min="0"
           max="5"
           step="0.1"
-          onChange={(e) => this.setState({ rating: e.target.value, })}
+          onChange={(e) => this.setState({ rating: parseFloat(e.target.value), })}
           value={rating}
         ></input>
-        <label>Gênero:</label>
+        <label>Gênero</label>
         <select
           onChange={(e) => this.setState({ genre: e.target.value, })}
           value={genre}
