@@ -19,18 +19,31 @@ class MovieLibrary extends React.Component {
     this.onClickAddMovie = this.onClickAddMovie.bind(this);
   }
 
-  onSearchTextChange(event) {
-    const searchText = event.target.value;
+  componentDidUpdate(prevProps, prevState) {
+    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
+    const { searchText: prevText, bookmarkedOnly: prevBookmark, selectedGenre: prevGenre, movies: prevMovies } = prevState;
     let passedMovies = this.props.movies;
 
-    if (searchText !== '') {
-      passedMovies = passedMovies.filter(({ title, subtitle, storyline }) =>
-        title.toLowerCase().includes(searchText.toLowerCase()) ||
-        subtitle.toLowerCase().includes(searchText.toLowerCase()) ||
-        storyline.toLowerCase().includes(searchText.toLowerCase()));
+    if (searchText !== prevText || bookmarkedOnly !== prevBookmark || selectedGenre !== prevGenre) {
+      if (searchText !== '') {
+        passedMovies = passedMovies.filter(({ title, subtitle, storyline }) =>
+          title.toLowerCase().includes(searchText.toLowerCase()) ||
+          subtitle.toLowerCase().includes(searchText.toLowerCase()) ||
+          storyline.toLowerCase().includes(searchText.toLowerCase()));
+      }
+      if (bookmarkedOnly === true) {
+        passedMovies = passedMovies.filter((movie) => movie.bookmarked);
+      }
+      if (selectedGenre !== '') {
+        passedMovies = passedMovies.filter((movie) => movie.genre === selectedGenre);
+      }
+      this.setState({ movies: passedMovies });
     }
+  }
 
-    this.setState({ searchText, movies: passedMovies });
+  onSearchTextChange(event) {
+    const searchText = event.target.value;
+    this.setState({ searchText });
   }
 
   onBookmarkedChange(event) {
@@ -48,18 +61,6 @@ class MovieLibrary extends React.Component {
     movies.push(movie);
     this.setState({ movies });
   }
-
-  /*let moviesResult = movies;
-
-   
-
-    if (bookmarkedOnly === true) {
-      moviesResult = moviesResult.filter((movie) => movie.bookmarked);
-    }
-
-    if (selectedGenre !== '') {
-      moviesResult = moviesResult.filter((movie) => movie.genre === selectedGenre);
-    } */
 
   render() {
     const {

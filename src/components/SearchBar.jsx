@@ -38,7 +38,7 @@ const GenreFilterSelect = (props) => {
       <select
         id="genre"
         value={selectedGenre}
-        onChange={(event) => onSelectedGenreChange(event.target.value)}
+        onChange={(event) => onSelectedGenreChange(event)}
       >
         <option value="">Todos</option>
         <option value="action">Ação</option>
