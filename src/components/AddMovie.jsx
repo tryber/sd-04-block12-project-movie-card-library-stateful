@@ -10,67 +10,67 @@ const initialState = {
 };
 
 const TitleElement = (props) => {
-  const { title, onChange } = props
+  const { title, onChange } = props;
   return (
     <div>
-      <label htmlFor='title'>Título</label>
+      <label htmlFor="title">Título</label>
       <input
-        id='title'
+        id="title"
         type="text"
         onChange={(event) => onChange('title', event.target.value)}
         value={title}
       />
     </div>
   );
-}
+};
 
 const SubtitleElement = (props) => {
-  const { subtitle, onChange } = props
+  const { subtitle, onChange } = props;
   return (
     <div>
-      <label htmlFor='subtitle'>Subtítulo</label>
+      <label htmlFor="subtitle">Subtítulo</label>
       <input
-        id='subtitle'
+        id="subtitle"
         type="text"
         onChange={(event) => onChange('subtitle', event.target.value)}
         value={subtitle}
       />
     </div>
   );
-}
+};
 
 const ImageElement = (props) => {
-  const { imagePath, onChange } = props
+  const { imagePath, onChange } = props;
   return (
     <div>
-      <label htmlFor='imagePath'>Imagem</label>
+      <label htmlFor="imagePath">Imagem</label>
       <input
-        id='imagePath'
+        id="imagePath"
         type="text"
         onChange={(event) => onChange('imagePath', event.target.value)}
         value={imagePath}
       />
     </div>
   );
-}
+};
 
 const StorylineElement = (props) => {
   const { storyline, onChange } = props;
   return (
     <div>
-      <label htmlFor='storyline'>Sinopse</label>
+      <label htmlFor="storyline">Sinopse</label>
       <textarea
-        id='storyline'
+        id="storyline"
         type="text"
         onChange={(event) => onChange('storyline', event.target.value)}
         value={storyline}
       />
     </div>
   );
-}
+};
 
 const RatingElement = (props) => {
-  const { rating, onChange } = props
+  const { rating, onChange } = props;
   return (
     <div>
       <label htmlFor="rating">Avaliação</label>
@@ -104,8 +104,7 @@ const GenreElement = (props) => {
       </select>
     </div>
   );
-}
-
+};
 
 class AddMovie extends React.Component {
   constructor(props) {

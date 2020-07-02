@@ -20,25 +20,43 @@ class MovieLibrary extends React.Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
-    const { searchText: prevText, bookmarkedOnly: prevBookmark, selectedGenre: prevGenre, movies: prevMovies } = prevState;
-    let passedMovies = this.props.movies;
+    const {
+      searchText,
+      bookmarkedOnly,
+      selectedGenre,
+    } = this.state;
+    const {
+      searchText: prevText,
+      bookmarkedOnly: prevBookmark,
+      selectedGenre: prevGenre,
+    } = prevState;
 
-    if (searchText !== prevText || bookmarkedOnly !== prevBookmark || selectedGenre !== prevGenre) {
-      if (searchText !== '') {
-        passedMovies = passedMovies.filter(({ title, subtitle, storyline }) =>
-          title.toLowerCase().includes(searchText.toLowerCase()) ||
-          subtitle.toLowerCase().includes(searchText.toLowerCase()) ||
-          storyline.toLowerCase().includes(searchText.toLowerCase()));
-      }
-      if (bookmarkedOnly === true) {
-        passedMovies = passedMovies.filter((movie) => movie.bookmarked);
-      }
-      if (selectedGenre !== '') {
-        passedMovies = passedMovies.filter((movie) => movie.genre === selectedGenre);
-      }
-      this.setState({ movies: passedMovies });
+    if (
+      searchText !== prevText ||
+      bookmarkedOnly !== prevBookmark ||
+      selectedGenre !== prevGenre
+    ) {
+      this.onUpdateSetMovies();
     }
+  }
+
+  onUpdateSetMovies() {
+    let movies = this.props.movies;
+    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
+
+    if (searchText !== '') {
+      movies = movies.filter(({ title, subtitle, storyline }) =>
+        title.toLowerCase().includes(searchText.toLowerCase()) ||
+        subtitle.toLowerCase().includes(searchText.toLowerCase()) ||
+        storyline.toLowerCase().includes(searchText.toLowerCase()));
+    }
+    if (bookmarkedOnly === true) {
+      movies = movies.filter((movie) => movie.bookmarked);
+    }
+    if (selectedGenre !== '') {
+      movies = movies.filter((movie) => movie.genre === selectedGenre);
+    }
+    this.setState({ movies });
   }
 
   onSearchTextChange(event) {
