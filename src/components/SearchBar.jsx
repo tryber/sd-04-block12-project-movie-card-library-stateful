@@ -1,7 +1,7 @@
 import React from 'react';
 
 const SearchTextInput = (props) => {
-  const { searchText, onSearchTextChange } = props;
+  const { searchText, onChange } = props;
   return (
     <div>
       <label htmlFor="search">Inclui o texto: </label>
@@ -9,14 +9,14 @@ const SearchTextInput = (props) => {
         id="search"
         type="text"
         value={searchText}
-        onChange={(event) => onSearchTextChange(event)}
+        onChange={(event) => onChange(event)}
       />
     </div>
   );
 };
 
 const BookmarkedOnlyInput = (props) => {
-  const { bookmarkedOnly, onBookmarkedChange } = props;
+  const { bookmarkedOnly, onChange } = props;
   return (
     <div>
       <label htmlFor="bookmark">Mostrar somente favoritos:</label>
@@ -24,21 +24,21 @@ const BookmarkedOnlyInput = (props) => {
         id="bookmark"
         type="checkbox"
         checked={bookmarkedOnly}
-        onChange={(event) => onBookmarkedChange(event)}
+        onChange={(event) => onChange(event)}
       />
     </div>
   );
 };
 
 const GenreFilterSelect = (props) => {
-  const { selectedGenre, onSelectedGenreChange } = props;
+  const { selectedGenre, onChange } = props;
   return (
     <div>
       <label htmlFor="genre">Filtrar por gênero:</label>
       <select
         id="genre"
         value={selectedGenre}
-        onChange={(event) => onSelectedGenreChange(event)}
+        onChange={(event) => onChange(event)}
       >
         <option value="">Todos</option>
         <option value="action">Ação</option>
@@ -64,15 +64,15 @@ class SearchBar extends React.Component {
       <form>
         <SearchTextInput
           searchText={searchText}
-          onSearchTextChange={onSearchTextChange}
+          onChange={onSearchTextChange}
         />
         <BookmarkedOnlyInput
           bookmarkedOnly={bookmarkedOnly}
-          onBookmarkedChange={onBookmarkedChange}
+          onChange={onBookmarkedChange}
         />
         <GenreFilterSelect
           selectedGenre={selectedGenre}
-          onSelectedGenreChange={onSelectedGenreChange}
+          onChange={onSelectedGenreChange}
         />
       </form>
     );

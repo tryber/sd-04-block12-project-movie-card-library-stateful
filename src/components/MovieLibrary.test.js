@@ -269,7 +269,7 @@ describe('<MovieLibrary /> should render <AddMovie />', () => {
 
     const newMovies = moviesList();
 
-    expect(newMovies.length).toEqual(movies.length);
+    expect(newMovies.length).toEqual(movies.length + 1);
     expect(newMovies[newMovies.length - 1]).toEqual(newMovie);
   });
 });
