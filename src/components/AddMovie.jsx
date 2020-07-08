@@ -1,16 +1,16 @@
 // implement AddMovie component here
-import React from "react";
+import React from 'react';
 
 const firstState = {
-  subtitle: "",
-  title: "",
-  imagePath: "",
-  storyline: "",
+  subtitle: '',
+  title: '',
+  imagePath: '',
+  storyline: '',
   rating: 0,
-  genre: "action",
+  genre: 'action',
 };
 
-const obj = { action: "Ação", comedy: "Comédia", thriller: "Suspense" };
+const obj = { action: 'Ação', comedy: 'Comédia', thriller: 'Suspense' };
 
 class AddMovie extends React.Component {
   constructor(props) {
@@ -28,7 +28,7 @@ class AddMovie extends React.Component {
 
   handleChange(event, name) {
     const { value } = event.target;
-    if (name === "rating") {
+    if (name === 'rating') {
       this.setState({ [name]: Number(value) });
     } else {
       this.setState({ [name]: value });
@@ -44,7 +44,7 @@ class AddMovie extends React.Component {
     this.resetState();
   }
 
-  creatLabel(name, value, text, type = "text") {
+  creatLabel(name, value, text, type = 'text') {
     return (
       <label htmlFor={name}>
         {text}
@@ -58,7 +58,7 @@ class AddMovie extends React.Component {
     );
   }
 
-  creatLabelStory(name, value, text, type = "text") {
+  creatLabelStory(name, value, text, type = 'text') {
     return (
       <label htmlFor={name}>
         {text}
@@ -72,7 +72,7 @@ class AddMovie extends React.Component {
     );
   }
 
-  creatLabelRating(name, value, text, type = "number") {
+  creatLabelRating(name, value, text, type = 'number') {
     return (
       <label htmlFor={name}>
         {text}
@@ -89,7 +89,7 @@ class AddMovie extends React.Component {
     );
   }
 
-  creatLabelGenre(name, value, text, type = "text") {
+  creatLabelGenre(name, value, text, type = 'text') {
     return (
       <label htmlFor={name}>
         {text}
@@ -114,13 +114,13 @@ class AddMovie extends React.Component {
     return (
       <div>
         <form>
-          {this.creatLabel("title", title, "Título")}
-          {this.creatLabel("subtitle", subtitle, "Subtítulo")}
-          {this.creatLabel("imagePath", imagePath, "Imagem")}
-          {this.creatLabelStory("storyline", storyline, "Sinopse")}
-          {this.creatLabelRating("rating", rating, "Avaliação")}
-          {this.creatLabelGenre("genre", genre, "Gênero")}
-          <button type="submit" name="button" onClick={this.passMovie}>
+          {this.creatLabel('title', title, 'Título')}
+          {this.creatLabel('subtitle', subtitle, 'Subtítulo')}
+          {this.creatLabel('imagePath', imagePath, 'Imagem')}
+          {this.creatLabelStory('storyline', storyline, 'Sinopse')}
+          {this.creatLabelRating('rating', rating, 'Avaliação')}
+          {this.creatLabelGenre('genre', genre, 'Gênero')}
+          <button type='submit' name='button' onClick={this.passMovie}>
             Adicionar filme
           </button>
         </form>

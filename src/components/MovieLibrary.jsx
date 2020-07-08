@@ -43,8 +43,9 @@ class MovieLibrary extends React.Component {
 
   checkGenre(elem) {
     const { selectedGenre } = this.state;
-    if ((selectedGenre && elem.genre === selectedGenre) || !selectedGenre)
+    if ((selectedGenre && elem.genre === selectedGenre) || !selectedGenre) {
       return elem;
+    }
     return false;
   }
 

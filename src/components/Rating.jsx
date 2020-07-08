@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 class Rating extends React.Component {
   render() {
@@ -7,8 +7,8 @@ class Rating extends React.Component {
       <div className="movie-card-rating">
         <span className="rating">{rating}</span>
       </div>
-    );
+    )
   }
-}
+};
 
 export default Rating;
