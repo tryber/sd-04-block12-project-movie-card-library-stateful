@@ -1,15 +1,15 @@
-import React from "react";
-import AddMovie from "./AddMovie";
-import MovieList from "./MovieList";
-import SearchBar from "./SearchBar";
+import React from 'react';
+import AddMovie from './AddMovie';
+import MovieList from './MovieList';
+import SearchBar from './SearchBar';
 
 class MovieLibrary extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      searchText: "",
+      searchText: '',
       bookmarkedOnly: false,
-      selectedGenre: "",
+      selectedGenre: '',
       movies: props.movies,
     };
     this.implementMovie = this.implementMovie.bind(this);
@@ -57,7 +57,7 @@ class MovieLibrary extends React.Component {
           elem.storyline.includes(searchText) ||
           elem.subtitle.includes(searchText)) &&
         this.checkBookmarked(elem) &&
-        this.checkGenre(elem)
+        this.checkGenre(elem),
     );
   }
 
@@ -70,11 +70,11 @@ class MovieLibrary extends React.Component {
           onBookmarkedChange={this.bookmarkedChange}
           searchText={searchText}
           onSearchTextChange={(elem) =>
-            this.textOrGenreChange(elem, "searchText")
+            this.textOrGenreChange(elem, 'searchText')
           }
           selectedGenre={selectedGenre}
           onSelectedGenreChange={(elem) =>
-            this.textOrGenreChange(elem, "selectedGenre")
+            this.textOrGenreChange(elem, 'selectedGenre')
           }
         />
         <MovieList movies={this.findMovies(movies)} />

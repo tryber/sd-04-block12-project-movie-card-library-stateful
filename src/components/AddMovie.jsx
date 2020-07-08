@@ -120,7 +120,7 @@ class AddMovie extends React.Component {
           {this.creatLabelStory('storyline', storyline, 'Sinopse')}
           {this.creatLabelRating('rating', rating, 'Avaliação')}
           {this.creatLabelGenre('genre', genre, 'Gênero')}
-          <button type='submit' name='button' onClick={this.passMovie}>
+          <button type="submit" name="button" onClick={this.passMovie}>
             Adicionar filme
           </button>
         </form>
