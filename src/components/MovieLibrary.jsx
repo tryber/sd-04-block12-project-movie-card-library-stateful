@@ -41,10 +41,9 @@ class MovieLibrary extends Component {
     if (selectedGenre) return movies.filter((movie) => movie.genre === selectedGenre);
     if (searchText) {
       return movies.filter(
-        (movie) =>
-          movie.title.includes(searchText) ||
-          movie.subtitle.includes(searchText) ||
-          movie.storyline.includes(searchText),
+        (movie) => movie.title.includes(searchText)
+          || movie.subtitle.includes(searchText)
+          || movie.storyline.includes(searchText),
       );
     }
     return movies;
@@ -70,4 +69,3 @@ class MovieLibrary extends Component {
 }
 
 export default MovieLibrary;
-
