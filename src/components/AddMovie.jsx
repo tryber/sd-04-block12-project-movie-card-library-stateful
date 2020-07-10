@@ -34,7 +34,7 @@ class AddMovie extends Component {
           type="text"
           name={name}
           value={value}
-          onChange={e => this.handleChange(e, name)}
+          onChange={(e) => this.handleChange(e, name)}
         />
       </label>
     );
@@ -49,7 +49,7 @@ class AddMovie extends Component {
           value={genre}
           type="text"
           name="genre"
-          onChange={e => this.handleChange(e, 'genre')}
+          onChange={(e) => this.handleChange(e, 'genre')}
         >
           <option value="action">Ação</option>
           <option value="comedy">Comédia</option>
@@ -69,11 +69,11 @@ class AddMovie extends Component {
         {this.newTextElement('Imagem', 'imagePath', imagePath)}
         <label htmlFor="storyline">
           Sinopse
-          <textarea value={storyline} name="storyline" onChange={e => this.handleChange(e, 'storyline')} />
+          <textarea value={storyline} name="storyline" onChange={(e) => this.handleChange(e, 'storyline')} />
         </label>
         <label htmlFor="rating">
           Avaliação
-          <input type="number" value={rating} name="rating" onChange={e => this.handleRating(e, 'rating')} />
+          <input type="number" value={rating} name="rating" onChange={(e) => this.handleRating(e, 'rating')} />
         </label>
         {this.newSelectElement()}
         <button type="button" onClick={() => this.resetState(onClick)}>Adicionar filme</button>
