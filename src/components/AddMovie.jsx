@@ -26,11 +26,23 @@ class AddMovie extends Component {
     this.setState({ [name]: Number(value) });
   }
 
+  resetState(callback) {
+    callback(this.state);
+    this.setState({
+      title: '',
+      subtitle: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
+  }
+
   newTextElement(label, name, value) {
     return (
       <label htmlFor={name}>
         {label}
-        <imput
+        <input
           type="text"
           name={name}
           value={value}
